@@ -1,0 +1,41 @@
+name: Bug report
+description: The skill misdiagnosed a failure, crashed, or produced wrong output
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never paste real secrets or private logs.** Redact first: `clean_logs.py your.log --slice A:B` prints redacted lines.
+        Security problems (e.g. a secret that survives redaction) → use private vulnerability reporting instead (see SECURITY.md).
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `ci_doctor.py --version`
+      placeholder: ci_doctor.py 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Agent
+      options: [Claude Code, claude.ai, OpenAI Codex, Cursor, Google Antigravity, scripts directly, other]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened vs. what you expected
+      description: e.g. "Top match was NODE-08 but the real cause was a missing env var"
+    validations:
+      required: true
+  - type: textarea
+    id: digest
+    attributes:
+      label: Redacted digest or log excerpt
+      render: text
+  - type: input
+    id: env
+    attributes:
+      label: OS and Python version
+      placeholder: macOS 15, Python 3.12

@@ -1,0 +1,40 @@
+# Attach an installable skill zip (+ checksum) to a GitHub release when a maintainer publishes it.
+# The release itself is created by a human in the GitHub UI; this workflow only adds assets.
+name: release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write   # upload release assets
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check version matches tag
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          version=$(python -c "import sys; sys.path.insert(0, 'skills/ci-failure-explainer/scripts'); from _version import __version__; print(__version__)")
+          test "v$version" = "$TAG" || { echo "::error::tag $TAG does not match _version.py ($version)"; exit 1; }
+      - name: Test before packaging
+        run: |
+          python -m unittest discover tests
+          python tests/run_eval.py
+      - name: Build zip and checksum
+        run: |
+          make package
+          (cd dist && sha256sum ci-failure-explainer.zip > ci-failure-explainer.zip.sha256)
+      - name: Upload assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$TAG" dist/ci-failure-explainer.zip dist/ci-failure-explainer.zip.sha256 --clobber

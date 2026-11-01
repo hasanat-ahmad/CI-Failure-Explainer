@@ -1,0 +1,31 @@
+name: New known-failure pattern
+description: Suggest a CI failure the library should recognise
+labels: [pattern]
+body:
+  - type: markdown
+    attributes:
+      value: Even better, open a PR adding the entry. See CONTRIBUTING.md (it takes ~5 minutes).
+  - type: dropdown
+    id: stack
+    attributes:
+      label: Stack
+      options: [Flutter/Dart, Node/TypeScript, Python, Docker, Go, Rust, JVM, GitHub Actions/general, Flaky tests, other]
+    validations:
+      required: true
+  - type: textarea
+    id: signature
+    attributes:
+      label: Exact error line(s) (redacted)
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: Cause and proven fix
+    validations:
+      required: true
+  - type: input
+    id: verify
+    attributes:
+      label: Command that verifies the fix

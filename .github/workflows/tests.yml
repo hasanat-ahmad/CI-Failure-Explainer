@@ -1,0 +1,91 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: py${{ matrix.python }} · ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ["3.9", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Unit and integration tests
+        run: python -m unittest discover tests -v
+      - name: Pattern library lint
+        run: python skills/ci-failure-explainer/scripts/match_patterns.py --validate
+      - name: Skill eval (needs ≥ 9/10)
+        run: python tests/run_eval.py
+      - name: Scripts expose --help and --version
+        shell: bash
+        run: |
+          for s in skills/ci-failure-explainer/scripts/[!_]*.py; do
+            python "$s" --help > /dev/null && python "$s" --version
+          done
+
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: ruff (dev-only tool; the skill has no dependencies)
+        run: |
+          python -m pip install --quiet "ruff==0.17.3"
+          ruff check .
+      - name: Shell syntax
+        run: bash -n install.sh
+
+  fixtures-reproducible:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Regenerate fixtures and check for drift
+        run: |
+          python tests/fixtures/generate_fixtures.py
+          git diff --exit-code tests/fixtures
+
+  installer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install for every agent into a scratch HOME and project
+        run: |
+          export HOME="$RUNNER_TEMP/home" && mkdir -p "$HOME" "$RUNNER_TEMP/proj"
+          ./install.sh
+          ./install.sh --project "$RUNNER_TEMP/proj"
+          test "$(find "$HOME" "$RUNNER_TEMP/proj" -name SKILL.md | wc -l)" -eq 7
+          ./install.sh --uninstall
+          test "$(find "$HOME" -name SKILL.md | wc -l)" -eq 0
