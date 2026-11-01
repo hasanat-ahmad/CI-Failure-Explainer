@@ -1,0 +1,112 @@
+{
+  "flutter_gradle_jdk_mismatch.log": {
+    "must_contain": [
+      "Android Gradle plugin requires Java 17 to run"
+    ],
+    "pattern": "FLUTTER-03",
+    "category": "build",
+    "stack": "flutter",
+    "root_cause": "AGP 8 needs JDK 17 but the workflow installs Java 11 with actions/setup-java",
+    "fix": "Set actions/setup-java java-version to 17 (temurin)"
+  },
+  "flutter_pub_version_solving.log": {
+    "must_contain": [
+      "version solving failed"
+    ],
+    "pattern": "FLUTTER-02",
+    "category": "dependency",
+    "stack": "flutter",
+    "root_cause": "intl ^0.20.2 conflicts with intl 0.19.0 pinned by flutter_localizations (SDK)",
+    "fix": "Use the SDK-pinned intl (intl: ^0.19.0 or any) or upgrade Flutter to an SDK that pins 0.20"
+  },
+  "flutter_analyze_failure.log": {
+    "must_contain": [
+      "Unnecessary import of 'package:flutter/foundation.dart'",
+      "3 issues found"
+    ],
+    "pattern": "FLUTTER-10",
+    "category": "lint",
+    "stack": "flutter",
+    "root_cause": "CI runs flutter analyze --fatal-infos; three info-level lints fail the step",
+    "fix": "Fix the three lints (dart fix --apply + manual), run flutter analyze --fatal-infos locally"
+  },
+  "node_npm_ci_lockfile.log": {
+    "must_contain": [
+      "can only install packages when your package.json and package-lock.json",
+      "Missing: zod@3.23.8 from lock file"
+    ],
+    "pattern": "NODE-01",
+    "category": "dependency",
+    "stack": "node",
+    "root_cause": "package.json added zod / bumped typescript without regenerating package-lock.json",
+    "fix": "npm install with CI's npm major and commit package-lock.json"
+  },
+  "node_jest_failure.log": {
+    "must_contain": [
+      "applyDiscount › applies 10% discount for orders over $100",
+      "Received: 89.99"
+    ],
+    "pattern": "NODE-08",
+    "category": "test",
+    "stack": "node",
+    "root_cause": "applyDiscount returns 89.99 instead of 90 (rounding/logic change in discount code)",
+    "fix": "Fix applyDiscount rounding (compare with diff); don't change the expectation unless intended"
+  },
+  "python_pytest_failure.log": {
+    "must_contain": [
+      "ModuleNotFoundError: No module named 'httpx'"
+    ],
+    "pattern": "PY-03",
+    "category": "dependency",
+    "stack": "python",
+    "root_cause": "ledger/client.py imports httpx, which is not declared in requirements.txt",
+    "fix": "Add httpx to requirements.txt (runtime dependency) and re-run"
+  },
+  "docker_build_copy_failed.log": {
+    "must_contain": [
+      "\"/dist\": not found"
+    ],
+    "pattern": "DOCKER-01",
+    "category": "build",
+    "stack": "docker",
+    "root_cause": "Dockerfile COPYs dist/, a build output that is not in the build context (git-ignored / not built)",
+    "fix": "Multi-stage build: run npm run build in a builder stage and COPY --from=builder /app/dist"
+  },
+  "missing_secret_env.log": {
+    "must_contain": [
+      "Input required and not supplied: firebaseServiceAccount"
+    ],
+    "pattern": "GEN-01",
+    "category": "config",
+    "stack": "general",
+    "root_cause": "firebaseServiceAccount secret resolves to empty (missing secret or fork/Dependabot PR)",
+    "fix": "Create/rename the secret; skip the deploy step for fork PRs"
+  },
+  "runner_out_of_memory.log": {
+    "must_contain": [
+      "Killed                  npm run build",
+      "exit code 137"
+    ],
+    "pattern": "GEN-03",
+    "category": "infrastructure",
+    "stack": "general",
+    "root_cause": "next build was SIGKILLed by the OOM killer on the runner (exit 137)",
+    "fix": "Reduce build memory (NODE_OPTIONS heap cap, fewer workers) or use a larger runner"
+  },
+  "flaky_timeout_test.log": {
+    "must_contain": [
+      "Exceeded timeout of 5000 ms for a test",
+      "socket hang up"
+    ],
+    "pattern": "FLAKY-01",
+    "category": "flaky",
+    "stack": "node",
+    "root_cause": "RatesClient test calls a real external API; connection reset makes it time out intermittently",
+    "fix": "Mock the HTTP call (msw/nock) instead of hitting the real API"
+  },
+  "log_with_secrets.log": {
+    "must_contain": [
+      "Permission to acme-demo/infra.git denied"
+    ]
+  }
+}

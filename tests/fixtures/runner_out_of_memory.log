@@ -1,0 +1,341 @@
+build	Run npm run build	2026-10-14T09:12:03.2934640Z ##[group]Run npm run build
+build	Run npm run build	2026-10-14T09:12:03.5339040Z [36mnpm run build[0m
+build	Run npm run build	2026-10-14T09:12:04.0157920Z shell: /usr/bin/bash -e {0}
+build	Run npm run build	2026-10-14T09:12:04.4879970Z env:
+build	Run npm run build	2026-10-14T09:12:05.0621100Z   NEXT_TELEMETRY_DISABLED: 1
+build	Run npm run build	2026-10-14T09:12:05.1229790Z ##[endgroup]
+build	Run npm run build	2026-10-14T09:12:05.2297100Z 
+build	Run npm run build	2026-10-14T09:12:05.4687270Z > shopper-web@2.4.0 build
+build	Run npm run build	2026-10-14T09:12:05.9956370Z > next build
+build	Run npm run build	2026-10-14T09:12:06.5181700Z 
+build	Run npm run build	2026-10-14T09:12:06.8317510Z   ▲ Next.js 14.2.15
+build	Run npm run build	2026-10-14T09:12:07.4220650Z 
+build	Run npm run build	2026-10-14T09:12:07.9664420Z    Creating an optimized production build ...
+build	Run npm run build	2026-10-14T09:12:08.4396300Z  [33m⚠[0m ./src/components/Grid31.tsx
+build	Run npm run build	2026-10-14T09:12:08.9704930Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:09.6684360Z  [33m⚠[0m ./src/components/Chart55.tsx
+build	Run npm run build	2026-10-14T09:12:09.8439400Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:10.4189580Z  [33m⚠[0m ./src/components/Chart94.tsx
+build	Run npm run build	2026-10-14T09:12:10.9607080Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:11.5084200Z  [33m⚠[0m ./src/components/Chart9.tsx
+build	Run npm run build	2026-10-14T09:12:11.6904210Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:12.0442940Z  [33m⚠[0m ./src/components/Grid94.tsx
+build	Run npm run build	2026-10-14T09:12:12.6971750Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:13.3250010Z  [33m⚠[0m ./src/components/Card18.tsx
+build	Run npm run build	2026-10-14T09:12:13.5139580Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:14.2122610Z  [33m⚠[0m ./src/components/Map85.tsx
+build	Run npm run build	2026-10-14T09:12:14.6797910Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:15.0607880Z  [33m⚠[0m ./src/components/Card55.tsx
+build	Run npm run build	2026-10-14T09:12:15.2218730Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:15.2498620Z  [33m⚠[0m ./src/components/Card6.tsx
+build	Run npm run build	2026-10-14T09:12:15.6661870Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:16.1740610Z  [33m⚠[0m ./src/components/Map82.tsx
+build	Run npm run build	2026-10-14T09:12:16.3015540Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:16.5289020Z  [33m⚠[0m ./src/components/Chart89.tsx
+build	Run npm run build	2026-10-14T09:12:17.0073550Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:17.0590230Z  [33m⚠[0m ./src/components/Grid86.tsx
+build	Run npm run build	2026-10-14T09:12:17.3389970Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:17.9538540Z  [33m⚠[0m ./src/components/Map46.tsx
+build	Run npm run build	2026-10-14T09:12:18.4583860Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:18.8974700Z  [33m⚠[0m ./src/components/Grid8.tsx
+build	Run npm run build	2026-10-14T09:12:18.9771840Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:19.1746880Z  [33m⚠[0m ./src/components/Map40.tsx
+build	Run npm run build	2026-10-14T09:12:19.5534330Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:20.1951280Z  [33m⚠[0m ./src/components/Map30.tsx
+build	Run npm run build	2026-10-14T09:12:20.4627240Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:20.9806580Z  [33m⚠[0m ./src/components/Map3.tsx
+build	Run npm run build	2026-10-14T09:12:21.5194960Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:22.1265930Z  [33m⚠[0m ./src/components/Map40.tsx
+build	Run npm run build	2026-10-14T09:12:22.3368340Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:22.4529260Z  [33m⚠[0m ./src/components/Grid44.tsx
+build	Run npm run build	2026-10-14T09:12:22.5467900Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:22.8222620Z  [33m⚠[0m ./src/components/Card5.tsx
+build	Run npm run build	2026-10-14T09:12:23.1846070Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:23.3595350Z  [33m⚠[0m ./src/components/Card46.tsx
+build	Run npm run build	2026-10-14T09:12:23.6414780Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:24.0899140Z  [33m⚠[0m ./src/components/Card34.tsx
+build	Run npm run build	2026-10-14T09:12:24.5810680Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:24.8209450Z  [33m⚠[0m ./src/components/Map64.tsx
+build	Run npm run build	2026-10-14T09:12:24.9222650Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:25.3775390Z  [33m⚠[0m ./src/components/Chart91.tsx
+build	Run npm run build	2026-10-14T09:12:25.4492130Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:25.4929140Z  [33m⚠[0m ./src/components/Grid10.tsx
+build	Run npm run build	2026-10-14T09:12:25.7036240Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:26.1723070Z  [33m⚠[0m ./src/components/Card64.tsx
+build	Run npm run build	2026-10-14T09:12:26.2792460Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:26.9521670Z  [33m⚠[0m ./src/components/Grid23.tsx
+build	Run npm run build	2026-10-14T09:12:26.9629360Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:27.0888420Z  [33m⚠[0m ./src/components/Map20.tsx
+build	Run npm run build	2026-10-14T09:12:27.2482110Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:27.4127710Z  [33m⚠[0m ./src/components/Card15.tsx
+build	Run npm run build	2026-10-14T09:12:27.5405300Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:28.2379990Z  [33m⚠[0m ./src/components/Map50.tsx
+build	Run npm run build	2026-10-14T09:12:28.8918810Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:28.9132890Z  [33m⚠[0m ./src/components/Card43.tsx
+build	Run npm run build	2026-10-14T09:12:29.1785050Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:29.2374070Z  [33m⚠[0m ./src/components/Card18.tsx
+build	Run npm run build	2026-10-14T09:12:29.3186940Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:29.3792290Z  [33m⚠[0m ./src/components/Chart86.tsx
+build	Run npm run build	2026-10-14T09:12:29.5288320Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:30.2087840Z  [33m⚠[0m ./src/components/Map27.tsx
+build	Run npm run build	2026-10-14T09:12:30.7737020Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:31.4568010Z  [33m⚠[0m ./src/components/Grid89.tsx
+build	Run npm run build	2026-10-14T09:12:31.6981610Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:31.9791920Z  [33m⚠[0m ./src/components/Chart29.tsx
+build	Run npm run build	2026-10-14T09:12:32.2486660Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:32.3062570Z  [33m⚠[0m ./src/components/Chart94.tsx
+build	Run npm run build	2026-10-14T09:12:32.6347520Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:33.1552530Z  [33m⚠[0m ./src/components/Card30.tsx
+build	Run npm run build	2026-10-14T09:12:33.8131100Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:33.8734300Z  [33m⚠[0m ./src/components/Grid86.tsx
+build	Run npm run build	2026-10-14T09:12:34.0139770Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:34.2710620Z  [33m⚠[0m ./src/components/Chart84.tsx
+build	Run npm run build	2026-10-14T09:12:34.6710630Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:34.8154030Z  [33m⚠[0m ./src/components/Grid14.tsx
+build	Run npm run build	2026-10-14T09:12:34.9216640Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:35.5271870Z  [33m⚠[0m ./src/components/Chart83.tsx
+build	Run npm run build	2026-10-14T09:12:36.1357050Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:36.2359580Z  [33m⚠[0m ./src/components/Card79.tsx
+build	Run npm run build	2026-10-14T09:12:36.5902990Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:36.6149570Z  [33m⚠[0m ./src/components/Map61.tsx
+build	Run npm run build	2026-10-14T09:12:36.6694350Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:37.3421380Z  [33m⚠[0m ./src/components/Chart65.tsx
+build	Run npm run build	2026-10-14T09:12:37.3617630Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:37.7295730Z  [33m⚠[0m ./src/components/Grid82.tsx
+build	Run npm run build	2026-10-14T09:12:38.2698460Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:38.5817800Z  [33m⚠[0m ./src/components/Chart6.tsx
+build	Run npm run build	2026-10-14T09:12:39.2209440Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:39.2387180Z  [33m⚠[0m ./src/components/Grid87.tsx
+build	Run npm run build	2026-10-14T09:12:39.4144740Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:39.7742310Z  [33m⚠[0m ./src/components/Card26.tsx
+build	Run npm run build	2026-10-14T09:12:40.3910540Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:40.9900960Z  [33m⚠[0m ./src/components/Chart12.tsx
+build	Run npm run build	2026-10-14T09:12:41.5957060Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:42.0755130Z  [33m⚠[0m ./src/components/Grid91.tsx
+build	Run npm run build	2026-10-14T09:12:42.1294090Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:42.1919180Z  [33m⚠[0m ./src/components/Grid54.tsx
+build	Run npm run build	2026-10-14T09:12:42.4490420Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:42.7726120Z  [33m⚠[0m ./src/components/Chart91.tsx
+build	Run npm run build	2026-10-14T09:12:42.8126320Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:43.2294360Z  [33m⚠[0m ./src/components/Chart87.tsx
+build	Run npm run build	2026-10-14T09:12:43.2685950Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:43.6707690Z  [33m⚠[0m ./src/components/Grid45.tsx
+build	Run npm run build	2026-10-14T09:12:43.9588260Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:44.0282650Z  [33m⚠[0m ./src/components/Map22.tsx
+build	Run npm run build	2026-10-14T09:12:44.2206430Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:44.3048970Z  [33m⚠[0m ./src/components/Card74.tsx
+build	Run npm run build	2026-10-14T09:12:44.5855990Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:45.1675570Z  [33m⚠[0m ./src/components/Map4.tsx
+build	Run npm run build	2026-10-14T09:12:45.7385640Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:46.3901380Z  [33m⚠[0m ./src/components/Chart37.tsx
+build	Run npm run build	2026-10-14T09:12:47.0237970Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:47.6651960Z  [33m⚠[0m ./src/components/Chart97.tsx
+build	Run npm run build	2026-10-14T09:12:48.1172240Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:48.6619230Z  [33m⚠[0m ./src/components/Chart56.tsx
+build	Run npm run build	2026-10-14T09:12:48.9754420Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:49.6631130Z  [33m⚠[0m ./src/components/Map50.tsx
+build	Run npm run build	2026-10-14T09:12:50.2024040Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:50.4256440Z  [33m⚠[0m ./src/components/Grid76.tsx
+build	Run npm run build	2026-10-14T09:12:50.7564470Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:51.0501790Z  [33m⚠[0m ./src/components/Grid56.tsx
+build	Run npm run build	2026-10-14T09:12:51.1220720Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:51.1508570Z  [33m⚠[0m ./src/components/Grid18.tsx
+build	Run npm run build	2026-10-14T09:12:51.1829040Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:51.8614830Z  [33m⚠[0m ./src/components/Chart33.tsx
+build	Run npm run build	2026-10-14T09:12:52.4739900Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:52.7572170Z  [33m⚠[0m ./src/components/Map63.tsx
+build	Run npm run build	2026-10-14T09:12:53.3702480Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:53.6675020Z  [33m⚠[0m ./src/components/Chart16.tsx
+build	Run npm run build	2026-10-14T09:12:54.0485250Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:54.4172230Z  [33m⚠[0m ./src/components/Card35.tsx
+build	Run npm run build	2026-10-14T09:12:54.5401710Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:54.9536830Z  [33m⚠[0m ./src/components/Grid70.tsx
+build	Run npm run build	2026-10-14T09:12:55.5900560Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:56.2563830Z  [33m⚠[0m ./src/components/Grid36.tsx
+build	Run npm run build	2026-10-14T09:12:56.8170690Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:57.4521460Z  [33m⚠[0m ./src/components/Chart25.tsx
+build	Run npm run build	2026-10-14T09:12:57.6792440Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:57.7732180Z  [33m⚠[0m ./src/components/Grid2.tsx
+build	Run npm run build	2026-10-14T09:12:58.1462480Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:58.8309940Z  [33m⚠[0m ./src/components/Map5.tsx
+build	Run npm run build	2026-10-14T09:12:59.0158170Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:12:59.2415260Z  [33m⚠[0m ./src/components/Grid14.tsx
+build	Run npm run build	2026-10-14T09:12:59.8016020Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:00.4876040Z  [33m⚠[0m ./src/components/Card42.tsx
+build	Run npm run build	2026-10-14T09:13:00.5553890Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:01.2458240Z  [33m⚠[0m ./src/components/Map26.tsx
+build	Run npm run build	2026-10-14T09:13:01.6431320Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:02.2314160Z  [33m⚠[0m ./src/components/Map72.tsx
+build	Run npm run build	2026-10-14T09:13:02.3234230Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:02.7881530Z  [33m⚠[0m ./src/components/Grid52.tsx
+build	Run npm run build	2026-10-14T09:13:02.9995250Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:03.6054310Z  [33m⚠[0m ./src/components/Map46.tsx
+build	Run npm run build	2026-10-14T09:13:03.7465370Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:04.0082690Z  [33m⚠[0m ./src/components/Grid97.tsx
+build	Run npm run build	2026-10-14T09:13:04.6884700Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:04.8624470Z  [33m⚠[0m ./src/components/Grid77.tsx
+build	Run npm run build	2026-10-14T09:13:05.2249660Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:05.4082110Z  [33m⚠[0m ./src/components/Map41.tsx
+build	Run npm run build	2026-10-14T09:13:05.7284630Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:06.1380320Z  [33m⚠[0m ./src/components/Card88.tsx
+build	Run npm run build	2026-10-14T09:13:06.5519180Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:06.7822760Z  [33m⚠[0m ./src/components/Card49.tsx
+build	Run npm run build	2026-10-14T09:13:07.3677060Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:07.3869550Z  [33m⚠[0m ./src/components/Chart84.tsx
+build	Run npm run build	2026-10-14T09:13:07.8137700Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:08.4201910Z  [33m⚠[0m ./src/components/Card56.tsx
+build	Run npm run build	2026-10-14T09:13:08.9234740Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:09.0585460Z  [33m⚠[0m ./src/components/Chart23.tsx
+build	Run npm run build	2026-10-14T09:13:09.6817940Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:09.7432110Z  [33m⚠[0m ./src/components/Map25.tsx
+build	Run npm run build	2026-10-14T09:13:09.9672010Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:10.1797320Z  [33m⚠[0m ./src/components/Chart18.tsx
+build	Run npm run build	2026-10-14T09:13:10.5702070Z    Compiled with warnings: 'React Hook useEffect has a missing dependency' (react-hooks/exhaustive-deps)
+build	Run npm run build	2026-10-14T09:13:10.8192930Z  ✓ Compiled successfully
+build	Run npm run build	2026-10-14T09:13:10.8531100Z    Linting and checking validity of types ...
+build	Run npm run build	2026-10-14T09:13:11.2260810Z    Collecting page data ...
+build	Run npm run build	2026-10-14T09:13:11.6491730Z    Generating static pages (0/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:11.6933480Z    Generating static pages (3/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:11.9797410Z    Generating static pages (6/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:12.0260450Z    Generating static pages (9/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:12.0804440Z    Generating static pages (12/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:12.4380540Z    Generating static pages (15/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:12.7920820Z    Generating static pages (18/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:13.0583830Z    Generating static pages (21/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:13.4561400Z    Generating static pages (24/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:13.7118050Z    Generating static pages (27/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:13.7919330Z    Generating static pages (30/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:13.8257680Z    Generating static pages (33/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:14.3479700Z    Generating static pages (36/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:14.6280180Z    Generating static pages (39/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:15.1191800Z    Generating static pages (42/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:15.6459980Z    Generating static pages (45/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:15.8121390Z    Generating static pages (48/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:16.0544160Z    Generating static pages (51/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:16.7379530Z    Generating static pages (54/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:16.9756390Z    Generating static pages (57/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:17.1566070Z    Generating static pages (60/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:17.5018000Z    Generating static pages (63/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:18.0874160Z    Generating static pages (66/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:18.6390850Z    Generating static pages (69/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:18.9392960Z    Generating static pages (72/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:19.2925800Z    Generating static pages (75/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:19.4354230Z    Generating static pages (78/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:19.6532510Z    Generating static pages (81/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:20.0671430Z    Generating static pages (84/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:20.4608560Z    Generating static pages (87/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:20.8647780Z    Generating static pages (90/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:21.2217980Z    Generating static pages (93/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:21.4056260Z    Generating static pages (96/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:21.4765940Z    Generating static pages (99/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:21.7818530Z    Generating static pages (102/412)  [    ]
+build	Run npm run build	2026-10-14T09:13:22.4800280Z    Generating static pages (105/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:22.6592850Z    Generating static pages (108/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:23.2589630Z    Generating static pages (111/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:23.5688590Z    Generating static pages (114/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:23.7415560Z    Generating static pages (117/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:24.0537530Z    Generating static pages (120/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:24.3970310Z    Generating static pages (123/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:24.8668030Z    Generating static pages (126/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:25.2280370Z    Generating static pages (129/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:25.7833880Z    Generating static pages (132/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:26.0377680Z    Generating static pages (135/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:26.5115630Z    Generating static pages (138/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:26.8273810Z    Generating static pages (141/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:26.8788470Z    Generating static pages (144/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:27.5089320Z    Generating static pages (147/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:27.9659950Z    Generating static pages (150/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:28.6444300Z    Generating static pages (153/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:28.7961180Z    Generating static pages (156/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:29.1563620Z    Generating static pages (159/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:29.2527140Z    Generating static pages (162/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:29.6547780Z    Generating static pages (165/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:29.6989080Z    Generating static pages (168/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:30.2797420Z    Generating static pages (171/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:30.7106750Z    Generating static pages (174/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:30.9980260Z    Generating static pages (177/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:31.6330470Z    Generating static pages (180/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:31.9277300Z    Generating static pages (183/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:32.1703230Z    Generating static pages (186/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:32.3282220Z    Generating static pages (189/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:32.7747200Z    Generating static pages (192/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:33.1362130Z    Generating static pages (195/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:33.2328830Z    Generating static pages (198/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:33.6934390Z    Generating static pages (201/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:34.0742510Z    Generating static pages (204/412)  [=   ]
+build	Run npm run build	2026-10-14T09:13:34.7564240Z    Generating static pages (207/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:35.4333010Z    Generating static pages (210/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:35.4583760Z    Generating static pages (213/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:35.7455710Z    Generating static pages (216/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:36.3275880Z    Generating static pages (219/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:36.6669020Z    Generating static pages (222/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:36.7738400Z    Generating static pages (225/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:37.1188820Z    Generating static pages (228/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:37.5887870Z    Generating static pages (231/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:37.7888020Z    Generating static pages (234/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:38.4016980Z    Generating static pages (237/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:38.5209230Z    Generating static pages (240/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:38.8093490Z    Generating static pages (243/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:39.4301330Z    Generating static pages (246/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:40.0294500Z    Generating static pages (249/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:40.5267510Z    Generating static pages (252/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:40.8521430Z    Generating static pages (255/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:41.0393600Z    Generating static pages (258/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:41.0862600Z    Generating static pages (261/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:41.7125460Z    Generating static pages (264/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:42.3863870Z    Generating static pages (267/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:42.9652330Z    Generating static pages (270/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:43.4104390Z    Generating static pages (273/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:43.5497650Z    Generating static pages (276/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:44.0935760Z    Generating static pages (279/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:44.3489450Z    Generating static pages (282/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:45.0141590Z    Generating static pages (285/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:45.0281770Z    Generating static pages (288/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:45.2422730Z    Generating static pages (291/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:45.9166790Z    Generating static pages (294/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:46.2762900Z    Generating static pages (297/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:46.8503770Z    Generating static pages (300/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:47.0621330Z    Generating static pages (303/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:47.4299150Z    Generating static pages (306/412)  [==  ]
+build	Run npm run build	2026-10-14T09:13:48.0518480Z    Generating static pages (309/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:48.3273450Z    Generating static pages (312/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:48.3667580Z    Generating static pages (315/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:48.6000800Z    Generating static pages (318/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:49.0649950Z    Generating static pages (321/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:49.6476360Z    Generating static pages (324/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:50.0077470Z    Generating static pages (327/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:50.4208750Z    Generating static pages (330/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:50.4626530Z    Generating static pages (333/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:50.6930970Z    Generating static pages (336/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:50.9069790Z    Generating static pages (339/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:51.5102240Z    Generating static pages (342/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:52.1047490Z    Generating static pages (345/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:52.5721840Z    Generating static pages (348/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:52.7223520Z    Generating static pages (351/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:52.8735060Z    Generating static pages (354/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:53.5374270Z    Generating static pages (357/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:54.1164420Z    Generating static pages (360/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:54.4016610Z    Generating static pages (363/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:54.5554310Z    Generating static pages (366/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:54.6495630Z    Generating static pages (369/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:55.2303240Z    Generating static pages (372/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:55.8224330Z    Generating static pages (375/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:56.2515050Z    Generating static pages (378/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:56.4656490Z    Generating static pages (381/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:56.8278940Z    Generating static pages (384/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:57.4954000Z    Generating static pages (387/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:58.0917910Z    Generating static pages (390/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:58.5105440Z    Generating static pages (393/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:58.7894600Z    Generating static pages (396/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:59.3994900Z    Generating static pages (399/412)  [=== ]
+build	Run npm run build	2026-10-14T09:13:59.7491780Z    Generating static pages (402/412)  [=== ]
+build	Run npm run build	2026-10-14T09:14:00.0807060Z    Generating static pages (405/412)  [=== ]
+build	Run npm run build	2026-10-14T09:14:00.5200600Z    Generating static pages (408/412)  [=== ]
+build	Run npm run build	2026-10-14T09:14:00.6606530Z    Generating static pages (411/412)  [=== ]
+build	Run npm run build	2026-10-14T09:14:00.6707460Z /home/runner/work/_temp/7c1e5b2a-91f0-4c3e-b2d1-0f9e8a7b6c5d.sh: line 1:  2213 Killed                  npm run build
+build	Run npm run build	2026-10-14T09:14:01.1256370Z [31mnpm error[0m path /home/runner/work/shopper-web/shopper-web
+build	Run npm run build	2026-10-14T09:14:01.7592910Z [31mnpm error[0m command failed
+build	Run npm run build	2026-10-14T09:14:01.8481610Z [31mnpm error[0m signal SIGKILL
+build	Run npm run build	2026-10-14T09:14:01.9724040Z [31mnpm error[0m command sh -c next build
+build	Run npm run build	2026-10-14T09:14:02.0755750Z [31mnpm error[0m A complete log of this run can be found in: /home/runner/.npm/_logs/2026-10-14T09_31_44_010Z-debug-0.log
+build	Run npm run build	2026-10-14T09:14:02.2459840Z ##[error]Process completed with exit code 137.

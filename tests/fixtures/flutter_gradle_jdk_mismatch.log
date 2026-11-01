@@ -1,0 +1,743 @@
+2026-10-14T09:12:03.6096820Z Current runner version: '2.320.0'
+2026-10-14T09:12:03.8141960Z ##[group]Operating System
+2026-10-14T09:12:04.3799160Z Ubuntu
+2026-10-14T09:12:04.7563130Z 24.04.1
+2026-10-14T09:12:05.2464430Z LTS
+2026-10-14T09:12:05.2976200Z ##[endgroup]
+2026-10-14T09:12:05.9936190Z ##[group]Runner Image
+2026-10-14T09:12:06.5218980Z Image: ubuntu-24.04
+2026-10-14T09:12:06.7471410Z Version: 20261006.1.0
+2026-10-14T09:12:07.3787280Z Included Software: https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-14T09:12:07.6114930Z ##[endgroup]
+2026-10-14T09:12:07.9143300Z ##[group]GITHUB_TOKEN Permissions
+2026-10-14T09:12:08.4236750Z Contents: read
+2026-10-14T09:12:08.6466680Z Metadata: read
+2026-10-14T09:12:08.9919880Z PullRequests: read
+2026-10-14T09:12:09.4515450Z ##[endgroup]
+2026-10-14T09:12:09.5256180Z Secret source: Actions
+2026-10-14T09:12:09.7935580Z Prepare workflow directory
+2026-10-14T09:12:09.9965330Z Prepare all required actions
+2026-10-14T09:12:10.1657230Z Getting action download info
+2026-10-14T09:12:10.2592030Z Download action repository 'actions/checkout@v4' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-10-14T09:12:10.7263410Z Complete job name: build
+2026-10-14T09:12:11.2900700Z ##[group]Run actions/checkout@v4
+2026-10-14T09:12:11.6746880Z with:
+2026-10-14T09:12:11.8759070Z   repository: acme-demo/shopper
+2026-10-14T09:12:12.3708010Z   token: ***
+2026-10-14T09:12:12.7129660Z   ssh-strict: true
+2026-10-14T09:12:12.9636870Z   fetch-depth: 1
+2026-10-14T09:12:13.6323770Z ##[endgroup]
+2026-10-14T09:12:14.0561900Z Syncing repository: acme-demo/shopper
+2026-10-14T09:12:14.4993050Z ##[group]Getting Git version info
+2026-10-14T09:12:14.7179890Z Working directory is '/home/runner/work/app/app'
+2026-10-14T09:12:14.7842430Z [command]/usr/bin/git version
+2026-10-14T09:12:15.2355920Z git version 2.47.0
+2026-10-14T09:12:15.7263270Z ##[endgroup]
+2026-10-14T09:12:16.0456970Z Temporarily overriding HOME='/home/runner/work/_temp/1f3a' before making global git config changes
+2026-10-14T09:12:16.2680300Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T09:12:16.3845110Z Deleting the contents of '/home/runner/work/app/app'
+2026-10-14T09:12:17.0687730Z ##[group]Initializing the repository
+2026-10-14T09:12:17.7243420Z [command]/usr/bin/git init /home/runner/work/app/app
+2026-10-14T09:12:18.0691320Z hint: Using 'master' as the name for the initial branch.
+2026-10-14T09:12:18.7665160Z ##[endgroup]
+2026-10-14T09:12:19.0471190Z ##[group]Fetching the repository
+2026-10-14T09:12:19.4451210Z remote: Counting objects: 0% (0/445)
+2026-10-14T09:12:19.6856680Z remote: Counting objects: 7% (31/445)
+2026-10-14T09:12:20.1294810Z remote: Counting objects: 14% (62/445)
+2026-10-14T09:12:20.2103520Z remote: Counting objects: 21% (93/445)
+2026-10-14T09:12:20.6348580Z remote: Counting objects: 28% (124/445)
+2026-10-14T09:12:21.0739190Z remote: Counting objects: 35% (155/445)
+2026-10-14T09:12:21.0810540Z remote: Counting objects: 42% (186/445)
+2026-10-14T09:12:21.5680030Z remote: Counting objects: 49% (217/445)
+2026-10-14T09:12:21.7955290Z remote: Counting objects: 56% (248/445)
+2026-10-14T09:12:22.3569040Z remote: Counting objects: 63% (279/445)
+2026-10-14T09:12:22.4565030Z remote: Counting objects: 70% (310/445)
+2026-10-14T09:12:22.8191000Z ##[endgroup]
+2026-10-14T09:12:22.8423280Z ##[group]Determining the checkout info
+2026-10-14T09:12:23.2315490Z ##[endgroup]
+2026-10-14T09:12:23.6089300Z [command]/usr/bin/git log -1 --format=%H
+2026-10-14T09:12:23.6191320Z 4f1c9e2a7b3d5e6f8091a2b3c4d5e6f708192a3b
+2026-10-14T09:12:23.8942270Z ##[group]Run actions/setup-java@v4
+2026-10-14T09:12:24.4863540Z with:
+2026-10-14T09:12:24.6474700Z   distribution: temurin
+2026-10-14T09:12:24.6840320Z   java-version: 11
+2026-10-14T09:12:25.1370940Z   java-package: jdk
+2026-10-14T09:12:25.3270200Z ##[endgroup]
+2026-10-14T09:12:25.6185550Z Installed distributions
+2026-10-14T09:12:25.6877870Z Resolved Java 11.0.24+8 from tool-cache
+2026-10-14T09:12:25.8461680Z Setting Java 11.0.24+8 as the default
+2026-10-14T09:12:26.2708000Z Java configuration:
+2026-10-14T09:12:26.6515060Z   Distribution: temurin
+2026-10-14T09:12:27.3358850Z   Version: 11.0.24+8
+2026-10-14T09:12:27.9328970Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.24-8/x64
+2026-10-14T09:12:28.4314110Z ##[group]Run subosito/flutter-action@v2
+2026-10-14T09:12:28.6061210Z with:
+2026-10-14T09:12:29.1290850Z   channel: stable
+2026-10-14T09:12:29.6646160Z   cache: true
+2026-10-14T09:12:29.9913310Z ##[endgroup]
+2026-10-14T09:12:30.1815880Z Downloading Flutter SDK [-------------------------] 0%
+2026-10-14T09:12:30.7382360Z Downloading Flutter SDK [-------------------------] 2%
+2026-10-14T09:12:30.7447720Z Downloading Flutter SDK [#------------------------] 5%
+2026-10-14T09:12:30.8332160Z Downloading Flutter SDK [#------------------------] 7%
+2026-10-14T09:12:30.9026680Z Downloading Flutter SDK [##-----------------------] 10%
+2026-10-14T09:12:30.9365150Z Downloading Flutter SDK [###----------------------] 12%
+2026-10-14T09:12:31.5404540Z Downloading Flutter SDK [###----------------------] 15%
+2026-10-14T09:12:31.9033150Z Downloading Flutter SDK [####---------------------] 17%
+2026-10-14T09:12:32.4637530Z Downloading Flutter SDK [#####--------------------] 20%
+2026-10-14T09:12:32.9278040Z Downloading Flutter SDK [#####--------------------] 22%
+2026-10-14T09:12:33.0527500Z Downloading Flutter SDK [######-------------------] 25%
+2026-10-14T09:12:33.6925460Z Downloading Flutter SDK [######-------------------] 27%
+2026-10-14T09:12:34.3276980Z Downloading Flutter SDK [#######------------------] 30%
+2026-10-14T09:12:34.8109940Z Downloading Flutter SDK [########-----------------] 32%
+2026-10-14T09:12:35.4798570Z Downloading Flutter SDK [########-----------------] 35%
+2026-10-14T09:12:35.6272880Z Downloading Flutter SDK [#########----------------] 37%
+2026-10-14T09:12:35.8151070Z Downloading Flutter SDK [##########---------------] 40%
+2026-10-14T09:12:36.0260250Z Downloading Flutter SDK [##########---------------] 42%
+2026-10-14T09:12:36.6002480Z Downloading Flutter SDK [###########--------------] 45%
+2026-10-14T09:12:37.0687120Z Downloading Flutter SDK [###########--------------] 47%
+2026-10-14T09:12:37.2151920Z Downloading Flutter SDK [############-------------] 50%
+2026-10-14T09:12:37.3006580Z Downloading Flutter SDK [#############------------] 52%
+2026-10-14T09:12:37.4582290Z Downloading Flutter SDK [#############------------] 55%
+2026-10-14T09:12:37.7856180Z Downloading Flutter SDK [##############-----------] 57%
+2026-10-14T09:12:38.1398710Z Downloading Flutter SDK [###############----------] 60%
+2026-10-14T09:12:38.5334050Z Downloading Flutter SDK [###############----------] 62%
+2026-10-14T09:12:38.6045390Z Downloading Flutter SDK [################---------] 65%
+2026-10-14T09:12:38.6673110Z Downloading Flutter SDK [################---------] 67%
+2026-10-14T09:12:39.2427930Z Downloading Flutter SDK [#################--------] 70%
+2026-10-14T09:12:39.8201590Z Downloading Flutter SDK [##################-------] 72%
+2026-10-14T09:12:40.1878530Z Downloading Flutter SDK [##################-------] 75%
+2026-10-14T09:12:40.6736590Z Downloading Flutter SDK [###################------] 77%
+2026-10-14T09:12:40.7342450Z Downloading Flutter SDK [####################-----] 80%
+2026-10-14T09:12:40.9364110Z Downloading Flutter SDK [####################-----] 82%
+2026-10-14T09:12:41.2289180Z Downloading Flutter SDK [#####################----] 85%
+2026-10-14T09:12:41.5727050Z Downloading Flutter SDK [#####################----] 87%
+2026-10-14T09:12:41.6680360Z Downloading Flutter SDK [######################---] 90%
+2026-10-14T09:12:41.9620580Z Downloading Flutter SDK [#######################--] 92%
+2026-10-14T09:12:42.1238850Z Downloading Flutter SDK [#######################--] 95%
+2026-10-14T09:12:42.3863480Z Downloading Flutter SDK [########################-] 97%
+2026-10-14T09:12:42.8754100Z Downloading Flutter SDK [#########################] 100%
+2026-10-14T09:12:43.0900780Z Flutter 3.24.5 • channel stable • https://github.com/flutter/flutter.git
+2026-10-14T09:12:43.5360020Z Framework • revision dec2ee5c1f (4 weeks ago) • 2026-09-12 12:00:00 -0700
+2026-10-14T09:12:43.6539440Z Engine • revision a18df97ca5
+2026-10-14T09:12:44.2041060Z Tools • Dart 3.5.4 • DevTools 2.37.3
+2026-10-14T09:12:44.5390640Z ##[group]Run flutter pub get
+2026-10-14T09:12:44.7955800Z [36mflutter pub get[0m
+2026-10-14T09:12:44.8961500Z shell: /usr/bin/bash -e {0}
+2026-10-14T09:12:45.1906750Z ##[endgroup]
+2026-10-14T09:12:45.8760190Z Resolving dependencies...
+2026-10-14T09:12:46.0609150Z Downloading packages...
+2026-10-14T09:12:46.6582480Z   async 0.20.6 (8.20.0 available)
+2026-10-14T09:12:47.2377150Z   characters 5.7.4 (8.6.0 available)
+2026-10-14T09:12:47.6003440Z   web 5.10.0 (3.9.0 available)
+2026-10-14T09:12:47.6701560Z   riverpod 6.12.0 (4.16.0 available)
+2026-10-14T09:12:48.0583590Z   js 2.3.2 (6.3.0 available)
+2026-10-14T09:12:48.6351710Z   boolean_selector 7.6.5 (9.20.0 available)
+2026-10-14T09:12:48.9502600Z   js 2.14.8 (9.10.0 available)
+2026-10-14T09:12:49.2618750Z   path 4.7.6 (4.14.0 available)
+2026-10-14T09:12:49.7219940Z   characters 3.1.9 (6.14.0 available)
+2026-10-14T09:12:50.3707900Z   clock 4.17.3 (1.14.0 available)
+2026-10-14T09:12:50.5215070Z   clock 0.13.7 (5.19.0 available)
+2026-10-14T09:12:51.1768290Z   typed_data 0.1.4 (2.2.0 available)
+2026-10-14T09:12:51.6145390Z   string_scanner 5.16.1 (3.15.0 available)
+2026-10-14T09:12:52.2903820Z   fake_async 4.0.3 (6.6.0 available)
+2026-10-14T09:12:52.9065460Z   web 1.7.3 (3.5.0 available)
+2026-10-14T09:12:53.4428760Z   intl 7.4.0 (4.16.0 available)
+2026-10-14T09:12:53.9764110Z   leak_tracker 1.18.8 (1.10.0 available)
+2026-10-14T09:12:54.0196270Z   flutter_lints 9.15.2 (2.3.0 available)
+2026-10-14T09:12:54.4424130Z   string_scanner 9.18.9 (2.8.0 available)
+2026-10-14T09:12:54.5436870Z   flutter_lints 0.3.4 (9.1.0 available)
+2026-10-14T09:12:55.1294980Z   path 4.7.2 (7.20.0 available)
+2026-10-14T09:12:55.4495150Z   shared_preferences 2.20.5 (1.7.0 available)
+2026-10-14T09:12:55.6083370Z   shared_preferences 3.15.3 (4.13.0 available)
+2026-10-14T09:12:55.6371620Z   http 7.14.7 (4.8.0 available)
+2026-10-14T09:12:55.9143180Z   intl 5.1.3 (5.16.0 available)
+2026-10-14T09:12:56.5616840Z   characters 6.4.4 (6.14.0 available)
+2026-10-14T09:12:57.2553700Z   matcher 0.14.4 (2.5.0 available)
+2026-10-14T09:12:57.6268420Z   boolean_selector 5.15.0 (7.1.0 available)
+2026-10-14T09:12:58.0376260Z   clock 3.0.6 (3.15.0 available)
+2026-10-14T09:12:58.2628460Z   fake_async 2.13.7 (5.11.0 available)
+2026-10-14T09:12:58.5748060Z   meta 6.4.2 (9.15.0 available)
+2026-10-14T09:12:58.6876640Z   leak_tracker 6.16.0 (1.16.0 available)
+2026-10-14T09:12:58.9908650Z   async 7.9.7 (6.19.0 available)
+2026-10-14T09:12:59.0582380Z   flutter_lints 5.15.3 (3.14.0 available)
+2026-10-14T09:12:59.1227550Z   shared_preferences 1.19.7 (2.17.0 available)
+2026-10-14T09:12:59.7047470Z   term_glyph 4.11.6 (3.2.0 available)
+2026-10-14T09:12:59.7621940Z   leak_tracker 8.16.6 (7.5.0 available)
+2026-10-14T09:12:59.9284920Z   riverpod 9.3.0 (3.8.0 available)
+2026-10-14T09:13:00.5389360Z   vm_service 2.17.4 (9.18.0 available)
+2026-10-14T09:13:00.5928240Z   lints 8.18.1 (4.4.0 available)
+2026-10-14T09:13:01.1172560Z   xdg_directories 3.15.1 (3.15.0 available)
+2026-10-14T09:13:01.5628090Z   path 2.4.2 (3.15.0 available)
+2026-10-14T09:13:01.8261040Z   test_api 0.5.5 (2.18.0 available)
+2026-10-14T09:13:02.1063190Z   http_parser 0.0.5 (1.4.0 available)
+2026-10-14T09:13:02.2605810Z   leak_tracker 2.13.3 (4.10.0 available)
+2026-10-14T09:13:02.5771910Z   platform 5.12.5 (4.18.0 available)
+2026-10-14T09:13:02.5891280Z   meta 4.16.6 (3.4.0 available)
+2026-10-14T09:13:02.8114650Z   shared_preferences 1.16.6 (3.8.0 available)
+2026-10-14T09:13:02.8960790Z   string_scanner 7.18.3 (3.3.0 available)
+2026-10-14T09:13:03.0310260Z   stack_trace 6.0.4 (3.19.0 available)
+2026-10-14T09:13:03.1172110Z   vector_math 9.12.0 (6.19.0 available)
+2026-10-14T09:13:03.1733540Z   http_parser 3.17.4 (1.5.0 available)
+2026-10-14T09:13:03.3314120Z   shared_preferences 5.16.3 (9.15.0 available)
+2026-10-14T09:13:03.9981040Z   leak_tracker 5.5.0 (8.14.0 available)
+2026-10-14T09:13:04.4581680Z   lints 4.14.5 (2.13.0 available)
+2026-10-14T09:13:04.5342540Z   provider 0.20.5 (8.1.0 available)
+2026-10-14T09:13:04.6204660Z   riverpod 5.18.5 (2.1.0 available)
+2026-10-14T09:13:04.8035110Z   term_glyph 6.9.3 (5.6.0 available)
+2026-10-14T09:13:05.0847000Z   web 3.4.8 (9.9.0 available)
+2026-10-14T09:13:05.7255920Z   fake_async 2.11.9 (1.5.0 available)
+2026-10-14T09:13:06.1607330Z Got dependencies!
+2026-10-14T09:13:06.4894040Z ##[group]Run flutter build apk --release
+2026-10-14T09:13:07.1142750Z [36mflutter build apk --release[0m
+2026-10-14T09:13:07.4109530Z shell: /usr/bin/bash -e {0}
+2026-10-14T09:13:07.8024220Z ##[endgroup]
+2026-10-14T09:13:08.3996850Z Running Gradle task 'assembleRelease'...
+2026-10-14T09:13:08.7534640Z Welcome to Gradle 8.7!
+2026-10-14T09:13:08.9063800Z Here are the highlights of this release:
+2026-10-14T09:13:09.3428480Z  - Compiling and testing with Java 22
+2026-10-14T09:13:09.6899720Z Download https://dl.google.com/dl/android/maven2/com/google/guava/bdbtx0/4.3.0/artifact.pom, took 799 ms
+2026-10-14T09:13:10.0536870Z Download https://dl.google.com/dl/android/maven2/androidx/core/er4tft/9.4.0/artifact.pom, took 175 ms
+2026-10-14T09:13:10.6621330Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/uopsch/1.4.0/artifact.pom, took 667 ms
+2026-10-14T09:13:11.0142700Z Download https://dl.google.com/dl/android/maven2/io/grpc/fdvwgz/7.6.0/artifact.pom, took 752 ms
+2026-10-14T09:13:11.2229640Z Download https://dl.google.com/dl/android/maven2/io/grpc/ekgqtj/8.1.0/artifact.pom, took 448 ms
+2026-10-14T09:13:11.8446820Z Download https://dl.google.com/dl/android/maven2/androidx/core/bofkhf/9.2.0/artifact.pom, took 558 ms
+2026-10-14T09:13:12.1426270Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/mvy069/8.1.0/artifact.pom, took 184 ms
+2026-10-14T09:13:12.4346900Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/3r96kf/4.9.0/artifact.pom, took 780 ms
+2026-10-14T09:13:12.6124910Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/17utlw/1.6.0/artifact.pom, took 53 ms
+2026-10-14T09:13:12.8164620Z Download https://dl.google.com/dl/android/maven2/io/grpc/qhu17c/9.3.0/artifact.pom, took 153 ms
+2026-10-14T09:13:13.1635230Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/fuyjbl/7.8.0/artifact.pom, took 647 ms
+2026-10-14T09:13:13.8559930Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/wggbaj/9.7.0/artifact.pom, took 700 ms
+2026-10-14T09:13:13.9669530Z Download https://dl.google.com/dl/android/maven2/androidx/core/rvqhkj/8.1.0/artifact.pom, took 206 ms
+2026-10-14T09:13:13.9738920Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/l8msod/9.9.0/artifact.pom, took 752 ms
+2026-10-14T09:13:14.1975460Z Download https://dl.google.com/dl/android/maven2/androidx/core/tnvpef/2.0.0/artifact.pom, took 664 ms
+2026-10-14T09:13:14.5315840Z Download https://dl.google.com/dl/android/maven2/com/google/guava/f2jch8/6.1.0/artifact.pom, took 268 ms
+2026-10-14T09:13:14.6097860Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/ldmyc3/3.4.0/artifact.pom, took 634 ms
+2026-10-14T09:13:15.0253300Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/2chtee/3.9.0/artifact.pom, took 827 ms
+2026-10-14T09:13:15.5463150Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/odozxd/3.8.0/artifact.pom, took 132 ms
+2026-10-14T09:13:15.7082490Z Download https://dl.google.com/dl/android/maven2/io/grpc/prxzhx/8.5.0/artifact.pom, took 798 ms
+2026-10-14T09:13:15.8637600Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/0ckmu8/4.5.0/artifact.pom, took 601 ms
+2026-10-14T09:13:16.1034570Z Download https://dl.google.com/dl/android/maven2/androidx/core/ocb8vq/1.8.0/artifact.pom, took 666 ms
+2026-10-14T09:13:16.4070800Z Download https://dl.google.com/dl/android/maven2/com/google/guava/zyclce/6.8.0/artifact.pom, took 576 ms
+2026-10-14T09:13:16.7657040Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/zdrwrq/7.3.0/artifact.pom, took 443 ms
+2026-10-14T09:13:17.0091030Z Download https://dl.google.com/dl/android/maven2/com/google/guava/mrv7b8/9.2.0/artifact.pom, took 347 ms
+2026-10-14T09:13:17.6888550Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/awmhsx/9.7.0/artifact.pom, took 202 ms
+2026-10-14T09:13:18.2336850Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/qpxhcb/6.3.0/artifact.pom, took 453 ms
+2026-10-14T09:13:18.7973750Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/q72lda/5.2.0/artifact.pom, took 700 ms
+2026-10-14T09:13:18.9086750Z Download https://dl.google.com/dl/android/maven2/io/grpc/zkrxs8/9.1.0/artifact.pom, took 582 ms
+2026-10-14T09:13:19.1677820Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/tikjua/3.7.0/artifact.pom, took 101 ms
+2026-10-14T09:13:19.6822190Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/xqxqys/8.1.0/artifact.pom, took 251 ms
+2026-10-14T09:13:20.1105930Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/7oajm9/5.8.0/artifact.pom, took 612 ms
+2026-10-14T09:13:20.5069010Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/s8la9f/2.3.0/artifact.pom, took 395 ms
+2026-10-14T09:13:21.1412210Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/z3gbrb/8.5.0/artifact.pom, took 398 ms
+2026-10-14T09:13:21.7850370Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/tlyuit/2.4.0/artifact.pom, took 174 ms
+2026-10-14T09:13:21.8316320Z Download https://dl.google.com/dl/android/maven2/io/grpc/vweqt4/9.1.0/artifact.pom, took 576 ms
+2026-10-14T09:13:22.1127920Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/doxunu/4.7.0/artifact.pom, took 281 ms
+2026-10-14T09:13:22.4971910Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/cxti91/8.0.0/artifact.pom, took 549 ms
+2026-10-14T09:13:23.1729060Z Download https://dl.google.com/dl/android/maven2/io/grpc/r9jbsx/3.9.0/artifact.pom, took 545 ms
+2026-10-14T09:13:23.2956710Z Download https://dl.google.com/dl/android/maven2/io/grpc/fuegww/9.6.0/artifact.pom, took 100 ms
+2026-10-14T09:13:23.3036860Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/e6goeo/6.3.0/artifact.pom, took 80 ms
+2026-10-14T09:13:23.7636510Z Download https://dl.google.com/dl/android/maven2/com/google/guava/dpor9f/5.9.0/artifact.pom, took 280 ms
+2026-10-14T09:13:24.4318350Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/6xciki/1.7.0/artifact.pom, took 169 ms
+2026-10-14T09:13:24.4808060Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/1aezsw/3.9.0/artifact.pom, took 563 ms
+2026-10-14T09:13:24.6892620Z Download https://dl.google.com/dl/android/maven2/com/google/guava/nkhski/5.8.0/artifact.pom, took 580 ms
+2026-10-14T09:13:25.3279820Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/aoolea/4.9.0/artifact.pom, took 528 ms
+2026-10-14T09:13:25.5031470Z Download https://dl.google.com/dl/android/maven2/androidx/core/ed4xu4/5.8.0/artifact.pom, took 877 ms
+2026-10-14T09:13:26.0611690Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/wrofhq/9.9.0/artifact.pom, took 222 ms
+2026-10-14T09:13:26.4473740Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/madaoe/8.1.0/artifact.pom, took 29 ms
+2026-10-14T09:13:27.0873730Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/vz9orb/5.3.0/artifact.pom, took 37 ms
+2026-10-14T09:13:27.6913150Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/mnz75z/8.9.0/artifact.pom, took 778 ms
+2026-10-14T09:13:27.8882870Z Download https://dl.google.com/dl/android/maven2/com/google/guava/glye5s/9.5.0/artifact.pom, took 509 ms
+2026-10-14T09:13:28.0191380Z Download https://dl.google.com/dl/android/maven2/androidx/core/lidxcg/6.5.0/artifact.pom, took 390 ms
+2026-10-14T09:13:28.2154020Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/jxol5i/4.8.0/artifact.pom, took 759 ms
+2026-10-14T09:13:28.5128230Z Download https://dl.google.com/dl/android/maven2/io/grpc/bar7oh/8.0.0/artifact.pom, took 895 ms
+2026-10-14T09:13:28.9904730Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/vyzhh9/7.7.0/artifact.pom, took 228 ms
+2026-10-14T09:13:29.1867310Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/vvggkl/8.5.0/artifact.pom, took 62 ms
+2026-10-14T09:13:29.2840860Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/gcyrzm/2.0.0/artifact.pom, took 50 ms
+2026-10-14T09:13:29.4081980Z Download https://dl.google.com/dl/android/maven2/androidx/core/2a0qwz/2.3.0/artifact.pom, took 101 ms
+2026-10-14T09:13:29.7687030Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/zpamwg/2.5.0/artifact.pom, took 583 ms
+2026-10-14T09:13:29.9610750Z Download https://dl.google.com/dl/android/maven2/io/grpc/lfpx2c/9.0.0/artifact.pom, took 544 ms
+2026-10-14T09:13:30.3325990Z Download https://dl.google.com/dl/android/maven2/io/grpc/paioy0/4.4.0/artifact.pom, took 315 ms
+2026-10-14T09:13:30.7034410Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/xnorgn/7.6.0/artifact.pom, took 32 ms
+2026-10-14T09:13:31.1075290Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/7pimfj/8.0.0/artifact.pom, took 537 ms
+2026-10-14T09:13:31.4743070Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/rrqooy/2.7.0/artifact.pom, took 362 ms
+2026-10-14T09:13:32.1327100Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/q6mzsu/9.4.0/artifact.pom, took 372 ms
+2026-10-14T09:13:32.4632120Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/dcx3fb/3.3.0/artifact.pom, took 22 ms
+2026-10-14T09:13:32.5813430Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/qimow0/4.6.0/artifact.pom, took 579 ms
+2026-10-14T09:13:32.8213590Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/uh2law/9.6.0/artifact.pom, took 698 ms
+2026-10-14T09:13:33.1567290Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/ub4tst/8.2.0/artifact.pom, took 143 ms
+2026-10-14T09:13:33.6609860Z Download https://dl.google.com/dl/android/maven2/io/grpc/izsjnt/3.7.0/artifact.pom, took 23 ms
+2026-10-14T09:13:33.9222790Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/3f8heb/1.5.0/artifact.pom, took 377 ms
+2026-10-14T09:13:34.1207000Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/xbljhu/2.6.0/artifact.pom, took 620 ms
+2026-10-14T09:13:34.2483930Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/8nxgsc/5.5.0/artifact.pom, took 266 ms
+2026-10-14T09:13:34.3173100Z Download https://dl.google.com/dl/android/maven2/com/google/guava/1p1htn/5.6.0/artifact.pom, took 733 ms
+2026-10-14T09:13:34.4876180Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/is5zjv/7.0.0/artifact.pom, took 499 ms
+2026-10-14T09:13:34.9567380Z Download https://dl.google.com/dl/android/maven2/io/grpc/vtpg7i/5.8.0/artifact.pom, took 628 ms
+2026-10-14T09:13:35.2540800Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/8svj9a/2.3.0/artifact.pom, took 470 ms
+2026-10-14T09:13:35.6274570Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/ux6h8u/7.8.0/artifact.pom, took 374 ms
+2026-10-14T09:13:36.3235170Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/fy1y1y/4.9.0/artifact.pom, took 401 ms
+2026-10-14T09:13:36.8794440Z Download https://dl.google.com/dl/android/maven2/com/google/guava/sxzecf/4.2.0/artifact.pom, took 351 ms
+2026-10-14T09:13:37.4686020Z Download https://dl.google.com/dl/android/maven2/io/grpc/xhx7ee/7.2.0/artifact.pom, took 46 ms
+2026-10-14T09:13:37.7520540Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/sxrkzr/1.1.0/artifact.pom, took 786 ms
+2026-10-14T09:13:38.1028520Z Download https://dl.google.com/dl/android/maven2/androidx/core/hmepem/8.8.0/artifact.pom, took 87 ms
+2026-10-14T09:13:38.6623810Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/xcghft/6.1.0/artifact.pom, took 466 ms
+2026-10-14T09:13:38.7763800Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/frr76w/3.2.0/artifact.pom, took 760 ms
+2026-10-14T09:13:38.7825080Z Download https://dl.google.com/dl/android/maven2/io/grpc/bdmcul/4.8.0/artifact.pom, took 637 ms
+2026-10-14T09:13:39.0381870Z Download https://dl.google.com/dl/android/maven2/com/google/guava/dld836/5.0.0/artifact.pom, took 870 ms
+2026-10-14T09:13:39.4656670Z Download https://dl.google.com/dl/android/maven2/io/grpc/vacwgw/2.5.0/artifact.pom, took 89 ms
+2026-10-14T09:13:39.8835920Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/u9jjk1/9.8.0/artifact.pom, took 761 ms
+2026-10-14T09:13:40.2469510Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/v7eqwi/1.1.0/artifact.pom, took 736 ms
+2026-10-14T09:13:40.5222760Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/b2nx85/5.2.0/artifact.pom, took 249 ms
+2026-10-14T09:13:41.2152810Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/v3rngv/1.7.0/artifact.pom, took 404 ms
+2026-10-14T09:13:41.2651700Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/4k6s9h/2.6.0/artifact.pom, took 814 ms
+2026-10-14T09:13:41.6878260Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/gwcjjo/9.6.0/artifact.pom, took 130 ms
+2026-10-14T09:13:41.9273310Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/ipreip/5.7.0/artifact.pom, took 895 ms
+2026-10-14T09:13:42.3607250Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/rlc9kq/4.3.0/artifact.pom, took 750 ms
+2026-10-14T09:13:42.6440780Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/jziu3c/9.5.0/artifact.pom, took 240 ms
+2026-10-14T09:13:42.7030090Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/jwo77x/5.9.0/artifact.pom, took 534 ms
+2026-10-14T09:13:43.0977450Z Download https://dl.google.com/dl/android/maven2/androidx/core/rbynds/7.4.0/artifact.pom, took 48 ms
+2026-10-14T09:13:43.3334280Z Download https://dl.google.com/dl/android/maven2/com/google/guava/2y0pgx/5.7.0/artifact.pom, took 358 ms
+2026-10-14T09:13:43.6955710Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/p2wcb2/8.6.0/artifact.pom, took 768 ms
+2026-10-14T09:13:44.0552690Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/fjl346/7.1.0/artifact.pom, took 500 ms
+2026-10-14T09:13:44.2244180Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/dnuo6q/7.4.0/artifact.pom, took 230 ms
+2026-10-14T09:13:44.4760160Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/ayuuhz/5.6.0/artifact.pom, took 841 ms
+2026-10-14T09:13:44.6609240Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/pusjmf/8.4.0/artifact.pom, took 350 ms
+2026-10-14T09:13:45.2042540Z Download https://dl.google.com/dl/android/maven2/io/grpc/husosy/1.4.0/artifact.pom, took 268 ms
+2026-10-14T09:13:45.8379420Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/goglsx/5.4.0/artifact.pom, took 614 ms
+2026-10-14T09:13:46.0777170Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/38qpaz/2.1.0/artifact.pom, took 668 ms
+2026-10-14T09:13:46.6682220Z Download https://dl.google.com/dl/android/maven2/androidx/core/6npuc3/8.8.0/artifact.pom, took 606 ms
+2026-10-14T09:13:47.2653900Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/pgfb0l/7.1.0/artifact.pom, took 263 ms
+2026-10-14T09:13:47.8915920Z Download https://dl.google.com/dl/android/maven2/io/grpc/mast12/6.1.0/artifact.pom, took 537 ms
+2026-10-14T09:13:47.9522990Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/dvwl21/9.9.0/artifact.pom, took 464 ms
+2026-10-14T09:13:48.3062450Z Download https://dl.google.com/dl/android/maven2/io/grpc/ndemg1/6.6.0/artifact.pom, took 722 ms
+2026-10-14T09:13:48.4107490Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/hywlzf/3.9.0/artifact.pom, took 648 ms
+2026-10-14T09:13:49.0018280Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/2m9qsl/2.5.0/artifact.pom, took 715 ms
+2026-10-14T09:13:49.3226100Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/zlsgpg/3.9.0/artifact.pom, took 268 ms
+2026-10-14T09:13:49.5182090Z Download https://dl.google.com/dl/android/maven2/io/grpc/odjany/8.3.0/artifact.pom, took 467 ms
+2026-10-14T09:13:49.9788500Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/4fcrgz/7.9.0/artifact.pom, took 621 ms
+2026-10-14T09:13:50.2031110Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/b9pq40/7.7.0/artifact.pom, took 551 ms
+2026-10-14T09:13:50.3148960Z Download https://dl.google.com/dl/android/maven2/androidx/core/l8nlse/2.9.0/artifact.pom, took 771 ms
+2026-10-14T09:13:51.0051500Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/vptbv8/9.6.0/artifact.pom, took 157 ms
+2026-10-14T09:13:51.4294830Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/qidxvl/4.6.0/artifact.pom, took 35 ms
+2026-10-14T09:13:51.5058890Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/pysldj/7.6.0/artifact.pom, took 316 ms
+2026-10-14T09:13:51.8578080Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/oyhzfp/9.3.0/artifact.pom, took 771 ms
+2026-10-14T09:13:52.1063190Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/kxprsj/6.4.0/artifact.pom, took 90 ms
+2026-10-14T09:13:52.6215390Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/febooc/6.5.0/artifact.pom, took 835 ms
+2026-10-14T09:13:52.8361050Z Download https://dl.google.com/dl/android/maven2/com/google/guava/sb8vpn/4.7.0/artifact.pom, took 801 ms
+2026-10-14T09:13:53.2488160Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/bppqgw/7.2.0/artifact.pom, took 845 ms
+2026-10-14T09:13:53.4617120Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/kj4xyf/7.4.0/artifact.pom, took 249 ms
+2026-10-14T09:13:54.0622480Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/pcjfz3/3.2.0/artifact.pom, took 475 ms
+2026-10-14T09:13:54.5633210Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/rdbfz3/6.0.0/artifact.pom, took 551 ms
+2026-10-14T09:13:54.7247590Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/t9wsyl/7.8.0/artifact.pom, took 732 ms
+2026-10-14T09:13:55.4069260Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/mcbw0k/9.1.0/artifact.pom, took 811 ms
+2026-10-14T09:13:56.0948060Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/chit5d/4.1.0/artifact.pom, took 148 ms
+2026-10-14T09:13:56.6532590Z Download https://dl.google.com/dl/android/maven2/com/google/guava/e5zcwx/3.6.0/artifact.pom, took 351 ms
+2026-10-14T09:13:57.0989320Z Download https://dl.google.com/dl/android/maven2/com/google/guava/nu08ai/8.6.0/artifact.pom, took 385 ms
+2026-10-14T09:13:57.4732690Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/anlrog/8.2.0/artifact.pom, took 441 ms
+2026-10-14T09:13:57.9879420Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/7yh7a2/1.7.0/artifact.pom, took 588 ms
+2026-10-14T09:13:58.4413520Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/96kzj2/2.2.0/artifact.pom, took 137 ms
+2026-10-14T09:13:58.5816020Z Download https://dl.google.com/dl/android/maven2/io/grpc/uozsai/8.4.0/artifact.pom, took 76 ms
+2026-10-14T09:13:58.6205500Z Download https://dl.google.com/dl/android/maven2/androidx/core/ark0ar/6.4.0/artifact.pom, took 404 ms
+2026-10-14T09:13:59.0430190Z Download https://dl.google.com/dl/android/maven2/androidx/core/czb2bw/8.6.0/artifact.pom, took 710 ms
+2026-10-14T09:13:59.3972120Z Download https://dl.google.com/dl/android/maven2/com/google/guava/x4gj2b/5.9.0/artifact.pom, took 110 ms
+2026-10-14T09:13:59.6737340Z Download https://dl.google.com/dl/android/maven2/androidx/core/gmws49/6.8.0/artifact.pom, took 228 ms
+2026-10-14T09:14:00.3119440Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/sgqpmx/6.1.0/artifact.pom, took 411 ms
+2026-10-14T09:14:00.6116960Z Download https://dl.google.com/dl/android/maven2/io/grpc/p6zxfv/1.1.0/artifact.pom, took 769 ms
+2026-10-14T09:14:01.2373840Z Download https://dl.google.com/dl/android/maven2/androidx/core/1meill/4.3.0/artifact.pom, took 285 ms
+2026-10-14T09:14:01.7295030Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/bq6p9f/4.1.0/artifact.pom, took 615 ms
+2026-10-14T09:14:01.9493820Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/in4yb2/9.2.0/artifact.pom, took 505 ms
+2026-10-14T09:14:02.1789280Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/cwifpd/1.7.0/artifact.pom, took 853 ms
+2026-10-14T09:14:02.5321420Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/x0j9sl/2.1.0/artifact.pom, took 456 ms
+2026-10-14T09:14:02.7552610Z Download https://dl.google.com/dl/android/maven2/androidx/core/4v1pq2/5.0.0/artifact.pom, took 260 ms
+2026-10-14T09:14:03.1593900Z Download https://dl.google.com/dl/android/maven2/com/google/guava/039fk7/4.7.0/artifact.pom, took 75 ms
+2026-10-14T09:14:03.3332700Z Download https://dl.google.com/dl/android/maven2/io/grpc/kvpixp/1.5.0/artifact.pom, took 93 ms
+2026-10-14T09:14:03.3961050Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/pruqvf/9.5.0/artifact.pom, took 525 ms
+2026-10-14T09:14:03.4410970Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/yy0bzz/7.2.0/artifact.pom, took 465 ms
+2026-10-14T09:14:03.4615910Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/zoavsa/6.0.0/artifact.pom, took 751 ms
+2026-10-14T09:14:03.6097930Z Download https://dl.google.com/dl/android/maven2/io/grpc/vvacsj/4.4.0/artifact.pom, took 243 ms
+2026-10-14T09:14:04.3092580Z Download https://dl.google.com/dl/android/maven2/io/grpc/mm8xdr/6.7.0/artifact.pom, took 162 ms
+2026-10-14T09:14:04.3312390Z Download https://dl.google.com/dl/android/maven2/com/google/guava/rzy7dt/5.7.0/artifact.pom, took 317 ms
+2026-10-14T09:14:04.8065990Z Download https://dl.google.com/dl/android/maven2/androidx/core/jxh4lu/8.8.0/artifact.pom, took 838 ms
+2026-10-14T09:14:05.2850320Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/rk5xjc/5.3.0/artifact.pom, took 416 ms
+2026-10-14T09:14:05.8603270Z Download https://dl.google.com/dl/android/maven2/io/grpc/7bgz5o/3.9.0/artifact.pom, took 198 ms
+2026-10-14T09:14:06.1414540Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/8xb6q1/6.9.0/artifact.pom, took 333 ms
+2026-10-14T09:14:06.4902190Z Download https://dl.google.com/dl/android/maven2/androidx/core/yjrt8r/8.4.0/artifact.pom, took 428 ms
+2026-10-14T09:14:07.0790270Z Download https://dl.google.com/dl/android/maven2/com/google/guava/ecqsic/8.7.0/artifact.pom, took 886 ms
+2026-10-14T09:14:07.3460500Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/63m4px/6.0.0/artifact.pom, took 258 ms
+2026-10-14T09:14:07.7496650Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/emltyc/4.2.0/artifact.pom, took 670 ms
+2026-10-14T09:14:08.3888050Z Download https://dl.google.com/dl/android/maven2/io/grpc/t39yiz/9.4.0/artifact.pom, took 454 ms
+2026-10-14T09:14:08.8696320Z Download https://dl.google.com/dl/android/maven2/io/grpc/ezby2o/8.0.0/artifact.pom, took 603 ms
+2026-10-14T09:14:09.2976970Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/dvrndo/4.7.0/artifact.pom, took 830 ms
+2026-10-14T09:14:09.6532350Z Download https://dl.google.com/dl/android/maven2/io/grpc/cqhqkl/2.3.0/artifact.pom, took 791 ms
+2026-10-14T09:14:10.2225850Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/2qwvi6/6.9.0/artifact.pom, took 191 ms
+2026-10-14T09:14:10.5574660Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/5tofjb/5.6.0/artifact.pom, took 566 ms
+2026-10-14T09:14:11.2323180Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/deh0he/2.6.0/artifact.pom, took 600 ms
+2026-10-14T09:14:11.5971450Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/rnvvza/3.3.0/artifact.pom, took 875 ms
+2026-10-14T09:14:12.1843110Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/odsgu1/7.8.0/artifact.pom, took 447 ms
+2026-10-14T09:14:12.7709870Z Download https://dl.google.com/dl/android/maven2/io/grpc/dornha/4.7.0/artifact.pom, took 854 ms
+2026-10-14T09:14:13.4370200Z Download https://dl.google.com/dl/android/maven2/io/grpc/ceaxow/9.6.0/artifact.pom, took 733 ms
+2026-10-14T09:14:13.8460400Z Download https://dl.google.com/dl/android/maven2/io/grpc/jwyhe5/7.7.0/artifact.pom, took 806 ms
+2026-10-14T09:14:13.9981240Z Download https://dl.google.com/dl/android/maven2/androidx/core/tknqs8/9.2.0/artifact.pom, took 219 ms
+2026-10-14T09:14:14.2809890Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/zu2btu/4.3.0/artifact.pom, took 882 ms
+2026-10-14T09:14:14.4876170Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/iub2ci/4.1.0/artifact.pom, took 284 ms
+2026-10-14T09:14:14.8486920Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/mkc3xe/7.0.0/artifact.pom, took 33 ms
+2026-10-14T09:14:15.5392980Z Download https://dl.google.com/dl/android/maven2/io/grpc/0fwa4i/5.4.0/artifact.pom, took 839 ms
+2026-10-14T09:14:15.8352000Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/nrvm88/8.8.0/artifact.pom, took 726 ms
+2026-10-14T09:14:16.3488560Z Download https://dl.google.com/dl/android/maven2/com/google/guava/xjs1ll/2.3.0/artifact.pom, took 628 ms
+2026-10-14T09:14:16.5309340Z Download https://dl.google.com/dl/android/maven2/io/grpc/47rw2t/7.9.0/artifact.pom, took 620 ms
+2026-10-14T09:14:17.2041450Z Download https://dl.google.com/dl/android/maven2/com/google/guava/ipozuh/2.1.0/artifact.pom, took 599 ms
+2026-10-14T09:14:17.3539530Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/kfzedu/1.9.0/artifact.pom, took 413 ms
+2026-10-14T09:14:17.4011590Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/vk84y0/4.5.0/artifact.pom, took 438 ms
+2026-10-14T09:14:18.0612370Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/umuto7/1.8.0/artifact.pom, took 618 ms
+2026-10-14T09:14:18.1435260Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/tacd3e/7.3.0/artifact.pom, took 389 ms
+2026-10-14T09:14:18.4658210Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/xabgpm/9.8.0/artifact.pom, took 124 ms
+2026-10-14T09:14:18.9831470Z Download https://dl.google.com/dl/android/maven2/io/grpc/hyl5wj/2.3.0/artifact.pom, took 249 ms
+2026-10-14T09:14:19.0659190Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/fkp1hh/6.7.0/artifact.pom, took 75 ms
+2026-10-14T09:14:19.6014470Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/7v37ou/5.1.0/artifact.pom, took 254 ms
+2026-10-14T09:14:19.7655820Z Download https://dl.google.com/dl/android/maven2/io/grpc/pwobgl/7.0.0/artifact.pom, took 839 ms
+2026-10-14T09:14:20.3920650Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/4pjczw/3.9.0/artifact.pom, took 616 ms
+2026-10-14T09:14:20.5981300Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/uvs4ri/5.9.0/artifact.pom, took 359 ms
+2026-10-14T09:14:20.8546110Z Download https://dl.google.com/dl/android/maven2/io/grpc/vqrfcs/1.5.0/artifact.pom, took 465 ms
+2026-10-14T09:14:20.8760340Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/hp7uv0/4.3.0/artifact.pom, took 466 ms
+2026-10-14T09:14:21.3133870Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/zriq1t/9.2.0/artifact.pom, took 200 ms
+2026-10-14T09:14:21.9958300Z Download https://dl.google.com/dl/android/maven2/androidx/core/f8vq01/1.7.0/artifact.pom, took 849 ms
+2026-10-14T09:14:22.1126350Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/bd2vg7/9.1.0/artifact.pom, took 732 ms
+2026-10-14T09:14:22.1156610Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/bicoko/7.5.0/artifact.pom, took 652 ms
+2026-10-14T09:14:22.2567570Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/qjtrx9/7.1.0/artifact.pom, took 320 ms
+2026-10-14T09:14:22.6270110Z Download https://dl.google.com/dl/android/maven2/io/grpc/hzvpwc/5.0.0/artifact.pom, took 774 ms
+2026-10-14T09:14:23.1235190Z Download https://dl.google.com/dl/android/maven2/androidx/core/3shw3e/1.3.0/artifact.pom, took 472 ms
+2026-10-14T09:14:23.3422150Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/phaqfb/5.2.0/artifact.pom, took 570 ms
+2026-10-14T09:14:23.7014980Z Download https://dl.google.com/dl/android/maven2/io/grpc/sfgmwc/4.6.0/artifact.pom, took 696 ms
+2026-10-14T09:14:24.3608920Z Download https://dl.google.com/dl/android/maven2/androidx/core/wlsgsi/1.0.0/artifact.pom, took 295 ms
+2026-10-14T09:14:24.7381190Z Download https://dl.google.com/dl/android/maven2/io/grpc/woboqx/3.5.0/artifact.pom, took 443 ms
+2026-10-14T09:14:25.1596500Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/90j6op/5.1.0/artifact.pom, took 751 ms
+2026-10-14T09:14:25.4641480Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/lcgx7f/1.1.0/artifact.pom, took 171 ms
+2026-10-14T09:14:25.5022670Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/lfs3hz/3.1.0/artifact.pom, took 826 ms
+2026-10-14T09:14:26.1127670Z Download https://dl.google.com/dl/android/maven2/com/google/guava/vw63dl/3.0.0/artifact.pom, took 604 ms
+2026-10-14T09:14:26.5858860Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/7xxqia/9.1.0/artifact.pom, took 666 ms
+2026-10-14T09:14:26.6167560Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/lswwv3/8.7.0/artifact.pom, took 488 ms
+2026-10-14T09:14:27.0180590Z Download https://dl.google.com/dl/android/maven2/com/google/guava/2bvxnq/9.9.0/artifact.pom, took 148 ms
+2026-10-14T09:14:27.2303700Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/8vzdh1/7.8.0/artifact.pom, took 321 ms
+2026-10-14T09:14:27.8183970Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/3g7isa/5.1.0/artifact.pom, took 301 ms
+2026-10-14T09:14:28.1596150Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/cj6zdd/9.0.0/artifact.pom, took 334 ms
+2026-10-14T09:14:28.7741400Z Download https://dl.google.com/dl/android/maven2/com/google/guava/qfjxbd/7.2.0/artifact.pom, took 471 ms
+2026-10-14T09:14:29.4206650Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/dxqxnz/3.9.0/artifact.pom, took 149 ms
+2026-10-14T09:14:29.4638200Z Download https://dl.google.com/dl/android/maven2/com/google/guava/kufvqc/6.1.0/artifact.pom, took 301 ms
+2026-10-14T09:14:29.7692360Z Download https://dl.google.com/dl/android/maven2/com/google/guava/5sszpa/5.8.0/artifact.pom, took 510 ms
+2026-10-14T09:14:30.0230000Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/bkpa9r/9.5.0/artifact.pom, took 222 ms
+2026-10-14T09:14:30.0388560Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/r4xuwn/3.1.0/artifact.pom, took 619 ms
+2026-10-14T09:14:30.4519320Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/jurt3z/3.0.0/artifact.pom, took 714 ms
+2026-10-14T09:14:30.7227520Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/ryuimd/5.4.0/artifact.pom, took 462 ms
+2026-10-14T09:14:30.8816250Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/peintz/7.7.0/artifact.pom, took 185 ms
+2026-10-14T09:14:31.4901480Z Download https://dl.google.com/dl/android/maven2/io/grpc/owhivf/4.4.0/artifact.pom, took 642 ms
+2026-10-14T09:14:31.7639740Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/fnnc7v/9.5.0/artifact.pom, took 359 ms
+2026-10-14T09:14:32.1136320Z Download https://dl.google.com/dl/android/maven2/io/grpc/frjhzy/3.4.0/artifact.pom, took 811 ms
+2026-10-14T09:14:32.1145600Z Download https://dl.google.com/dl/android/maven2/io/grpc/u22aku/2.9.0/artifact.pom, took 872 ms
+2026-10-14T09:14:32.3003820Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/qvk4kg/8.4.0/artifact.pom, took 663 ms
+2026-10-14T09:14:32.9736780Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/a6t2sc/6.6.0/artifact.pom, took 374 ms
+2026-10-14T09:14:33.1081390Z Download https://dl.google.com/dl/android/maven2/androidx/core/ffhnmq/8.2.0/artifact.pom, took 778 ms
+2026-10-14T09:14:33.4660760Z Download https://dl.google.com/dl/android/maven2/io/grpc/jt07pg/6.2.0/artifact.pom, took 276 ms
+2026-10-14T09:14:33.7179650Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/gh3aij/1.7.0/artifact.pom, took 766 ms
+2026-10-14T09:14:34.0032090Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/ugjhfc/2.2.0/artifact.pom, took 132 ms
+2026-10-14T09:14:34.6751870Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/veehgd/4.5.0/artifact.pom, took 210 ms
+2026-10-14T09:14:35.1126740Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/pity5d/4.7.0/artifact.pom, took 309 ms
+2026-10-14T09:14:35.1575510Z Download https://dl.google.com/dl/android/maven2/com/google/guava/svuhoz/7.8.0/artifact.pom, took 571 ms
+2026-10-14T09:14:35.3134670Z Download https://dl.google.com/dl/android/maven2/androidx/core/z4k4t0/7.8.0/artifact.pom, took 315 ms
+2026-10-14T09:14:35.9806340Z Download https://dl.google.com/dl/android/maven2/androidx/core/uwoift/4.7.0/artifact.pom, took 82 ms
+2026-10-14T09:14:36.3856510Z Download https://dl.google.com/dl/android/maven2/androidx/core/upms3c/2.0.0/artifact.pom, took 641 ms
+2026-10-14T09:14:36.8505340Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/zqtnc9/8.8.0/artifact.pom, took 301 ms
+2026-10-14T09:14:37.4684420Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/nfrgti/4.8.0/artifact.pom, took 317 ms
+2026-10-14T09:14:37.6160140Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/mifkuw/6.7.0/artifact.pom, took 395 ms
+2026-10-14T09:14:38.0167410Z Download https://dl.google.com/dl/android/maven2/com/google/guava/lbhnzs/7.7.0/artifact.pom, took 720 ms
+2026-10-14T09:14:38.4451830Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/16dku7/3.6.0/artifact.pom, took 365 ms
+2026-10-14T09:14:38.8241520Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/lucoyy/4.3.0/artifact.pom, took 745 ms
+2026-10-14T09:14:39.3053740Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/y36hnm/6.0.0/artifact.pom, took 897 ms
+2026-10-14T09:14:39.6007900Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/squtpp/6.1.0/artifact.pom, took 633 ms
+2026-10-14T09:14:39.6457320Z Download https://dl.google.com/dl/android/maven2/androidx/core/k9xeut/9.7.0/artifact.pom, took 157 ms
+2026-10-14T09:14:40.2428550Z Download https://dl.google.com/dl/android/maven2/androidx/core/maviiy/2.8.0/artifact.pom, took 614 ms
+2026-10-14T09:14:40.3602630Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/q8kp2e/7.3.0/artifact.pom, took 513 ms
+2026-10-14T09:14:40.8847230Z Download https://dl.google.com/dl/android/maven2/com/google/guava/cbm3ri/3.3.0/artifact.pom, took 728 ms
+2026-10-14T09:14:41.5342510Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/nvngzj/5.2.0/artifact.pom, took 464 ms
+2026-10-14T09:14:41.5350200Z Download https://dl.google.com/dl/android/maven2/androidx/core/ene7rh/6.8.0/artifact.pom, took 714 ms
+2026-10-14T09:14:41.9603110Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/wlimym/6.7.0/artifact.pom, took 718 ms
+2026-10-14T09:14:41.9675160Z Download https://dl.google.com/dl/android/maven2/io/grpc/ydpr08/7.9.0/artifact.pom, took 108 ms
+2026-10-14T09:14:42.2360440Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/lbamev/3.2.0/artifact.pom, took 646 ms
+2026-10-14T09:14:42.7371860Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/7yk07c/2.3.0/artifact.pom, took 175 ms
+2026-10-14T09:14:42.9709100Z Download https://dl.google.com/dl/android/maven2/androidx/core/opm17g/6.6.0/artifact.pom, took 66 ms
+2026-10-14T09:14:43.1011760Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/7z61qg/5.6.0/artifact.pom, took 805 ms
+2026-10-14T09:14:43.4664970Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/rx0mkf/9.7.0/artifact.pom, took 538 ms
+2026-10-14T09:14:43.7188100Z Download https://dl.google.com/dl/android/maven2/androidx/core/wtj2uu/3.8.0/artifact.pom, took 209 ms
+2026-10-14T09:14:43.8546890Z Download https://dl.google.com/dl/android/maven2/com/google/guava/qghmor/9.4.0/artifact.pom, took 428 ms
+2026-10-14T09:14:43.9954130Z Download https://dl.google.com/dl/android/maven2/androidx/core/bqxvsx/7.9.0/artifact.pom, took 891 ms
+2026-10-14T09:14:44.2582860Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/tqsutz/1.4.0/artifact.pom, took 619 ms
+2026-10-14T09:14:44.2764690Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/md9rth/6.2.0/artifact.pom, took 324 ms
+2026-10-14T09:14:44.6909350Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/wrl9ew/7.8.0/artifact.pom, took 58 ms
+2026-10-14T09:14:44.6952450Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/zemj8x/1.3.0/artifact.pom, took 561 ms
+2026-10-14T09:14:45.2328650Z Download https://dl.google.com/dl/android/maven2/com/google/guava/v2bhwf/6.8.0/artifact.pom, took 472 ms
+2026-10-14T09:14:45.3780980Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/bmgvqm/2.3.0/artifact.pom, took 444 ms
+2026-10-14T09:14:45.8638770Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/vncssx/4.8.0/artifact.pom, took 276 ms
+2026-10-14T09:14:46.4048320Z Download https://dl.google.com/dl/android/maven2/com/google/guava/b3srwf/3.7.0/artifact.pom, took 288 ms
+2026-10-14T09:14:46.4632710Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/tdn64u/4.1.0/artifact.pom, took 271 ms
+2026-10-14T09:14:46.7060060Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/gkfsoo/3.2.0/artifact.pom, took 643 ms
+2026-10-14T09:14:47.3002520Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/1fs0t1/3.5.0/artifact.pom, took 517 ms
+2026-10-14T09:14:47.7305170Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/1gfnwd/1.8.0/artifact.pom, took 714 ms
+2026-10-14T09:14:48.1679180Z Download https://dl.google.com/dl/android/maven2/androidx/core/mhi6uz/2.7.0/artifact.pom, took 668 ms
+2026-10-14T09:14:48.6740420Z Download https://dl.google.com/dl/android/maven2/io/grpc/kanufz/7.2.0/artifact.pom, took 145 ms
+2026-10-14T09:14:49.1442970Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/czhyov/3.6.0/artifact.pom, took 327 ms
+2026-10-14T09:14:49.6064110Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/p0ccwb/7.0.0/artifact.pom, took 376 ms
+2026-10-14T09:14:49.7325350Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/axnh1z/2.8.0/artifact.pom, took 871 ms
+2026-10-14T09:14:49.7829750Z Download https://dl.google.com/dl/android/maven2/io/grpc/2my5ob/8.1.0/artifact.pom, took 758 ms
+2026-10-14T09:14:49.8027110Z Download https://dl.google.com/dl/android/maven2/com/google/guava/cuawsb/8.3.0/artifact.pom, took 293 ms
+2026-10-14T09:14:50.4954060Z Download https://dl.google.com/dl/android/maven2/com/google/guava/lss7wj/8.6.0/artifact.pom, took 699 ms
+2026-10-14T09:14:50.8379550Z Download https://dl.google.com/dl/android/maven2/com/google/guava/gtxiwy/5.9.0/artifact.pom, took 105 ms
+2026-10-14T09:14:51.4159840Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/epcaur/5.0.0/artifact.pom, took 214 ms
+2026-10-14T09:14:51.8755830Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/zmkg6e/2.3.0/artifact.pom, took 469 ms
+2026-10-14T09:14:52.3163190Z Download https://dl.google.com/dl/android/maven2/io/grpc/hukydv/1.4.0/artifact.pom, took 830 ms
+2026-10-14T09:14:52.8268300Z Download https://dl.google.com/dl/android/maven2/androidx/core/ikodl5/7.7.0/artifact.pom, took 893 ms
+2026-10-14T09:14:52.9620120Z Download https://dl.google.com/dl/android/maven2/androidx/core/fgdq4e/3.7.0/artifact.pom, took 45 ms
+2026-10-14T09:14:53.0336300Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/byvryy/1.4.0/artifact.pom, took 208 ms
+2026-10-14T09:14:53.3252260Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/e7bych/9.4.0/artifact.pom, took 35 ms
+2026-10-14T09:14:53.4455780Z Download https://dl.google.com/dl/android/maven2/com/google/guava/0zhlc9/3.7.0/artifact.pom, took 467 ms
+2026-10-14T09:14:54.1239010Z Download https://dl.google.com/dl/android/maven2/com/google/guava/x3zfdo/5.7.0/artifact.pom, took 372 ms
+2026-10-14T09:14:54.6211250Z Download https://dl.google.com/dl/android/maven2/io/grpc/swnttw/4.4.0/artifact.pom, took 56 ms
+2026-10-14T09:14:55.0231280Z Download https://dl.google.com/dl/android/maven2/androidx/core/tkn4vr/4.1.0/artifact.pom, took 613 ms
+2026-10-14T09:14:55.4580520Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/ldge5r/6.2.0/artifact.pom, took 804 ms
+2026-10-14T09:14:55.8615730Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/vstul1/9.5.0/artifact.pom, took 251 ms
+2026-10-14T09:14:56.0308820Z Download https://dl.google.com/dl/android/maven2/androidx/core/gsgqxv/6.6.0/artifact.pom, took 100 ms
+2026-10-14T09:14:56.0385250Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/t0yw3v/6.1.0/artifact.pom, took 39 ms
+2026-10-14T09:14:56.5789170Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/umqrj3/1.3.0/artifact.pom, took 591 ms
+2026-10-14T09:14:56.6685570Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/cfpff3/2.8.0/artifact.pom, took 614 ms
+2026-10-14T09:14:56.7654110Z Download https://dl.google.com/dl/android/maven2/com/google/guava/zvoysi/3.0.0/artifact.pom, took 825 ms
+2026-10-14T09:14:57.1097730Z Download https://dl.google.com/dl/android/maven2/androidx/core/zdkxzb/9.2.0/artifact.pom, took 246 ms
+2026-10-14T09:14:57.5318880Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/jmflab/1.1.0/artifact.pom, took 329 ms
+2026-10-14T09:14:58.0609130Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/i39la3/9.4.0/artifact.pom, took 795 ms
+2026-10-14T09:14:58.7343350Z Download https://dl.google.com/dl/android/maven2/io/grpc/bxpxnj/9.1.0/artifact.pom, took 454 ms
+2026-10-14T09:14:59.3862920Z Download https://dl.google.com/dl/android/maven2/com/google/guava/4yjjdk/9.5.0/artifact.pom, took 428 ms
+2026-10-14T09:14:59.8354800Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/gv6lbv/4.3.0/artifact.pom, took 376 ms
+2026-10-14T09:14:59.9996930Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/srftrj/3.5.0/artifact.pom, took 79 ms
+2026-10-14T09:15:00.6276160Z Download https://dl.google.com/dl/android/maven2/androidx/core/henpbo/6.2.0/artifact.pom, took 445 ms
+2026-10-14T09:15:01.3142840Z Download https://dl.google.com/dl/android/maven2/io/grpc/liuzhc/2.0.0/artifact.pom, took 890 ms
+2026-10-14T09:15:01.9335650Z Download https://dl.google.com/dl/android/maven2/com/google/guava/dyms8h/9.5.0/artifact.pom, took 274 ms
+2026-10-14T09:15:02.3716290Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/spwtvc/2.1.0/artifact.pom, took 636 ms
+2026-10-14T09:15:02.3932650Z Download https://dl.google.com/dl/android/maven2/androidx/core/w5no30/1.2.0/artifact.pom, took 673 ms
+2026-10-14T09:15:02.7948280Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/4jczo4/9.7.0/artifact.pom, took 318 ms
+2026-10-14T09:15:03.2375300Z Download https://dl.google.com/dl/android/maven2/com/google/guava/8u89ov/7.0.0/artifact.pom, took 489 ms
+2026-10-14T09:15:03.7998050Z Download https://dl.google.com/dl/android/maven2/io/grpc/ivtx4k/3.5.0/artifact.pom, took 601 ms
+2026-10-14T09:15:04.4312330Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/sdfsvc/3.5.0/artifact.pom, took 873 ms
+2026-10-14T09:15:04.5578680Z Download https://dl.google.com/dl/android/maven2/com/google/guava/ytowey/5.5.0/artifact.pom, took 576 ms
+2026-10-14T09:15:04.9995850Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/vgtmwz/7.2.0/artifact.pom, took 647 ms
+2026-10-14T09:15:05.3212570Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/v7obn5/7.5.0/artifact.pom, took 859 ms
+2026-10-14T09:15:05.8072990Z Download https://dl.google.com/dl/android/maven2/com/google/guava/7aqjk8/9.4.0/artifact.pom, took 725 ms
+2026-10-14T09:15:06.3466930Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/bnenf1/3.5.0/artifact.pom, took 522 ms
+2026-10-14T09:15:06.4960450Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/be1ll3/6.3.0/artifact.pom, took 567 ms
+2026-10-14T09:15:06.9828100Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/ynire5/8.1.0/artifact.pom, took 880 ms
+2026-10-14T09:15:07.2034070Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/m0836p/9.2.0/artifact.pom, took 130 ms
+2026-10-14T09:15:07.6043100Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/jmbbv2/7.9.0/artifact.pom, took 802 ms
+2026-10-14T09:15:07.9829740Z Download https://dl.google.com/dl/android/maven2/androidx/core/9gvrw6/1.5.0/artifact.pom, took 113 ms
+2026-10-14T09:15:08.3869630Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/w3k7vo/9.6.0/artifact.pom, took 234 ms
+2026-10-14T09:15:09.0025580Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/cmpsc9/3.0.0/artifact.pom, took 61 ms
+2026-10-14T09:15:09.2107610Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/1fuq1q/4.7.0/artifact.pom, took 521 ms
+2026-10-14T09:15:09.2136540Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/rmu3t7/2.9.0/artifact.pom, took 867 ms
+2026-10-14T09:15:09.2278010Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/iyewzk/6.2.0/artifact.pom, took 286 ms
+2026-10-14T09:15:09.3221440Z Download https://dl.google.com/dl/android/maven2/androidx/core/nvrbiq/3.7.0/artifact.pom, took 352 ms
+2026-10-14T09:15:09.6800000Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/lnpjm4/6.7.0/artifact.pom, took 189 ms
+2026-10-14T09:15:10.3279840Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/jr6xyx/1.1.0/artifact.pom, took 840 ms
+2026-10-14T09:15:10.3715450Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/jnjscj/7.2.0/artifact.pom, took 273 ms
+2026-10-14T09:15:10.5850770Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/8pbr5y/6.4.0/artifact.pom, took 488 ms
+2026-10-14T09:15:11.2615580Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/3n6oco/9.9.0/artifact.pom, took 356 ms
+2026-10-14T09:15:11.7487650Z Download https://dl.google.com/dl/android/maven2/com/google/guava/r8a6bi/4.5.0/artifact.pom, took 98 ms
+2026-10-14T09:15:11.9124550Z Download https://dl.google.com/dl/android/maven2/androidx/core/euptug/1.2.0/artifact.pom, took 172 ms
+2026-10-14T09:15:12.1965670Z Download https://dl.google.com/dl/android/maven2/io/grpc/idofip/7.5.0/artifact.pom, took 238 ms
+2026-10-14T09:15:12.3496030Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/wablae/4.9.0/artifact.pom, took 483 ms
+2026-10-14T09:15:12.6239300Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/uohicl/1.2.0/artifact.pom, took 337 ms
+2026-10-14T09:15:13.2356350Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/cf05zf/4.4.0/artifact.pom, took 209 ms
+2026-10-14T09:15:13.5084130Z Download https://dl.google.com/dl/android/maven2/io/grpc/xthyyp/5.5.0/artifact.pom, took 100 ms
+2026-10-14T09:15:13.6169730Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/stbna7/6.8.0/artifact.pom, took 464 ms
+2026-10-14T09:15:13.8204920Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/rez5uz/4.4.0/artifact.pom, took 213 ms
+2026-10-14T09:15:13.8384210Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/drjuym/7.3.0/artifact.pom, took 484 ms
+2026-10-14T09:15:13.9671590Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/q5xzqw/3.2.0/artifact.pom, took 399 ms
+2026-10-14T09:15:14.2978980Z Download https://dl.google.com/dl/android/maven2/io/grpc/c4mw8b/5.7.0/artifact.pom, took 631 ms
+2026-10-14T09:15:14.9795440Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/rvyvsh/9.3.0/artifact.pom, took 115 ms
+2026-10-14T09:15:15.3789260Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/pm5uwv/7.2.0/artifact.pom, took 322 ms
+2026-10-14T09:15:15.7265780Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/lwic0v/9.2.0/artifact.pom, took 296 ms
+2026-10-14T09:15:16.1932770Z Download https://dl.google.com/dl/android/maven2/io/grpc/bikax2/1.1.0/artifact.pom, took 652 ms
+2026-10-14T09:15:16.6818350Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/jnhyok/8.5.0/artifact.pom, took 73 ms
+2026-10-14T09:15:16.8296280Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/0ywxef/9.2.0/artifact.pom, took 419 ms
+2026-10-14T09:15:17.4023840Z Download https://dl.google.com/dl/android/maven2/io/grpc/vn0ldl/2.8.0/artifact.pom, took 45 ms
+2026-10-14T09:15:17.8511610Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/5x9wlj/8.3.0/artifact.pom, took 754 ms
+2026-10-14T09:15:18.3872390Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/wx8nqv/5.8.0/artifact.pom, took 678 ms
+2026-10-14T09:15:18.6013380Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/v36xtq/6.0.0/artifact.pom, took 761 ms
+2026-10-14T09:15:18.7198200Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/dttf7p/5.6.0/artifact.pom, took 42 ms
+2026-10-14T09:15:19.0226340Z Download https://dl.google.com/dl/android/maven2/androidx/core/npbbum/3.8.0/artifact.pom, took 835 ms
+2026-10-14T09:15:19.4381110Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/f5xj2w/1.7.0/artifact.pom, took 547 ms
+2026-10-14T09:15:19.7032500Z Download https://dl.google.com/dl/android/maven2/io/grpc/yr2guk/4.5.0/artifact.pom, took 309 ms
+2026-10-14T09:15:20.3721430Z Download https://dl.google.com/dl/android/maven2/com/google/guava/sdhn0z/1.5.0/artifact.pom, took 648 ms
+2026-10-14T09:15:20.8890980Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/jp7xio/1.4.0/artifact.pom, took 659 ms
+2026-10-14T09:15:21.2802780Z Download https://dl.google.com/dl/android/maven2/io/grpc/eajl5z/2.0.0/artifact.pom, took 857 ms
+2026-10-14T09:15:21.5580770Z Download https://dl.google.com/dl/android/maven2/io/grpc/kwo6mj/6.0.0/artifact.pom, took 617 ms
+2026-10-14T09:15:22.2140960Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/3bqshl/3.8.0/artifact.pom, took 139 ms
+2026-10-14T09:15:22.6857920Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/t7dcfi/7.6.0/artifact.pom, took 504 ms
+2026-10-14T09:15:22.8819590Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/yyu0mo/1.0.0/artifact.pom, took 633 ms
+2026-10-14T09:15:22.9918760Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/b8nfbo/7.0.0/artifact.pom, took 675 ms
+2026-10-14T09:15:23.1477260Z Download https://dl.google.com/dl/android/maven2/com/google/guava/hxxvlx/5.6.0/artifact.pom, took 454 ms
+2026-10-14T09:15:23.4265190Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/rfazzc/8.6.0/artifact.pom, took 318 ms
+2026-10-14T09:15:23.9436490Z Download https://dl.google.com/dl/android/maven2/com/google/guava/fc7j8t/2.8.0/artifact.pom, took 33 ms
+2026-10-14T09:15:24.2471750Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/r5aocw/1.7.0/artifact.pom, took 332 ms
+2026-10-14T09:15:24.3816940Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/wnsvmt/7.9.0/artifact.pom, took 764 ms
+2026-10-14T09:15:24.7108910Z Download https://dl.google.com/dl/android/maven2/androidx/core/p5foxz/9.1.0/artifact.pom, took 802 ms
+2026-10-14T09:15:24.7287300Z Download https://dl.google.com/dl/android/maven2/androidx/core/q8ntko/9.4.0/artifact.pom, took 761 ms
+2026-10-14T09:15:25.4087790Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/ipkxag/7.1.0/artifact.pom, took 847 ms
+2026-10-14T09:15:25.7734100Z Download https://dl.google.com/dl/android/maven2/io/grpc/bcib4a/6.1.0/artifact.pom, took 249 ms
+2026-10-14T09:15:26.0420320Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/nwqetm/3.9.0/artifact.pom, took 43 ms
+2026-10-14T09:15:26.0996430Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/5xjydn/5.4.0/artifact.pom, took 235 ms
+2026-10-14T09:15:26.2692570Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/zzkyke/2.1.0/artifact.pom, took 55 ms
+2026-10-14T09:15:26.4177950Z Download https://dl.google.com/dl/android/maven2/io/grpc/eoekev/5.0.0/artifact.pom, took 49 ms
+2026-10-14T09:15:27.0516120Z Download https://dl.google.com/dl/android/maven2/io/grpc/izfnza/6.8.0/artifact.pom, took 853 ms
+2026-10-14T09:15:27.5548580Z Download https://dl.google.com/dl/android/maven2/io/grpc/5n1g8w/2.1.0/artifact.pom, took 193 ms
+2026-10-14T09:15:27.8507980Z Download https://dl.google.com/dl/android/maven2/com/google/guava/ofzmpo/9.2.0/artifact.pom, took 369 ms
+2026-10-14T09:15:28.3557390Z Download https://dl.google.com/dl/android/maven2/androidx/core/jkjzsk/7.3.0/artifact.pom, took 188 ms
+2026-10-14T09:15:28.3697890Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/tginij/9.1.0/artifact.pom, took 333 ms
+2026-10-14T09:15:29.0017020Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/tnswyg/3.2.0/artifact.pom, took 675 ms
+2026-10-14T09:15:29.1838530Z Download https://dl.google.com/dl/android/maven2/io/grpc/yjlhvy/8.0.0/artifact.pom, took 448 ms
+2026-10-14T09:15:29.5488600Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/4sxn0n/3.0.0/artifact.pom, took 570 ms
+2026-10-14T09:15:29.8834070Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/i2gbnt/6.2.0/artifact.pom, took 791 ms
+2026-10-14T09:15:30.0378730Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/u27xfg/2.9.0/artifact.pom, took 765 ms
+2026-10-14T09:15:30.5420160Z Download https://dl.google.com/dl/android/maven2/com/google/guava/mhfvvy/7.7.0/artifact.pom, took 421 ms
+2026-10-14T09:15:30.5552840Z Download https://dl.google.com/dl/android/maven2/io/grpc/d9bcqg/1.6.0/artifact.pom, took 259 ms
+2026-10-14T09:15:30.6737590Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/arav3o/7.3.0/artifact.pom, took 863 ms
+2026-10-14T09:15:30.7246550Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/wqvc78/5.4.0/artifact.pom, took 376 ms
+2026-10-14T09:15:31.4079620Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/chsutc/9.1.0/artifact.pom, took 527 ms
+2026-10-14T09:15:31.6152960Z Download https://dl.google.com/dl/android/maven2/io/grpc/4wxl4u/2.4.0/artifact.pom, took 135 ms
+2026-10-14T09:15:31.9205930Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/x8ajyu/1.4.0/artifact.pom, took 492 ms
+2026-10-14T09:15:32.4435270Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/vmrgat/2.3.0/artifact.pom, took 230 ms
+2026-10-14T09:15:33.0606310Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/3fwgsw/7.0.0/artifact.pom, took 228 ms
+2026-10-14T09:15:33.6100610Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/fxs5yb/4.0.0/artifact.pom, took 454 ms
+2026-10-14T09:15:34.2745390Z Download https://dl.google.com/dl/android/maven2/androidx/core/qcog5j/7.6.0/artifact.pom, took 97 ms
+2026-10-14T09:15:34.3429620Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/dxrw4m/7.6.0/artifact.pom, took 168 ms
+2026-10-14T09:15:34.8602860Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/qdyytv/6.1.0/artifact.pom, took 434 ms
+2026-10-14T09:15:35.3526950Z Download https://dl.google.com/dl/android/maven2/com/google/guava/ppk9cx/7.8.0/artifact.pom, took 570 ms
+2026-10-14T09:15:35.5352330Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/lkib9y/1.2.0/artifact.pom, took 317 ms
+2026-10-14T09:15:35.9336220Z Download https://dl.google.com/dl/android/maven2/io/grpc/genfjw/2.6.0/artifact.pom, took 57 ms
+2026-10-14T09:15:36.0384030Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/jueuse/5.3.0/artifact.pom, took 497 ms
+2026-10-14T09:15:36.3982460Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/l0rln8/6.9.0/artifact.pom, took 292 ms
+2026-10-14T09:15:37.0966540Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/uhopky/3.3.0/artifact.pom, took 142 ms
+2026-10-14T09:15:37.5477660Z Download https://dl.google.com/dl/android/maven2/androidx/core/diqzte/8.3.0/artifact.pom, took 162 ms
+2026-10-14T09:15:38.1513960Z Download https://dl.google.com/dl/android/maven2/com/google/guava/ojd0k8/3.1.0/artifact.pom, took 192 ms
+2026-10-14T09:15:38.2816680Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/yp4tqs/2.0.0/artifact.pom, took 400 ms
+2026-10-14T09:15:38.6047600Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/dkrloy/4.5.0/artifact.pom, took 235 ms
+2026-10-14T09:15:39.0255940Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/vi2ur8/2.5.0/artifact.pom, took 25 ms
+2026-10-14T09:15:39.1019530Z Download https://dl.google.com/dl/android/maven2/androidx/core/t9jblg/7.1.0/artifact.pom, took 303 ms
+2026-10-14T09:15:39.6713680Z Download https://dl.google.com/dl/android/maven2/com/google/guava/zhfp1j/4.2.0/artifact.pom, took 796 ms
+2026-10-14T09:15:40.2062860Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/tl7qk1/4.3.0/artifact.pom, took 469 ms
+2026-10-14T09:15:40.3368630Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/tpqycb/1.6.0/artifact.pom, took 118 ms
+2026-10-14T09:15:40.9635970Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/cvomio/7.6.0/artifact.pom, took 211 ms
+2026-10-14T09:15:41.5559370Z Download https://dl.google.com/dl/android/maven2/com/google/guava/wzkik8/4.9.0/artifact.pom, took 547 ms
+2026-10-14T09:15:41.7115490Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/c7ortt/8.1.0/artifact.pom, took 599 ms
+2026-10-14T09:15:42.0191360Z Download https://dl.google.com/dl/android/maven2/com/google/guava/kuswrm/2.2.0/artifact.pom, took 546 ms
+2026-10-14T09:15:42.5653830Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/pkmjik/4.4.0/artifact.pom, took 114 ms
+2026-10-14T09:15:43.0403130Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/gn47ej/7.0.0/artifact.pom, took 127 ms
+2026-10-14T09:15:43.5065510Z Download https://dl.google.com/dl/android/maven2/com/google/guava/eeiqzi/9.5.0/artifact.pom, took 597 ms
+2026-10-14T09:15:44.1912810Z Download https://dl.google.com/dl/android/maven2/com/google/guava/tdbo1b/4.6.0/artifact.pom, took 171 ms
+2026-10-14T09:15:44.2893690Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/4ydkju/2.5.0/artifact.pom, took 774 ms
+2026-10-14T09:15:44.4973990Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/wrtigg/8.9.0/artifact.pom, took 877 ms
+2026-10-14T09:15:44.7207320Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/eplrue/3.4.0/artifact.pom, took 334 ms
+2026-10-14T09:15:44.9661450Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/zrwwqp/7.7.0/artifact.pom, took 115 ms
+2026-10-14T09:15:45.4287030Z Download https://dl.google.com/dl/android/maven2/io/grpc/wqoser/2.2.0/artifact.pom, took 755 ms
+2026-10-14T09:15:45.5984310Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/qd1qyg/8.3.0/artifact.pom, took 437 ms
+2026-10-14T09:15:45.8638660Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/tx8xh3/1.6.0/artifact.pom, took 55 ms
+2026-10-14T09:15:46.2147420Z Download https://dl.google.com/dl/android/maven2/io/grpc/2xe1kh/8.7.0/artifact.pom, took 21 ms
+2026-10-14T09:15:46.6767310Z Download https://dl.google.com/dl/android/maven2/io/grpc/2lxi82/5.2.0/artifact.pom, took 94 ms
+2026-10-14T09:15:47.1447690Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/rva6qd/8.9.0/artifact.pom, took 502 ms
+2026-10-14T09:15:47.2543600Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/v25ocp/7.8.0/artifact.pom, took 468 ms
+2026-10-14T09:15:47.8463870Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/acxscd/1.8.0/artifact.pom, took 602 ms
+2026-10-14T09:15:48.2665430Z Download https://dl.google.com/dl/android/maven2/com/google/guava/mlnbxv/6.1.0/artifact.pom, took 196 ms
+2026-10-14T09:15:48.5606780Z Download https://dl.google.com/dl/android/maven2/io/grpc/j2lujx/7.9.0/artifact.pom, took 369 ms
+2026-10-14T09:15:48.9629430Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/gd2dqn/3.2.0/artifact.pom, took 856 ms
+2026-10-14T09:15:49.0579520Z Download https://dl.google.com/dl/android/maven2/io/grpc/tcllne/9.9.0/artifact.pom, took 645 ms
+2026-10-14T09:15:49.4308690Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/zd1ci1/6.8.0/artifact.pom, took 76 ms
+2026-10-14T09:15:50.0753700Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/eo7k7q/5.2.0/artifact.pom, took 789 ms
+2026-10-14T09:15:50.5066940Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/fs6lyi/7.7.0/artifact.pom, took 411 ms
+2026-10-14T09:15:51.1889830Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/uhzfep/1.6.0/artifact.pom, took 46 ms
+2026-10-14T09:15:51.7115530Z Download https://dl.google.com/dl/android/maven2/io/grpc/ouuaw2/4.5.0/artifact.pom, took 605 ms
+2026-10-14T09:15:51.9530430Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/f6llod/5.5.0/artifact.pom, took 867 ms
+2026-10-14T09:15:52.2378630Z Download https://dl.google.com/dl/android/maven2/io/grpc/eobrdk/9.7.0/artifact.pom, took 223 ms
+2026-10-14T09:15:52.3232410Z Download https://dl.google.com/dl/android/maven2/io/grpc/a3bzpb/6.7.0/artifact.pom, took 293 ms
+2026-10-14T09:15:52.9290900Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/awy4al/2.8.0/artifact.pom, took 236 ms
+2026-10-14T09:15:53.4385810Z Download https://dl.google.com/dl/android/maven2/com/google/guava/21cptg/2.7.0/artifact.pom, took 178 ms
+2026-10-14T09:15:54.1211890Z Download https://dl.google.com/dl/android/maven2/io/grpc/q1vczu/6.9.0/artifact.pom, took 620 ms
+2026-10-14T09:15:54.4581800Z Download https://dl.google.com/dl/android/maven2/androidx/core/dd2xh4/8.7.0/artifact.pom, took 415 ms
+2026-10-14T09:15:54.6155370Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/5e4xbv/3.4.0/artifact.pom, took 571 ms
+2026-10-14T09:15:55.1268100Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/jcvg8h/7.5.0/artifact.pom, took 678 ms
+2026-10-14T09:15:55.2175240Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/bp3vow/3.2.0/artifact.pom, took 371 ms
+2026-10-14T09:15:55.7258100Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/8xwmjp/5.7.0/artifact.pom, took 741 ms
+2026-10-14T09:15:55.8674940Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/hmctxn/6.4.0/artifact.pom, took 76 ms
+2026-10-14T09:15:56.4067450Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/xaqm1p/9.3.0/artifact.pom, took 716 ms
+2026-10-14T09:15:56.4200740Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/vfwh4z/2.4.0/artifact.pom, took 350 ms
+2026-10-14T09:15:56.8491180Z Download https://dl.google.com/dl/android/maven2/io/grpc/wbmgqa/7.8.0/artifact.pom, took 749 ms
+2026-10-14T09:15:57.1185440Z Download https://dl.google.com/dl/android/maven2/androidx/core/alwmsc/5.1.0/artifact.pom, took 394 ms
+2026-10-14T09:15:57.2807720Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/0h7o5y/1.4.0/artifact.pom, took 319 ms
+2026-10-14T09:15:57.8559990Z Download https://dl.google.com/dl/android/maven2/androidx/core/hkxry8/4.7.0/artifact.pom, took 858 ms
+2026-10-14T09:15:58.2504080Z Download https://dl.google.com/dl/android/maven2/io/grpc/oznqxg/8.7.0/artifact.pom, took 714 ms
+2026-10-14T09:15:58.8030270Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/qph2em/8.3.0/artifact.pom, took 684 ms
+2026-10-14T09:15:59.4471200Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/6pcb3s/5.5.0/artifact.pom, took 291 ms
+2026-10-14T09:16:00.1083210Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/33w1jw/3.0.0/artifact.pom, took 647 ms
+2026-10-14T09:16:00.4671370Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/afmqw0/3.7.0/artifact.pom, took 269 ms
+2026-10-14T09:16:00.6650650Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/xqkypr/9.1.0/artifact.pom, took 552 ms
+2026-10-14T09:16:00.7512050Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/tz2wby/7.0.0/artifact.pom, took 208 ms
+2026-10-14T09:16:01.0722280Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/vpzeir/4.2.0/artifact.pom, took 125 ms
+2026-10-14T09:16:01.6772220Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/zs42cq/4.5.0/artifact.pom, took 542 ms
+2026-10-14T09:16:01.9756610Z Download https://dl.google.com/dl/android/maven2/io/grpc/j0i2z1/4.0.0/artifact.pom, took 463 ms
+2026-10-14T09:16:02.2544250Z Download https://dl.google.com/dl/android/maven2/androidx/core/u1iogn/6.4.0/artifact.pom, took 853 ms
+2026-10-14T09:16:02.7012360Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/you8a9/1.6.0/artifact.pom, took 313 ms
+2026-10-14T09:16:02.8061960Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/xncxom/8.8.0/artifact.pom, took 274 ms
+2026-10-14T09:16:03.2300010Z Download https://dl.google.com/dl/android/maven2/androidx/core/yd0pfu/8.5.0/artifact.pom, took 45 ms
+2026-10-14T09:16:03.3888940Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/qxu0ym/3.5.0/artifact.pom, took 805 ms
+2026-10-14T09:16:03.4963740Z Download https://dl.google.com/dl/android/maven2/androidx/core/jpnnfj/7.6.0/artifact.pom, took 874 ms
+2026-10-14T09:16:03.7277950Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/nbhare/1.5.0/artifact.pom, took 402 ms
+2026-10-14T09:16:04.3034240Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/h35xaz/3.4.0/artifact.pom, took 137 ms
+2026-10-14T09:16:04.3166220Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/t5fifl/4.3.0/artifact.pom, took 393 ms
+2026-10-14T09:16:04.3312590Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/lf6voa/8.0.0/artifact.pom, took 812 ms
+2026-10-14T09:16:04.9086450Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/w22rt5/1.4.0/artifact.pom, took 254 ms
+2026-10-14T09:16:05.1644870Z Download https://dl.google.com/dl/android/maven2/com/squareup/okhttp3/8mvuaz/8.5.0/artifact.pom, took 532 ms
+2026-10-14T09:16:05.7207610Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/v8wvny/2.0.0/artifact.pom, took 820 ms
+2026-10-14T09:16:06.1562430Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/xjl72w/5.0.0/artifact.pom, took 407 ms
+2026-10-14T09:16:06.7631730Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/lgwmzw/6.0.0/artifact.pom, took 287 ms
+2026-10-14T09:16:07.4159040Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/fgswo4/2.6.0/artifact.pom, took 680 ms
+2026-10-14T09:16:07.6027910Z Download https://dl.google.com/dl/android/maven2/io/grpc/libyno/7.1.0/artifact.pom, took 520 ms
+2026-10-14T09:16:07.7430400Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/7gluji/4.7.0/artifact.pom, took 858 ms
+2026-10-14T09:16:08.2172990Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/kmlsf9/7.6.0/artifact.pom, took 121 ms
+2026-10-14T09:16:08.6925080Z Download https://dl.google.com/dl/android/maven2/org/jetbrains/kotlin/r0oqjg/6.3.0/artifact.pom, took 597 ms
+2026-10-14T09:16:08.9016090Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/zz5scx/5.4.0/artifact.pom, took 347 ms
+2026-10-14T09:16:08.9319030Z Download https://dl.google.com/dl/android/maven2/androidx/core/oqnpfi/7.2.0/artifact.pom, took 764 ms
+2026-10-14T09:16:09.0746520Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/fqoicn/2.2.0/artifact.pom, took 717 ms
+2026-10-14T09:16:09.2385070Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/dvgvt4/8.0.0/artifact.pom, took 656 ms
+2026-10-14T09:16:09.7490980Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/wgvsde/6.6.0/artifact.pom, took 750 ms
+2026-10-14T09:16:09.7785090Z Download https://dl.google.com/dl/android/maven2/net/sf/proguard/isyrx5/5.3.0/artifact.pom, took 863 ms
+2026-10-14T09:16:10.2841530Z Download https://dl.google.com/dl/android/maven2/io/grpc/wijb8l/5.3.0/artifact.pom, took 155 ms
+2026-10-14T09:16:10.4166230Z Download https://dl.google.com/dl/android/maven2/com/android/tools/build/i7myr5/2.4.0/artifact.pom, took 460 ms
+2026-10-14T09:16:10.8138350Z Download https://dl.google.com/dl/android/maven2/org/ow2/asm/ytpant/1.2.0/artifact.pom, took 599 ms
+2026-10-14T09:16:11.2662910Z 
+2026-10-14T09:16:11.9037810Z [31mFAILURE: Build failed with an exception.[0m
+2026-10-14T09:16:12.4906390Z 
+2026-10-14T09:16:12.9137340Z * Where:
+2026-10-14T09:16:13.0643330Z Build file '/home/runner/work/shopper/shopper/android/app/build.gradle' line: 2
+2026-10-14T09:16:13.1167680Z 
+2026-10-14T09:16:13.6719700Z * What went wrong:
+2026-10-14T09:16:14.0385520Z An exception occurred applying plugin request [id: 'com.android.application']
+2026-10-14T09:16:14.3367640Z > Failed to apply plugin 'com.android.internal.application'.
+2026-10-14T09:16:14.7679600Z    > Android Gradle plugin requires Java 17 to run. You are currently using Java 11.
+2026-10-14T09:16:15.2857960Z       Your current JDK is located in /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/11.0.24-8/x64
+2026-10-14T09:16:15.3815560Z       You can try some of the following options:
+2026-10-14T09:16:15.4916830Z        - changing the IDE settings.
+2026-10-14T09:16:15.5182840Z        - changing the JAVA_HOME environment variable.
+2026-10-14T09:16:15.6451510Z        - changing `org.gradle.java.home` in `gradle.properties`.
+2026-10-14T09:16:16.1078590Z 
+2026-10-14T09:16:16.6613530Z * Try:
+2026-10-14T09:16:17.0906000Z > Run with --stacktrace option to get the stack trace.
+2026-10-14T09:16:17.6759630Z > Run with --info or --debug option to get more log output.
+2026-10-14T09:16:18.0838660Z > Run with --scan to get full insights.
+2026-10-14T09:16:18.7666910Z > Get more help at https://help.gradle.org.
+2026-10-14T09:16:19.0049620Z 
+2026-10-14T09:16:19.3449320Z BUILD FAILED in 1m 52s
+2026-10-14T09:16:19.8092020Z Running Gradle task 'assembleRelease'...                          113.4s
+2026-10-14T09:16:20.3777230Z Gradle task assembleRelease failed with exit code 1
+2026-10-14T09:16:20.7558680Z ##[error]Process completed with exit code 1.

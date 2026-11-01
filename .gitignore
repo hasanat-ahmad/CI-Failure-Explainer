@@ -12,3 +12,5 @@ ci-doctor-*/
 *.raw.log
 dist/
 .ruff_cache/
+# generated at test time: realistic fake tokens trip secret scanners
+tests/fixtures/log_with_secrets.log

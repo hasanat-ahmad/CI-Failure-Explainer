@@ -1,0 +1,512 @@
+test	Run flutter pub get --verbose	2026-10-14T09:12:03.1556680Z ##[group]Run flutter pub get --verbose
+test	Run flutter pub get --verbose	2026-10-14T09:12:03.8018540Z [36mflutter pub get --verbose[0m
+test	Run flutter pub get --verbose	2026-10-14T09:12:04.1777940Z shell: /usr/bin/bash -e {0}
+test	Run flutter pub get --verbose	2026-10-14T09:12:04.3560220Z ##[endgroup]
+test	Run flutter pub get --verbose	2026-10-14T09:12:04.7593290Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/xdg_directories
+test	Run flutter pub get --verbose	2026-10-14T09:12:05.3533870Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/meta
+test	Run flutter pub get --verbose	2026-10-14T09:12:06.0034450Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/characters
+test	Run flutter pub get --verbose	2026-10-14T09:12:06.4667120Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:06.7048700Z    | {"name":"vm_service","latest":{"version":"1.12.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:06.7606020Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:06.9535900Z    | {"name":"vector_math","latest":{"version":"1.2.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:07.5100640Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/string_scanner
+test	Run flutter pub get --verbose	2026-10-14T09:12:08.1616360Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:08.5939760Z    | {"name":"vm_service","latest":{"version":"1.15.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:09.2352620Z IO  : Get versions from https://pub.dev/api/packages/test_api.
+test	Run flutter pub get --verbose	2026-10-14T09:12:09.4394950Z SLVR: derived: crypto ^1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:09.8917870Z SLVR: selecting vector_math 1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:10.2731910Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:10.4909250Z    | {"name":"source_span","latest":{"version":"1.5.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:11.1532930Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/collection
+test	Run flutter pub get --verbose	2026-10-14T09:12:11.7387620Z SLVR: selecting meta 1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:12.4093480Z SLVR: derived: string_scanner ^1.10.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:13.0657650Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/test_api
+test	Run flutter pub get --verbose	2026-10-14T09:12:13.3222920Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:13.5375080Z    | {"name":"vector_math","latest":{"version":"1.12.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:14.0974020Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/web
+test	Run flutter pub get --verbose	2026-10-14T09:12:14.5154930Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/riverpod
+test	Run flutter pub get --verbose	2026-10-14T09:12:14.8380580Z SLVR: selecting ffi 1.5.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:15.1054540Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/collection
+test	Run flutter pub get --verbose	2026-10-14T09:12:15.4358380Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:15.9057230Z    | {"name":"stack_trace","latest":{"version":"1.6.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:16.4467010Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:16.8820090Z    | {"name":"intl","latest":{"version":"1.7.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:17.3853180Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:17.9432120Z    | {"name":"flutter_lints","latest":{"version":"1.19.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:18.1968750Z IO  : Get versions from https://pub.dev/api/packages/leak_tracker.
+test	Run flutter pub get --verbose	2026-10-14T09:12:18.3185500Z SLVR: derived: shared_preferences ^1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:18.7568390Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:19.0439340Z    | {"name":"ffi","latest":{"version":"1.0.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:19.4787380Z SLVR: derived: path_provider ^1.14.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:19.7905880Z SLVR: selecting lints 1.6.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:19.9875100Z IO  : Get versions from https://pub.dev/api/packages/intl.
+test	Run flutter pub get --verbose	2026-10-14T09:12:20.6613820Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/term_glyph
+test	Run flutter pub get --verbose	2026-10-14T09:12:20.8399860Z SLVR: derived: leak_tracker ^1.2.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:20.8482700Z SLVR: selecting shared_preferences 1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:21.0781160Z SLVR: derived: matcher ^1.13.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:21.2449330Z SLVR: selecting http_parser 1.7.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:21.3632370Z IO  : Get versions from https://pub.dev/api/packages/collection.
+test	Run flutter pub get --verbose	2026-10-14T09:12:21.5597690Z SLVR: derived: http ^1.5.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:21.7026040Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:22.1760440Z    | {"name":"clock","latest":{"version":"1.4.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:22.5342360Z SLVR: selecting source_span 1.2.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:23.0101610Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:23.2712320Z    | {"name":"web","latest":{"version":"1.14.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:23.8825290Z IO  : Get versions from https://pub.dev/api/packages/flutter_lints.
+test	Run flutter pub get --verbose	2026-10-14T09:12:24.3907070Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/material_color_utilities
+test	Run flutter pub get --verbose	2026-10-14T09:12:24.9762920Z IO  : Get versions from https://pub.dev/api/packages/intl.
+test	Run flutter pub get --verbose	2026-10-14T09:12:25.2462790Z SLVR: selecting intl 1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:25.8540570Z SLVR: selecting vector_math 1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:26.1405300Z SLVR: selecting http 1.8.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:26.7211620Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:26.8047700Z    | {"name":"fake_async","latest":{"version":"1.8.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:27.4945720Z IO  : Get versions from https://pub.dev/api/packages/fake_async.
+test	Run flutter pub get --verbose	2026-10-14T09:12:27.6803250Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:28.0970410Z    | {"name":"js","latest":{"version":"1.2.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:28.4524110Z SLVR: selecting leak_tracker 1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:28.7262370Z SLVR: derived: test_api ^1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:29.2336300Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:29.4490390Z    | {"name":"string_scanner","latest":{"version":"1.6.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:30.1443780Z IO  : Get versions from https://pub.dev/api/packages/source_span.
+test	Run flutter pub get --verbose	2026-10-14T09:12:30.7075200Z SLVR: derived: platform ^1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:31.1854560Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/crypto
+test	Run flutter pub get --verbose	2026-10-14T09:12:31.2127220Z IO  : Get versions from https://pub.dev/api/packages/js.
+test	Run flutter pub get --verbose	2026-10-14T09:12:31.2359900Z SLVR: derived: ffi ^1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:31.2992820Z SLVR: selecting clock 1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:31.6977830Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:32.3670780Z    | {"name":"string_scanner","latest":{"version":"1.14.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:32.5589080Z SLVR: derived: leak_tracker ^1.10.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:33.2236680Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:33.4368970Z    | {"name":"material_color_utilities","latest":{"version":"1.3.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:34.0168590Z IO  : Get versions from https://pub.dev/api/packages/meta.
+test	Run flutter pub get --verbose	2026-10-14T09:12:34.2192160Z SLVR: derived: matcher ^1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:34.4019900Z IO  : Get versions from https://pub.dev/api/packages/js.
+test	Run flutter pub get --verbose	2026-10-14T09:12:35.0269560Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:35.3122360Z    | {"name":"web","latest":{"version":"1.7.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:35.9374840Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:36.3591310Z    | {"name":"async","latest":{"version":"1.14.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:36.5382430Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/lints
+test	Run flutter pub get --verbose	2026-10-14T09:12:36.5489250Z SLVR: selecting source_span 1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:36.8459670Z IO  : Get versions from https://pub.dev/api/packages/web.
+test	Run flutter pub get --verbose	2026-10-14T09:12:37.0954890Z IO  : Get versions from https://pub.dev/api/packages/vector_math.
+test	Run flutter pub get --verbose	2026-10-14T09:12:37.5167290Z SLVR: selecting platform 1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:38.0413070Z SLVR: selecting crypto 1.2.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:38.0573030Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:38.1637280Z    | {"name":"test_api","latest":{"version":"1.11.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:38.6814160Z IO  : Get versions from https://pub.dev/api/packages/meta.
+test	Run flutter pub get --verbose	2026-10-14T09:12:38.8827600Z IO  : Get versions from https://pub.dev/api/packages/vector_math.
+test	Run flutter pub get --verbose	2026-10-14T09:12:39.2847290Z SLVR: selecting js 1.7.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:39.8121590Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/platform
+test	Run flutter pub get --verbose	2026-10-14T09:12:40.3672650Z IO  : Get versions from https://pub.dev/api/packages/async.
+test	Run flutter pub get --verbose	2026-10-14T09:12:40.8911440Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/meta
+test	Run flutter pub get --verbose	2026-10-14T09:12:40.9264070Z SLVR: derived: shared_preferences ^1.13.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:41.5761090Z SLVR: selecting boolean_selector 1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:41.8804680Z SLVR: derived: web ^1.8.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:42.2539150Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:42.4518800Z    | {"name":"fake_async","latest":{"version":"1.8.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:42.8595290Z SLVR: derived: http ^1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:43.5369000Z SLVR: selecting crypto 1.20.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:43.9790450Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:44.3582300Z    | {"name":"provider","latest":{"version":"1.7.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:44.9191550Z SLVR: derived: http ^1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:45.0803870Z SLVR: selecting source_span 1.10.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:45.6658030Z IO  : Get versions from https://pub.dev/api/packages/vector_math.
+test	Run flutter pub get --verbose	2026-10-14T09:12:45.7923490Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:46.4232300Z    | {"name":"riverpod","latest":{"version":"1.1.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:46.8614040Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:47.3418420Z    | {"name":"intl","latest":{"version":"1.0.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:47.4557320Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/go_router
+test	Run flutter pub get --verbose	2026-10-14T09:12:48.0644860Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/web
+test	Run flutter pub get --verbose	2026-10-14T09:12:48.0832320Z SLVR: derived: typed_data ^1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:48.5193930Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:48.7245810Z    | {"name":"http","latest":{"version":"1.5.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:49.0797270Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:49.4729310Z    | {"name":"intl","latest":{"version":"1.14.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:49.9760570Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/crypto
+test	Run flutter pub get --verbose	2026-10-14T09:12:50.0541800Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:50.1657170Z    | {"name":"flutter_lints","latest":{"version":"1.17.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:50.5751380Z SLVR: derived: clock ^1.18.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:50.9222970Z IO  : Get versions from https://pub.dev/api/packages/path.
+test	Run flutter pub get --verbose	2026-10-14T09:12:51.1762260Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/vector_math
+test	Run flutter pub get --verbose	2026-10-14T09:12:51.6673410Z SLVR: derived: platform ^1.7.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:51.8842890Z SLVR: derived: typed_data ^1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:52.2979810Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/meta
+test	Run flutter pub get --verbose	2026-10-14T09:12:52.9459890Z SLVR: derived: source_span ^1.10.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:53.4703800Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/meta
+test	Run flutter pub get --verbose	2026-10-14T09:12:53.5042930Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/lints
+test	Run flutter pub get --verbose	2026-10-14T09:12:53.9390360Z IO  : Get versions from https://pub.dev/api/packages/shared_preferences.
+test	Run flutter pub get --verbose	2026-10-14T09:12:53.9655210Z SLVR: selecting platform 1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:54.1985640Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/ffi
+test	Run flutter pub get --verbose	2026-10-14T09:12:54.6707540Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/web
+test	Run flutter pub get --verbose	2026-10-14T09:12:55.1730080Z SLVR: derived: http ^1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:55.2195190Z SLVR: selecting term_glyph 1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:55.4397590Z SLVR: selecting material_color_utilities 1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:55.9121850Z SLVR: selecting fake_async 1.13.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:56.4172760Z IO  : Get versions from https://pub.dev/api/packages/shared_preferences.
+test	Run flutter pub get --verbose	2026-10-14T09:12:56.6169780Z IO  : Get versions from https://pub.dev/api/packages/platform.
+test	Run flutter pub get --verbose	2026-10-14T09:12:57.0338040Z SLVR: selecting web 1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:57.6841970Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/fake_async
+test	Run flutter pub get --verbose	2026-10-14T09:12:58.2008440Z SLVR: derived: lints ^1.18.0
+test	Run flutter pub get --verbose	2026-10-14T09:12:58.6212230Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/async
+test	Run flutter pub get --verbose	2026-10-14T09:12:58.8431600Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:12:59.1331910Z    | {"name":"http_parser","latest":{"version":"1.7.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:12:59.8241450Z SLVR: selecting characters 1.2.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:00.4675780Z IO  : Get versions from https://pub.dev/api/packages/flutter_lints.
+test	Run flutter pub get --verbose	2026-10-14T09:13:00.6525710Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/intl
+test	Run flutter pub get --verbose	2026-10-14T09:13:01.2738460Z SLVR: selecting vm_service 1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:01.3626400Z SLVR: selecting material_color_utilities 1.9.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:01.3688620Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:01.8968490Z    | {"name":"lints","latest":{"version":"1.7.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:02.5036700Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:03.0552300Z    | {"name":"source_span","latest":{"version":"1.16.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:03.7443800Z IO  : Get versions from https://pub.dev/api/packages/boolean_selector.
+test	Run flutter pub get --verbose	2026-10-14T09:13:04.1963050Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:04.3908750Z    | {"name":"typed_data","latest":{"version":"1.2.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:04.6337490Z SLVR: selecting lints 1.20.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:04.9644880Z SLVR: derived: clock ^1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:05.3831940Z IO  : Get versions from https://pub.dev/api/packages/go_router.
+test	Run flutter pub get --verbose	2026-10-14T09:13:05.5069960Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:05.5512140Z    | {"name":"http","latest":{"version":"1.13.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:06.1557880Z IO  : Get versions from https://pub.dev/api/packages/lints.
+test	Run flutter pub get --verbose	2026-10-14T09:13:06.3536820Z SLVR: derived: matcher ^1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:06.7145550Z SLVR: derived: string_scanner ^1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:07.1196350Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:07.3239110Z    | {"name":"matcher","latest":{"version":"1.10.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:07.7823990Z SLVR: derived: source_span ^1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:08.2576870Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/boolean_selector
+test	Run flutter pub get --verbose	2026-10-14T09:13:08.5122800Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:08.8353550Z    | {"name":"stack_trace","latest":{"version":"1.3.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:09.2873590Z IO  : Get versions from https://pub.dev/api/packages/source_span.
+test	Run flutter pub get --verbose	2026-10-14T09:13:09.6143450Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:10.0905320Z    | {"name":"leak_tracker","latest":{"version":"1.18.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:10.3140770Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/string_scanner
+test	Run flutter pub get --verbose	2026-10-14T09:13:10.7792980Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:11.0096040Z    | {"name":"stream_channel","latest":{"version":"1.19.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:11.3661060Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/riverpod
+test	Run flutter pub get --verbose	2026-10-14T09:13:11.6297920Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/web
+test	Run flutter pub get --verbose	2026-10-14T09:13:11.7999890Z SLVR: derived: boolean_selector ^1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:11.8886140Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/flutter_lints
+test	Run flutter pub get --verbose	2026-10-14T09:13:12.1314500Z SLVR: derived: path_provider ^1.9.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:12.6136990Z SLVR: derived: provider ^1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:13.0093840Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/term_glyph
+test	Run flutter pub get --verbose	2026-10-14T09:13:13.1320100Z SLVR: derived: characters ^1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:13.6670030Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:14.3002730Z    | {"name":"stream_channel","latest":{"version":"1.20.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:14.4303620Z SLVR: derived: typed_data ^1.5.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:14.9647220Z SLVR: selecting source_span 1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:15.0662180Z SLVR: selecting typed_data 1.14.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:15.6437940Z SLVR: selecting provider 1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:16.0414110Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:16.5443330Z    | {"name":"platform","latest":{"version":"1.18.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:16.7462260Z SLVR: derived: matcher ^1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:16.9524780Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:17.3343180Z    | {"name":"typed_data","latest":{"version":"1.1.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:17.8210020Z SLVR: derived: provider ^1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:18.2782390Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/flutter_lints
+test	Run flutter pub get --verbose	2026-10-14T09:13:18.6864120Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/flutter_lints
+test	Run flutter pub get --verbose	2026-10-14T09:13:18.9612290Z IO  : Get versions from https://pub.dev/api/packages/http_parser.
+test	Run flutter pub get --verbose	2026-10-14T09:13:19.0126310Z SLVR: derived: crypto ^1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:19.0279720Z SLVR: derived: crypto ^1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:19.6371710Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/async
+test	Run flutter pub get --verbose	2026-10-14T09:13:19.9415880Z IO  : Get versions from https://pub.dev/api/packages/ffi.
+test	Run flutter pub get --verbose	2026-10-14T09:13:20.1373020Z IO  : Get versions from https://pub.dev/api/packages/http_parser.
+test	Run flutter pub get --verbose	2026-10-14T09:13:20.7164820Z SLVR: derived: vm_service ^1.7.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:21.3442030Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:21.6379120Z    | {"name":"vector_math","latest":{"version":"1.14.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:21.6485410Z SLVR: selecting boolean_selector 1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:21.6977140Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/flutter_lints
+test	Run flutter pub get --verbose	2026-10-14T09:13:21.7269460Z SLVR: derived: lints ^1.18.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:21.8714580Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:21.8999500Z    | {"name":"async","latest":{"version":"1.14.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:22.3142930Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:22.9820930Z    | {"name":"typed_data","latest":{"version":"1.12.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:23.5740350Z IO  : Get versions from https://pub.dev/api/packages/async.
+test	Run flutter pub get --verbose	2026-10-14T09:13:23.7981290Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/go_router
+test	Run flutter pub get --verbose	2026-10-14T09:13:23.8732550Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/vm_service
+test	Run flutter pub get --verbose	2026-10-14T09:13:24.0948890Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/provider
+test	Run flutter pub get --verbose	2026-10-14T09:13:24.4132330Z SLVR: derived: async ^1.9.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:24.5568100Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/http_parser
+test	Run flutter pub get --verbose	2026-10-14T09:13:25.1260280Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/matcher
+test	Run flutter pub get --verbose	2026-10-14T09:13:25.4113520Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:26.0045890Z    | {"name":"intl","latest":{"version":"1.20.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:26.3911560Z SLVR: selecting ffi 1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:26.4909690Z SLVR: derived: leak_tracker ^1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:27.0285200Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/go_router
+test	Run flutter pub get --verbose	2026-10-14T09:13:27.3772970Z SLVR: selecting test_api 1.9.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:27.9335250Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/xdg_directories
+test	Run flutter pub get --verbose	2026-10-14T09:13:27.9930600Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/characters
+test	Run flutter pub get --verbose	2026-10-14T09:13:28.3904540Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/matcher
+test	Run flutter pub get --verbose	2026-10-14T09:13:28.7108410Z SLVR: derived: path ^1.20.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:29.2131690Z IO  : Get versions from https://pub.dev/api/packages/characters.
+test	Run flutter pub get --verbose	2026-10-14T09:13:29.6811700Z IO  : Get versions from https://pub.dev/api/packages/http.
+test	Run flutter pub get --verbose	2026-10-14T09:13:29.7700210Z IO  : Get versions from https://pub.dev/api/packages/leak_tracker.
+test	Run flutter pub get --verbose	2026-10-14T09:13:29.8378370Z IO  : Get versions from https://pub.dev/api/packages/meta.
+test	Run flutter pub get --verbose	2026-10-14T09:13:30.1318230Z IO  : Get versions from https://pub.dev/api/packages/string_scanner.
+test	Run flutter pub get --verbose	2026-10-14T09:13:30.7929690Z SLVR: selecting string_scanner 1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:31.0917400Z SLVR: selecting source_span 1.1.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:31.5466900Z IO  : Get versions from https://pub.dev/api/packages/xdg_directories.
+test	Run flutter pub get --verbose	2026-10-14T09:13:32.1465170Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/flutter_lints
+test	Run flutter pub get --verbose	2026-10-14T09:13:32.2551260Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:32.7241270Z    | {"name":"collection","latest":{"version":"1.7.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:32.7508000Z IO  : Get versions from https://pub.dev/api/packages/xdg_directories.
+test	Run flutter pub get --verbose	2026-10-14T09:13:33.3164950Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:33.7733350Z    | {"name":"string_scanner","latest":{"version":"1.15.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:34.3000210Z IO  : Get versions from https://pub.dev/api/packages/collection.
+test	Run flutter pub get --verbose	2026-10-14T09:13:34.4084050Z SLVR: selecting platform 1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:34.5902220Z SLVR: selecting shared_preferences 1.1.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:35.1920670Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:35.5484350Z    | {"name":"platform","latest":{"version":"1.13.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:35.7660690Z SLVR: derived: meta ^1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:35.9407910Z IO  : Get versions from https://pub.dev/api/packages/xdg_directories.
+test	Run flutter pub get --verbose	2026-10-14T09:13:36.6062430Z SLVR: selecting go_router 1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:36.8654000Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/ffi
+test	Run flutter pub get --verbose	2026-10-14T09:13:37.1962000Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:37.5952550Z    | {"name":"clock","latest":{"version":"1.5.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:37.8293460Z IO  : Get versions from https://pub.dev/api/packages/xdg_directories.
+test	Run flutter pub get --verbose	2026-10-14T09:13:38.1450290Z SLVR: derived: platform ^1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:38.5634880Z SLVR: selecting http 1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:38.8468380Z SLVR: selecting xdg_directories 1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:39.3532900Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:39.6816580Z    | {"name":"characters","latest":{"version":"1.16.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:40.1319620Z IO  : Get versions from https://pub.dev/api/packages/typed_data.
+test	Run flutter pub get --verbose	2026-10-14T09:13:40.7564830Z SLVR: derived: path ^1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:41.3089080Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/http
+test	Run flutter pub get --verbose	2026-10-14T09:13:41.3254270Z SLVR: derived: path_provider ^1.9.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:41.7698670Z IO  : Get versions from https://pub.dev/api/packages/typed_data.
+test	Run flutter pub get --verbose	2026-10-14T09:13:42.3468640Z SLVR: derived: vm_service ^1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:42.8619780Z SLVR: derived: riverpod ^1.8.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:43.3233310Z SLVR: derived: vm_service ^1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:43.7661380Z IO  : Get versions from https://pub.dev/api/packages/shared_preferences.
+test	Run flutter pub get --verbose	2026-10-14T09:13:43.7872630Z SLVR: selecting http_parser 1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:43.8800160Z SLVR: derived: boolean_selector ^1.1.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:43.8857280Z IO  : Get versions from https://pub.dev/api/packages/meta.
+test	Run flutter pub get --verbose	2026-10-14T09:13:43.9341370Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:44.0061580Z    | {"name":"flutter_lints","latest":{"version":"1.0.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:44.1266740Z IO  : Get versions from https://pub.dev/api/packages/typed_data.
+test	Run flutter pub get --verbose	2026-10-14T09:13:44.5850730Z SLVR: selecting path 1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:45.2089550Z IO  : Get versions from https://pub.dev/api/packages/intl.
+test	Run flutter pub get --verbose	2026-10-14T09:13:45.4016090Z SLVR: derived: go_router ^1.1.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:45.5809540Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/test_api
+test	Run flutter pub get --verbose	2026-10-14T09:13:46.1580450Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:46.4444240Z    | {"name":"http","latest":{"version":"1.0.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:46.8019120Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:47.1250520Z    | {"name":"shared_preferences","latest":{"version":"1.5.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:47.4762220Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/async
+test	Run flutter pub get --verbose	2026-10-14T09:13:47.8714650Z SLVR: selecting collection 1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:48.4004790Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:48.8149770Z    | {"name":"clock","latest":{"version":"1.3.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:49.2166720Z SLVR: selecting characters 1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:49.2407190Z SLVR: derived: string_scanner ^1.9.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:49.4903170Z IO  : Get versions from https://pub.dev/api/packages/source_span.
+test	Run flutter pub get --verbose	2026-10-14T09:13:49.7291940Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/lints
+test	Run flutter pub get --verbose	2026-10-14T09:13:50.0454520Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:50.5830470Z    | {"name":"web","latest":{"version":"1.3.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:50.6910300Z IO  : Get versions from https://pub.dev/api/packages/crypto.
+test	Run flutter pub get --verbose	2026-10-14T09:13:51.1271900Z SLVR: derived: collection ^1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:51.7345120Z SLVR: derived: typed_data ^1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:52.3252450Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:52.4255310Z    | {"name":"http_parser","latest":{"version":"1.13.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:52.4963310Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/matcher
+test	Run flutter pub get --verbose	2026-10-14T09:13:52.5076680Z SLVR: derived: js ^1.8.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:52.7943960Z SLVR: selecting boolean_selector 1.1.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:53.0812320Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:53.0937320Z    | {"name":"string_scanner","latest":{"version":"1.5.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:53.1982880Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:53.7570300Z    | {"name":"string_scanner","latest":{"version":"1.8.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:53.8692930Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/intl
+test	Run flutter pub get --verbose	2026-10-14T09:13:54.1561480Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:54.3984600Z    | {"name":"term_glyph","latest":{"version":"1.17.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:13:54.7566960Z SLVR: derived: material_color_utilities ^1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:55.1598400Z IO  : Get versions from https://pub.dev/api/packages/term_glyph.
+test	Run flutter pub get --verbose	2026-10-14T09:13:55.6449040Z SLVR: selecting stream_channel 1.1.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:55.6754690Z SLVR: derived: ffi ^1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:55.9848140Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/crypto
+test	Run flutter pub get --verbose	2026-10-14T09:13:56.4281680Z SLVR: selecting crypto 1.12.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:56.8062720Z SLVR: derived: fake_async ^1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:56.9126840Z SLVR: selecting fake_async 1.7.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:57.4616080Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/path_provider
+test	Run flutter pub get --verbose	2026-10-14T09:13:57.4933470Z IO  : Get versions from https://pub.dev/api/packages/vector_math.
+test	Run flutter pub get --verbose	2026-10-14T09:13:57.8954850Z SLVR: selecting riverpod 1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:57.9835700Z IO  : Get versions from https://pub.dev/api/packages/flutter_lints.
+test	Run flutter pub get --verbose	2026-10-14T09:13:58.0703250Z SLVR: selecting source_span 1.2.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:58.7473090Z SLVR: derived: fake_async ^1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:13:59.3387090Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/source_span
+test	Run flutter pub get --verbose	2026-10-14T09:13:59.4622190Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:13:59.9074290Z    | {"name":"matcher","latest":{"version":"1.0.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:00.3212360Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/material_color_utilities
+test	Run flutter pub get --verbose	2026-10-14T09:14:00.4189560Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:00.8469540Z    | {"name":"ffi","latest":{"version":"1.13.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:01.1445410Z IO  : Get versions from https://pub.dev/api/packages/characters.
+test	Run flutter pub get --verbose	2026-10-14T09:14:01.7687550Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:02.2492170Z    | {"name":"typed_data","latest":{"version":"1.14.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:02.8136400Z SLVR: derived: string_scanner ^1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:02.8917080Z IO  : Get versions from https://pub.dev/api/packages/leak_tracker.
+test	Run flutter pub get --verbose	2026-10-14T09:14:03.3114170Z SLVR: derived: material_color_utilities ^1.5.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:03.3270670Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:03.4247530Z    | {"name":"matcher","latest":{"version":"1.5.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:04.0386550Z SLVR: derived: http ^1.20.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:04.0558000Z SLVR: derived: vm_service ^1.1.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:04.3035190Z SLVR: selecting lints 1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:04.4314950Z SLVR: selecting typed_data 1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:04.6588960Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/leak_tracker
+test	Run flutter pub get --verbose	2026-10-14T09:14:05.0615890Z SLVR: derived: crypto ^1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:05.1964040Z SLVR: selecting meta 1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:05.6708450Z SLVR: derived: platform ^1.2.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:06.0281780Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:06.2632060Z    | {"name":"vm_service","latest":{"version":"1.11.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:06.7865970Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/test_api
+test	Run flutter pub get --verbose	2026-10-14T09:14:06.8185080Z IO  : Get versions from https://pub.dev/api/packages/vector_math.
+test	Run flutter pub get --verbose	2026-10-14T09:14:06.8997780Z SLVR: derived: shared_preferences ^1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:07.1379710Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/term_glyph
+test	Run flutter pub get --verbose	2026-10-14T09:14:07.5763160Z SLVR: selecting clock 1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:08.1651690Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:08.5800690Z    | {"name":"source_span","latest":{"version":"1.15.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:08.6087090Z SLVR: derived: collection ^1.13.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:09.0836950Z SLVR: derived: stack_trace ^1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:09.5244530Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/provider
+test	Run flutter pub get --verbose	2026-10-14T09:14:09.6708760Z IO  : Get versions from https://pub.dev/api/packages/term_glyph.
+test	Run flutter pub get --verbose	2026-10-14T09:14:10.2590950Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:10.3276980Z    | {"name":"stream_channel","latest":{"version":"1.0.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:10.5455840Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/xdg_directories
+test	Run flutter pub get --verbose	2026-10-14T09:14:11.1444270Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:11.5931780Z    | {"name":"source_span","latest":{"version":"1.5.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:11.7044410Z SLVR: selecting stack_trace 1.10.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:12.3449520Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/http_parser
+test	Run flutter pub get --verbose	2026-10-14T09:14:12.9462720Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:13.3810750Z    | {"name":"collection","latest":{"version":"1.2.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:14.0311380Z IO  : Get versions from https://pub.dev/api/packages/typed_data.
+test	Run flutter pub get --verbose	2026-10-14T09:14:14.1646870Z IO  : Get versions from https://pub.dev/api/packages/flutter_lints.
+test	Run flutter pub get --verbose	2026-10-14T09:14:14.4127960Z IO  : Get versions from https://pub.dev/api/packages/stream_channel.
+test	Run flutter pub get --verbose	2026-10-14T09:14:15.0595030Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/collection
+test	Run flutter pub get --verbose	2026-10-14T09:14:15.5899850Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/flutter_lints
+test	Run flutter pub get --verbose	2026-10-14T09:14:15.9875220Z IO  : Get versions from https://pub.dev/api/packages/lints.
+test	Run flutter pub get --verbose	2026-10-14T09:14:16.4838320Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:16.6356610Z    | {"name":"material_color_utilities","latest":{"version":"1.18.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:17.3307040Z SLVR: derived: clock ^1.7.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:17.9468530Z SLVR: selecting http 1.8.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:18.0643400Z IO  : Get versions from https://pub.dev/api/packages/go_router.
+test	Run flutter pub get --verbose	2026-10-14T09:14:18.1019030Z SLVR: selecting boolean_selector 1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:18.1812290Z IO  : Get versions from https://pub.dev/api/packages/boolean_selector.
+test	Run flutter pub get --verbose	2026-10-14T09:14:18.6742890Z SLVR: derived: meta ^1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:19.1657400Z IO  : Get versions from https://pub.dev/api/packages/flutter_lints.
+test	Run flutter pub get --verbose	2026-10-14T09:14:19.5698090Z SLVR: derived: lints ^1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:19.8147320Z SLVR: derived: riverpod ^1.14.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:20.4558060Z SLVR: derived: path ^1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:20.6023510Z SLVR: derived: source_span ^1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:20.6034360Z SLVR: derived: typed_data ^1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:21.1461330Z IO  : Get versions from https://pub.dev/api/packages/path.
+test	Run flutter pub get --verbose	2026-10-14T09:14:21.4991270Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/go_router
+test	Run flutter pub get --verbose	2026-10-14T09:14:21.9847090Z SLVR: selecting source_span 1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:22.3800030Z IO  : Get versions from https://pub.dev/api/packages/matcher.
+test	Run flutter pub get --verbose	2026-10-14T09:14:22.8445900Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/platform
+test	Run flutter pub get --verbose	2026-10-14T09:14:23.5284650Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/vm_service
+test	Run flutter pub get --verbose	2026-10-14T09:14:23.8556060Z SLVR: derived: leak_tracker ^1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:24.2712040Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/boolean_selector
+test	Run flutter pub get --verbose	2026-10-14T09:14:24.3134280Z SLVR: selecting fake_async 1.20.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:24.8517560Z SLVR: selecting platform 1.5.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:25.1375510Z IO  : Get versions from https://pub.dev/api/packages/meta.
+test	Run flutter pub get --verbose	2026-10-14T09:14:25.6626450Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:25.9036170Z    | {"name":"http_parser","latest":{"version":"1.15.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:26.0701130Z SLVR: derived: stack_trace ^1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:26.5664620Z IO  : Get versions from https://pub.dev/api/packages/stream_channel.
+test	Run flutter pub get --verbose	2026-10-14T09:14:26.6674010Z IO  : Get versions from https://pub.dev/api/packages/string_scanner.
+test	Run flutter pub get --verbose	2026-10-14T09:14:27.1367150Z SLVR: derived: riverpod ^1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:27.5117350Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/meta
+test	Run flutter pub get --verbose	2026-10-14T09:14:27.8922440Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/intl
+test	Run flutter pub get --verbose	2026-10-14T09:14:28.2585730Z SLVR: selecting leak_tracker 1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:28.3042920Z SLVR: selecting async 1.11.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:28.5181030Z IO  : Get versions from https://pub.dev/api/packages/leak_tracker.
+test	Run flutter pub get --verbose	2026-10-14T09:14:29.1187050Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:29.2237430Z    | {"name":"js","latest":{"version":"1.14.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:29.4050300Z SLVR: derived: http_parser ^1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:30.0201680Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/fake_async
+test	Run flutter pub get --verbose	2026-10-14T09:14:30.1664370Z IO  : Get versions from https://pub.dev/api/packages/source_span.
+test	Run flutter pub get --verbose	2026-10-14T09:14:30.4724620Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:30.8259110Z    | {"name":"typed_data","latest":{"version":"1.6.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:30.9749490Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/matcher
+test	Run flutter pub get --verbose	2026-10-14T09:14:31.6658620Z IO  : Get versions from https://pub.dev/api/packages/source_span.
+test	Run flutter pub get --verbose	2026-10-14T09:14:32.2671760Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:32.7692150Z    | {"name":"http_parser","latest":{"version":"1.8.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:33.1265500Z SLVR: derived: matcher ^1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:33.6083830Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:33.7339330Z    | {"name":"crypto","latest":{"version":"1.18.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:33.9160690Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/path_provider
+test	Run flutter pub get --verbose	2026-10-14T09:14:34.2167860Z SLVR: derived: collection ^1.9.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:34.6368950Z SLVR: derived: boolean_selector ^1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:35.2550120Z SLVR: derived: http_parser ^1.1.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:35.9509800Z IO  : Get versions from https://pub.dev/api/packages/leak_tracker.
+test	Run flutter pub get --verbose	2026-10-14T09:14:36.1668670Z SLVR: selecting provider 1.8.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:36.5310840Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/riverpod
+test	Run flutter pub get --verbose	2026-10-14T09:14:37.1638960Z SLVR: selecting vector_math 1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:37.6358610Z SLVR: derived: flutter_lints ^1.5.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:37.9268340Z SLVR: derived: platform ^1.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:38.2909120Z SLVR: selecting typed_data 1.9.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:38.5680950Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/characters
+test	Run flutter pub get --verbose	2026-10-14T09:14:38.7298760Z SLVR: derived: platform ^1.14.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:39.1976360Z SLVR: derived: clock ^1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:39.4699110Z IO  : Get versions from https://pub.dev/api/packages/source_span.
+test	Run flutter pub get --verbose	2026-10-14T09:14:39.6165270Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/leak_tracker
+test	Run flutter pub get --verbose	2026-10-14T09:14:40.2630290Z SLVR: selecting provider 1.7.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:40.7773030Z SLVR: derived: platform ^1.16.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:41.1485250Z IO  : Get versions from https://pub.dev/api/packages/xdg_directories.
+test	Run flutter pub get --verbose	2026-10-14T09:14:41.4136910Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/flutter_lints
+test	Run flutter pub get --verbose	2026-10-14T09:14:41.4533520Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/typed_data
+test	Run flutter pub get --verbose	2026-10-14T09:14:42.1531990Z SLVR: derived: path_provider ^1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:42.5644690Z SLVR: selecting riverpod 1.8.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:42.5803200Z SLVR: derived: js ^1.9.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:42.7292140Z SLVR: derived: collection ^1.18.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:43.2740960Z SLVR: derived: matcher ^1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:43.4371390Z SLVR: selecting clock 1.10.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:43.4639350Z SLVR: selecting crypto 1.7.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:43.8098300Z SLVR: selecting leak_tracker 1.2.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:44.4897090Z IO  : Get versions from https://pub.dev/api/packages/material_color_utilities.
+test	Run flutter pub get --verbose	2026-10-14T09:14:44.6686520Z SLVR: derived: path_provider ^1.0.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:44.9892680Z IO  : Get versions from https://pub.dev/api/packages/leak_tracker.
+test	Run flutter pub get --verbose	2026-10-14T09:14:45.4338900Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:45.8142070Z    | {"name":"shared_preferences","latest":{"version":"1.11.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:45.8364350Z SLVR: derived: typed_data ^1.2.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:46.3126100Z SLVR: selecting fake_async 1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:46.3370020Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:46.6404360Z    | {"name":"ffi","latest":{"version":"1.0.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:46.9885060Z IO  : Get versions from https://pub.dev/api/packages/matcher.
+test	Run flutter pub get --verbose	2026-10-14T09:14:47.4715560Z SLVR: derived: clock ^1.13.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:47.7176800Z SLVR: selecting meta 1.10.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:47.8146320Z IO  : Get versions from https://pub.dev/api/packages/http_parser.
+test	Run flutter pub get --verbose	2026-10-14T09:14:48.4943520Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/leak_tracker
+test	Run flutter pub get --verbose	2026-10-14T09:14:48.7563470Z SLVR: derived: meta ^1.10.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:49.4292820Z SLVR: derived: shared_preferences ^1.10.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:49.8906570Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/typed_data
+test	Run flutter pub get --verbose	2026-10-14T09:14:50.3789250Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/intl
+test	Run flutter pub get --verbose	2026-10-14T09:14:50.4181550Z SLVR: derived: meta ^1.17.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:50.4884190Z SLVR: derived: ffi ^1.7.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:51.0988940Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:51.3066730Z    | {"name":"intl","latest":{"version":"1.11.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:51.7148310Z IO  : HTTP response 200 OK for GET https://pub.dev/api/packages/web
+test	Run flutter pub get --verbose	2026-10-14T09:14:52.0272080Z SLVR: derived: provider ^1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:52.2860350Z SLVR: derived: matcher ^1.4.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:52.4408040Z SLVR: selecting stack_trace 1.8.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:52.9830860Z IO  : Get versions from https://pub.dev/api/packages/vm_service.
+test	Run flutter pub get --verbose	2026-10-14T09:14:53.1868080Z SLVR: selecting clock 1.1.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:53.3865850Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:53.9568280Z    | {"name":"provider","latest":{"version":"1.15.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:54.2785460Z IO  : Get versions from https://pub.dev/api/packages/web.
+test	Run flutter pub get --verbose	2026-10-14T09:14:54.2830600Z SLVR: selecting test_api 1.3.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:54.2933630Z IO  : Get versions from https://pub.dev/api/packages/ffi.
+test	Run flutter pub get --verbose	2026-10-14T09:14:54.4953230Z SLVR: selecting shared_preferences 1.15.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:54.8844320Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:54.9983940Z    | {"name":"characters","latest":{"version":"1.0.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:55.5397050Z IO  : Get versions from https://pub.dev/api/packages/fake_async.
+test	Run flutter pub get --verbose	2026-10-14T09:14:55.5702250Z FINE: Contents:
+test	Run flutter pub get --verbose	2026-10-14T09:14:56.0466140Z    | {"name":"stack_trace","latest":{"version":"1.7.0"}}
+test	Run flutter pub get --verbose	2026-10-14T09:14:56.2024410Z SLVR: derived: intl ^1.14.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:56.4189480Z SLVR: conflict: intl ^0.20.2 is incompatible with flutter_localizations from sdk
+test	Run flutter pub get --verbose	2026-10-14T09:14:56.8012460Z SLVR: ! intl 0.19.0 is required by flutter_localizations from sdk
+test	Run flutter pub get --verbose	2026-10-14T09:14:57.4075340Z Resolving dependencies...
+test	Run flutter pub get --verbose	2026-10-14T09:14:57.9093550Z Because shopper depends on flutter_localizations from sdk which depends on intl 0.19.0, intl 0.19.0 is required.
+test	Run flutter pub get --verbose	2026-10-14T09:14:57.9511160Z So, because shopper depends on intl ^0.20.2, version solving failed.
+test	Run flutter pub get --verbose	2026-10-14T09:14:58.4642410Z 
+test	Run flutter pub get --verbose	2026-10-14T09:14:58.7431670Z 
+test	Run flutter pub get --verbose	2026-10-14T09:14:59.1528320Z You can try the following suggestion to make the pubspec resolve:
+test	Run flutter pub get --verbose	2026-10-14T09:14:59.1728130Z * Consider downgrading your constraint on intl: flutter pub add intl:^0.19.0
+test	Run flutter pub get --verbose	2026-10-14T09:14:59.6752080Z Failed to update packages.
+test	Run flutter pub get --verbose	2026-10-14T09:14:59.7280120Z ##[error]Process completed with exit code 1.

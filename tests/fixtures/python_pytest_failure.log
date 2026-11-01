@@ -1,0 +1,473 @@
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:03.5028160Z ##[group]Run pip install -r requirements.txt
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:03.5206930Z [36mpip install -r requirements.txt[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:04.1033680Z [36mpytest -q[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:04.6561420Z shell: /usr/bin/bash -e {0}
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:05.1556710Z ##[endgroup]
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:05.5375840Z Collecting starlette==2.25.1 (from -r requirements.txt (line 32))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:05.9958670Z   Downloading starlette-2.25.1-py3-none-any.whl.metadata (308 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:06.4689570Z   Downloading starlette-2.25.1-py3-none-any.whl (3087 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:06.7658730Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3087.0/3087.0 kB [2m84.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:06.9563080Z Collecting iniconfig==5.14.4 (from -r requirements.txt (line 9))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:07.2447670Z   Downloading iniconfig-5.14.4-py3-none-any.whl.metadata (794 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:07.6275710Z   Downloading iniconfig-5.14.4-py3-none-any.whl (7941 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:07.9964590Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7941.0/7941.0 kB [2m63.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:08.4512550Z Collecting anyio==2.11.5 (from -r requirements.txt (line 9))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:08.5410580Z   Downloading anyio-2.11.5-py3-none-any.whl.metadata (294 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:08.5805920Z   Downloading anyio-2.11.5-py3-none-any.whl (2941 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:08.9173550Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2941.0/2941.0 kB [2m12.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:09.2432850Z Collecting idna==5.5.5 (from -r requirements.txt (line 36))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:09.8823780Z   Downloading idna-5.5.5-py3-none-any.whl.metadata (725 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:10.1465090Z   Downloading idna-5.5.5-py3-none-any.whl (7258 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:10.6156090Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7258.0/7258.0 kB [2m64.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:10.7791280Z Collecting tenacity==1.4.2 (from -r requirements.txt (line 14))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:11.0360010Z   Downloading tenacity-1.4.2-py3-none-any.whl.metadata (805 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:11.2346850Z   Downloading tenacity-1.4.2-py3-none-any.whl (8057 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:11.8274370Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8057.0/8057.0 kB [2m42.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:12.4855270Z Collecting pluggy==1.10.4 (from -r requirements.txt (line 38))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:12.8605190Z   Downloading pluggy-1.10.4-py3-none-any.whl.metadata (217 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:13.4373430Z   Downloading pluggy-1.10.4-py3-none-any.whl (2172 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:13.9996840Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2172.0/2172.0 kB [2m58.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:14.3855820Z Collecting h11==1.20.6 (from -r requirements.txt (line 34))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:14.7943540Z   Downloading h11-1.20.6-py3-none-any.whl.metadata (393 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:15.1999840Z   Downloading h11-1.20.6-py3-none-any.whl (3934 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:15.3461340Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3934.0/3934.0 kB [2m85.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:15.4155730Z Collecting mako==4.1.5 (from -r requirements.txt (line 34))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:15.5145530Z   Downloading mako-4.1.5-py3-none-any.whl.metadata (882 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:16.0798930Z   Downloading mako-4.1.5-py3-none-any.whl (8822 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:16.5991120Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8822.0/8822.0 kB [2m62.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:17.0378440Z Collecting iniconfig==4.29.0 (from -r requirements.txt (line 7))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:17.1579310Z   Downloading iniconfig-4.29.0-py3-none-any.whl.metadata (354 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:17.5485760Z   Downloading iniconfig-4.29.0-py3-none-any.whl (3549 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:17.8567050Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3549.0/3549.0 kB [2m29.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:18.1790740Z Collecting pluggy==1.20.0 (from -r requirements.txt (line 35))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:18.4705800Z   Downloading pluggy-1.20.0-py3-none-any.whl.metadata (112 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:18.5777050Z   Downloading pluggy-1.20.0-py3-none-any.whl (1125 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:19.0620310Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1125.0/1125.0 kB [2m43.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:19.3791140Z Collecting fastapi==3.16.8 (from -r requirements.txt (line 7))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:19.6660980Z   Downloading fastapi-3.16.8-py3-none-any.whl.metadata (332 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:19.7100410Z   Downloading fastapi-3.16.8-py3-none-any.whl (3323 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:19.7122050Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3323.0/3323.0 kB [2m38.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:20.0541840Z Collecting s3transfer==1.9.2 (from -r requirements.txt (line 39))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:20.0596530Z   Downloading s3transfer-1.9.2-py3-none-any.whl.metadata (56 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:20.6150680Z   Downloading s3transfer-1.9.2-py3-none-any.whl (563 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:21.3066800Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 563.0/563.0 kB [2m21.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:21.5873440Z Collecting typing-extensions==5.28.5 (from -r requirements.txt (line 3))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:22.1490180Z   Downloading typing_extensions-5.28.5-py3-none-any.whl.metadata (200 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:22.1850360Z   Downloading typing_extensions-5.28.5-py3-none-any.whl (2006 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:22.3859560Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2006.0/2006.0 kB [2m16.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:22.7219770Z Collecting uvicorn==4.16.6 (from -r requirements.txt (line 23))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:22.9317460Z   Downloading uvicorn-4.16.6-py3-none-any.whl.metadata (82 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:23.6307650Z   Downloading uvicorn-4.16.6-py3-none-any.whl (827 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:23.8786640Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 827.0/827.0 kB [2m60.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:24.2272720Z Collecting six==4.11.6 (from -r requirements.txt (line 27))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:24.6468060Z   Downloading six-4.11.6-py3-none-any.whl.metadata (13 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:24.7068210Z   Downloading six-4.11.6-py3-none-any.whl (137 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:25.0109150Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 137.0/137.0 kB [2m66.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:25.3021810Z Collecting alembic==4.15.6 (from -r requirements.txt (line 8))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:25.9984070Z   Downloading alembic-4.15.6-py3-none-any.whl.metadata (419 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:26.2093020Z   Downloading alembic-4.15.6-py3-none-any.whl (4195 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:26.4877290Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4195.0/4195.0 kB [2m44.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:27.0451780Z Collecting pydantic-core==2.5.5 (from -r requirements.txt (line 6))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:27.7064960Z   Downloading pydantic_core-2.5.5-py3-none-any.whl.metadata (253 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:28.1869140Z   Downloading pydantic_core-2.5.5-py3-none-any.whl (2534 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:28.6519120Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2534.0/2534.0 kB [2m57.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:28.7434290Z Collecting pytest==1.14.1 (from -r requirements.txt (line 39))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:29.3582440Z   Downloading pytest-1.14.1-py3-none-any.whl.metadata (46 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:29.9852350Z   Downloading pytest-1.14.1-py3-none-any.whl (465 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:30.6139660Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 465.0/465.0 kB [2m70.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:30.9904850Z Collecting boto3==3.21.1 (from -r requirements.txt (line 38))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:31.4100890Z   Downloading boto3-3.21.1-py3-none-any.whl.metadata (145 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:31.6270150Z   Downloading boto3-3.21.1-py3-none-any.whl (1459 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:31.7523570Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1459.0/1459.0 kB [2m28.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:31.8089980Z Collecting iniconfig==0.27.4 (from -r requirements.txt (line 1))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:32.1648820Z   Downloading iniconfig-0.27.4-py3-none-any.whl.metadata (684 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:32.4588030Z   Downloading iniconfig-0.27.4-py3-none-any.whl (6848 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:32.4972220Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6848.0/6848.0 kB [2m64.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:33.0586630Z Collecting starlette==5.2.1 (from -r requirements.txt (line 18))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:33.4198370Z   Downloading starlette-5.2.1-py3-none-any.whl.metadata (662 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:33.8998980Z   Downloading starlette-5.2.1-py3-none-any.whl (6620 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:34.3784390Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6620.0/6620.0 kB [2m22.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:35.0595960Z Collecting freezegun==1.25.8 (from -r requirements.txt (line 33))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:35.6524000Z   Downloading freezegun-1.25.8-py3-none-any.whl.metadata (319 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:35.6594320Z   Downloading freezegun-1.25.8-py3-none-any.whl (3194 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:36.3294720Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3194.0/3194.0 kB [2m18.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:37.0058620Z Collecting markupsafe==4.26.5 (from -r requirements.txt (line 35))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:37.0617600Z   Downloading markupsafe-4.26.5-py3-none-any.whl.metadata (772 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:37.0980940Z   Downloading markupsafe-4.26.5-py3-none-any.whl (7724 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:37.2188640Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7724.0/7724.0 kB [2m30.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:37.2399910Z Collecting typing-extensions==2.9.6 (from -r requirements.txt (line 4))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:37.3446110Z   Downloading typing_extensions-2.9.6-py3-none-any.whl.metadata (38 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:37.8577830Z   Downloading typing_extensions-2.9.6-py3-none-any.whl (385 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:37.8778570Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 385.0/385.0 kB [2m78.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:37.9661530Z Collecting typing-extensions==2.27.6 (from -r requirements.txt (line 40))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:38.6043380Z   Downloading typing_extensions-2.27.6-py3-none-any.whl.metadata (162 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:39.1193960Z   Downloading typing_extensions-2.27.6-py3-none-any.whl (1628 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:39.5942640Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1628.0/1628.0 kB [2m56.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:40.1081910Z Collecting mako==3.4.2 (from -r requirements.txt (line 33))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:40.4844960Z   Downloading mako-3.4.2-py3-none-any.whl.metadata (695 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:41.0651350Z   Downloading mako-3.4.2-py3-none-any.whl (6959 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:41.5928410Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6959.0/6959.0 kB [2m45.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:42.1489530Z Collecting s3transfer==0.26.1 (from -r requirements.txt (line 16))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:42.6661190Z   Downloading s3transfer-0.26.1-py3-none-any.whl.metadata (168 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:42.8473540Z   Downloading s3transfer-0.26.1-py3-none-any.whl (1682 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:43.0791160Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1682.0/1682.0 kB [2m55.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:43.7123720Z Collecting python-dateutil==1.19.0 (from -r requirements.txt (line 33))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:44.3639480Z   Downloading python_dateutil-1.19.0-py3-none-any.whl.metadata (141 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:44.7963340Z   Downloading python_dateutil-1.19.0-py3-none-any.whl (1417 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:45.2780550Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1417.0/1417.0 kB [2m45.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:45.5315900Z Collecting pytest==0.28.5 (from -r requirements.txt (line 13))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:45.9551350Z   Downloading pytest-0.28.5-py3-none-any.whl.metadata (866 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:45.9669660Z   Downloading pytest-0.28.5-py3-none-any.whl (8662 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:46.4456230Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8662.0/8662.0 kB [2m85.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:46.9542530Z Collecting alembic==0.14.2 (from -r requirements.txt (line 36))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:47.4990840Z   Downloading alembic-0.14.2-py3-none-any.whl.metadata (395 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:47.8216530Z   Downloading alembic-0.14.2-py3-none-any.whl (3953 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:47.8241790Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3953.0/3953.0 kB [2m27.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:48.1726590Z Collecting pydantic-core==4.22.1 (from -r requirements.txt (line 29))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:48.2432210Z   Downloading pydantic_core-4.22.1-py3-none-any.whl.metadata (248 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:48.2796660Z   Downloading pydantic_core-4.22.1-py3-none-any.whl (2482 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:48.5253180Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2482.0/2482.0 kB [2m29.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:48.7017120Z Collecting markupsafe==2.9.8 (from -r requirements.txt (line 37))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:48.8039220Z   Downloading markupsafe-2.9.8-py3-none-any.whl.metadata (446 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:49.0584970Z   Downloading markupsafe-2.9.8-py3-none-any.whl (4462 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:49.1291690Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4462.0/4462.0 kB [2m59.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:49.7716780Z Collecting iniconfig==4.17.5 (from -r requirements.txt (line 13))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:49.9349280Z   Downloading iniconfig-4.17.5-py3-none-any.whl.metadata (404 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:50.3585280Z   Downloading iniconfig-4.17.5-py3-none-any.whl (4046 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:50.5284000Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4046.0/4046.0 kB [2m58.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:50.8997270Z Collecting six==2.27.4 (from -r requirements.txt (line 12))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:50.9820730Z   Downloading six-2.27.4-py3-none-any.whl.metadata (823 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:51.3831300Z   Downloading six-2.27.4-py3-none-any.whl (8230 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:51.9716220Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8230.0/8230.0 kB [2m67.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:52.3400910Z Collecting anyio==3.14.4 (from -r requirements.txt (line 15))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:52.4072220Z   Downloading anyio-3.14.4-py3-none-any.whl.metadata (57 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:52.6267970Z   Downloading anyio-3.14.4-py3-none-any.whl (579 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:52.9072520Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 579.0/579.0 kB [2m49.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:53.4231170Z Collecting botocore==4.13.4 (from -r requirements.txt (line 35))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:53.7923680Z   Downloading botocore-4.13.4-py3-none-any.whl.metadata (379 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:54.4181980Z   Downloading botocore-4.13.4-py3-none-any.whl (3795 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:54.8604880Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3795.0/3795.0 kB [2m57.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:54.9332100Z Collecting pytest-cov==1.26.1 (from -r requirements.txt (line 27))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:55.4752950Z   Downloading pytest_cov-1.26.1-py3-none-any.whl.metadata (369 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:55.6421900Z   Downloading pytest_cov-1.26.1-py3-none-any.whl (3697 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:56.2134460Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3697.0/3697.0 kB [2m50.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:56.2213400Z Collecting iniconfig==5.22.0 (from -r requirements.txt (line 1))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:56.6134760Z   Downloading iniconfig-5.22.0-py3-none-any.whl.metadata (395 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:56.7222000Z   Downloading iniconfig-5.22.0-py3-none-any.whl (3954 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:57.3586240Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3954.0/3954.0 kB [2m63.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:57.8665870Z Collecting pytest==4.30.6 (from -r requirements.txt (line 13))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:57.9361860Z   Downloading pytest-4.30.6-py3-none-any.whl.metadata (844 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:57.9938220Z   Downloading pytest-4.30.6-py3-none-any.whl (8442 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:58.3719920Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8442.0/8442.0 kB [2m34.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:58.9547140Z Collecting iniconfig==1.2.3 (from -r requirements.txt (line 18))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:59.2978070Z   Downloading iniconfig-1.2.3-py3-none-any.whl.metadata (535 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:12:59.7362470Z   Downloading iniconfig-1.2.3-py3-none-any.whl (5358 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:00.1513860Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5358.0/5358.0 kB [2m64.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:00.7085470Z Collecting anyio==5.30.0 (from -r requirements.txt (line 34))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:01.0489270Z   Downloading anyio-5.30.0-py3-none-any.whl.metadata (815 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:01.6196790Z   Downloading anyio-5.30.0-py3-none-any.whl (8155 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:01.7349410Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8155.0/8155.0 kB [2m32.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:01.8017380Z Collecting pydantic-core==4.9.3 (from -r requirements.txt (line 12))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:02.1141320Z   Downloading pydantic_core-4.9.3-py3-none-any.whl.metadata (674 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:02.3229760Z   Downloading pydantic_core-4.9.3-py3-none-any.whl (6748 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:02.9302800Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6748.0/6748.0 kB [2m63.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:03.3256550Z Collecting iniconfig==3.2.7 (from -r requirements.txt (line 3))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:03.3619390Z   Downloading iniconfig-3.2.7-py3-none-any.whl.metadata (499 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:03.7072970Z   Downloading iniconfig-3.2.7-py3-none-any.whl (4994 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:03.9810280Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4994.0/4994.0 kB [2m70.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:04.2161920Z Collecting starlette==5.22.2 (from -r requirements.txt (line 26))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:04.7963000Z   Downloading starlette-5.22.2-py3-none-any.whl.metadata (212 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:04.9321620Z   Downloading starlette-5.22.2-py3-none-any.whl (2128 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:05.1046170Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2128.0/2128.0 kB [2m19.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:05.4473020Z Collecting fastapi==0.15.6 (from -r requirements.txt (line 33))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:05.8834670Z   Downloading fastapi-0.15.6-py3-none-any.whl.metadata (408 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:06.4715510Z   Downloading fastapi-0.15.6-py3-none-any.whl (4083 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:06.6883930Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4083.0/4083.0 kB [2m28.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:07.2918350Z Collecting boto3==3.12.6 (from -r requirements.txt (line 10))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:07.5490920Z   Downloading boto3-3.12.6-py3-none-any.whl.metadata (863 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:08.0416860Z   Downloading boto3-3.12.6-py3-none-any.whl (8631 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:08.6251360Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8631.0/8631.0 kB [2m67.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:09.0981930Z Collecting botocore==0.8.2 (from -r requirements.txt (line 18))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:09.7863510Z   Downloading botocore-0.8.2-py3-none-any.whl.metadata (549 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:10.1591850Z   Downloading botocore-0.8.2-py3-none-any.whl (5493 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:10.6907550Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5493.0/5493.0 kB [2m71.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:11.3503370Z Collecting anyio==5.8.2 (from -r requirements.txt (line 32))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:12.0430850Z   Downloading anyio-5.8.2-py3-none-any.whl.metadata (417 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:12.5989370Z   Downloading anyio-5.8.2-py3-none-any.whl (4173 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:13.0364160Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4173.0/4173.0 kB [2m15.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:13.6623440Z Collecting sniffio==3.9.1 (from -r requirements.txt (line 15))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:13.6797390Z   Downloading sniffio-3.9.1-py3-none-any.whl.metadata (198 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:14.1756610Z   Downloading sniffio-3.9.1-py3-none-any.whl (1981 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:14.3920640Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1981.0/1981.0 kB [2m11.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:14.3947720Z Collecting alembic==3.0.6 (from -r requirements.txt (line 14))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:15.0155550Z   Downloading alembic-3.0.6-py3-none-any.whl.metadata (621 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:15.5156660Z   Downloading alembic-3.0.6-py3-none-any.whl (6210 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:15.9569440Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6210.0/6210.0 kB [2m75.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:16.5723720Z Collecting tenacity==1.2.3 (from -r requirements.txt (line 17))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:17.1646580Z   Downloading tenacity-1.2.3-py3-none-any.whl.metadata (768 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:17.6440360Z   Downloading tenacity-1.2.3-py3-none-any.whl (7681 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:18.2739510Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7681.0/7681.0 kB [2m37.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:18.8404470Z Collecting structlog==0.2.0 (from -r requirements.txt (line 5))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:19.3936710Z   Downloading structlog-0.2.0-py3-none-any.whl.metadata (610 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:19.9266660Z   Downloading structlog-0.2.0-py3-none-any.whl (6108 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:20.5391510Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6108.0/6108.0 kB [2m75.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:21.1519960Z Collecting alembic==0.5.0 (from -r requirements.txt (line 26))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:21.7425290Z   Downloading alembic-0.5.0-py3-none-any.whl.metadata (235 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:22.2730460Z   Downloading alembic-0.5.0-py3-none-any.whl (2354 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:22.8025690Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2354.0/2354.0 kB [2m7.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:23.1404740Z Collecting idna==5.11.3 (from -r requirements.txt (line 18))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:23.5028030Z   Downloading idna-5.11.3-py3-none-any.whl.metadata (517 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:23.9673290Z   Downloading idna-5.11.3-py3-none-any.whl (5172 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:24.3800750Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5172.0/5172.0 kB [2m39.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:24.6054730Z Collecting pytest==4.25.8 (from -r requirements.txt (line 23))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:24.8530330Z   Downloading pytest-4.25.8-py3-none-any.whl.metadata (318 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:25.0589110Z   Downloading pytest-4.25.8-py3-none-any.whl (3186 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:25.6702180Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3186.0/3186.0 kB [2m76.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:25.9267990Z Collecting sqlalchemy==5.14.0 (from -r requirements.txt (line 35))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:25.9733470Z   Downloading sqlalchemy-5.14.0-py3-none-any.whl.metadata (526 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:26.5877850Z   Downloading sqlalchemy-5.14.0-py3-none-any.whl (5262 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:26.6644970Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5262.0/5262.0 kB [2m68.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:27.1084590Z Collecting boto3==3.30.9 (from -r requirements.txt (line 34))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:27.6072470Z   Downloading boto3-3.30.9-py3-none-any.whl.metadata (335 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:28.2700620Z   Downloading boto3-3.30.9-py3-none-any.whl (3352 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:28.9620030Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3352.0/3352.0 kB [2m12.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:29.2693710Z Collecting fastapi==3.15.5 (from -r requirements.txt (line 7))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:29.4142800Z   Downloading fastapi-3.15.5-py3-none-any.whl.metadata (484 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:29.5516020Z   Downloading fastapi-3.15.5-py3-none-any.whl (4846 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:30.2174710Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4846.0/4846.0 kB [2m88.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:30.4460440Z Collecting sqlalchemy==0.11.5 (from -r requirements.txt (line 5))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:31.0970430Z   Downloading sqlalchemy-0.11.5-py3-none-any.whl.metadata (372 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:31.7284480Z   Downloading sqlalchemy-0.11.5-py3-none-any.whl (3723 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:32.3711500Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3723.0/3723.0 kB [2m55.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:32.4843270Z Collecting six==3.7.7 (from -r requirements.txt (line 11))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:32.7783150Z   Downloading six-3.7.7-py3-none-any.whl.metadata (798 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:33.1377990Z   Downloading six-3.7.7-py3-none-any.whl (7981 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:33.6231570Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7981.0/7981.0 kB [2m61.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:34.1318560Z Collecting alembic==1.15.9 (from -r requirements.txt (line 29))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:34.6922250Z   Downloading alembic-1.15.9-py3-none-any.whl.metadata (319 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:35.3446970Z   Downloading alembic-1.15.9-py3-none-any.whl (3195 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:35.7410960Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3195.0/3195.0 kB [2m13.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:35.9898730Z Collecting pydantic-core==0.25.0 (from -r requirements.txt (line 37))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:36.1668820Z   Downloading pydantic_core-0.25.0-py3-none-any.whl.metadata (589 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:36.5781340Z   Downloading pydantic_core-0.25.0-py3-none-any.whl (5894 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:37.1740360Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5894.0/5894.0 kB [2m3.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:37.7531210Z Collecting h11==0.7.1 (from -r requirements.txt (line 15))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:38.0492730Z   Downloading h11-0.7.1-py3-none-any.whl.metadata (805 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:38.1547420Z   Downloading h11-0.7.1-py3-none-any.whl (8059 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:38.7415120Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8059.0/8059.0 kB [2m20.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:39.1347760Z Collecting idna==4.19.4 (from -r requirements.txt (line 12))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:39.7653330Z   Downloading idna-4.19.4-py3-none-any.whl.metadata (204 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:40.0849480Z   Downloading idna-4.19.4-py3-none-any.whl (2049 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:40.1508740Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2049.0/2049.0 kB [2m81.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:40.8041230Z Collecting typing-extensions==2.14.2 (from -r requirements.txt (line 31))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:40.9415420Z   Downloading typing_extensions-2.14.2-py3-none-any.whl.metadata (166 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:41.6223990Z   Downloading typing_extensions-2.14.2-py3-none-any.whl (1664 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:42.2592050Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1664.0/1664.0 kB [2m81.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:42.5722150Z Collecting structlog==0.2.9 (from -r requirements.txt (line 30))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:42.6269100Z   Downloading structlog-0.2.9-py3-none-any.whl.metadata (315 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:42.6398100Z   Downloading structlog-0.2.9-py3-none-any.whl (3159 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:42.9829190Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3159.0/3159.0 kB [2m29.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:43.1708250Z Collecting typing-extensions==4.4.5 (from -r requirements.txt (line 29))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:43.8681370Z   Downloading typing_extensions-4.4.5-py3-none-any.whl.metadata (495 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:44.1132260Z   Downloading typing_extensions-4.4.5-py3-none-any.whl (4950 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:44.7647340Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4950.0/4950.0 kB [2m59.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:44.8497890Z Collecting iniconfig==2.20.2 (from -r requirements.txt (line 31))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:45.1366540Z   Downloading iniconfig-2.20.2-py3-none-any.whl.metadata (384 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:45.2993460Z   Downloading iniconfig-2.20.2-py3-none-any.whl (3842 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:45.8529640Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3842.0/3842.0 kB [2m47.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:46.3954680Z Collecting uvicorn==5.23.9 (from -r requirements.txt (line 7))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:46.5828400Z   Downloading uvicorn-5.23.9-py3-none-any.whl.metadata (863 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:46.7836690Z   Downloading uvicorn-5.23.9-py3-none-any.whl (8639 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:47.0682740Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8639.0/8639.0 kB [2m78.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:47.6618860Z Collecting alembic==3.9.9 (from -r requirements.txt (line 32))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:48.0419730Z   Downloading alembic-3.9.9-py3-none-any.whl.metadata (84 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:48.5950800Z   Downloading alembic-3.9.9-py3-none-any.whl (843 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:48.7317100Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 843.0/843.0 kB [2m47.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:49.1242820Z Collecting markupsafe==1.3.4 (from -r requirements.txt (line 10))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:49.2866860Z   Downloading markupsafe-1.3.4-py3-none-any.whl.metadata (172 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:49.8838260Z   Downloading markupsafe-1.3.4-py3-none-any.whl (1727 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:50.5026580Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1727.0/1727.0 kB [2m90.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:50.9135510Z Collecting click==4.3.1 (from -r requirements.txt (line 10))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:51.5643810Z   Downloading click-4.3.1-py3-none-any.whl.metadata (249 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:52.2409340Z   Downloading click-4.3.1-py3-none-any.whl (2497 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:52.3467230Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2497.0/2497.0 kB [2m55.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:52.3962490Z Collecting six==0.24.8 (from -r requirements.txt (line 9))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:52.4624350Z   Downloading six-0.24.8-py3-none-any.whl.metadata (200 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:52.7286870Z   Downloading six-0.24.8-py3-none-any.whl (2009 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:52.7484200Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2009.0/2009.0 kB [2m85.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:53.2707810Z Collecting s3transfer==2.24.9 (from -r requirements.txt (line 23))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:53.3800870Z   Downloading s3transfer-2.24.9-py3-none-any.whl.metadata (797 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:53.6861020Z   Downloading s3transfer-2.24.9-py3-none-any.whl (7975 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:53.7620430Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7975.0/7975.0 kB [2m15.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:54.2993850Z Collecting sniffio==1.24.4 (from -r requirements.txt (line 21))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:54.6168170Z   Downloading sniffio-1.24.4-py3-none-any.whl.metadata (491 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:54.7433190Z   Downloading sniffio-1.24.4-py3-none-any.whl (4913 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:54.9590750Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4913.0/4913.0 kB [2m45.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:55.3242670Z Collecting orjson==5.7.2 (from -r requirements.txt (line 34))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:55.8826750Z   Downloading orjson-5.7.2-py3-none-any.whl.metadata (102 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:56.5000970Z   Downloading orjson-5.7.2-py3-none-any.whl (1026 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:56.9172820Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1026.0/1026.0 kB [2m57.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:57.2161990Z Collecting jmespath==3.10.1 (from -r requirements.txt (line 23))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:57.5116520Z   Downloading jmespath-3.10.1-py3-none-any.whl.metadata (531 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:57.9482130Z   Downloading jmespath-3.10.1-py3-none-any.whl (5314 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:58.1250100Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5314.0/5314.0 kB [2m69.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:58.7180610Z Collecting pytest-cov==3.7.5 (from -r requirements.txt (line 13))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:59.1624190Z   Downloading pytest_cov-3.7.5-py3-none-any.whl.metadata (424 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:13:59.5658150Z   Downloading pytest_cov-3.7.5-py3-none-any.whl (4243 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:00.1611060Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4243.0/4243.0 kB [2m64.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:00.8564880Z Collecting uvicorn==1.24.6 (from -r requirements.txt (line 24))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:01.5322610Z   Downloading uvicorn-1.24.6-py3-none-any.whl.metadata (641 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:02.1874270Z   Downloading uvicorn-1.24.6-py3-none-any.whl (6410 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:02.7398620Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6410.0/6410.0 kB [2m56.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:02.7447300Z Collecting sqlalchemy==5.25.1 (from -r requirements.txt (line 40))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:03.3757260Z   Downloading sqlalchemy-5.25.1-py3-none-any.whl.metadata (263 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:03.9189800Z   Downloading sqlalchemy-5.25.1-py3-none-any.whl (2631 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:04.1536820Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2631.0/2631.0 kB [2m85.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:04.4713410Z Collecting sqlalchemy==0.19.9 (from -r requirements.txt (line 8))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:04.8793090Z   Downloading sqlalchemy-0.19.9-py3-none-any.whl.metadata (751 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:05.3366270Z   Downloading sqlalchemy-0.19.9-py3-none-any.whl (7519 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:05.6496730Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7519.0/7519.0 kB [2m40.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:06.0332140Z Collecting uvicorn==0.4.2 (from -r requirements.txt (line 31))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:06.7015020Z   Downloading uvicorn-0.4.2-py3-none-any.whl.metadata (42 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:06.9027640Z   Downloading uvicorn-0.4.2-py3-none-any.whl (420 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:07.2804800Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 420.0/420.0 kB [2m59.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:07.3555070Z Collecting click==1.2.6 (from -r requirements.txt (line 8))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:07.5501660Z   Downloading click-1.2.6-py3-none-any.whl.metadata (273 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:07.6975020Z   Downloading click-1.2.6-py3-none-any.whl (2733 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:07.8036900Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2733.0/2733.0 kB [2m41.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:08.1257130Z Collecting markupsafe==0.9.2 (from -r requirements.txt (line 37))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:08.1826120Z   Downloading markupsafe-0.9.2-py3-none-any.whl.metadata (720 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:08.6640040Z   Downloading markupsafe-0.9.2-py3-none-any.whl (7209 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:09.3585120Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7209.0/7209.0 kB [2m42.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:09.8374170Z Collecting pydantic-core==4.17.5 (from -r requirements.txt (line 34))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:10.2382100Z   Downloading pydantic_core-4.17.5-py3-none-any.whl.metadata (380 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:10.4628330Z   Downloading pydantic_core-4.17.5-py3-none-any.whl (3800 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:10.4638950Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3800.0/3800.0 kB [2m35.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:11.1496930Z Collecting botocore==2.30.7 (from -r requirements.txt (line 29))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:11.3946770Z   Downloading botocore-2.30.7-py3-none-any.whl.metadata (195 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:11.7465830Z   Downloading botocore-2.30.7-py3-none-any.whl (1957 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:12.1805200Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1957.0/1957.0 kB [2m44.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:12.4334530Z Collecting mako==1.27.5 (from -r requirements.txt (line 25))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:12.8246370Z   Downloading mako-1.27.5-py3-none-any.whl.metadata (143 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:13.1011300Z   Downloading mako-1.27.5-py3-none-any.whl (1434 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:13.3416230Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1434.0/1434.0 kB [2m49.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:13.6625540Z Collecting click==2.23.0 (from -r requirements.txt (line 23))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:13.7766440Z   Downloading click-2.23.0-py3-none-any.whl.metadata (361 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:14.4416230Z   Downloading click-2.23.0-py3-none-any.whl (3618 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:14.8032910Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3618.0/3618.0 kB [2m81.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:15.0153560Z Collecting pydantic==0.11.0 (from -r requirements.txt (line 40))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:15.3648050Z   Downloading pydantic-0.11.0-py3-none-any.whl.metadata (572 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:15.5986900Z   Downloading pydantic-0.11.0-py3-none-any.whl (5723 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:16.1980800Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5723.0/5723.0 kB [2m8.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:16.3715420Z Collecting orjson==2.0.9 (from -r requirements.txt (line 12))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:17.0008310Z   Downloading orjson-2.0.9-py3-none-any.whl.metadata (877 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:17.4137100Z   Downloading orjson-2.0.9-py3-none-any.whl (8773 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:17.6501350Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 8773.0/8773.0 kB [2m64.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:18.3459620Z Collecting mako==1.1.5 (from -r requirements.txt (line 7))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:18.6699920Z   Downloading mako-1.1.5-py3-none-any.whl.metadata (126 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:18.6901290Z   Downloading mako-1.1.5-py3-none-any.whl (1265 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:18.8807870Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1265.0/1265.0 kB [2m55.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:19.0302660Z Collecting sqlalchemy==0.29.8 (from -r requirements.txt (line 24))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:19.1219800Z   Downloading sqlalchemy-0.29.8-py3-none-any.whl.metadata (622 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:19.1344190Z   Downloading sqlalchemy-0.29.8-py3-none-any.whl (6229 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:19.6008600Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6229.0/6229.0 kB [2m78.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:20.0631960Z Collecting structlog==4.26.9 (from -r requirements.txt (line 10))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:20.3983290Z   Downloading structlog-4.26.9-py3-none-any.whl.metadata (135 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:20.5597410Z   Downloading structlog-4.26.9-py3-none-any.whl (1359 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:20.8302870Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1359.0/1359.0 kB [2m79.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:21.1763170Z Collecting markupsafe==5.13.7 (from -r requirements.txt (line 17))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:21.2931170Z   Downloading markupsafe-5.13.7-py3-none-any.whl.metadata (747 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:21.4825860Z   Downloading markupsafe-5.13.7-py3-none-any.whl (7472 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:21.6222810Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7472.0/7472.0 kB [2m25.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:22.2391440Z Collecting freezegun==3.13.4 (from -r requirements.txt (line 34))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:22.4312710Z   Downloading freezegun-3.13.4-py3-none-any.whl.metadata (644 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:22.4351170Z   Downloading freezegun-3.13.4-py3-none-any.whl (6440 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:22.6288390Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 6440.0/6440.0 kB [2m83.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:22.7801990Z Collecting packaging==2.8.6 (from -r requirements.txt (line 16))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:23.0257430Z   Downloading packaging-2.8.6-py3-none-any.whl.metadata (568 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:23.7142010Z   Downloading packaging-2.8.6-py3-none-any.whl (5686 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:23.9321430Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5686.0/5686.0 kB [2m13.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:24.3121850Z Collecting markupsafe==3.5.8 (from -r requirements.txt (line 5))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:24.8009510Z   Downloading markupsafe-3.5.8-py3-none-any.whl.metadata (378 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:24.8453950Z   Downloading markupsafe-3.5.8-py3-none-any.whl (3782 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:24.9899120Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3782.0/3782.0 kB [2m8.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:25.0046160Z Collecting freezegun==5.28.4 (from -r requirements.txt (line 35))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:25.2842990Z   Downloading freezegun-5.28.4-py3-none-any.whl.metadata (276 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:25.3530180Z   Downloading freezegun-5.28.4-py3-none-any.whl (2765 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:26.0435340Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2765.0/2765.0 kB [2m56.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:26.1883960Z Collecting orjson==1.1.6 (from -r requirements.txt (line 18))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:26.4613550Z   Downloading orjson-1.1.6-py3-none-any.whl.metadata (63 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:26.6092590Z   Downloading orjson-1.1.6-py3-none-any.whl (636 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:26.9514010Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 636.0/636.0 kB [2m66.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:27.3115590Z Collecting click==5.28.5 (from -r requirements.txt (line 33))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:27.8338850Z   Downloading click-5.28.5-py3-none-any.whl.metadata (10 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:28.3846970Z   Downloading click-5.28.5-py3-none-any.whl (103 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:28.7493020Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 103.0/103.0 kB [2m1.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:29.1817600Z Collecting anyio==2.17.9 (from -r requirements.txt (line 11))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:29.5504430Z   Downloading anyio-2.17.9-py3-none-any.whl.metadata (788 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:29.9383530Z   Downloading anyio-2.17.9-py3-none-any.whl (7881 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:30.0227630Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 7881.0/7881.0 kB [2m80.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:30.1613160Z Collecting structlog==0.14.2 (from -r requirements.txt (line 3))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:30.7668430Z   Downloading structlog-0.14.2-py3-none-any.whl.metadata (233 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:30.8318570Z   Downloading structlog-0.14.2-py3-none-any.whl (2335 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:31.0539330Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2335.0/2335.0 kB [2m14.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:31.3968910Z Collecting starlette==5.1.7 (from -r requirements.txt (line 30))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:31.6193290Z   Downloading starlette-5.1.7-py3-none-any.whl.metadata (442 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:31.9452480Z   Downloading starlette-5.1.7-py3-none-any.whl (4427 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:31.9616040Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4427.0/4427.0 kB [2m12.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:32.1449760Z Collecting coverage==0.6.5 (from -r requirements.txt (line 10))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:32.2448130Z   Downloading coverage-0.6.5-py3-none-any.whl.metadata (598 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:32.4940510Z   Downloading coverage-0.6.5-py3-none-any.whl (5987 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:32.8620480Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 5987.0/5987.0 kB [2m79.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:33.3751870Z Collecting s3transfer==3.22.2 (from -r requirements.txt (line 5))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:33.7705680Z   Downloading s3transfer-3.22.2-py3-none-any.whl.metadata (240 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:34.3788030Z   Downloading s3transfer-3.22.2-py3-none-any.whl (2409 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:34.5419690Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2409.0/2409.0 kB [2m90.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:35.0567400Z Collecting mako==4.27.9 (from -r requirements.txt (line 7))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:35.2096710Z   Downloading mako-4.27.9-py3-none-any.whl.metadata (306 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:35.4128090Z   Downloading mako-4.27.9-py3-none-any.whl (3069 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:35.4315270Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 3069.0/3069.0 kB [2m23.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:35.8156940Z Collecting jmespath==1.26.4 (from -r requirements.txt (line 37))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:36.5012780Z   Downloading jmespath-1.26.4-py3-none-any.whl.metadata (227 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:37.0378870Z   Downloading jmespath-1.26.4-py3-none-any.whl (2277 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:37.2296670Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 2277.0/2277.0 kB [2m51.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:37.8000360Z Collecting pytest-cov==5.28.8 (from -r requirements.txt (line 32))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:38.4195430Z   Downloading pytest_cov-5.28.8-py3-none-any.whl.metadata (196 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:38.5819190Z   Downloading pytest_cov-5.28.8-py3-none-any.whl (1960 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:38.6504520Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1960.0/1960.0 kB [2m64.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:39.0146890Z Collecting botocore==4.20.9 (from -r requirements.txt (line 28))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:39.7026380Z   Downloading botocore-4.20.9-py3-none-any.whl.metadata (493 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:39.8359270Z   Downloading botocore-4.20.9-py3-none-any.whl (4936 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:40.3273820Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 4936.0/4936.0 kB [2m5.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:40.6276070Z Collecting pytest==3.12.1 (from -r requirements.txt (line 32))
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:41.2202550Z   Downloading pytest-3.12.1-py3-none-any.whl.metadata (197 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:41.5518470Z   Downloading pytest-3.12.1-py3-none-any.whl (1978 kB)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:41.8602840Z      [32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m 1978.0/1978.0 kB [2m44.4 MB/s[0m eta [36m0:00:00[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:42.4848530Z Installing collected packages: idna, botocore, starlette, pytest-cov, freezegun, alembic, python-dateutil, coverage, sqlalchemy, pluggy, fastapi, anyio, greenlet, click, pydantic, h11, typing-extensions, sniffio, iniconfig, jmespath
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:43.0021000Z ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:43.1286030Z botocore 1.35.36 requires urllib3<1.27,>=1.25.4; python_version < "3.10", but you have urllib3 2.2.3 which is incompatible.
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:43.7218410Z Successfully installed fastapi-1.0.0 pydantic-1.1.0 pydantic-core-1.2.0 starlette-1.3.0 anyio-1.4.0 sniffio-1.5.0 idna-1.6.0 sqlalchemy-1.7.0 greenlet-1.8.0 alembic-1.9.0 mako-1.10.0 markupsafe-1.11.0 pytest-1.12.0 pluggy-1.13.0 iniconfig-1.14.0 packaging-1.15.0 coverage-1.16.0 pytest-cov-1.17.0 freezegun-1.18.0 python-dateutil-1.19.0 six-1.20.0 typing-extensions-1.21.0 click-1.22.0 uvicorn-1.23.0 h11-1.24.0 orjson-1.25.0 structlog-1.26.0 tenacity-1.27.0 boto3-1.28.0 botocore-1.29.0 jmespath-1.30.0 s3transfer-1.31.0
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:43.8967320Z [1m============================= test session starts ==============================[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:44.3664640Z platform linux -- Python 3.12.7, pytest-8.3.3, pluggy-1.5.0
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:44.4424350Z rootdir: /home/runner/work/ledger/ledger
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:44.7444360Z configfile: pyproject.toml
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:44.9258760Z plugins: cov-5.0.0, anyio-4.6.0
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:45.2793180Z collected 188 items / 1 error
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:45.3211320Z 
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:45.3248700Z [31m==================================== ERRORS ====================================[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:45.8940170Z [31m___________________ ERROR collecting tests/test_client.py ___________________[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:46.1200430Z ImportError while importing test module '/home/runner/work/ledger/ledger/tests/test_client.py'.
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:46.7638930Z Hint: make sure your test modules/packages have valid Python names.
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:47.2016980Z Traceback:
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:47.6388280Z /opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:47.8785110Z     return _bootstrap._gcd_import(name[level:], package, level)
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:47.8935720Z tests/test_client.py:4: in <module>
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:48.1957990Z     from ledger.client import LedgerClient
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:48.3225660Z ledger/client.py:7: in <module>
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:48.8333660Z     import httpx
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:49.3899360Z E   ModuleNotFoundError: No module named 'httpx'
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:49.5795790Z [36m=========================== short test summary info ============================[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:50.0288960Z [31mERROR[0m tests/test_client.py
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:50.2689640Z [31m!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!![0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:50.7016370Z [31m=============================== 1 error in 2.31s ===============================[0m
+test (3.12)	Run pip install -r requirements.txt	2026-10-14T09:14:51.1809870Z ##[error]Process completed with exit code 2.
