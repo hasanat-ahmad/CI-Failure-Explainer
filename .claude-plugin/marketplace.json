@@ -1,0 +1,17 @@
+{
+  "name": "ci-failure-explainer",
+  "description": "CI Failure Explainer: a skill that diagnoses and fixes failed CI runs.",
+  "owner": {
+    "name": "Hasanat Ahmad",
+    "url": "https://github.com/hasanat-ahmad"
+  },
+  "plugins": [
+    {
+      "name": "ci-failure-explainer",
+      "source": "./",
+      "description": "Diagnose and fix failed GitHub Actions runs with redacted log digests, 120+ known failure patterns and a consistent report.",
+      "version": "1.0.0",
+      "category": "development"
+    }
+  ]
+}
