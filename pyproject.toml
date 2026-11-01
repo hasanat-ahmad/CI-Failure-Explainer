@@ -1,0 +1,42 @@
+# Project metadata and tool configuration. The skill itself has NO dependencies:
+# everything under skills/ uses the Python standard library only. Ruff is a dev-time
+# linter used in CI (`make lint`); it is never needed to run the skill.
+
+[project]
+name = "ci-failure-explainer"
+version = "1.0.0"
+description = "Agent skill that diagnoses and fixes failed CI runs from a redacted, compact log digest."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Hasanat Ahmad" }]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/hasanat-ahmad/CI-Failure-Explainer"
+Issues = "https://github.com/hasanat-ahmad/CI-Failure-Explainer/issues"
+
+[tool.ruff]
+target-version = "py39"
+line-length = 130
+src = ["skills/ci-failure-explainer/scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I", "UP", "SIM", "RUF", "S", "PL"]
+ignore = [
+  "UP006", "UP007", "UP035", "UP045",   # keep typing.List/Optional: readable on 3.9
+  "S603", "S607",                       # subprocess calls are fixed argv lists (gh, git, --version probes)
+  "S101",                               # asserts are fine in tests
+  "PLR0911", "PLR0912", "PLR0913", "PLR0915", "PLR2004",  # complexity heuristics; covered by tests instead
+  "RUF001", "RUF003",                   # intentional unicode (▶ ⋮ ● ✓) in output and patterns
+  "SIM108",
+]
+
+[tool.ruff.lint.isort]
+# Tests import `_helpers` (which puts the scripts dir on sys.path) before the
+# script modules; sorting by module name keeps it first.
+force-sort-within-sections = true
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S108", "E501", "PLC0415", "S311", "PLW1510"]
+"tests/fixtures/generate_fixtures.py" = ["S311", "E501"]   # seeded random for synthetic data
