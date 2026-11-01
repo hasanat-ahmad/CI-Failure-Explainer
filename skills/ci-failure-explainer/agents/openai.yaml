@@ -1,0 +1,9 @@
+# Optional metadata for OpenAI Codex / ChatGPT surfaces (ignored by other agents).
+# See https://learn.chatgpt.com/docs/build-skills
+interface:
+  display_name: "CI Failure Explainer"
+  short_description: "Diagnose and fix failed GitHub Actions runs from a redacted, compact log digest"
+  brand_color: "#D73A49"
+  default_prompt: "Why did CI fail on this branch? Diagnose it and propose the smallest fix."
+policy:
+  allow_implicit_invocation: true
