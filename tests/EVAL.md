@@ -14,9 +14,9 @@ The evaluation has two parts:
 
 | Fixture | Raw → digest lines | Root-cause line kept | Stacks (log only) | Expected pattern | Top match | Category exp / got | Result |
 |---|---|---|---|---|---|---|---|
-| `flutter_gradle_jdk_mismatch.log` | 743 → 43 | ✓ | flutter, jvm | FLUTTER-03 | FLUTTER-03 (high, 46) | build / build | ✅ |
+| `flutter_gradle_jdk_mismatch.log` | 743 → 43 | ✓ | flutter | FLUTTER-03 | FLUTTER-03 (high, 46) | build / build | ✅ |
 | `flutter_pub_version_solving.log` | 512 → 38 | ✓ | flutter | FLUTTER-02 | FLUTTER-02 (high, 61.2) | dependency / dependency | ✅ |
-| `flutter_analyze_failure.log` | 308 → 38 | ✓ | flutter | FLUTTER-10 | FLUTTER-10 (high, 45.2) | lint / lint | ✅ |
+| `flutter_analyze_failure.log` | 308 → 28 | ✓ | flutter | FLUTTER-10 | FLUTTER-10 (high, 45.2) | lint / lint | ✅ |
 | `node_npm_ci_lockfile.log` | 667 → 39 | ✓ | node | NODE-01 | NODE-01 (high, 38.6) | dependency / dependency | ✅ |
 | `node_jest_failure.log` | 672 → 50 | ✓ | node | NODE-08 | NODE-08 (high, 32.8) | test / test | ✅ |
 | `python_pytest_failure.log` | 473 → 45 | ✓ | python | PY-03 | PY-03 (high, 46) | dependency / dependency | ✅ |
@@ -51,3 +51,25 @@ Run on 2026-11-01 with `ci_doctor.py --log-file <fixture> --repo-dir <scratch re
 - The fixtures and the signatures were written by the same author, so this eval measures that the pipeline works end to end and stays correct as code changes (a regression gate). It isn't an independent accuracy benchmark. Real-world accuracy will be lower, especially for failures no entry covers. In that case the skill falls back to the diagnostic method, and the "If this isn't it" section matters more.
 - `fetch_failed_logs.py` is tested against a fake `gh` executable that mimics real `gh` JSON. Run it against a live repository before relying on it in automation.
 - Next steps to strengthen the eval: add anonymised real-world logs contributed by users, measure top-3 accuracy on them, and track misses as new pattern entries.
+
+## 3. Real-repository verification
+
+The skill was also run against a **real private project**: a Flutter app (`app/`) plus Firebase Cloud Functions in TypeScript (`functions/`), with a two-job GitHub Actions workflow. Its CI passed locally as-is (Flutter 3.41.4 as pinned: analyze clean, 142 tests; Functions: 15 tests, audit below threshold). Six common mistakes were then injected one at a time into a scratch clone, the workflow's real commands were run, and `ci_doctor.py` diagnosed each **real** log:
+
+| Injected mistake | CI step | Top match | Category | Mapped workflow step | Result |
+|---|---|---|---|---|---|
+| Unused import | `flutter analyze` | FLUTTER-10 | lint | `app › Analyze` | ✅ |
+| Logic regression in a date formatter | `flutter test` | FLUTTER-16 | test | `app › Test` | ✅ root cause = first failing test with its `Expected/Actual` diff |
+| Dart SDK constraint above installed SDK | `flutter pub get` | FLUTTER-01 | dependency | `app › Install packages` | ✅ |
+| Dependency added without updating lockfile | `npm ci` | NODE-01 | dependency | `functions › npm ci` | ✅ |
+| TypeScript type error | `npm test` (tsc) | NODE-05 | build | `functions › npm test` | ✅ |
+| Git-ignored font missing (fetch step failed) | `flutter test` | FLUTTER-18 | config | `app › Test` | ✅ |
+
+**Result: 6/6**, but only after fixing what the real repo exposed. The first run scored 5/6 on pattern matching and 3/6 on step mapping. Fixes, each now covered by a regression test:
+
+- `detect_stack.py` reported a false JVM stack for `app/android/` (nested Flutter apps), read toolchain hints only at the repo root, and parsed `dependencies: flutter: sdk: flutter` as a Flutter version constraint.
+- `workflow_steps.py` matched only YAML step names, but downloaded job logs title steps `Run <command>` even when the step has a `name:`.
+- `clean_logs.py` didn't recognise Dart's `[E]` test-failure header, so the root-cause pointer landed on a downstream error. `pub get`'s outdated-package list wasn't treated as noise.
+- New entry **FLUTTER-18** (asset/font declared in `pubspec.yaml` missing in CI).
+
+This repo's own CI also found a real failure on its first run (Python 3.9 has no build for Ubuntu 26.04). The library missed it, so **GEN-20** was added from that log.

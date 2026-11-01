@@ -131,7 +131,7 @@ Quick orientation: Flutter CI usually breaks on **version drift** (Flutter/Dart 
 - **Verify:** `flutter doctor -v`
 
 ### FLUTTER-16 · Widget/unit test failure
-- **Signature:** `EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK` · `Some tests failed\.` · `^\s*Expected: .+` · `Test failed\. See exception logs above\.`
+- **Signature:** `EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK` · `Some tests failed\.` · `^\s*Expected: .+` · `Test failed\. See exception logs above\.` · `^\d+:\d+ \+\d+(?: ~\d+)?(?: -\d+)?: .+ \[E\]$`
 - **Category:** test
 - **Cause:** A real assertion failure. Check the diff for behaviour changes first, then for async problems (missing `await tester.pumpAndSettle()`), which are the common flaky case.
 - **Fix:** Reproduce with `flutter test path/to/test.dart --plain-name "<test name>"`. Fix the code or the expectation, whichever the diff shows is wrong.
@@ -143,3 +143,10 @@ Quick orientation: Flutter CI usually breaks on **version drift** (Flutter/Dart 
 - **Cause:** Release iOS builds need certificates and profiles that aren't on the runner.
 - **Fix:** For CI checks, build with `flutter build ios --no-codesign`. For releases, install signing assets from secrets (fastlane match, or `apple-actions/import-codesign-certs`).
 - **Verify:** `flutter build ios --no-codesign`
+
+### FLUTTER-18 · Asset or font declared in pubspec.yaml is missing in CI
+- **Signature:** `unable to locate asset entry in pubspec\.yaml` · `unable to find directory entry in pubspec\.yaml` · `Error: Failed to build asset bundle`
+- **Category:** config
+- **Cause:** `pubspec.yaml` lists an asset or font file that isn't in the checkout: it's git-ignored (licensed fonts, generated or downloaded files), a fetch step was skipped or failed, or the path's case differs on Linux.
+- **Fix:** Commit the file if its licence allows. Otherwise make CI fetch it before `pub get` / `test`, and make the fetch fail loudly (`curl -fsSL`, `set -euo pipefail`). Check the exact path and case with `git ls-files app/assets`. For optional assets, list the directory (`assets/fonts/`) rather than individual files.
+- **Verify:** `flutter test` (or `flutter build`) in a fresh clone after running the fetch step

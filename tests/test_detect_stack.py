@@ -38,6 +38,21 @@ class TestDetectStack(unittest.TestCase):
             self.assertIn("stack-flutter.md", r["references"])
             self.assertEqual(r["toolchain"]["flutter constraint"], "3.24.5")
 
+    def test_nested_flutter_monorepo(self) -> None:
+        # Shape of a real repo the skill was verified on: app/ (Flutter) + functions/ (Node).
+        with make_repo({
+            "app/pubspec.yaml": "name: app\nenvironment:\n  sdk: ^3.11.1\n\ndependencies:\n  flutter:\n    sdk: flutter\n",
+            "app/android/build.gradle.kts": "", "app/android/app/build.gradle.kts": "",
+            "functions/package.json": json.dumps({"engines": {"node": "22"}}), "functions/package-lock.json": "{}",
+        }) as d:
+            r = detect_stack.detect(Path(d), "Running Gradle task 'assembleDebug'")
+            self.assertEqual(sorted(stacks(r)), ["flutter", "node"])  # app/android gradle is Flutter's, not JVM
+            tc = r["toolchain"]
+            self.assertEqual(tc["app/: dart sdk constraint"], "^3.11.1")
+            self.assertNotIn("app/: flutter constraint", tc)       # must not read dependencies: flutter: sdk
+            self.assertEqual(tc["functions/: package.json engines"], {"node": "22"})
+            self.assertEqual(tc["functions/: node_package_manager"], "npm")
+
     def test_node_project_with_lockfile_and_engines(self) -> None:
         with make_repo({
             "package.json": json.dumps({"name": "x", "engines": {"node": ">=20"}, "type": "module"}),

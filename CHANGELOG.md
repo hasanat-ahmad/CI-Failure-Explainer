@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.1 (2026-11-01)
+
+Fixes found by running the skill on a real repository (a Flutter + Firebase Functions monorepo) and on this repo's own first CI run. Each fix has a regression test.
+
+- **Stack detection (monorepos):** no false JVM stack for nested Flutter apps (`app/android/`). Toolchain hints are now read per sub-project (`app/: dart sdk constraint`, `functions/: package.json engines`, …). Fixed `dependencies: flutter: sdk: flutter` being read as a Flutter version constraint.
+- **Workflow step mapping:** steps now match the `Run <command>` titles that downloaded job logs use even for named steps. Previously 3 of 6 real failures were mapped to the wrong job.
+- **Digest:** Dart/Flutter `[E]` test-failure headers are root-cause grade, so the pointer lands on the first failing test with its `Expected/Actual` diff. Passing-test progress lines and `pub get` outdated lists are noise.
+- **New patterns:** FLUTTER-18 (asset/font declared in `pubspec.yaml` missing in CI) and GEN-20 (runtime version not available on the runner image, e.g. Python 3.9 on Ubuntu 26.04). 123 entries in total.
+- **CI:** Python 3.9 runs on `ubuntu-24.04` (no build exists for 26.04, now `ubuntu-latest`), Python 3.14 added, and `actions/checkout@v6` / `actions/setup-python@v6` (Node 24) adopted.
+- 80 unit and integration tests. Real-repo verification: 6/6 injected failures diagnosed (see `tests/EVAL.md`).
+
 ## 1.0.0 (2026-11-01)
 
 First release.

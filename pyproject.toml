@@ -4,7 +4,7 @@
 
 [project]
 name = "ci-failure-explainer"
-version = "1.0.0"
+version = "1.0.1"
 description = "Agent skill that diagnoses and fixes failed CI runs from a redacted, compact log digest."
 readme = "README.md"
 license = { text = "MIT" }

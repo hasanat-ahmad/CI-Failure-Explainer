@@ -216,6 +216,19 @@ def step_display_name(step: Dict[str, Any]) -> str:
     return f"Run {run[0]}" if run else "Run"
 
 
+def step_log_titles(step: Dict[str, Any]) -> List[str]:
+    """Every name a step can appear under: its display name (gh --log-failed prefix, UI)
+    and the "Run <command>" / "Run <action>" group title used in downloaded job logs,
+    which GitHub shows even when the step has a `name:`."""
+    titles = [step_display_name(step)]
+    if step.get("uses"):
+        titles.append(f"Run {step['uses']}")
+    run = str(step.get("run") or "").strip().splitlines()
+    if run:
+        titles.append(f"Run {run[0]}")
+    return titles
+
+
 def _norm(s: str) -> str:
     return re.sub(r"\s+", " ", EXPR.sub("*", s or "")).strip().lower()
 
@@ -273,7 +286,10 @@ def find_step(repo: Path, workflow: Optional[str], job: Optional[str], step: Opt
             for idx, sd in enumerate(steps if isinstance(steps, list) else []):
                 if not isinstance(sd, dict):
                     continue
-                s_score = _name_matches(step_display_name(sd), step) if step else (0.3 if sd.get("run") else 0.0)
+                if step:
+                    s_score = max(_name_matches(t, step) for t in step_log_titles(sd))
+                else:
+                    s_score = 0.3 if sd.get("run") else 0.0
                 total = wf_score + 2 * j_score + 3 * s_score
                 if total > best[0]:
                     best = (total, (path, data, job_id, jd, idx, sd, s_score))

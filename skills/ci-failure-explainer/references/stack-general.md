@@ -146,3 +146,19 @@ Signatures are Python regexes (backtick-quoted, ` · ` separated) used by `scrip
 - **Cause:** `upload-artifact@v4` names must be unique per run (matrix jobs collide), the upload path doesn't exist because the build output moved, or the cache service hiccupped.
 - **Fix:** Include matrix values in artifact names (`name: coverage-${{ matrix.os }}`), fix the path, and use `if-no-files-found: error` to catch path mistakes early.
 - **Verify:** `ls -la <path>` in the step before upload
+
+### GEN-20 · Runtime version not available on the runner image
+- **Signature:** `The version '[^']+' with architecture '\w+' was not found for` · `Version [\w.*-]+ was not found in the local cache` · `Could not find a version that satisfied version spec`
+- **Category:** config
+- **Cause:** `ubuntu-latest` / `macos-latest` moved to a new image (e.g. Ubuntu 26.04 from Oct 2026) and the setup action has no prebuilt binary of an old or end-of-life runtime for it (Python 3.9 on Ubuntu 26.04), or the version spec doesn't exist at all.
+- **Fix:** Keep the old version on an image that still has it, upgrade the runtime, or pin images for reproducibility:
+  ```yaml
+  strategy:
+    matrix:
+      os: [ubuntu-latest]
+      python: ["3.12", "3.13"]
+      include:
+        - { os: ubuntu-24.04, python: "3.9" }   # EOL runtime: no build for newer images
+  ```
+  Check what exists in the action's versions manifest (e.g. `actions/python-versions`, `actions/node-versions`).
+- **Verify:** Rerun the job, then check the "Successfully set up …" line in the setup step

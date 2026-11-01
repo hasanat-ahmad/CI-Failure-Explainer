@@ -360,6 +360,7 @@ _SPECIFIC = _rx(
     r"^npm (?:ERR!|error) code (?!ELIFECYCLE)\S", r"`npm ci` can only install packages",
     r"\bERESOLVE\b", r"Missing: \S+ from lock file",
     r"^\s*●\s+\S.*›", r"^\s*● Test suite failed to run", r"^FAILED \S+::\S+",
+    r"^\d+:\d+ \+\d+(?: ~\d+)?(?: -\d+)?: .+ \[E\]$",          # dart/flutter test failure header
     r"^\s*(?:error|warning|info) • .+ • \S+:\d+:\d+ •", r"version solving failed",
     r"^Because .+ (?:depends on|requires) ", r"^ERROR: failed to solve:", r"^#\d+ ERROR: ",
     r"^fatal: ", r"^panic: ", r"FATAL ERROR: .*heap", r"JavaScript heap out of memory",
@@ -399,6 +400,9 @@ _NOISE = _rx(
     r"^\s*(?:Extracting|Pulling fs layer|Waiting|Verifying Checksum|Download complete|Pull complete|Already exists)\b",
     r"^\s*Progress \(\d+\):", r"^\s*(?:Resolving dependencies\.\.\.|Downloading packages\.\.\.|Got dependencies!?)\s*$",
     r"^\s*[+>] \S+ \d+\.\d+\.\d+", r"^\s*(?:✓|√|PASS\s|PASSED\b|ok\s+\d|\[ok\])",
+    r"^\d+:\d+ \+\d+(?: ~\d+)?(?: -\d+)?: (?!.*\[E\]$)",        # dart/flutter test progress
+    r"^\s+\S+ \d+\.\d+\.\d+\S* \(\d+\.\d+\.\d+\S* available\)$",       # pub get: outdated package list
+    r"^\d+ packages? ha(?:s|ve) newer versions incompatible", r"^Try .(?:flutter|dart) pub outdated.",
     r"^\s*(?:Syncing repository|Temporarily overriding HOME|Adding repository directory|Getting Git version info|"
     r"Initializing the repository|Disabling automatic garbage|Setting up auth|Fetching the repository|"
     r"Determining the checkout info|Checking out the ref|Deleting the contents of|Persisting credentials)",

@@ -84,4 +84,4 @@ Transient `gh` failures (HTTP 5xx, resets, timeouts) are retried twice with expo
 - **Unit and integration tests** (`python -m unittest discover tests`): redaction (every rule, safe values, no leaks across markdown/JSON/slice/grep/bundle), digest budget and root-cause retention for every fixture, hostile inputs, YAML-subset parser, `gh` behaviour through a fake `gh` executable (success, retries, every error path), and end-to-end `ci_doctor` runs including phase degradation.
 - **Eval gate** (`tests/run_eval.py`): the pipeline must diagnose ≥9/10 fixtures correctly (top pattern + category + root-cause line kept).
 - **Fixture reproducibility:** fixtures are generated deterministically, and CI fails if regeneration changes them.
-- **Matrix:** Python 3.9 / 3.12 / 3.13 on Ubuntu and macOS, plus ruff lint and an installer smoke test.
+- **Matrix:** Python 3.9 / 3.12 / 3.13 / 3.14 on Ubuntu and macOS (3.9 on Ubuntu 24.04: no build exists for 26.04), plus ruff lint and an installer smoke test.

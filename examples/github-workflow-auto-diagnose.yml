@@ -50,15 +50,15 @@ jobs:
       HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
     steps:
       - name: Check out default branch (trusted workflow files only, never PR code)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           persist-credentials: false
 
       - name: Fetch the skill scripts (pinned release; prefer a full commit SHA in production)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: hasanat-ahmad/CI-Failure-Explainer
-          ref: v1.0.0
+          ref: v1.0.1
           path: .ci-failure-explainer
           persist-credentials: false
 

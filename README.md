@@ -9,7 +9,7 @@ It turns a 50,000-line red GitHub Actions log into a verified root cause and the
 ![license](https://img.shields.io/badge/license-MIT-blue)
 ![python](https://img.shields.io/badge/python-3.9%2B-3776AB)
 ![deps](https://img.shields.io/badge/dependencies-zero-brightgreen)
-![patterns](https://img.shields.io/badge/known%20failure%20patterns-121-orange)
+![patterns](https://img.shields.io/badge/known%20failure%20patterns-123-orange)
 
 **Works with** Claude Code · claude.ai · OpenAI Codex · Cursor · Google Antigravity · any agent that reads [Agent Skills](https://agentskills.io)
 
@@ -45,7 +45,7 @@ Agent:  ## CI failure: CI › test (3.12) › Run pip install -r requirements.tx
 |---|---|---|
 | **Context** | 10k–100k lines of noise, real error buried | **≤150-line digest**. The fixtures shrink 92–95% with the root cause kept |
 | **Secrets** | Pasted as-is to a model | **Redacted locally first** (GitHub/AWS/Slack/Stripe/npm/PyPI/LLM keys, JWTs, private keys, URL credentials, `password=`…) |
-| **Expertise** | Whatever the model remembers | **121 curated entries** (signature → cause → fix → verify) **matched by regex**, not by vibes |
+| **Expertise** | Whatever the model remembers | **123 curated entries** (signature → cause → fix → verify) **matched by regex**, not by vibes |
 | **Method** | Guess and retry | Flaky-vs-real signals, **diff against the last green run**, reproduce with the **exact workflow command** |
 | **Output** | Different every time | **Same report format every time**: verdict, evidence, fix, verify, plan B |
 | **Prompt injection** | Log text can steer the agent | Log content marked untrusted. Suspicious lines flagged `[!injection?]` |
@@ -60,7 +60,7 @@ Agent:  ## CI failure: CI › test (3.12) › Run pip install -r requirements.tx
 6. **The raw log is never read.** The agent works from the digest. Need more? `--slice 1200:1260` or `--grep TS2322` return **redacted** lines only.
 7. **Agent-agnostic, CI-agnostic.** One `SKILL.md` (portable frontmatter) for Claude, Codex, Cursor and Antigravity. Pasted GitLab/CircleCI/Jenkins/local logs get the same digest + pattern match.
 8. **Safe automatic mode.** An optional workflow comments the diagnosis on the PR. Claude gets read-only tools, never runs PR code, and updates one sticky comment instead of spamming.
-9. **Built for production use.** Python standard library only. A versioned JSON contract and exit codes, bounded runtime on hostile input, `gh` retries, and phases that degrade instead of crashing. 75 tests, an eval gate (≥ 9/10), ruff, and CI on Python 3.9–3.13 × Linux/macOS. Details in [Production readiness](#production-readiness).
+9. **Built for production use.** Python standard library only. A versioned JSON contract and exit codes, bounded runtime on hostile input, `gh` retries, and phases that degrade instead of crashing. 80 tests, an eval gate (≥ 9/10), ruff, and CI on Python 3.9–3.14 × Linux/macOS. Details in [Production readiness](#production-readiness).
 
 ## How it works
 
@@ -69,7 +69,7 @@ flowchart LR
     A["Run URL · PR # · branch<br/>or pasted log"] --> B["fetch_failed_logs.py<br/>gh: failed steps, last green, history"]
     B --> C["clean_logs.py<br/>① redact secrets ② strip noise<br/>③ root cause + windows ≤150 lines"]
     C --> D["detect_stack.py<br/>files + log signals<br/>pinned versions"]
-    C --> E["match_patterns.py<br/>121 regex signatures<br/>ranked by specificity"]
+    C --> E["match_patterns.py<br/>123 regex entries<br/>ranked by specificity"]
     B --> F["workflow_steps.py<br/>exact step command, secrets,<br/>CI vs local toolchain"]
     D --> G(("ci_doctor.py<br/>triage brief"))
     E --> G
@@ -129,7 +129,7 @@ S=~/.claude/skills/ci-failure-explainer/scripts      # or wherever you installed
 python3 $S/ci_doctor.py --pr 42                       # full triage brief
 python3 $S/ci_doctor.py --log-file build.log          # any CI system, no gh needed
 python3 $S/clean_logs.py raw.log --grep 'error TS'    # redacted search
-python3 $S/match_patterns.py --list                   # browse the 121 patterns
+python3 $S/match_patterns.py --list                   # browse the 123 patterns
 python3 $S/match_patterns.py --show FLUTTER-03        # one entry
 ```
 
@@ -201,11 +201,11 @@ How it stays safe: the deterministic scripts build the redacted brief first. Cla
 
 | Stack | Entries | Highlights |
 |---|---:|---|
-| **Flutter / Dart** | 17 | SDK drift (`flutter-action` pinning), pub version solving, AGP ↔ Gradle ↔ JDK ↔ Kotlin, `minSdkVersion`, CocoaPods, missing `google-services.json`, `--fatal-infos`, goldens across OSes, `build_runner` |
+| **Flutter / Dart** | 18 | SDK drift (`flutter-action` pinning), pub version solving, AGP ↔ Gradle ↔ JDK ↔ Kotlin, `minSdkVersion`, CocoaPods, missing `google-services.json`, `--fatal-infos`, goldens across OSes, `build_runner` |
 | **Node / TypeScript** | 18 | `npm ci` lockfile drift, `engines`, `ERESOLVE`, ESM/CJS, TS-only-in-CI, ESLint/Prettier, Jest open handles & timeouts, heap OOM, Next.js build env, case-sensitive imports, pnpm/yarn lockfiles |
 | **Python** | 16 | Resolver conflicts, wrong Python, `ModuleNotFoundError`, src layout, collection errors, mypy/ruff/black, wheels, timezone/locale, poetry/uv locks, PEP 668, `distutils` |
 | **Docker** | 13 | Build context & `.dockerignore`, `COPY` not found, tag changes, arm64/amd64, registry auth, apt, buildx drivers & cache, compose health, Hub rate limits |
-| **GitHub Actions / general** | 19 | Missing secrets (forks, Dependabot), env vars, OOM 137, disk, timeouts, rate limits, `GITHUB_TOKEN` permissions, deprecated actions, CRLF, matrix-only, shallow clones |
+| **GitHub Actions / general** | 20 | Missing secrets (forks, Dependabot), env vars, OOM 137, disk, timeouts, rate limits, `GITHUB_TOKEN` permissions, deprecated actions, CRLF, matrix-only, shallow clones |
 | **Go · Rust · JVM** | 10 · 10 · 10 | `go.sum`, races, golangci · clippy `-D warnings`, MSRV, `--locked` · JDK major versions, Gradle/Maven resolution, Android lint |
 | **Flaky tests** | 8 | Network, timing, order dependence, time zones, seeds, parallelism, leaked async, runner limits |
 
@@ -231,10 +231,10 @@ What you can rely on when you run this in a team or in CI:
 | **Resilience** | Transient `gh` errors (5xx, resets, timeouts) are retried with backoff. Stack detection, matching and workflow mapping degrade to a `Warning:` line instead of failing the brief. |
 | **Side effects** | Scripts call only read-only `gh` commands. The skill requires explicit permission before any push, rerun, comment or settings change. Automatic mode gives Claude read-only tools. |
 | **Supply chain** | Zero runtime dependencies. Automatic mode pins the skill to a release tag (use a commit SHA for stricter pinning). Dependabot updates the Actions. Release assets come with a SHA-256 checksum. |
-| **Verification** | 75 unit and integration tests, an eval gate (≥ 9/10), ruff, fixture-reproducibility check and installer smoke test. CI runs on Python 3.9 / 3.12 / 3.13 × Ubuntu / macOS. |
+| **Verification** | 80 unit and integration tests, an eval gate (≥ 9/10), ruff, fixture-reproducibility check and installer smoke test. CI runs on Python 3.9 / 3.12 / 3.13 / 3.14 × Ubuntu / macOS. |
 
 ```bash
-make check      # validate the pattern library + 75 tests + eval gate
+make check      # validate the pattern library + 80 tests + eval gate
 make lint       # ruff (dev-only)
 make package    # dist/ci-failure-explainer.zip for claude.ai upload or releases
 ```

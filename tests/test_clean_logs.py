@@ -56,6 +56,19 @@ class TestFixtures(unittest.TestCase):
         self.assertRegex(md, r"▶\s+\d+ \| E   ModuleNotFoundError")
         self.assertIn("**Exit code:** 2", md)
 
+    def test_dart_test_failure_header_is_root_cause(self) -> None:
+        raw = "\n".join([
+            "00:00 +12: test/a_test.dart: passes",
+            "  web 1.1.1 (1.1.2 available)",
+            "00:00 +13 -1: test/format_test.dart: month keys are zero padded [E]",
+            "  Expected: '2026-09'",
+            "    Actual: '2026-009'",
+            "00:01 +40 -1: Some tests failed.",
+        ])
+        d = clean_logs.digest_text(raw)
+        self.assertTrue(d.item(d.root_cause).text.endswith("[E]"))
+        self.assertIn("Actual: '2026-009'", clean_logs.render_markdown(d))
+
     def test_gradle_cause_chain_followed(self) -> None:
         d = clean_logs.digest_text(fixture_text("flutter_gradle_jdk_mismatch.log"))
         self.assertIn("Android Gradle plugin requires Java 17", d.item(d.root_cause).text)

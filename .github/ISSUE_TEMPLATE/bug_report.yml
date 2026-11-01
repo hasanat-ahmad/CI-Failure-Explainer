@@ -12,7 +12,7 @@ body:
     attributes:
       label: Version
       description: Output of `ci_doctor.py --version`
-      placeholder: ci_doctor.py 1.0.0
+      placeholder: ci_doctor.py 1.0.1
     validations:
       required: true
   - type: dropdown

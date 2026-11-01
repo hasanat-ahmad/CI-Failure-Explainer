@@ -1,6 +1,6 @@
 {
   "name": "ci-failure-explainer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Diagnose and fix failed GitHub Actions runs: secret redaction, 150-line log digests, 120+ known failure patterns, flakiness signals and a consistent root-cause report.",
   "author": {
     "name": "Hasanat Ahmad",

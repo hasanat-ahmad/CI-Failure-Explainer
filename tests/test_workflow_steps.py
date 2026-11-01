@@ -106,6 +106,11 @@ class TestFindStep(unittest.TestCase):
         self.assertIn("cd web", info["repro_script"])
         self.assertGreater(info["match_confidence"], 0.8)
 
+    def test_named_step_matches_run_title_from_full_job_log(self) -> None:
+        # Downloaded job logs title steps "Run <command>" even when the step has a name.
+        info = workflow_steps.find_step(self.repo, None, None, "Run npm run build")
+        self.assertEqual((info["job_id"], info["step_name"]), ("test", "Build"))
+
     def test_unnamed_step(self) -> None:
         info = workflow_steps.find_step(self.repo, None, "Test (20)", "Run npm ci")
         self.assertEqual(info["step_index"], 3)

@@ -113,8 +113,19 @@ def _read(path: Path, limit: int = 200_000) -> str:
         return ""
 
 
-def toolchain_hints(root: Path) -> Dict[str, object]:
-    """Pinned versions and package managers: the usual suspects for CI drift."""
+def toolchain_hints(root: Path, project_dirs: Sequence[str] = ()) -> Dict[str, object]:
+    """Pinned versions and package managers for the root and each sub-project (monorepos).
+
+    Keys from sub-projects are prefixed with their directory, e.g. "functions/: package.json engines".
+    """
+    hints: Dict[str, object] = dict(_hints_for(root))
+    for rel in sorted(set(project_dirs) - {""}):
+        for key, value in _hints_for(root / rel).items():
+            hints[f"{rel}/: {key}"] = value
+    return hints
+
+
+def _hints_for(root: Path) -> Dict[str, object]:
     hints: Dict[str, object] = {}
     for name in (".nvmrc", ".node-version", ".python-version", ".ruby-version", ".java-version",
                  ".go-version", ".fvmrc", "rust-toolchain", "rust-toolchain.toml", ".tool-versions"):
@@ -150,10 +161,12 @@ def toolchain_hints(root: Path) -> Dict[str, object]:
             hints["requires-python"] = m.group(1)
     pubspec = root / "pubspec.yaml"
     if pubspec.is_file():
-        m = re.search(r"environment:\s*\n(?:\s+.*\n)*?\s+sdk:\s*['\"]?([^'\"\n]+)", _read(pubspec))
+        env = re.search(r"^environment:[ \t]*\n((?:[ \t]+.*\n?)+)", _read(pubspec), re.M)  # indented block only
+        block = env.group(1) if env else ""
+        m = re.search(r"^[ \t]+sdk:[ \t]*['\"]?([^'\"\n]+)", block, re.M)
         if m:
             hints["dart sdk constraint"] = m.group(1).strip()
-        m = re.search(r"environment:\s*\n(?:\s+.*\n)*?\s+flutter:\s*['\"]?([^'\"\n]+)", _read(pubspec))
+        m = re.search(r"^[ \t]+flutter:[ \t]*['\"]?([^'\"\n]+)", block, re.M)
         if m:
             hints["flutter constraint"] = m.group(1).strip()
     gomod = root / "go.mod"
@@ -175,6 +188,8 @@ def detect(root: Path, log_text: Optional[str] = None) -> Dict[str, object]:
         if label and label not in entry["labels"]:  # type: ignore[operator]
             entry["labels"].append(label)  # type: ignore[union-attr]
 
+    project_dirs: List[str] = []   # directories holding a manifest (monorepo sub-projects)
+    flutter_dirs: List[str] = []
     if root.is_dir():
         for pattern, stack, label in FILE_MARKERS:
             for f in _iter_files(root, pattern)[:5]:
@@ -187,6 +202,11 @@ def detect(root: Path, log_text: Optional[str] = None) -> Dict[str, object]:
                 if stack == "general" and label == "make":
                     conf = min(conf, 0.3)  # a Makefile alone says little
                 add(stack, conf, f"file: {rel}", file_label)
+                parent = rel.rsplit("/", 1)[0] if "/" in rel else ""
+                if stack != "general" and parent not in project_dirs and depth <= 2:
+                    project_dirs.append(parent)
+                if stack == "flutter" and file_label != "dart":
+                    flutter_dirs.append(parent)
 
     if log_text:
         for stack, patterns in LOG_SIGNALS.items():
@@ -197,12 +217,17 @@ def detect(root: Path, log_text: Optional[str] = None) -> Dict[str, object]:
                     stacks[stack]["confidence"] = min(float(stacks[stack]["confidence"]) + 0.05, 0.99)  # type: ignore[arg-type]
                 add(stack, conf, "log: " + ", ".join(hits[:3]))
 
-    # Flutter projects contain Gradle files under android/; don't double-report them.
+    # Flutter apps contain Gradle files under <app>/android/ and their logs mention Gradle;
+    # that is the Flutter stack, not a separate JVM project. Drop JVM unless other evidence exists.
     if "flutter" in stacks and "jvm" in stacks:
-        jvm_ev = [e for e in stacks["jvm"]["evidence"] if not str(e).startswith("file: android/")]  # type: ignore[union-attr]
-        if not jvm_ev:
+        android_dirs = tuple(f"file: {d + '/' if d else ''}android/" for d in flutter_dirs) or ("file: android/",)
+        own = [e for e in stacks["jvm"]["evidence"]  # type: ignore[union-attr]
+               if not str(e).startswith(android_dirs) and not str(e).startswith("log: ")]
+        if not own:
             stacks["flutter"]["evidence"].append("android/ Gradle files (covered by stack-flutter.md)")  # type: ignore[union-attr]
             del stacks["jvm"]
+            project_dirs = [d for d in project_dirs if not any(d.startswith(f"{f}/android" if f else "android")
+                                                                for f in flutter_dirs)]
 
     ordered = sorted(stacks.values(), key=lambda s: -float(s["confidence"]))  # type: ignore[arg-type]
     for s in ordered:
@@ -219,7 +244,7 @@ def detect(root: Path, log_text: Optional[str] = None) -> Dict[str, object]:
         "root": str(root.resolve()) if root.exists() else str(root),
         "stacks": ordered,
         "references": refs,
-        "toolchain": toolchain_hints(root) if root.is_dir() else {},
+        "toolchain": toolchain_hints(root, project_dirs) if root.is_dir() else {},
     }
 
 

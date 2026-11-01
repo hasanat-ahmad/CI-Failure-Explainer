@@ -21,12 +21,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
-        python: ["3.9", "3.12", "3.13"]
+        python: ["3.9", "3.12", "3.13", "3.14"]
+        exclude:
+          # Python 3.9 is end-of-life and has no setup-python build for Ubuntu 26.04
+          # (ubuntu-latest since 2026-10-19), so it runs on 24.04 instead (pattern GEN-20).
+          - { os: ubuntu-latest, python: "3.9" }
+        include:
+          - { os: ubuntu-24.04, python: "3.9" }
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
       - name: Unit and integration tests
@@ -46,10 +52,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: ruff (dev-only tool; the skill has no dependencies)
@@ -63,10 +69,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Regenerate fixtures and check for drift
@@ -78,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - name: Install for every agent into a scratch HOME and project

@@ -65,6 +65,20 @@ class TestMatching(unittest.TestCase):
         self.assertEqual(matches[0].entry.id, "GEN-01")
         self.assertNotIn("Z" * 36, match_patterns.render_json(matches))
 
+    def test_real_runner_image_failure(self) -> None:
+        # Lines from this repo's own first CI run (Python 3.9 on Ubuntu 26.04), which the
+        # library initially missed; kept as a regression test for GEN-20.
+        log = ("##[error]The version '3.9' with architecture 'x64' was not found for Ubuntu 26.04.\n"
+               "Version 3.9 was not found in the local cache\n")
+        matches = match_patterns.match(log, self.entries, ["python"])
+        self.assertEqual(matches[0].entry.id, "GEN-20")
+        self.assertEqual(matches[0].confidence, "high")
+
+    def test_real_missing_asset_failure(self) -> None:
+        log = ('Error: unable to locate asset entry in pubspec.yaml: "assets/fonts/GeneralSans-Regular.otf".\n'
+               "Error: Failed to build asset bundle\n")
+        self.assertEqual(match_patterns.match(log, self.entries, ["flutter"])[0].entry.id, "FLUTTER-18")
+
     def test_specific_beats_generic(self) -> None:
         self.assertGreater(match_patterns.specificity(r"Exceeded timeout of \d+ ?ms for a test"),
                            match_patterns.specificity(r"^\s*●\s+\S.*›"))
