@@ -1,7 +1,7 @@
 {
   "name": "ci-failure-explainer",
   "version": "1.0.1",
-  "description": "Diagnose and fix failed GitHub Actions runs: secret redaction, 150-line log digests, 120+ known failure patterns, flakiness signals and a consistent root-cause report.",
+  "description": "Diagnose and fix failed GitHub Actions runs (and GitLab, Jenkins or local logs): secret redaction, 150-line log digests, 160 known failure patterns across 10 stacks, flakiness signals and a consistent root-cause report.",
   "author": {
     "name": "Hasanat Ahmad",
     "url": "https://github.com/hasanat-ahmad"
@@ -9,5 +9,5 @@
   "homepage": "https://github.com/hasanat-ahmad/CI-Failure-Explainer",
   "repository": "https://github.com/hasanat-ahmad/CI-Failure-Explainer",
   "license": "MIT",
-  "keywords": ["ci", "github-actions", "debugging", "devops", "flaky-tests", "logs", "skill"]
+  "keywords": ["ci", "github-actions", "gitlab-ci", "jenkins", "debugging", "devops", "flaky-tests", "logs", "skill"]
 }

@@ -33,7 +33,7 @@ From the brief: `same_sha_succeeded`, attempt number, history strip, and whether
 
 ## 3. Relate the failure to what changed
 
-- Last green vs now red: `git diff --stat <last_success.head_sha>..<head_sha>`, then `git diff <a>..<b> -- <relevant paths>`.
+- Last green vs now red: the brief's **Changed since last green** section lists changed lockfiles, workflows, toolchain pins, manifests and container files first. Then `git diff <a>..<b> -- <relevant paths>`. If it says the commit isn't in the local clone, run the `git fetch` it suggests.
 - On a PR: `git diff origin/<base>...HEAD` (or `gh pr diff <n>`).
 - Look for changed files that relate to the error: the file named in a compiler error, a test touching changed code, a manifest or lockfile change, a workflow or Dockerfile change, a renamed file (case!).
 - **Nothing related changed?** Suspect the environment: a floating version (`latest`, `^`, unpinned action or tool), runner image update, expired secret, external service, or flakiness. Check the run date against upstream releases.

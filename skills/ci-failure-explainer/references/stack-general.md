@@ -1,6 +1,6 @@
 # General / GitHub Actions platform failures
 
-These apply to every stack: secrets, runners, permissions, platform limits and cross-OS differences. Read this file in addition to the stack-specific one, and on its own when no stack is detected (Go, Rust, JVM, Ruby, .NET, etc. also have dedicated or general entries).
+These apply to every stack: secrets, runners, permissions, platform limits and cross-OS differences. Read this file in addition to the stack-specific one, and on its own when no stack is detected (Go, Rust, JVM, Ruby, .NET and PHP also have dedicated files).
 
 Signatures are Python regexes (backtick-quoted, ` · ` separated) used by `scripts/match_patterns.py`. A backtick inside a log line is written as `.`.
 

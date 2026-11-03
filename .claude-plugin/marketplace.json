@@ -9,7 +9,7 @@
     {
       "name": "ci-failure-explainer",
       "source": "./",
-      "description": "Diagnose and fix failed GitHub Actions runs with redacted log digests, 120+ known failure patterns and a consistent report.",
+      "description": "Diagnose and fix failed GitHub Actions runs (and GitLab, Jenkins or local logs) with redacted log digests, 160 known failure patterns and a consistent report.",
       "version": "1.0.1",
       "category": "development"
     }

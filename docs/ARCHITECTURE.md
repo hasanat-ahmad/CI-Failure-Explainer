@@ -17,15 +17,16 @@ ci_doctor.py ─────────────┬─ fetch_failed_logs.py 
   (orchestrator,          ├─ clean_logs.py          redact → normalise → collapse → classify → select → render
    failure-tolerant)      ├─ detect_stack.py        repo files + log signals → stacks, toolchain pins
                           ├─ match_patterns.py      references/*.md → regex entries → ranked matches
-                          └─ workflow_steps.py      .github/workflows → failing step, pins, secrets, repro.sh
+                          ├─ workflow_steps.py      .github/workflows → failing step, pins, secrets, repro.sh
+                          └─ git (read-only)        last green..failing commit → changed files, suspects
 ```
 
-`ci_doctor` treats **fetch** and **digest** as core phases (failure ⇒ clear error + exit code). **Stack detection, pattern matching and workflow mapping** are optional phases: an exception becomes a `Warning:` line in the brief and the remaining phases still run.
+`ci_doctor` treats **fetch** and **digest** as core phases (failure ⇒ clear error + exit code). **Stack detection, pattern matching, workflow mapping and the diff since last green** are optional phases: an exception becomes a `Warning:` line in the brief and the remaining phases still run.
 
 ## The digest algorithm (`clean_logs.py`)
 
 1. **Redact** each line's content (stateful for multi-line private keys), strip ANSI and `\r` progress frames, then redact again (ANSI codes can split tokens). Lines are truncated to 2,000 chars **after** redaction.
-2. **Parse** `gh --log-failed` prefixes (`job\tstep\tTIMESTAMP`) and full-job logs (steps inferred from `##[group]Run …`). GitHub markers (`##[error]`, `::error file=…::`) become `[error] …`, and `::add-mask::` lines are dropped.
+2. **Parse** `gh --log-failed` prefixes (`job\tstep\tTIMESTAMP`) and full-job logs (steps inferred from `##[group]Run …`). GitHub markers (`##[error]`, `::error file=…::`) become `[error] …`, and `::add-mask::` lines are dropped. GitLab `section_start`/`section_end` markers and Jenkins `[Pipeline] { (Stage)` blocks also become steps; their end-of-job "failed" trailer is credited to the last script section / the last stage that ran, so that step is the failed one. Lines are split on `\n` only, so a bare `\r` (progress frames, GitLab markers) never shifts line numbers away from `wc -l`.
 3. **Collapse** consecutive near-duplicates (digits normalised) into `(×N similar lines)` and fold stack-frame runs longer than 8 lines (keep 3 + 3).
 4. **Classify** each line as *specific* (root-cause grade, e.g. `error TS2322`, `E   ModuleNotFoundError`, Gradle's `What went wrong` chain), *generic* (`error`, `FAILED`), *summary* (exit codes, `Tests: 1 failed`) or *noise* (downloads, progress, passing tests, cache chatter, BuildKit-prefixed npm warnings).
 5. **Pick anchors.** The root cause is the first specific line in a failed step (following Gradle's nested `>` chain to the deepest reason). The final symptom is the last summary line.
@@ -40,7 +41,7 @@ Entries are parsed from `### ID · Title` headings with `**Signature/Category/Ca
 - signature matches the root-cause line: `+ 20 × specificity + 5`;
 - entry's stack detected: `+5` (`general`/`flaky`: `+2`).
 
-Confidence is *high* (root-cause hit or ≥2 signatures), *medium* (one signature) or *low*. `--validate` (run in CI) rejects missing fields, bad or empty-matching regexes, unknown categories and duplicate IDs.
+Confidence is *high* (root-cause hit or ≥2 signatures), *medium* (one signature) or *low*. `--validate` (run in CI) rejects missing fields, bad or empty-matching regexes, unknown categories, duplicate IDs, and **nested unbounded repeats** (`(a+)+`, `(\S+\s?)+`, `(.*,)+`) that could backtrack catastrophically on hostile lines. A nested repeat passes only when the outer body has a mandatory character the inner repeats can't consume (`(\.\w+)*`), which keeps matching linear. `--explain ID` prints one entry's score broken down by the same `score_entry()` the ranking uses.
 
 ## Output contract
 
@@ -53,7 +54,7 @@ All JSON outputs carry `schema_version` (currently `1`); additive changes keep t
 | `detect_stack.py` | `schema_version, root, stacks[{stack, confidence, evidence, reference}], references, toolchain` |
 | `workflow_steps.py` | `schema_version, workflow_file, job_id, step_name, run, repro_script, toolchain, secrets_referenced, env_names, matrix, …` |
 | `match_patterns.py --format json` | list of `{id, title, category, reference, line, score, confidence, on_root_cause, hits, cause, fix, verify}` |
-| `ci_doctor.py --format json` | `schema_version, tool_version, bundle, bundle_is_temp, category_guess, flaky_signals, warnings, meta, stacks, workflow_step, matches, digest` |
+| `ci_doctor.py --format json` | `schema_version, tool_version, bundle, bundle_is_temp, category_guess, flaky_signals, warnings, meta, stacks, workflow_step, changes_since_green, matches, digest` |
 
 ### Exit codes (`fetch_failed_logs.py`, `ci_doctor.py`)
 
@@ -82,6 +83,7 @@ Transient `gh` failures (HTTP 5xx, resets, timeouts) are retried twice with expo
 ## Testing strategy
 
 - **Unit and integration tests** (`python -m unittest discover tests`): redaction (every rule, safe values, no leaks across markdown/JSON/slice/grep/bundle), digest budget and root-cause retention for every fixture, hostile inputs, YAML-subset parser, `gh` behaviour through a fake `gh` executable (success, retries, every error path), and end-to-end `ci_doctor` runs including phase degradation.
-- **Eval gate** (`tests/run_eval.py`): the pipeline must diagnose ≥9/10 fixtures correctly (top pattern + category + root-cause line kept).
+- **Eval gate** (`tests/run_eval.py`): the pipeline must diagnose ≥ 90% of fixtures correctly (top pattern + category + root-cause line kept). Fixtures cover both GitHub log formats, a GitLab trace and a Jenkins console log.
+- **Representative lines:** every newer entry has a real-looking log excerpt in `tests/test_match_patterns.py` that must rank it first through the real digest, and every signature is timed against hostile 2,000-char lines.
 - **Fixture reproducibility:** fixtures are generated deterministically, and CI fails if regeneration changes them.
 - **Matrix:** Python 3.9 / 3.12 / 3.13 / 3.14 on Ubuntu and macOS (3.9 on Ubuntu 24.04: no build exists for 26.04), plus ruff lint and an installer smoke test.

@@ -1,6 +1,6 @@
 ---
 name: ci-failure-explainer
-description: Diagnose and fix failed CI runs on GitHub Actions. Use when the user asks why CI, a build, a workflow, a pipeline, a check, or tests failed on GitHub, mentions a red/failing check on a PR, pastes a GitHub Actions run URL, or asks to fix a broken build. Also works on pasted logs from GitLab, CircleCI, Jenkins or local builds. Redacts secrets, shrinks huge logs to a ~150-line digest, matches 120+ known failure patterns (Flutter, Node, Python, Docker, Go, Rust, JVM, GitHub Actions) and reports root cause, fix and verification.
+description: Diagnose and fix failed CI runs on GitHub Actions. Use when the user asks why CI, a build, a workflow, a pipeline, a check, or tests failed on GitHub, mentions a red/failing check on a PR, pastes a GitHub Actions run URL, or asks to fix a broken build. Also works on pasted logs from GitLab, Jenkins, CircleCI or local builds. Redacts secrets, shrinks huge logs to a ~150-line digest, matches 160 known failure patterns (Flutter, Node, Python, Docker, Go, Rust, JVM, Ruby, .NET, PHP, GitHub Actions) and reports root cause, fix and verification.
 license: MIT
 compatibility: Needs Python 3.9+ (standard library only). Fetching runs needs the GitHub CLI (gh) installed and authenticated; pasted or saved logs work without it. Linux and macOS; Windows via WSL or Git Bash.
 metadata:
@@ -53,15 +53,16 @@ The brief names the detected stack(s) and the best known-pattern matches, includ
 | Python | `references/stack-python.md` |
 | Docker / containers | `references/stack-docker.md` |
 | Go · Rust · JVM (Gradle/Maven/Android) | `references/stack-go.md` · `stack-rust.md` · `stack-jvm.md` |
+| Ruby / Rails · .NET / C# · PHP | `references/stack-ruby.md` · `stack-dotnet.md` · `stack-php.md` |
 | Secrets, runners, permissions, platform | `references/stack-general.md` (always relevant) |
 | Flaky tests | `references/flaky-tests.md` |
 | GitLab / CircleCI / Jenkins logs | `references/ci-platforms.md` |
 
-Look up any entry directly: `python3 <skill-dir>/scripts/match_patterns.py --show NODE-01`.
+Look up any entry directly: `python3 <skill-dir>/scripts/match_patterns.py --show NODE-01`. To see why an entry did or didn't rank first, run `match_patterns.py <bundle>/digest.md --explain NODE-01`.
 
 ### 4. Follow the diagnostic method
 
-Work through `references/diagnostic-method.md`: classify → flakiness signals → relate to the diff (`git diff <last-green>..<failing-sha>`, printed in the brief) → match patterns → reproduce locally with the exact command (`repro.sh` in the bundle, after reviewing it) → hypothesis with evidence → minimal fix → verify.
+Work through `references/diagnostic-method.md`: classify → flakiness signals → relate to the diff (the brief's **Changed since last green** section lists suspect files first; `git diff <last-green>..<failing-sha>` for details) → match patterns → reproduce locally with the exact command (`repro.sh` in the bundle, after reviewing it) → hypothesis with evidence → minimal fix → verify.
 
 ### 5. Report
 
@@ -83,9 +84,9 @@ Say so. Give the top 2 hypotheses, the evidence for each, and the single quickes
 
 | Script | Purpose |
 |---|---|
-| `ci_doctor.py` | One-shot orchestrator → triage brief + bundle dir (digest, matches, workflow step, `repro.sh`) |
+| `ci_doctor.py` | One-shot orchestrator → triage brief + bundle dir (digest, matches, workflow step, `repro.sh`, files changed since last green) |
 | `fetch_failed_logs.py` | Resolve run/PR/branch via `gh`. Failed-step logs, last green SHA, pass/fail history |
 | `clean_logs.py` | Redact secrets → strip noise → digest (≤150 lines). `--slice` / `--grep` drill-down |
 | `detect_stack.py` | Stack(s) from repo files + log, pinned toolchain versions |
-| `match_patterns.py` | Rank the 120+ known-error entries against the digest. `--list`, `--show`, `--validate` |
+| `match_patterns.py` | Rank the 160 known-error entries against the digest. `--list`, `--show`, `--explain`, `--validate` |
 | `workflow_steps.py` | Failing step → exact `run:` command, setup-* pins, secrets used, local version drift |

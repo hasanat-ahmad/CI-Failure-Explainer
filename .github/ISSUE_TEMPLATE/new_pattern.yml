@@ -9,7 +9,7 @@ body:
     id: stack
     attributes:
       label: Stack
-      options: [Flutter/Dart, Node/TypeScript, Python, Docker, Go, Rust, JVM, GitHub Actions/general, Flaky tests, other]
+      options: [Flutter/Dart, Node/TypeScript, Python, Docker, Go, Rust, JVM, Ruby/Rails, .NET/C#, PHP, GitHub Actions/general, Flaky tests, other]
     validations:
       required: true
   - type: textarea

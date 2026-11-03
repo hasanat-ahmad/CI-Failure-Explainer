@@ -4,7 +4,7 @@
 
 ## Checklist
 
-- [ ] `make check` passes (validate + tests + eval ≥ 9/10)
+- [ ] `make check` passes (validate + tests + eval ≥ 90%)
 - [ ] `ruff check .` passes
 - [ ] Standard library only, Python 3.9-compatible
 - [ ] New/changed pattern entries use the standard format, and their signatures were tested against a (synthetic) log line
