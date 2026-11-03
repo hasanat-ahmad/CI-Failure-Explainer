@@ -67,6 +67,15 @@ REPRESENTATIVE = {
     "PHP-09": ("php", "PDOException: SQLSTATE[HY000] [2002] Connection refused"),
     "PHP-10": ("php", "PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in "
                       "/app/vendor/phpstan/phpstan/phpstan.phar on line 4"),
+    "GEN-21": ("general", "##[error]Unable to resolve action `actions/setup-nodee@v4`, repository not found"),
+    "GEN-22": ("general", "fatal: detected dubious ownership in repository at '/__w/app/app'\nTo add an exception for this "
+                          "directory, call:\n\n\tgit config --global --add safe.directory /__w/app/app"),
+    "GEN-23": ("general", "Fetching submodules\nCloning into '/home/runner/work/app/app/vendor/billing'...\n"
+                          "fatal: could not read Username for 'https://github.com': terminal prompts disabled\n"
+                          "fatal: clone of 'https://github.com/acme/billing.git' into submodule path "
+                          "'/home/runner/work/app/app/vendor/billing' failed"),
+    "GEN-24": ("general", "##[error]Unable to process file command 'output' successfully.\n##[error]Invalid format '  - fix: rounding'"),
+    "GEN-25": ("general", "##[error]Container action is only supported on Linux"),
 }
 
 

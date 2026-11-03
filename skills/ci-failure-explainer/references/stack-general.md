@@ -162,3 +162,58 @@ Signatures are Python regexes (backtick-quoted, ` · ` separated) used by `scrip
   ```
   Check what exists in the action's versions manifest (e.g. `actions/python-versions`, `actions/node-versions`).
 - **Verify:** Rerun the job, then check the "Successfully set up …" line in the setup step
+
+### GEN-21 · Action or local action can't be resolved
+- **Signature:** `Unable to resolve action .+, (?:repository not found|unable to find version)` · `Can't find 'action\.yml', 'action\.yaml' or 'Dockerfile' under` · `Did you forget to run actions/checkout before running your local action` · `is not allowed to be used in [\w.-]+/[\w.-]+\. Actions in this workflow must be`
+- **Category:** config
+- **Cause:** A typo in `uses:`, a tag that doesn't exist (`@v9`), a deleted or private action repository, a local action (`uses: ./.github/actions/x`) used before `actions/checkout`, or an organisation allow-list that blocks the action.
+- **Fix:** Check the action's releases for the tag and pin to an existing major or a full commit SHA. Put `actions/checkout` before any local action. For allow-list errors, ask an org admin to allow the action, or use an approved alternative.
+- **Verify:** `gh api repos/<owner>/<repo>/git/ref/tags/<tag>` (or `gh release list -R <owner>/<repo>`)
+
+### GEN-22 · Git "dubious ownership" in container jobs
+- **Signature:** `detected dubious ownership in repository at` · `fatal: unsafe repository \('[^']+' is owned by someone else\)` · `To add an exception for this directory, call:`
+- **Category:** config
+- **Cause:** The job runs in a `container:` (often as root) while the workspace belongs to the runner user, or the other way round. Git 2.35.2+ refuses to work in a repository owned by another user, which breaks `git describe`, version tools and changelog generators.
+- **Fix:** Mark the workspace as safe before git runs in that container:
+  ```yaml
+  - run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+  ```
+  `actions/checkout` does this for its own step only, not for later steps or other containers.
+- **Verify:** `git -C "$GITHUB_WORKSPACE" status` in the same step
+
+### GEN-23 · Private submodule or second repository can't be cloned
+- **Signature:** `fatal: could not read Username for 'https://github\.com': terminal prompts disabled` · `fatal: clone of '[^']+' into submodule path '[^']+' failed` · `Failed to clone '[^']+'\. Retry scheduled` · `remote: Repository not found\.`
+- **Category:** permissions
+- **Cause:** `GITHUB_TOKEN` can only read the repository the workflow runs in. Private submodules, a second `actions/checkout` of another private repo, or private dependencies fetched with git (Go modules, npm git URLs) need their own credentials.
+- **Fix:** Pass a token or deploy key that can read the other repo, preferably a short-lived GitHub App token:
+  ```yaml
+  - uses: actions/create-github-app-token@v1
+    id: app
+    with:
+      app-id: ${{ vars.APP_ID }}
+      private-key: ${{ secrets.APP_KEY }}
+      owner: ${{ github.repository_owner }}
+  - uses: actions/checkout@v4
+    with:
+      submodules: recursive
+      token: ${{ steps.app.outputs.token }}
+  ```
+- **Verify:** `git clone --recurse-submodules <repo-url>` with only that token's access
+
+### GEN-24 · `GITHUB_OUTPUT` / `GITHUB_ENV` format error
+- **Signature:** `Unable to process file command '(?:env|output)' successfully` · `Invalid format '[^']*'` · `Matching delimiter not found '[^']+'`
+- **Category:** config
+- **Cause:** A value with newlines (release notes, JSON, a multi-line command output) was written as `echo "name=$value" >> "$GITHUB_OUTPUT"`. Each extra line is parsed as a new `key=value` pair and fails. A heredoc delimiter that also appears inside the value causes "Matching delimiter not found".
+- **Fix:** Use the multi-line syntax with a random delimiter:
+  ```bash
+  delim="EOF_$(openssl rand -hex 8)"
+  { echo "notes<<$delim"; cat notes.md; echo "$delim"; } >> "$GITHUB_OUTPUT"
+  ```
+- **Verify:** Rerun the step, then `echo '${{ steps.<id>.outputs.notes }}' | head` in a later step
+
+### GEN-25 · Container action or service on a non-Linux runner
+- **Signature:** `Container action is only supported on Linux` · `Container operations are only supported on Linux runners` · `Services? (?:are|is) only supported on Linux`
+- **Category:** config
+- **Cause:** A Docker-based action (`runs.using: docker`), a `container:` job or `services:` was used on `macos-*` or `windows-*`. GitHub-hosted macOS and Windows runners can't run Linux containers for these features.
+- **Fix:** Run that job on `ubuntu-latest`, split OS-specific steps into separate jobs, or switch to a JavaScript / composite version of the action.
+- **Verify:** Check `runs-on:` for the failing job, then rerun
