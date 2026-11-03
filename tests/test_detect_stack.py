@@ -87,6 +87,20 @@ class TestDetectStack(unittest.TestCase):
             self.assertEqual(tc["src/Api/: Api.csproj target framework"], "net8.0")
             self.assertEqual(tc["src/Api/: Api.csproj RestorePackagesWithLockFile"], "true")
 
+    def test_php_project(self) -> None:
+        with make_repo({
+            "composer.json": json.dumps({"require": {"php": "^8.3", "ext-intl": "*", "laravel/framework": "^11.0"},
+                                         "config": {"platform": {"php": "8.3.12"}}}),
+            "composer.lock": "{}", "phpunit.xml": "<phpunit/>",
+        }) as d:
+            r = detect_stack.detect(Path(d), "vendor/bin/phpunit")
+            self.assertEqual(stacks(r)[0], "php")
+            self.assertIn("stack-php.md", r["references"])
+            tc = r["toolchain"]
+            self.assertEqual(tc["composer.json php"], "^8.3")
+            self.assertEqual(tc["composer.json platform php"], "8.3.12")
+            self.assertEqual(tc["composer.json extensions"], ["ext-intl"])
+
     def test_node_project_with_lockfile_and_engines(self) -> None:
         with make_repo({
             "package.json": json.dumps({"name": "x", "engines": {"node": ">=20"}, "type": "module"}),
@@ -120,7 +134,7 @@ class TestDetectStack(unittest.TestCase):
 
     def test_other_ecosystems(self) -> None:
         for marker, stack in (("go.mod", "go"), ("Cargo.toml", "rust"), ("pom.xml", "jvm"),
-                              ("build.gradle.kts", "jvm"), ("Gemfile", "ruby"), ("app.gemspec", "ruby"), ("App.csproj", "dotnet"),
+                              ("build.gradle.kts", "jvm"), ("Gemfile", "ruby"), ("app.gemspec", "ruby"), ("App.csproj", "dotnet"), ("composer.json", "php"),
                               ("mix.exs", "general")):
             with self.subTest(marker=marker), make_repo({marker: "module x\ngo 1.22\n"}) as d:
                 self.assertIn(stack, stacks(detect_stack.detect(Path(d))))

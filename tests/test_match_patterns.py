@@ -12,7 +12,8 @@ import match_patterns
 
 MIN_ENTRIES = {"stack-flutter.md": 10, "stack-node.md": 10, "stack-python.md": 10, "stack-docker.md": 10,
                "stack-general.md": 10, "stack-go.md": 10, "stack-rust.md": 10, "stack-jvm.md": 10,
-               "stack-ruby.md": 10, "stack-dotnet.md": 10, "flaky-tests.md": 5}
+               "stack-ruby.md": 10, "stack-dotnet.md": 10, "stack-php.md": 10,
+               "flaky-tests.md": 5}
 
 # One real-looking log excerpt per entry family -> the entry that must rank first.
 REPRESENTATIVE = {
@@ -49,6 +50,23 @@ REPRESENTATIVE = {
                             ".targets(166,5): error NETSDK1100: To build a project targeting Windows on this operating system, "
                             "set the EnableWindowsTargeting property to true."),
     "DOTNET-11": ("dotnet", 'error MSB3030: Could not copy the file "/src/Api/Config/appsettings.json" because it was not found.'),
+    "PHP-01": ("php", "Warning: The lock file is not up to date with the latest changes in composer.json. You may be getting "
+                      "outdated dependencies.\n- Required package \"acme/billing-sdk\" is not present in the lock file."),
+    "PHP-02": ("php", "Your lock file does not contain a compatible set of packages. Please run composer update.\n\n"
+                      "  Problem 1\n    - Root composer.json requires php ^8.3 but your php version (8.2.27) does not satisfy "
+                      "that requirement."),
+    "PHP-04": ("php", 'Could not authenticate against github.com\nThe "https://api.github.com/repos/acme/billing-sdk/zipball/1f2e" '
+                      "file could not be downloaded (HTTP/2 404 )"),
+    "PHP-05": ("php", "There was 1 failure:\n\n1) Tests\\Unit\\CartTest::testAppliesVat\nFailed asserting that 118.99 "
+                      "matches expected 119.0.\n\n/app/tests/Unit/CartTest.php:21\n\nFAILURES!\nTests: 214, Assertions: 530, "
+                      "Failures: 1."),
+    "PHP-06": ("php", " ------ ---------------------------------------------\n  Line   src/Billing/Invoice.php\n"
+                      " ------ ---------------------------------------------\n  42     Method Invoice::total() should return "
+                      "float but returns string.\n\n [ERROR] Found 1 error"),
+    "PHP-08": ("php", "Illuminate\\Encryption\\MissingAppKeyException: No application encryption key has been specified."),
+    "PHP-09": ("php", "PDOException: SQLSTATE[HY000] [2002] Connection refused"),
+    "PHP-10": ("php", "PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in "
+                      "/app/vendor/phpstan/phpstan/phpstan.phar on line 4"),
 }
 
 

@@ -201,6 +201,7 @@ SETUP_ACTIONS: Dict[str, Tuple[str, Sequence[str], List[str]]] = {
     "gradle/actions/setup-gradle": ("gradle", ("gradle-version",), ["gradle", "--version"]),
     "oven-sh/setup-bun": ("bun", ("bun-version",), ["bun", "--version"]),
     "actions/setup-dotnet": ("dotnet", ("dotnet-version", "global-json-file"), ["dotnet", "--version"]),
+    "shivammathur/setup-php": ("php", ("php-version", "php-version-file", "extensions"), ["php", "--version"]),
 }
 EXPR = re.compile(r"\$\{\{\s*(.*?)\s*\}\}")
 VERSION_RX = re.compile(r"\d+\.\d+")

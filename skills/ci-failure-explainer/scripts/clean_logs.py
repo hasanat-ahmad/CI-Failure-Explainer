@@ -468,6 +468,9 @@ _SUMMARY = _rx(
     r"^\s*\d+ examples?, [1-9]\d* failures?", r"^\s*\d+ runs, \d+ assertions, \d+ failures, \d+ errors",  # rspec, minitest
     r"\d+ files? inspected, [1-9]\d* offenses? detected",                                              # rubocop
     r"^\s*Build FAILED\.", r"^\s*[1-9]\d* Error\(s\)\s*$", r"^Failed! +- Failed:",                     # dotnet
+    r"^FAILURES!$", r"^Tests: \d+, Assertions: \d+, .*(?:Failures|Errors): [1-9]",                     # phpunit
+    r"Your lock file does not contain a compatible set of packages",   # composer umbrella; reason is below it
+    r"Your requirements could not be resolved to an installable set",
 )
 
 # Specific, root-cause-grade error lines.
@@ -508,6 +511,11 @@ _SPECIFIC = _rx(
     # .NET: NuGet / MSBuild / SDK diagnostics, test results
     r"\berror (?:NU|MSB|NETSDK)\d{4}: ", r"A compatible \.NET SDK was not found", r"^\s*Failed \S+ \[[\d.]+ ?m?s\]",
     r"The active test run was aborted", r"\[xUnit\.net [\d:.]+\]\s+\S+ \[FAIL\]",
+    # PHP: composer problems, phpunit, phpstan/psalm, runtime
+    r"does not satisfy that requirement", r"it is missing from your system", r"is not present in the lock file",
+    r"Could not authenticate against", r"^\d+\) [\w\\]+::\w+", r"\[ERROR\] Found [1-9]\d* errors?",
+    r"^ERROR: \w+ - \S+\.php:\d+:\d+ - ", r"^PHP (?:Fatal|Parse) error: ", r"Allowed memory size of \d+ bytes exhausted",
+    r"\bSQLSTATE\[", r"No application encryption key has been specified",
 )
 
 # Generic error-ish lines.

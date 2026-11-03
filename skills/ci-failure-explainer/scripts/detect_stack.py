@@ -38,6 +38,7 @@ REFERENCES = {
     "jvm": "stack-jvm.md",
     "ruby": "stack-ruby.md",
     "dotnet": "stack-dotnet.md",
+    "php": "stack-php.md",
     "general": "stack-general.md",
 }
 
@@ -69,7 +70,8 @@ FILE_MARKERS = [
     ("*.sln", "dotnet", "sln"),
     ("*.slnx", "dotnet", "sln"),
     ("global.json", "dotnet", "global.json"),
-    ("composer.json", "general", "php"),
+    ("composer.json", "php", "composer"),
+    ("phpunit.xml*", "php", "phpunit"),
     ("Package.swift", "general", "swift"),
     ("mix.exs", "general", "elixir"),
     ("CMakeLists.txt", "general", "cmake"),
@@ -92,6 +94,8 @@ LOG_SIGNALS: Dict[str, List[str]] = {
              r"ruby/setup-ruby", r"\.rb:\d+", r"\bBundler::", r"Gemfile\.lock"],
     "dotnet": [r"\bdotnet (?:build|test|restore|publish|format)\b", r"(?i)\bmsbuild\b", r"\berror (?:NU|MSB|NETSDK|CS)\d{4}\b",
                r"\.[cf]sproj\b", r"actions/setup-dotnet"],
+    "php": [r"\bcomposer (?:install|update|validate|require)\b", r"\bphpunit\b", r"\bphpstan\b", r"\bartisan\b",
+            r"\.php:\d+", r"shivammathur/setup-php", r"PHP (?:Fatal|Warning)"],
 }
 
 
@@ -209,6 +213,21 @@ def _hints_for(root: Path) -> Dict[str, object]:
             m = re.search(rf"<{tag}>\s*([^<]+?)\s*</", text)
             if m:
                 hints[f"{proj.name} {key}"] = m.group(1)
+    composer = root / "composer.json"
+    if composer.is_file():
+        try:
+            data = json.loads(_read(composer))
+            php = (data.get("require") or {}).get("php")
+            if php:
+                hints["composer.json php"] = php
+            platform = ((data.get("config") or {}).get("platform") or {}).get("php")
+            if platform:
+                hints["composer.json platform php"] = platform
+            exts = sorted(k for k in (data.get("require") or {}) if k.startswith("ext-"))
+            if exts:
+                hints["composer.json extensions"] = exts
+        except (ValueError, AttributeError):
+            hints["composer.json"] = "invalid JSON"
     gomod = root / "go.mod"
     if gomod.is_file():
         m = re.search(r"^go\s+(\S+)", _read(gomod), re.M)
