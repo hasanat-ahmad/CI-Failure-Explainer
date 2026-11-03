@@ -4,7 +4,7 @@ description: Diagnose and fix failed CI runs on GitHub Actions. Use when the use
 license: MIT
 compatibility: Needs Python 3.9+ (standard library only). Fetching runs needs the GitHub CLI (gh) installed and authenticated; pasted or saved logs work without it. Linux and macOS; Windows via WSL or Git Bash.
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
   repository: https://github.com/hasanat-ahmad/CI-Failure-Explainer
 ---
 

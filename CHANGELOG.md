@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.0 (2026-11-04)
+
+More stacks, more CI systems, and a pattern library that is harder to break.
+
+- **New stacks:** Ruby / Rails (11 entries), .NET / C# (11) and PHP (10) are detected as first-class stacks with their own knowledge bases, digest rules and toolchain hints: `Gemfile.lock` platforms and `BUNDLED WITH`, `global.json` SDK pins, `TargetFramework` / `TreatWarningsAsErrors` / `RestorePackagesWithLockFile`, `composer.json` PHP and extension requirements. `setup-php` and `setup-dotnet`'s `global-json-file` are read as workflow pins.
+- **GitHub Actions:** GEN-21..25 cover unresolvable actions, git "dubious ownership" in container jobs, private submodules, `GITHUB_OUTPUT` multi-line format errors and container features on macOS/Windows. 160 entries in total.
+- **GitLab and Jenkins logs** are grouped into steps (GitLab sections, Jenkins stages and parallel branches), and the job's final "failed" line is credited to the step that actually failed. Timestamped GitLab 17+ logs and Jenkins timestamper prefixes are cleaned.
+- **Redaction:** GitLab, Hugging Face, Docker Hub, SendGrid, DigitalOcean and Shopify tokens, plus Azure storage `AccountKey` / SAS `sig=` values.
+- **Changed since last green:** `ci_doctor` diffs the last green commit against the failing one in your clone (read-only) and lists suspect files first: lockfiles, workflows, toolchain pins, manifests, Dockerfiles.
+- **`match_patterns.py --explain ID`** breaks down one entry's score per signature, with its rank and the entry that won instead.
+- **Safety:** `--validate` rejects signatures with nested unbounded repeats that could backtrack catastrophically on hostile log lines, and every signature is timed against hostile 2,000-char lines in tests.
+- **Fixes:** a bare `\r` no longer splits lines (progress frames and GitLab markers had shifted line numbers away from `wc -l`), and the test harness now reads fixtures byte-for-byte like `clean_logs` does.
+- Four new fixtures (Ruby, .NET, GitLab + PHP, Jenkins + Go): eval 14/14, with the gate now at 90% of fixtures. 94 unit and integration tests. Verified on Python 3.9, 3.13 and 3.14.
+
 ## 1.0.1 (2026-11-01)
 
 Fixes found by running the skill on a real repository (a Flutter + Firebase Functions monorepo) and on this repo's own first CI run. Each fix has a regression test.
