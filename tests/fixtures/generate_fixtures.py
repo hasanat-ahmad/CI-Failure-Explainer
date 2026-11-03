@@ -557,6 +557,9 @@ def log_with_secrets() -> List[str]:
         "ansi_split": "ghp_" + log.token(36, alnum),
         "pk_body": log.token(64, alnum + "+/"),
         "client_secret": log.token(28, alnum),
+        "gitlab": "glpat-" + log.token(20, alnum + "-_"),
+        "hf": "hf_" + log.token(34, alnum),
+        "azure": log.token(86, alnum + "+/") + "==",
     }
     log.run_header("./scripts/release.sh", env={"GH_TOKEN": "***", "AWS_REGION": "us-east-1"})
     for _ in range(150):
@@ -581,6 +584,10 @@ def log_with_secrets() -> List[str]:
         f"ANTHROPIC_API_KEY={s['anthropic']}",
         f"token: {BOLD}{s['ansi_split']}{RESET}",
         f"client_secret={s['client_secret']}",
+        f"glab auth login --hostname gitlab.example.com --token {s['gitlab']}",
+        f"huggingface-cli login --token {s['hf']}",
+        f"AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=acmedemo;AccountKey={s['azure']};"
+        "EndpointSuffix=core.windows.net",
         "-----BEGIN OPENSSH " + "PRIVATE KEY-----",
         s["pk_body"],
         log.token(64, alnum + "+/"),

@@ -120,6 +120,14 @@ class TestRedaction(unittest.TestCase):
             "AKIA" + "ABCDEFGHIJKLMNOP is the id": "AKIA" + "ABCDEFGHIJKLMNOP",
             "password: correcthorsebattery": "correcthorsebattery",
             "-----BEGIN RSA " + "PRIVATE KEY-----abc-----END RSA " + "PRIVATE KEY-----": "abc",
+            "remote: glpat-" + "x1Y2z3" * 4 + " rejected": "x1Y2z3" * 4,
+            "HF_HOME set, login hf_" + "AbCd" * 9: "AbCd" * 9,
+            "docker login -p dckr_pat_" + "Zz9" * 9: "Zz9" * 9,
+            "sendgrid SG." + "a" * 22 + "." + "b" * 43: "b" * 43,
+            "doctl auth dop_v1_" + "c0ffee" * 10 + "c0ff": "c0ffee" * 10,
+            "shop shpat_" + "d" * 32: "d" * 32,
+            "DefaultEndpointsProtocol=https;AccountName=acme;AccountKey=" + "Qw/+" * 10 + "==;": "Qw/+" * 10,
+            "GET https://acme.blob.core.windows.net/c/x?sv=2024-01-01&sig=" + "Ab%2B" * 8: "Ab%2B" * 8,
         }
         for line, secret in cases.items():
             with self.subTest(line=line):
@@ -130,7 +138,9 @@ class TestRedaction(unittest.TestCase):
 
     def test_safe_values_untouched(self) -> None:
         for line in ("token: ${{ secrets.NPM_TOKEN }}", "max_tokens=1024", "TokenError: invalid grant",
-                     "src/auth.ts:12:5 - error TS2322", "password: required", "GITHUB_TOKEN: ***"):
+                     "src/auth.ts:12:5 - error TS2322", "password: required", "GITHUB_TOKEN: ***",
+                     "from huggingface_hub import hf_hub_download", "SG.Utils.format(x)",
+                     "AccountName=acme;AccountKey=***"):
             with self.subTest(line=line):
                 r = clean_logs.Redactor()
                 self.assertEqual(r.redact(line), line)

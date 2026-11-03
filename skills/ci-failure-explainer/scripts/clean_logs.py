@@ -107,6 +107,17 @@ SECRET_RULES: List[Tuple[str, re.Pattern[str], Replacement]] = [
     ("npm_token", re.compile(r"\bnpm_[A-Za-z0-9]{36}\b"), REDACTED),
     ("pypi_token", re.compile(r"\bpypi-[A-Za-z0-9_-]{40,}"), REDACTED),
     ("llm_api_key", re.compile(r"\bsk-(?:ant-|proj-)?[A-Za-z0-9_-]{20,}"), REDACTED),
+    ("gitlab_token", re.compile(r"\bgl(?:pat|dt|rt|ptt|cbt|soat|ffct|imt)-[A-Za-z0-9_-]{20,}"), REDACTED),
+    ("huggingface_token", re.compile(r"\bhf_[A-Za-z0-9]{34,}\b"), REDACTED),
+    ("dockerhub_pat", re.compile(r"\bdckr_pat_[A-Za-z0-9_-]{20,}"), REDACTED),
+    ("sendgrid_key", re.compile(r"\bSG\.[A-Za-z0-9_-]{22}\.[A-Za-z0-9_-]{43}"), REDACTED),
+    ("digitalocean_token", re.compile(r"\bdo[opr]_v1_[a-f0-9]{64}\b"), REDACTED),
+    ("shopify_token", re.compile(r"\bshp(?:at|ca|pa|ss)_[a-fA-F0-9]{32}\b"), REDACTED),
+    (
+        "azure_key",
+        re.compile(r"(?i)\b(AccountKey=|SharedAccessKey=|[?&]sig=)[A-Za-z0-9%+/=]{20,}"),
+        lambda m: m.group(1) + REDACTED,
+    ),
     (
         "url_credentials",
         re.compile(r"(?i)\b([a-z][a-z0-9+.-]{1,20}://)[^\s/@:]+(?::[^\s/@]*)?@"),
