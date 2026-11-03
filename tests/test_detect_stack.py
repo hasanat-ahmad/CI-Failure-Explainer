@@ -53,6 +53,22 @@ class TestDetectStack(unittest.TestCase):
             self.assertEqual(tc["functions/: package.json engines"], {"node": "22"})
             self.assertEqual(tc["functions/: node_package_manager"], "npm")
 
+    def test_ruby_project(self) -> None:
+        with make_repo({
+            "Gemfile": "source 'https://rubygems.org'\nruby file: '.ruby-version'\ngem 'rails', '~> 7.2'\n",
+            "Gemfile.lock": "GEM\n  specs:\n    rails (7.2.1)\n\nPLATFORMS\n  arm64-darwin-23\n\n"
+                            "DEPENDENCIES\n  rails (~> 7.2)\n\nBUNDLED WITH\n   2.5.18\n",
+            ".ruby-version": "3.3.5\n", "config/application.rb": "",
+        }) as d:
+            r = detect_stack.detect(Path(d), "bundle exec rspec")
+            self.assertEqual(stacks(r)[0], "ruby")
+            self.assertIn("stack-ruby.md", r["references"])
+            tc = r["toolchain"]
+            self.assertEqual(tc["bundler"], "2.5.18")
+            self.assertEqual(tc["Gemfile.lock platforms"], ["arm64-darwin-23"])   # no x86_64-linux: RUBY-02 risk
+            self.assertEqual(tc["Gemfile ruby"], "file: .ruby-version")
+            self.assertEqual(tc[".ruby-version"], "3.3.5")
+
     def test_node_project_with_lockfile_and_engines(self) -> None:
         with make_repo({
             "package.json": json.dumps({"name": "x", "engines": {"node": ">=20"}, "type": "module"}),
@@ -86,7 +102,8 @@ class TestDetectStack(unittest.TestCase):
 
     def test_other_ecosystems(self) -> None:
         for marker, stack in (("go.mod", "go"), ("Cargo.toml", "rust"), ("pom.xml", "jvm"),
-                              ("build.gradle.kts", "jvm"), ("Gemfile", "general")):
+                              ("build.gradle.kts", "jvm"), ("Gemfile", "ruby"), ("app.gemspec", "ruby"),
+                              ("mix.exs", "general")):
             with self.subTest(marker=marker), make_repo({marker: "module x\ngo 1.22\n"}) as d:
                 self.assertIn(stack, stacks(detect_stack.detect(Path(d))))
 

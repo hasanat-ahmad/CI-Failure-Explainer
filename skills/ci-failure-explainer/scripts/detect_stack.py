@@ -36,6 +36,7 @@ REFERENCES = {
     "go": "stack-go.md",
     "rust": "stack-rust.md",
     "jvm": "stack-jvm.md",
+    "ruby": "stack-ruby.md",
     "general": "stack-general.md",
 }
 
@@ -60,7 +61,8 @@ FILE_MARKERS = [
     ("build.gradle", "jvm", "gradle"),
     ("build.gradle.kts", "jvm", "gradle"),
     ("settings.gradle*", "jvm", "gradle"),
-    ("Gemfile", "general", "ruby"),
+    ("Gemfile", "ruby", "bundler"),
+    ("*.gemspec", "ruby", "gemspec"),
     ("*.csproj", "general", "dotnet"),
     ("*.sln", "general", "dotnet"),
     ("composer.json", "general", "php"),
@@ -82,6 +84,8 @@ LOG_SIGNALS: Dict[str, List[str]] = {
     "go": [r"\bgo (?:build|test|vet|mod)\b", r"\.go:\d+:\d+", r"^--- FAIL:", r"golangci-lint"],
     "rust": [r"\bcargo (?:build|test|clippy|fmt)\b", r"\brustc\b", r"error\[E\d{4}\]"],
     "jvm": [r"\bgradle\b", r"\bmvn\b", r"\bmaven\b", r"\.java:\d+", r"\.kt:\d+", r"\bkotlin\b"],
+    "ruby": [r"\bbundle (?:install|exec|lock)\b", r"\brspec\b", r"\brubocop\b", r"\brails (?:test|db:|assets:)",
+             r"ruby/setup-ruby", r"\.rb:\d+", r"\bBundler::", r"Gemfile\.lock"],
 }
 
 
@@ -169,6 +173,20 @@ def _hints_for(root: Path) -> Dict[str, object]:
         m = re.search(r"^[ \t]+flutter:[ \t]*['\"]?([^'\"\n]+)", block, re.M)
         if m:
             hints["flutter constraint"] = m.group(1).strip()
+    gemlock = root / "Gemfile.lock"
+    if gemlock.is_file():
+        text = _read(gemlock)
+        m = re.search(r"^BUNDLED WITH\s*\n\s+(\S+)", text, re.M)
+        if m:
+            hints["bundler"] = m.group(1)
+        m = re.search(r"^PLATFORMS\s*\n((?:[ \t]+\S+\n?)+)", text, re.M)
+        if m:
+            hints["Gemfile.lock platforms"] = m.group(1).split()
+    gemfile = root / "Gemfile"
+    if gemfile.is_file():
+        m = re.search(r"^ruby\s+['\"]([^'\"]+)['\"]|^ruby\s+file:\s*['\"]([^'\"]+)", _read(gemfile), re.M)
+        if m:
+            hints["Gemfile ruby"] = m.group(1) or f"file: {m.group(2)}"
     gomod = root / "go.mod"
     if gomod.is_file():
         m = re.search(r"^go\s+(\S+)", _read(gomod), re.M)

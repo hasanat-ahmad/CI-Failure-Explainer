@@ -46,9 +46,10 @@ FLAKY_WORDS = re.compile(
 )
 CATEGORY_HINTS = [
     ("lint", r"(?i)\b(eslint|prettier|ruff|black|flake8|mypy|dart format|flutter analyze|golangci|clippy|rustfmt|"
-             r"would reformat)\b"),
+             r"rubocop|offenses? detected|would reformat)\b"),
     ("dependency", r"(?i)ERESOLVE|lock ?file|version solving|ResolutionImpossible|No matching distribution|Could not resolve"),
-    ("test", r"(?i)\b(tests? failed|FAILED \S+::|● |--- FAIL|AssertionError|expect\()"),
+    ("test", r"(?i)\b(tests? failed|FAILED \S+::|● |--- FAIL|AssertionError|expect\(|Failure/Error|"
+             r"examples?, [1-9]\d* failures?)"),
     ("build", r"(?i)\b(compil|error TS\d+|cannot find symbol|failed to solve|build failed)"),
     ("infrastructure", r"(?i)No space left|heap out of memory|exit code 137|Killed|operation was canceled|runner"),
     ("config", r"(?i)secret|environment variable|Input required|not set|credentials"),
