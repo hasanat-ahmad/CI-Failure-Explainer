@@ -11,6 +11,7 @@ the agent reads only the entries that matter instead of whole reference files.
   match_patterns.py digest.md --format json
   match_patterns.py --list                     # catalogue of all entries
   match_patterns.py --show NODE-01             # print one entry
+  match_patterns.py digest.md --explain NODE-01  # why an entry scored what it did, and its rank
   match_patterns.py --validate                 # lint the library (used by tests/CI)
 
 Standard library only. Python 3.9+.
@@ -150,6 +151,7 @@ class Match:
     score: float
     hits: List[Tuple[str, str]]  # (pattern, matched line)
     on_root_cause: bool
+    parts: List[Tuple[str, float]] = field(default_factory=list)  # (reason, points) for --explain
 
     @property
     def confidence(self) -> str:
@@ -172,36 +174,73 @@ def specificity(pattern: str) -> float:
     return max(0.4, min(1.2, len(literal) / 25.0))
 
 
+def score_entry(e: Entry, lines: Sequence[str], root_cause: Optional[str], stacks: Sequence[str]) -> Match:
+    """Score one entry. A Match with no hits and on_root_cause False means "did not match"."""
+    hits: List[Tuple[str, str]] = []
+    parts: List[Tuple[str, float]] = []
+    rc_spec = 0.0
+    for rx in e.patterns:
+        for ln in lines:
+            if rx.search(ln):
+                hits.append((rx.pattern, ln.strip()[:240]))
+                parts.append((f"signature `{rx.pattern}`", 10.0 * specificity(rx.pattern)))
+                break
+        if root_cause and rx.search(root_cause):
+            rc_spec = max(rc_spec, specificity(rx.pattern))
+    on_rc = rc_spec > 0
+    if not hits and not on_rc:
+        return Match(e, 0.0, [], False)
+    if on_rc:
+        parts.append(("matches the root-cause line", 20.0 * rc_spec + 5.0))
+    if e.stack in {s.lower() for s in stacks}:
+        parts.append((f"stack `{e.stack}` detected", 5.0))
+    elif e.stack in ("general", "flaky"):
+        parts.append((f"`{e.stack}` entries apply to every stack", 2.0))
+    return Match(e, round(sum(p for _, p in parts), 1), hits, on_rc, parts)
+
+
 def match(text: str, entries: Sequence[Entry], stacks: Sequence[str] = (), top: int = 5) -> List[Match]:
     lines, root_cause = extract_lines(text)
-    stacks_set = {s.lower() for s in stacks}
-    results: List[Match] = []
-    for e in entries:
-        if e.errors or not e.patterns:
-            continue
-        hits: List[Tuple[str, str]] = []
-        score = 0.0
-        rc_spec = 0.0
-        for rx in e.patterns:
-            for ln in lines:
-                if rx.search(ln):
-                    hits.append((rx.pattern, ln.strip()[:240]))
-                    score += 10.0 * specificity(rx.pattern)
-                    break
-            if root_cause and rx.search(root_cause):
-                rc_spec = max(rc_spec, specificity(rx.pattern))
-        on_rc = rc_spec > 0
-        if not hits and not on_rc:
-            continue
-        if on_rc:
-            score += 20.0 * rc_spec + 5.0
-        if e.stack in stacks_set:
-            score += 5.0
-        elif e.stack in ("general", "flaky"):
-            score += 2.0
-        results.append(Match(e, round(score, 1), hits, on_rc))
+    results = [m for e in entries if not e.errors and e.patterns
+               for m in [score_entry(e, lines, root_cause, stacks)] if m.hits or m.on_root_cause]
     results.sort(key=lambda m: (-m.score, m.entry.id))
     return results[:top]
+
+
+def explain(text: str, entries: Sequence[Entry], entry_id: str, stacks: Sequence[str] = ()) -> Optional[str]:
+    """Markdown breakdown of one entry's score against the input, or None if the id is unknown."""
+    entry = next((e for e in entries if e.id.lower() == entry_id.lower()), None)
+    if entry is None:
+        return None
+    out = [f"## {entry.id} · {entry.title}", ""]
+    if entry.errors:
+        return "\n".join([*out, "This entry is skipped by the matcher because it is invalid:",
+                          *(f"- {err}" for err in entry.errors)])
+    lines, root_cause = extract_lines(text)
+    m = score_entry(entry, lines, root_cause, stacks)
+    hit_lines = dict(m.hits)
+    out += ["| Signature | Specificity | Result |", "|---|---:|---|"]
+    for rx in entry.patterns:
+        spec = specificity(rx.pattern)
+        line = hit_lines.get(rx.pattern)
+        result = f"matched `{line.replace('`', chr(39))[:120]}` (+{10 * spec:.1f})" if line else "no line matched"
+        out.append(f"| `{rx.pattern.replace('|', chr(92) + '|')}` | {spec:.2f} | {result} |")
+    out.append("")
+    if root_cause is None:
+        out.append("- **Root-cause line:** none in the input (pass a clean_logs.py digest to get one)")
+    else:
+        verdict = "matched" if m.on_root_cause else "not matched"
+        out.append(f"- **Root-cause line:** `{root_cause.replace('`', chr(39))[:160]}`: {verdict}")
+    out += [f"- {reason}: +{points:.1f}" for reason, points in m.parts if not reason.startswith("signature ")]
+    ranked = match(text, entries, stacks, top=len(entries))
+    rank = next((i for i, r in enumerate(ranked, 1) if r.entry.id == entry.id), None)
+    if rank is None:
+        out.append("- **Total:** 0 (no signature matched, so the entry is not ranked)")
+    else:
+        out.append(f"- **Total:** {m.score:g} · confidence **{m.confidence}** · rank **{rank}** of {len(ranked)}")
+    if ranked and ranked[0].entry.id != entry.id:
+        out.append(f"- **Top match instead:** {ranked[0].entry.id} · {ranked[0].entry.title} (score {ranked[0].score:g})")
+    return "\n".join(out)
 
 
 def render_markdown(matches: Sequence[Match], with_text: bool = True) -> str:
@@ -247,6 +286,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--references", default=str(REFERENCES_DIR), help="references directory")
     ap.add_argument("--list", action="store_true", help="list every entry in the library")
     ap.add_argument("--show", metavar="ID", help="print one entry, e.g. NODE-01")
+    ap.add_argument("--explain", metavar="ID", help="show how one entry scores against the input, and its rank")
     ap.add_argument("--validate", action="store_true", help="lint the library; non-zero exit on problems")
     ap.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     args = ap.parse_args(argv)
@@ -288,6 +328,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print(f"error: cannot read input: {exc}", file=sys.stderr)
         return 2
     stacks = [s.strip() for s in args.stacks.split(",") if s.strip()]
+    if args.explain:
+        report = explain(text, entries, args.explain, stacks)
+        if report is None:
+            print(f"error: no entry with id {args.explain}", file=sys.stderr)
+            return 1
+        print(report)
+        return 0
     found = match(text, entries, stacks, top=args.top)
     print(render_json(found) if args.format == "json" else render_markdown(found))
     return 0

@@ -151,6 +151,27 @@ class TestMatching(unittest.TestCase):
                 self.assertTrue(matches, "no match at all")
                 self.assertEqual(matches[0].entry.id, entry_id, [(m.entry.id, m.score) for m in matches])
 
+    def test_explain_breaks_down_the_score(self) -> None:
+        md = clean_logs.render_markdown(clean_logs.digest_text(fixture_text("python_pytest_failure.log")))
+        report = match_patterns.explain(md, self.entries, "py-03", ["python"])
+        top = match_patterns.match(md, self.entries, ["python"])[0]
+        self.assertIn("## PY-03 ·", report)
+        self.assertIn("rank **1**", report)
+        self.assertIn(f"**Total:** {top.score:g}", report)        # same number the ranking used
+        self.assertIn("matches the root-cause line", report)
+        self.assertIn("stack `python` detected: +5.0", report)
+
+    def test_explain_non_matching_and_unknown_entry(self) -> None:
+        md = clean_logs.render_markdown(clean_logs.digest_text(fixture_text("node_npm_ci_lockfile.log")))
+        report = match_patterns.explain(md, self.entries, "RUST-02")
+        self.assertIn("no line matched", report)
+        self.assertIn("not ranked", report)
+        self.assertIn("Top match instead:** NODE-01", report)
+        self.assertIsNone(match_patterns.explain(md, self.entries, "NOPE-99"))
+        out = subprocess.run([sys.executable, str(SCRIPTS / "match_patterns.py"), "-", "--explain", "NOPE-99"],
+                             input=md, capture_output=True, text=True)
+        self.assertEqual(out.returncode, 1)
+
     def test_specific_beats_generic(self) -> None:
         self.assertGreater(match_patterns.specificity(r"Exceeded timeout of \d+ ?ms for a test"),
                            match_patterns.specificity(r"^\s*●\s+\S.*›"))
