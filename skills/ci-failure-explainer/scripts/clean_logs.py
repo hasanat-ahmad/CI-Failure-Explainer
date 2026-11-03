@@ -190,6 +190,10 @@ _CONTROL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 _GROUP = re.compile(r"^##\[group\](.*)$")
 _GH_MARKER = re.compile(r"^##\[(error|warning|notice|debug|command|section|endgroup)\](.*)$")
 _WF_COMMAND = re.compile(r"^::(error|warning|notice|debug|add-mask|group|endgroup)(?:\s+([^:]*))?::(.*)$")
+_GITLAB_SECTION = re.compile(r"^section_(start|end):\d+:([^\s\[\r]+)(?:\[[^\]]*\])?\r?")
+_GITLAB_STREAM = re.compile(r"^0[0-9a-f][EO]\+?\s")        # GitLab 17+ timestamped logs: "00O ", "01E+"
+_GITLAB_JOB_FAILED = re.compile(r"^ERROR: Job failed\b")
+_GITLAB_SCRIPT_SECTIONS = {"step_script", "build_script"}
 
 
 @dataclass
@@ -220,20 +224,74 @@ def _annotation_location(props: str) -> str:
     return loc
 
 
+class _GitLabSections:
+    """Track GitLab CI `section_start` / `section_end` markers so job phases become steps."""
+
+    def __init__(self) -> None:
+        self.stack: List[str] = []
+        self.script_step = ""    # last section opened by the job script: where "Job failed" belongs
+
+    @property
+    def current(self) -> str:
+        return self.stack[-1] if self.stack else ""
+
+    def consume(self, text: str) -> Tuple[str, bool]:
+        """Strip leading section markers. Returns (remaining text, whether a section started)."""
+        plain = _ANSI.sub("", text)
+        m = _GITLAB_SECTION.match(plain)
+        if not m:
+            return text, False
+        started = False
+        while m:
+            kind, name = m.group(1), m.group(2)
+            if kind == "start":
+                if name in _GITLAB_SCRIPT_SECTIONS or any(s in _GITLAB_SCRIPT_SECTIONS for s in self.stack):
+                    self.script_step = name
+                self.stack.append(name)
+                started = True
+            elif name in self.stack:
+                del self.stack[len(self.stack) - 1 - self.stack[::-1].index(name)]
+            plain = plain[m.end():]
+            m = _GITLAB_SECTION.match(plain)
+        return plain, started
+
+
+def split_lines(raw: str) -> List[str]:
+    """Split on \\n only, so line numbers match editors and `wc -l`.
+
+    str.splitlines() also breaks on a bare \\r, which turns every progress-bar frame
+    and every GitLab "section_start:...\\r\\e[0KHeader" marker into extra lines.
+    """
+    lines = raw.split("\n")
+    if lines and lines[-1] == "":
+        lines.pop()
+    return lines
+
+
 def parse_lines(raw: str, redactor: Redactor) -> List[Line]:
     """Split, redact and normalise raw log text into Line records."""
     out: List[Line] = []
     group_step = ""  # used when gh reports "UNKNOWN STEP" or logs are unprefixed
-    for n, raw_line in enumerate(raw.splitlines(), start=1):
+    gitlab = _GitLabSections()
+    for n, raw_line in enumerate(split_lines(raw), start=1):
         job, step, content = "", "", raw_line
         m = _GH_PREFIX.match(raw_line)
         if m and _TIMESTAMP.match(m.group("rest")):
             job, step, content = m.group("job").strip(), m.group("step").strip(), m.group("rest")
-        content = _TIMESTAMP.sub("", content, count=1)
+        ts = _TIMESTAMP.match(content)
+        if ts:
+            content = _GITLAB_STREAM.sub("", content[ts.end():], count=1)
 
         redacted = redactor.redact(content)          # redact before anything else
         if redacted is None:
             continue
+        if "section_" in redacted[:80]:
+            redacted, started = gitlab.consume(redacted)
+            group_step = gitlab.current
+            if not redacted.strip():
+                continue
+            if started:                              # the rest of the line is the section header
+                redacted = "##[group]" + redacted
         text = _strip_ansi_and_progress(redacted)
         text = redactor.redact_inline(text)          # second pass: ANSI could split tokens
         if len(text) > MAX_SCAN_CHARS:               # cut only after redaction, never before
@@ -268,6 +326,8 @@ def parse_lines(raw: str, redactor: Redactor) -> List[Line]:
                 text = f"[{kind}] {loc + ': ' if loc else ''}{msg}"
                 marker = kind if kind in ("error", "warning") else ""
 
+        if gitlab.script_step and _GITLAB_JOB_FAILED.match(text):
+            step = gitlab.script_step                # printed outside every section; the script failed
         if not step or step.upper() == "UNKNOWN STEP":
             step = group_step or step or "log"
         out.append(Line(n=n, job=job or "log", step=step, text=text.rstrip(), marker=marker))
@@ -568,7 +628,7 @@ def analyse(raw: str, source: str) -> Digest:
     steps = group_steps(lines)
     digest = Digest(
         source=source,
-        raw_lines=len(raw.splitlines()),
+        raw_lines=len(split_lines(raw)),
         redactions=redactor.counts,
         steps=steps,
     )

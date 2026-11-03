@@ -174,6 +174,42 @@ class TestNormalisation(unittest.TestCase):
         self.assertNotIn("50%", md)
         self.assertIn("ERROR: build failed", md)
 
+    def test_gitlab_sections_become_steps(self) -> None:
+        esc = "\x1b[0K"
+        raw = "\n".join([
+            f"{esc}section_start:1730000000:prepare_executor\r{esc}Preparing the \"docker\" executor",
+            "Using docker image sha256:abc for php:8.3-cli ...",
+            f"section_end:1730000001:prepare_executor\r{esc}",
+            f"{esc}section_start:1730000002:step_script\r{esc}Executing \"step_script\" stage of the job script",
+            "\x1b[32;1m$ composer install --no-interaction\x1b[0;m",
+            f"{esc}section_start:1730000003:install[collapsed=true]\r{esc}Install dependencies",
+            "fatal: unable to access 'https://gitlab.example.com/acme/lib.git/': The requested URL returned error: 403",
+            f"section_end:1730000004:install\r{esc}",
+            f"section_end:1730000005:step_script\r{esc}",
+            f"{esc}section_start:1730000006:cleanup_file_variables\r{esc}Cleaning up project directory",
+            f"section_end:1730000007:cleanup_file_variables\r{esc}",
+            "\x1b[31;1mERROR: Job failed: exit code 2\x1b[0;m",
+        ])
+        d = clean_logs.digest_text(raw)
+        self.assertEqual([s.step for s in d.steps], ["prepare_executor", "step_script", "install", "cleanup_file_variables"])
+        self.assertEqual([s.step for s in d.steps if s.failed], ["install"])   # trailer credited to the script
+        self.assertIn("unable to access", d.item(d.root_cause).text)
+        self.assertEqual(d.exit_code, 2)
+        md = clean_logs.render_markdown(d)
+        self.assertNotIn("section_", md)
+        self.assertIn("▸ Install dependencies", md)
+
+    def test_carriage_returns_do_not_shift_line_numbers(self) -> None:
+        raw = "step 1\nprogress 10%\rprogress 100%\nfatal: here\n"
+        lines = clean_logs.redacted_lines(raw)
+        self.assertEqual([(ln.n, ln.text) for ln in lines], [(1, "step 1"), (2, "progress 100%"), (3, "fatal: here")])
+        self.assertEqual(clean_logs.digest_text(raw).raw_lines, 3)
+
+    def test_gitlab_timestamped_stream_prefix_stripped(self) -> None:
+        raw = "2026-05-22T12:43:46.962646Z 00O $ make test\n2026-05-22T12:43:47.000001Z 01E fatal: boom"
+        lines = clean_logs.redacted_lines(raw)
+        self.assertEqual([ln.text for ln in lines], ["$ make test", "fatal: boom"])
+
     def test_annotations_understood(self) -> None:
         raw = "::error file=src/app.py,line=10,col=4::Undefined name 'foo'\n##[warning]Node 16 is deprecated"
         md = digest_md(raw)
