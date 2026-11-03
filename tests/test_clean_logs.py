@@ -199,6 +199,31 @@ class TestNormalisation(unittest.TestCase):
         self.assertNotIn("section_", md)
         self.assertIn("▸ Install dependencies", md)
 
+    def test_jenkins_stages_become_steps(self) -> None:
+        raw = "\n".join([
+            "Started by user ci-admin",
+            "[Pipeline] Start of Pipeline", "[Pipeline] node", "Running on agent-2 in /var/jenkins/workspace/api",
+            "[Pipeline] {", "[Pipeline] stage", "[Pipeline] { (Build)", "[Pipeline] sh", "+ go build ./...",
+            "[Pipeline] }", "[Pipeline] // stage", "[Pipeline] stage", "[Pipeline] { (Test)", "[Pipeline] sh",
+            "[2026-10-14T09:12:03.120Z] + go test ./...",
+            "[2026-10-14T09:12:09.551Z] --- FAIL: TestRates (0.01s)",
+            "    rates_test.go:31: got 0.89, want 0.9",
+            "FAIL\tgithub.com/acme/api/rates\t0.412s",
+            "[Pipeline] }", "[Pipeline] // stage", "[Pipeline] stage", "[Pipeline] { (Deploy)",
+            'Stage "Deploy" skipped due to earlier failure(s)', "[Pipeline] }", "[Pipeline] // stage",
+            "[Pipeline] stage", "[Pipeline] { (Declarative: Post Actions)", "[Pipeline] junit",
+            "Recording test results", "[Pipeline] }", "[Pipeline] // stage",
+            "[Pipeline] }", "[Pipeline] // node", "[Pipeline] End of Pipeline",
+            "ERROR: script returned exit code 1", "Finished: FAILURE",
+        ])
+        d = clean_logs.digest_text(raw)
+        self.assertEqual([s.step for s in d.steps], ["log", "Build", "Test", "Deploy", "Declarative: Post Actions"])
+        self.assertEqual([s.step for s in d.steps if s.failed], ["Test"])
+        self.assertEqual(d.item(d.root_cause).text, "--- FAIL: TestRates (0.01s)")
+        md = clean_logs.render_markdown(d)
+        self.assertNotIn("[Pipeline]", md)
+        self.assertNotIn("2026-10-14T", md)
+
     def test_carriage_returns_do_not_shift_line_numbers(self) -> None:
         raw = "step 1\nprogress 10%\rprogress 100%\nfatal: here\n"
         lines = clean_logs.redacted_lines(raw)

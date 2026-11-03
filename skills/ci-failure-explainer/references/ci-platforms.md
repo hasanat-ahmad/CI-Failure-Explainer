@@ -18,6 +18,6 @@ python3 scripts/ci_doctor.py --log-file failed.log --repo-dir .
 
 Notes:
 
-- The digest groups by job and step only for GitHub's `gh run view --log-failed` format. Other logs appear as one step called `log`, and that's fine.
+- The digest groups output into steps for GitHub (`gh run view --log-failed` and downloaded job logs), **GitLab** (`section_start`/`section_end` markers: `get_sources`, `step_script`, your own sections) and **Jenkins** (`[Pipeline] { (Stage)` blocks, parallel branches, timestamper prefixes). The failed step is the one holding the job's exit-code line: GitLab's `ERROR: Job failed` trailer is credited to the last section the script opened, and Jenkins' `ERROR: script returned exit code` to the last stage that ran. Other logs appear as one step called `log`, and that's fine.
 - If the user **pastes** log text into the chat, write it to a temp file first and run `clean_logs.py` on it, rather than reasoning over the pasted text directly. You still get redaction and the digest.
 - Workflow mapping (`workflow_steps.py`) only reads `.github/workflows`. For other systems, open their config (`.gitlab-ci.yml`, `.circleci/config.yml`, `Jenkinsfile`, `azure-pipelines.yml`, `bitbucket-pipelines.yml`) yourself to find the failing command.

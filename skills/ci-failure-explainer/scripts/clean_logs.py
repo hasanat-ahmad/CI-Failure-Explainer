@@ -194,6 +194,10 @@ _GITLAB_SECTION = re.compile(r"^section_(start|end):\d+:([^\s\[\r]+)(?:\[[^\]]*\
 _GITLAB_STREAM = re.compile(r"^0[0-9a-f][EO]\+?\s")        # GitLab 17+ timestamped logs: "00O ", "01E+"
 _GITLAB_JOB_FAILED = re.compile(r"^ERROR: Job failed\b")
 _GITLAB_SCRIPT_SECTIONS = {"step_script", "build_script"}
+_BRACKET_TIMESTAMP = re.compile(r"^\[\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}:\d{2}(?:[.,]\d+)?Z?\]\s?")  # Jenkins timestamper
+_JENKINS_STAGE = re.compile(r"^\[Pipeline\] \{ \((?:Branch: )?(.+)\)\s*$")
+_JENKINS_SKIPPED = re.compile(r"^Stage \"[^\"]+\" skipped due to")
+_JENKINS_TRAILER = re.compile(r"^(?:ERROR: script returned exit code \d+|Finished: (?:FAILURE|UNSTABLE))")
 
 
 @dataclass
@@ -256,6 +260,35 @@ class _GitLabSections:
         return plain, started
 
 
+class _JenkinsStages:
+    """Track Jenkins `[Pipeline] { (Stage)` blocks so pipeline stages become steps."""
+
+    def __init__(self) -> None:
+        self.stack: List[Optional[str]] = []   # None for unnamed blocks (node, withEnv, ...)
+        self.last_ran = ""                     # where the end-of-build "ERROR: ... exit code" belongs
+
+    @property
+    def current(self) -> str:
+        return next((s for s in reversed(self.stack) if s), "")
+
+    def marker(self, text: str) -> Optional[str]:
+        """Handle a `[Pipeline] ...` line. Returns the stage name when a stage opens."""
+        m = _JENKINS_STAGE.match(text)
+        if m:
+            self.stack.append(m.group(1))
+            return m.group(1)
+        if text.rstrip() == "[Pipeline] {":
+            self.stack.append(None)
+        elif text.rstrip() == "[Pipeline] }" and self.stack:
+            self.stack.pop()
+        return None
+
+    def output(self, text: str) -> None:
+        stage = self.current
+        if stage and stage != "Declarative: Post Actions" and not _JENKINS_SKIPPED.match(text):
+            self.last_ran = stage
+
+
 def split_lines(raw: str) -> List[str]:
     """Split on \\n only, so line numbers match editors and `wc -l`.
 
@@ -273,6 +306,7 @@ def parse_lines(raw: str, redactor: Redactor) -> List[Line]:
     out: List[Line] = []
     group_step = ""  # used when gh reports "UNKNOWN STEP" or logs are unprefixed
     gitlab = _GitLabSections()
+    jenkins = _JenkinsStages()
     for n, raw_line in enumerate(split_lines(raw), start=1):
         job, step, content = "", "", raw_line
         m = _GH_PREFIX.match(raw_line)
@@ -281,6 +315,8 @@ def parse_lines(raw: str, redactor: Redactor) -> List[Line]:
         ts = _TIMESTAMP.match(content)
         if ts:
             content = _GITLAB_STREAM.sub("", content[ts.end():], count=1)
+        else:
+            content = _BRACKET_TIMESTAMP.sub("", content, count=1)
 
         redacted = redactor.redact(content)          # redact before anything else
         if redacted is None:
@@ -296,6 +332,15 @@ def parse_lines(raw: str, redactor: Redactor) -> List[Line]:
         text = redactor.redact_inline(text)          # second pass: ANSI could split tokens
         if len(text) > MAX_SCAN_CHARS:               # cut only after redaction, never before
             text = f"{text[:MAX_SCAN_CHARS]}… [line truncated, {len(text) - MAX_SCAN_CHARS} more chars]"
+
+        if text.startswith("[Pipeline] "):
+            stage = jenkins.marker(text)
+            group_step = jenkins.current
+            if stage is None:
+                continue                             # pipeline scaffolding: structure, not output
+            text = "##[group]" + stage
+        elif jenkins.stack:
+            jenkins.output(text)
 
         marker = ""
         g = _GROUP.match(text)
@@ -328,6 +373,8 @@ def parse_lines(raw: str, redactor: Redactor) -> List[Line]:
 
         if gitlab.script_step and _GITLAB_JOB_FAILED.match(text):
             step = gitlab.script_step                # printed outside every section; the script failed
+        elif jenkins.last_ran and _JENKINS_TRAILER.match(text):
+            step = jenkins.last_ran                  # printed after "End of Pipeline"
         if not step or step.upper() == "UNKNOWN STEP":
             step = group_step or step or "log"
         out.append(Line(n=n, job=job or "log", step=step, text=text.rstrip(), marker=marker))
