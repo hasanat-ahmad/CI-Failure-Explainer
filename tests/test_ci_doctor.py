@@ -64,6 +64,39 @@ class TestCiDoctor(unittest.TestCase):
         for f in ("digest.md", "digest.json", "matches.json", "workflow.json", "repro.sh", "brief.md"):
             self.assertTrue((self.out / f).is_file(), f)
 
+    def test_changes_since_green_flags_suspect_files(self) -> None:
+        import ci_doctor
+
+        def git(*args: str) -> str:
+            return subprocess.run(["git", "-C", str(self.repo), *args], capture_output=True, text=True,
+                                  check=True).stdout.strip()
+
+        git("init", "-q")
+        git("-c", "user.name=t", "-c", "user.email=t@example.com", "add", ".")
+        git("-c", "user.name=t", "-c", "user.email=t@example.com", "commit", "-qm", "green")
+        green = git("rev-parse", "HEAD")
+        (self.repo / "package-lock.json").write_text('{"lockfileVersion": 3}')
+        (self.repo / ".nvmrc").write_text("22\n")
+        (self.repo / "src").mkdir()
+        (self.repo / "src" / "cart.ts").write_text("export {}\n")
+        git("add", ".")
+        git("-c", "user.name=t", "-c", "user.email=t@example.com", "commit", "-qm", "red")
+        red = git("rev-parse", "HEAD")
+
+        meta = {"last_success": {"head_sha": green}, "run": {"head_sha": red}}
+        ch = ci_doctor.changes_since_green(self.repo, meta)
+        self.assertEqual(ch["files_changed"], 3)
+        self.assertEqual(ch["suspects"], [{"file": "package-lock.json", "kind": "lockfile"},
+                                          {"file": ".nvmrc", "kind": "toolchain"}])
+        lines = "\n".join(ci_doctor._changes_lines(ch))
+        self.assertIn("**3 file(s)** changed", lines)
+        self.assertIn("`package-lock.json` (lockfile), `.nvmrc` (toolchain)", lines)
+
+        gone = ci_doctor.changes_since_green(self.repo, {"last_success": {"head_sha": "f" * 40}, "run": {"head_sha": red}})
+        self.assertIn("not in the local clone", gone["error"])
+        self.assertIsNone(ci_doctor.changes_since_green(self.repo, None))          # --log-file mode: nothing to compare
+        self.assertIsNone(ci_doctor.changes_since_green(self.repo, {**meta, "last_success": None}))
+
     def test_json_output(self) -> None:
         p = self.doctor("flaky_timeout_test.log", "--format", "json")
         self.assertEqual(p.returncode, 0, p.stderr)

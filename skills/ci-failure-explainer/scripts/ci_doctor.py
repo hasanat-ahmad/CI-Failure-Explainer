@@ -24,6 +24,7 @@ import json
 import os
 from pathlib import Path
 import re
+import subprocess
 import sys
 import tempfile
 from typing import Any, Callable, Dict, List, Optional, Sequence, TypeVar
@@ -55,6 +56,21 @@ CATEGORY_HINTS = [
     ("infrastructure", r"(?i)No space left|heap out of memory|exit code 137|Killed|operation was canceled|runner"),
     ("config", r"(?i)secret|environment variable|Input required|not set|credentials"),
     ("permissions", r"(?i)Resource not accessible|403|permission denied"),
+]
+# Changed files that most often explain a red run, in the order the brief lists them.
+SUSPECT_FILES = [
+    ("lockfile", re.compile(r"(?:^|/)(?:package-lock\.json|npm-shrinkwrap\.json|yarn\.lock|pnpm-lock\.yaml|bun\.lockb?|"
+                            r"poetry\.lock|uv\.lock|Pipfile\.lock|pdm\.lock|Gemfile\.lock|composer\.lock|Cargo\.lock|go\.sum|"
+                            r"pubspec\.lock|packages\.lock\.json|gradle\.lockfile)$")),
+    ("workflow", re.compile(r"^\.github/(?:workflows|actions)/")),
+    ("toolchain", re.compile(r"(?:^|/)(?:\.nvmrc|\.node-version|\.python-version|\.ruby-version|\.java-version|"
+                             r"\.go-version|\.fvmrc|\.tool-versions|rust-toolchain(?:\.toml)?|global\.json|"
+                             r"gradle-wrapper\.properties)$")),
+    ("manifest", re.compile(r"(?:^|/)(?:package\.json|pyproject\.toml|requirements[\w.-]*\.txt|setup\.(?:py|cfg)|Pipfile|"
+                            r"Gemfile|[^/]+\.gemspec|composer\.json|Cargo\.toml|go\.mod|pubspec\.yaml|pom\.xml|"
+                            r"build\.gradle(?:\.kts)?|settings\.gradle(?:\.kts)?|[^/]+\.[cf]sproj|"
+                            r"Directory\.(?:Build|Packages)\.props)$")),
+    ("container", re.compile(r"(?:^|/)(?:Dockerfile[^/]*|[^/]+\.Dockerfile|(?:docker-)?compose[^/]*\.ya?ml|\.dockerignore)$")),
 ]
 
 
@@ -107,6 +123,32 @@ class Phases:
         except Exception as exc:  # best effort by design: partial results beat no results
             self.warnings.append(f"{name} skipped ({type(exc).__name__}: {exc})")
             return default
+
+
+def changes_since_green(repo_dir: Path, meta: Optional[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    """Files changed between the last green run and the failing commit, from the local clone (read-only)."""
+    base = ((meta or {}).get("last_success") or {}).get("head_sha")
+    head = ((meta or {}).get("run") or {}).get("head_sha")
+    if not (base and head) or base == head or not (repo_dir / ".git").exists():
+        return None
+
+    def git(*args: str) -> subprocess.CompletedProcess:
+        return subprocess.run(["git", "-C", str(repo_dir), *args], capture_output=True, text=True,
+                              timeout=30, check=False)
+
+    missing = [sha for sha in (base, head) if git("cat-file", "-e", f"{sha}^{{commit}}").returncode != 0]
+    if missing:
+        return {"base": base, "head": head,
+                "error": f"commit {missing[0][:12]} is not in the local clone; run `git fetch origin {missing[0]}` "
+                         "(or unshallow with `git fetch --unshallow`) to compare"}
+    out = git("diff", "--name-only", f"{base}..{head}")
+    if out.returncode != 0:
+        raise RuntimeError(out.stderr.strip() or "git diff failed")
+    files = [f for f in out.stdout.splitlines() if f]
+    order = [kind for kind, _ in SUSPECT_FILES]
+    kinds = {f: next((kind for kind, rx in SUSPECT_FILES if rx.search(f)), None) for f in files}
+    suspects = sorted(({"file": f, "kind": k} for f, k in kinds.items() if k), key=lambda s: order.index(s["kind"]))
+    return {"base": base, "head": head, "files_changed": len(files), "suspects": suspects, "files": files[:200]}
 
 
 def write_private(path: Path, text: str, mode: int = 0o600) -> None:
@@ -196,20 +238,23 @@ def run(args: argparse.Namespace) -> int:
         if wf.get("repro_script"):
             write_private(out_dir / "repro.sh", wf["repro_script"] + "\n", mode=0o700)
 
+    changes = phases.run("diff since last green", lambda: changes_since_green(repo_dir, meta), None)
     signals = flakiness_signals(meta, digest_md, matches)
     category = guess_category(digest_md, matches)
     if meta:
         write_private(out_dir / "meta.json", json.dumps(meta, indent=2))
 
     brief = render_brief(meta=meta, digest_md=digest_md, stack_info=stack_info, matches=matches, wf=wf,
-                         signals=signals, category=category, out_dir=out_dir, warnings=phases.warnings)
+                         signals=signals, category=category, out_dir=out_dir, warnings=phases.warnings,
+                         changes=changes)
     write_private(out_dir / "brief.md", brief)
     if args.format == "json":
         print(json.dumps({
             "schema_version": SCHEMA_VERSION, "tool_version": __version__,
             "bundle": str(out_dir), "bundle_is_temp": created, "category_guess": category,
             "flaky_signals": signals, "warnings": phases.warnings, "meta": meta, "stacks": stack_info,
-            "workflow_step": wf, "matches": json.loads(match_patterns.render_json(matches)),
+            "workflow_step": wf, "changes_since_green": changes,
+            "matches": json.loads(match_patterns.render_json(matches)),
             "digest": json.loads(clean_logs.render_json(digest)),
         }, indent=2, default=str))
     else:
@@ -251,9 +296,24 @@ def _workflow_lines(wf: Dict[str, Any]) -> List[str]:
     return [*o, ""]
 
 
+def _changes_lines(changes: Dict[str, Any]) -> List[str]:
+    o = ["## Changed since last green"]
+    rng = f"`{changes['base'][:7]}..{changes['head'][:7]}`"
+    if "error" in changes:
+        return [*o, f"- {rng}: {changes['error']}", ""]
+    o.append(f"- **{changes['files_changed']} file(s)** changed in {rng}")
+    sus = changes.get("suspects") or []
+    if sus:
+        o.append("- **Likely suspects:** " + ", ".join(f"`{s['file']}` ({s['kind']})" for s in sus[:8])
+                 + (f" and {len(sus) - 8} more" if len(sus) > 8 else ""))
+    else:
+        o.append("- No lockfile, manifest, workflow, toolchain or container file changed: look at the code diff")
+    return [*o, ""]
+
+
 def render_brief(*, meta: Optional[Dict[str, Any]], digest_md: str, stack_info: Dict[str, Any],
                  matches: Sequence[Any], wf: Optional[Dict[str, Any]], signals: List[str], category: str,
-                 out_dir: Path, warnings: Sequence[str] = ()) -> str:
+                 out_dir: Path, warnings: Sequence[str] = (), changes: Optional[Dict[str, Any]] = None) -> str:
     o: List[str] = ["# CI Doctor triage brief", ""]
     if meta:
         o += _run_lines(meta)
@@ -276,6 +336,8 @@ def render_brief(*, meta: Optional[Dict[str, Any]], digest_md: str, stack_info: 
     o += ["", match_patterns.render_markdown(matches[:3]), ""]
     if wf:
         o += _workflow_lines(wf)
+    if changes:
+        o += _changes_lines(changes)
 
     o.append("## Next")
     last = (meta or {}).get("last_success") or {}
