@@ -69,6 +69,24 @@ class TestDetectStack(unittest.TestCase):
             self.assertEqual(tc["Gemfile ruby"], "file: .ruby-version")
             self.assertEqual(tc[".ruby-version"], "3.3.5")
 
+    def test_dotnet_solution(self) -> None:
+        with make_repo({
+            "Shop.sln": "", "global.json": json.dumps({"sdk": {"version": "8.0.403", "rollForward": "latestFeature"}}),
+            "Directory.Build.props": "<Project><PropertyGroup><TreatWarningsAsErrors>true</TreatWarningsAsErrors>"
+                                     "</PropertyGroup></Project>",
+            "src/Api/Api.csproj": "<Project Sdk=\"Microsoft.NET.Sdk.Web\"><PropertyGroup>\n"
+                                  "  <TargetFramework>net8.0</TargetFramework>\n"
+                                  "  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>\n</PropertyGroup></Project>",
+        }) as d:
+            r = detect_stack.detect(Path(d), "dotnet build -c Release")
+            self.assertEqual(stacks(r)[0], "dotnet")
+            self.assertIn("stack-dotnet.md", r["references"])
+            tc = r["toolchain"]
+            self.assertEqual(tc["global.json sdk"], "8.0.403 (rollForward: latestFeature)")
+            self.assertEqual(tc["Directory.Build.props TreatWarningsAsErrors"], "true")
+            self.assertEqual(tc["src/Api/: Api.csproj target framework"], "net8.0")
+            self.assertEqual(tc["src/Api/: Api.csproj RestorePackagesWithLockFile"], "true")
+
     def test_node_project_with_lockfile_and_engines(self) -> None:
         with make_repo({
             "package.json": json.dumps({"name": "x", "engines": {"node": ">=20"}, "type": "module"}),
@@ -102,7 +120,7 @@ class TestDetectStack(unittest.TestCase):
 
     def test_other_ecosystems(self) -> None:
         for marker, stack in (("go.mod", "go"), ("Cargo.toml", "rust"), ("pom.xml", "jvm"),
-                              ("build.gradle.kts", "jvm"), ("Gemfile", "ruby"), ("app.gemspec", "ruby"),
+                              ("build.gradle.kts", "jvm"), ("Gemfile", "ruby"), ("app.gemspec", "ruby"), ("App.csproj", "dotnet"),
                               ("mix.exs", "general")):
             with self.subTest(marker=marker), make_repo({marker: "module x\ngo 1.22\n"}) as d:
                 self.assertIn(stack, stacks(detect_stack.detect(Path(d))))

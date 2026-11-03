@@ -37,6 +37,7 @@ REFERENCES = {
     "rust": "stack-rust.md",
     "jvm": "stack-jvm.md",
     "ruby": "stack-ruby.md",
+    "dotnet": "stack-dotnet.md",
     "general": "stack-general.md",
 }
 
@@ -63,8 +64,11 @@ FILE_MARKERS = [
     ("settings.gradle*", "jvm", "gradle"),
     ("Gemfile", "ruby", "bundler"),
     ("*.gemspec", "ruby", "gemspec"),
-    ("*.csproj", "general", "dotnet"),
-    ("*.sln", "general", "dotnet"),
+    ("*.csproj", "dotnet", "csproj"),
+    ("*.fsproj", "dotnet", "fsproj"),
+    ("*.sln", "dotnet", "sln"),
+    ("*.slnx", "dotnet", "sln"),
+    ("global.json", "dotnet", "global.json"),
     ("composer.json", "general", "php"),
     ("Package.swift", "general", "swift"),
     ("mix.exs", "general", "elixir"),
@@ -86,6 +90,8 @@ LOG_SIGNALS: Dict[str, List[str]] = {
     "jvm": [r"\bgradle\b", r"\bmvn\b", r"\bmaven\b", r"\.java:\d+", r"\.kt:\d+", r"\bkotlin\b"],
     "ruby": [r"\bbundle (?:install|exec|lock)\b", r"\brspec\b", r"\brubocop\b", r"\brails (?:test|db:|assets:)",
              r"ruby/setup-ruby", r"\.rb:\d+", r"\bBundler::", r"Gemfile\.lock"],
+    "dotnet": [r"\bdotnet (?:build|test|restore|publish|format)\b", r"(?i)\bmsbuild\b", r"\berror (?:NU|MSB|NETSDK|CS)\d{4}\b",
+               r"\.[cf]sproj\b", r"actions/setup-dotnet"],
 }
 
 
@@ -187,6 +193,22 @@ def _hints_for(root: Path) -> Dict[str, object]:
         m = re.search(r"^ruby\s+['\"]([^'\"]+)['\"]|^ruby\s+file:\s*['\"]([^'\"]+)", _read(gemfile), re.M)
         if m:
             hints["Gemfile ruby"] = m.group(1) or f"file: {m.group(2)}"
+    global_json = root / "global.json"
+    if global_json.is_file():
+        try:
+            sdk = json.loads(_read(global_json)).get("sdk") or {}
+            if isinstance(sdk, dict) and sdk.get("version"):
+                hints["global.json sdk"] = sdk["version"] + (f" (rollForward: {sdk['rollForward']})"
+                                                             if sdk.get("rollForward") else "")
+        except (ValueError, AttributeError):
+            hints["global.json"] = "invalid JSON"
+    for proj in sorted([*root.glob("*.csproj"), *root.glob("*.fsproj"), *root.glob("Directory.Build.props")])[:3]:
+        text = _read(proj)
+        for tag, key in (("TargetFrameworks?", "target framework"), ("TreatWarningsAsErrors", "TreatWarningsAsErrors"),
+                         ("RestorePackagesWithLockFile", "RestorePackagesWithLockFile")):
+            m = re.search(rf"<{tag}>\s*([^<]+?)\s*</", text)
+            if m:
+                hints[f"{proj.name} {key}"] = m.group(1)
     gomod = root / "go.mod"
     if gomod.is_file():
         m = re.search(r"^go\s+(\S+)", _read(gomod), re.M)

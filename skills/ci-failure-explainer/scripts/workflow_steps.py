@@ -200,7 +200,7 @@ SETUP_ACTIONS: Dict[str, Tuple[str, Sequence[str], List[str]]] = {
     "astral-sh/setup-uv": ("uv", ("version",), ["uv", "--version"]),
     "gradle/actions/setup-gradle": ("gradle", ("gradle-version",), ["gradle", "--version"]),
     "oven-sh/setup-bun": ("bun", ("bun-version",), ["bun", "--version"]),
-    "actions/setup-dotnet": ("dotnet", ("dotnet-version",), ["dotnet", "--version"]),
+    "actions/setup-dotnet": ("dotnet", ("dotnet-version", "global-json-file"), ["dotnet", "--version"]),
 }
 EXPR = re.compile(r"\$\{\{\s*(.*?)\s*\}\}")
 VERSION_RX = re.compile(r"\d+\.\d+")
