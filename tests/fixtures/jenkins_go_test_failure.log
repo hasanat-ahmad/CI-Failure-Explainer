@@ -1,0 +1,446 @@
+[2026-10-14T09:12:03.297Z] Started by an SCM change
+[2026-10-14T09:12:03.504Z] Obtained Jenkinsfile from git https://git.example.com/acme/rates.git
+[2026-10-14T09:12:03.623Z] [Pipeline] Start of Pipeline
+[2026-10-14T09:12:04.187Z] [Pipeline] node
+[2026-10-14T09:12:04.305Z] Running on build-agent-3 in /var/jenkins/workspace/rates_main
+[2026-10-14T09:12:04.656Z] [Pipeline] {
+[2026-10-14T09:12:05.231Z] [Pipeline] stage
+[2026-10-14T09:12:05.538Z] [Pipeline] { (Declarative: Checkout SCM)
+[2026-10-14T09:12:06.209Z] [Pipeline] checkout
+[2026-10-14T09:12:06.508Z] The recommended git tool is: git
+[2026-10-14T09:12:06.864Z]  > git rev-parse --resolve-git-dir /var/jenkins/workspace/rates_main/.git
+[2026-10-14T09:12:07.370Z] Fetching changes from the remote Git repository
+[2026-10-14T09:12:07.435Z] Checking out Revision 4f1c9e2a7b3d (main)
+[2026-10-14T09:12:08.009Z] Commit message: "convert: use banker's rounding"
+[2026-10-14T09:12:08.587Z] [Pipeline] }
+[2026-10-14T09:12:08.738Z] [Pipeline] // stage
+[2026-10-14T09:12:08.900Z] [Pipeline] withEnv
+[2026-10-14T09:12:08.944Z] [Pipeline] {
+[2026-10-14T09:12:09.243Z] [Pipeline] stage
+[2026-10-14T09:12:09.425Z] [Pipeline] { (Build)
+[2026-10-14T09:12:09.935Z] [Pipeline] sh
+[2026-10-14T09:12:10.551Z] + go build ./...
+[2026-10-14T09:12:10.704Z] go: downloading golang.org/x/sync v1.5.2
+[2026-10-14T09:12:11.367Z] go: downloading golang.org/x/text v4.6.2
+[2026-10-14T09:12:11.579Z] go: downloading github.com/shopspring/decimal v5.13.0
+[2026-10-14T09:12:11.839Z] go: downloading github.com/stretchr/testify v4.10.9
+[2026-10-14T09:12:12.467Z] go: downloading github.com/jackc/pgx/v5 v5.22.4
+[2026-10-14T09:12:12.855Z] go: downloading github.com/go-chi/chi/v5 v1.8.6
+[2026-10-14T09:12:13.356Z] go: downloading go.uber.org/zap v4.27.3
+[2026-10-14T09:12:13.550Z] go: downloading github.com/google/uuid v5.22.5
+[2026-10-14T09:12:14.175Z] [Pipeline] }
+[2026-10-14T09:12:14.818Z] [Pipeline] // stage
+[2026-10-14T09:12:15.241Z] [Pipeline] stage
+[2026-10-14T09:12:15.841Z] [Pipeline] { (Test)
+[2026-10-14T09:12:16.308Z] [Pipeline] sh
+[2026-10-14T09:12:16.634Z] + go test -v -count=1 ./...
+[2026-10-14T09:12:16.983Z] === RUN   TestParseLarge
+[2026-10-14T09:12:17.253Z] --- PASS: TestParseLarge (0.32s)
+[2026-10-14T09:12:17.943Z] === RUN   TestParseEmpty
+[2026-10-14T09:12:18.382Z] --- PASS: TestParseEmpty (0.05s)
+[2026-10-14T09:12:18.420Z] === RUN   TestListEmpty
+[2026-10-14T09:12:18.472Z] --- PASS: TestListEmpty (0.08s)
+[2026-10-14T09:12:18.867Z] === RUN   TestListZero
+[2026-10-14T09:12:19.177Z] --- PASS: TestListZero (0.17s)
+[2026-10-14T09:12:19.356Z] === RUN   TestFetchZero
+[2026-10-14T09:12:19.891Z] --- PASS: TestFetchZero (0.03s)
+[2026-10-14T09:12:20.526Z] === RUN   TestRoundEmpty
+[2026-10-14T09:12:20.868Z] --- PASS: TestRoundEmpty (0.04s)
+[2026-10-14T09:12:21.169Z] === RUN   TestLoadStale
+[2026-10-14T09:12:21.527Z] --- PASS: TestLoadStale (0.35s)
+[2026-10-14T09:12:21.984Z] === RUN   TestParseUnicode
+[2026-10-14T09:12:22.607Z] --- PASS: TestParseUnicode (0.34s)
+[2026-10-14T09:12:23.291Z] === RUN   TestMergeConcurrent
+[2026-10-14T09:12:23.613Z] --- PASS: TestMergeConcurrent (0.11s)
+[2026-10-14T09:12:24.149Z] === RUN   TestFetchZero
+[2026-10-14T09:12:24.296Z] --- PASS: TestFetchZero (0.06s)
+[2026-10-14T09:12:24.404Z] === RUN   TestLoadMany
+[2026-10-14T09:12:24.654Z] --- PASS: TestLoadMany (0.33s)
+[2026-10-14T09:12:24.691Z] === RUN   TestMergeLarge
+[2026-10-14T09:12:24.787Z] --- PASS: TestMergeLarge (0.09s)
+[2026-10-14T09:12:25.049Z] === RUN   TestExpireZero
+[2026-10-14T09:12:25.078Z] --- PASS: TestExpireZero (0.12s)
+[2026-10-14T09:12:25.550Z] === RUN   TestExpireEmpty
+[2026-10-14T09:12:25.643Z] --- PASS: TestExpireEmpty (0.37s)
+[2026-10-14T09:12:25.968Z] === RUN   TestRoundEmpty
+[2026-10-14T09:12:26.571Z] --- PASS: TestRoundEmpty (0.11s)
+[2026-10-14T09:12:27.177Z] === RUN   TestSaveEmpty
+[2026-10-14T09:12:27.189Z] --- PASS: TestSaveEmpty (0.20s)
+[2026-10-14T09:12:27.287Z] === RUN   TestExpireConcurrent
+[2026-10-14T09:12:27.410Z] --- PASS: TestExpireConcurrent (0.14s)
+[2026-10-14T09:12:27.773Z] === RUN   TestRoundStale
+[2026-10-14T09:12:28.027Z] --- PASS: TestRoundStale (0.21s)
+[2026-10-14T09:12:28.218Z] === RUN   TestListStale
+[2026-10-14T09:12:28.307Z] --- PASS: TestListStale (0.39s)
+[2026-10-14T09:12:28.695Z] === RUN   TestFetchLarge
+[2026-10-14T09:12:29.079Z] --- PASS: TestFetchLarge (0.30s)
+[2026-10-14T09:12:29.091Z] === RUN   TestExpireEmpty
+[2026-10-14T09:12:29.758Z] --- PASS: TestExpireEmpty (0.11s)
+[2026-10-14T09:12:30.451Z] === RUN   TestMergeMany
+[2026-10-14T09:12:30.943Z] --- PASS: TestMergeMany (0.33s)
+[2026-10-14T09:12:31.341Z] === RUN   TestRoundZero
+[2026-10-14T09:12:31.544Z] --- PASS: TestRoundZero (0.21s)
+[2026-10-14T09:12:32.133Z] === RUN   TestMergeUnicode
+[2026-10-14T09:12:32.140Z] --- PASS: TestMergeUnicode (0.38s)
+[2026-10-14T09:12:32.504Z] === RUN   TestListZero
+[2026-10-14T09:12:32.804Z] --- PASS: TestListZero (0.05s)
+[2026-10-14T09:12:32.951Z] === RUN   TestRoundZero
+[2026-10-14T09:12:33.598Z] --- PASS: TestRoundZero (0.24s)
+[2026-10-14T09:12:34.102Z] === RUN   TestExpireStale
+[2026-10-14T09:12:34.347Z] --- PASS: TestExpireStale (0.26s)
+[2026-10-14T09:12:34.984Z] === RUN   TestFetchMany
+[2026-10-14T09:12:35.202Z] --- PASS: TestFetchMany (0.40s)
+[2026-10-14T09:12:35.712Z] === RUN   TestListUnicode
+[2026-10-14T09:12:36.221Z] --- PASS: TestListUnicode (0.14s)
+[2026-10-14T09:12:36.690Z] === RUN   TestExpireLarge
+[2026-10-14T09:12:36.699Z] --- PASS: TestExpireLarge (0.40s)
+[2026-10-14T09:12:36.774Z] === RUN   TestParseConcurrent
+[2026-10-14T09:12:37.054Z] --- PASS: TestParseConcurrent (0.28s)
+[2026-10-14T09:12:37.184Z] PASS
+[2026-10-14T09:12:37.508Z] ok  	github.com/acme/rates/store	0.892s
+[2026-10-14T09:12:38.137Z] === RUN   TestRoundStale
+[2026-10-14T09:12:38.484Z] --- PASS: TestRoundStale (0.34s)
+[2026-10-14T09:12:38.757Z] === RUN   TestLoadLarge
+[2026-10-14T09:12:39.069Z] --- PASS: TestLoadLarge (0.37s)
+[2026-10-14T09:12:39.193Z] === RUN   TestListLarge
+[2026-10-14T09:12:39.672Z] --- PASS: TestListLarge (0.00s)
+[2026-10-14T09:12:40.054Z] === RUN   TestLoadZero
+[2026-10-14T09:12:40.731Z] --- PASS: TestLoadZero (0.21s)
+[2026-10-14T09:12:41.333Z] === RUN   TestLoadUnicode
+[2026-10-14T09:12:41.628Z] --- PASS: TestLoadUnicode (0.39s)
+[2026-10-14T09:12:41.905Z] === RUN   TestFetchZero
+[2026-10-14T09:12:42.464Z] --- PASS: TestFetchZero (0.04s)
+[2026-10-14T09:12:42.745Z] === RUN   TestRoundConcurrent
+[2026-10-14T09:12:42.920Z] --- PASS: TestRoundConcurrent (0.35s)
+[2026-10-14T09:12:43.284Z] === RUN   TestFetchLarge
+[2026-10-14T09:12:43.945Z] --- PASS: TestFetchLarge (0.36s)
+[2026-10-14T09:12:44.498Z] === RUN   TestMergeLarge
+[2026-10-14T09:12:44.536Z] --- PASS: TestMergeLarge (0.15s)
+[2026-10-14T09:12:44.770Z] === RUN   TestMergeZero
+[2026-10-14T09:12:45.046Z] --- PASS: TestMergeZero (0.28s)
+[2026-10-14T09:12:45.637Z] === RUN   TestParseConcurrent
+[2026-10-14T09:12:46.225Z] --- PASS: TestParseConcurrent (0.08s)
+[2026-10-14T09:12:46.844Z] === RUN   TestListEmpty
+[2026-10-14T09:12:47.363Z] --- PASS: TestListEmpty (0.24s)
+[2026-10-14T09:12:47.396Z] === RUN   TestFetchStale
+[2026-10-14T09:12:47.972Z] --- PASS: TestFetchStale (0.20s)
+[2026-10-14T09:12:48.188Z] === RUN   TestLoadMany
+[2026-10-14T09:12:48.439Z] --- PASS: TestLoadMany (0.07s)
+[2026-10-14T09:12:48.619Z] === RUN   TestSaveEmpty
+[2026-10-14T09:12:49.242Z] --- PASS: TestSaveEmpty (0.37s)
+[2026-10-14T09:12:49.608Z] === RUN   TestParseZero
+[2026-10-14T09:12:50.289Z] --- PASS: TestParseZero (0.00s)
+[2026-10-14T09:12:50.700Z] === RUN   TestRoundLarge
+[2026-10-14T09:12:50.827Z] --- PASS: TestRoundLarge (0.03s)
+[2026-10-14T09:12:51.108Z] === RUN   TestExpireEmpty
+[2026-10-14T09:12:51.145Z] --- PASS: TestExpireEmpty (0.40s)
+[2026-10-14T09:12:51.456Z] === RUN   TestExpireConcurrent
+[2026-10-14T09:12:51.758Z] --- PASS: TestExpireConcurrent (0.19s)
+[2026-10-14T09:12:52.077Z] === RUN   TestSaveConcurrent
+[2026-10-14T09:12:52.251Z] --- PASS: TestSaveConcurrent (0.16s)
+[2026-10-14T09:12:52.625Z] === RUN   TestParseConcurrent
+[2026-10-14T09:12:52.635Z] --- PASS: TestParseConcurrent (0.36s)
+[2026-10-14T09:12:52.786Z] === RUN   TestLoadMany
+[2026-10-14T09:12:52.811Z] --- PASS: TestLoadMany (0.02s)
+[2026-10-14T09:12:53.407Z] === RUN   TestParseStale
+[2026-10-14T09:12:53.573Z] --- PASS: TestParseStale (0.28s)
+[2026-10-14T09:12:53.729Z] === RUN   TestParseStale
+[2026-10-14T09:12:53.730Z] --- PASS: TestParseStale (0.01s)
+[2026-10-14T09:12:54.031Z] === RUN   TestListEmpty
+[2026-10-14T09:12:54.413Z] --- PASS: TestListEmpty (0.32s)
+[2026-10-14T09:12:55.042Z] === RUN   TestLoadStale
+[2026-10-14T09:12:55.649Z] --- PASS: TestLoadStale (0.13s)
+[2026-10-14T09:12:56.251Z] === RUN   TestParseConcurrent
+[2026-10-14T09:12:56.359Z] --- PASS: TestParseConcurrent (0.07s)
+[2026-10-14T09:12:57.038Z] PASS
+[2026-10-14T09:12:57.496Z] ok  	github.com/acme/rates/api	0.471s
+[2026-10-14T09:12:58.181Z] === RUN   TestMergeEmpty
+[2026-10-14T09:12:58.650Z] --- PASS: TestMergeEmpty (0.02s)
+[2026-10-14T09:12:59.217Z] === RUN   TestListLarge
+[2026-10-14T09:12:59.312Z] --- PASS: TestListLarge (0.16s)
+[2026-10-14T09:12:59.743Z] === RUN   TestLoadMany
+[2026-10-14T09:12:59.860Z] --- PASS: TestLoadMany (0.03s)
+[2026-10-14T09:13:00.034Z] === RUN   TestMergeMany
+[2026-10-14T09:13:00.705Z] --- PASS: TestMergeMany (0.22s)
+[2026-10-14T09:13:01.055Z] === RUN   TestListZero
+[2026-10-14T09:13:01.564Z] --- PASS: TestListZero (0.05s)
+[2026-10-14T09:13:01.733Z] === RUN   TestLoadEmpty
+[2026-10-14T09:13:02.339Z] --- PASS: TestLoadEmpty (0.32s)
+[2026-10-14T09:13:02.767Z] === RUN   TestFetchUnicode
+[2026-10-14T09:13:03.117Z] --- PASS: TestFetchUnicode (0.21s)
+[2026-10-14T09:13:03.648Z] === RUN   TestMergeStale
+[2026-10-14T09:13:03.937Z] --- PASS: TestMergeStale (0.01s)
+[2026-10-14T09:13:04.121Z] === RUN   TestRoundStale
+[2026-10-14T09:13:04.415Z] --- PASS: TestRoundStale (0.01s)
+[2026-10-14T09:13:04.436Z] === RUN   TestRoundZero
+[2026-10-14T09:13:04.748Z] --- PASS: TestRoundZero (0.00s)
+[2026-10-14T09:13:04.876Z] === RUN   TestRoundZero
+[2026-10-14T09:13:05.392Z] --- PASS: TestRoundZero (0.37s)
+[2026-10-14T09:13:06.047Z] === RUN   TestSaveLarge
+[2026-10-14T09:13:06.745Z] --- PASS: TestSaveLarge (0.21s)
+[2026-10-14T09:13:07.277Z] === RUN   TestMergeZero
+[2026-10-14T09:13:07.526Z] --- PASS: TestMergeZero (0.37s)
+[2026-10-14T09:13:07.862Z] === RUN   TestLoadConcurrent
+[2026-10-14T09:13:08.282Z] --- PASS: TestLoadConcurrent (0.03s)
+[2026-10-14T09:13:08.635Z] === RUN   TestExpireConcurrent
+[2026-10-14T09:13:09.244Z] --- PASS: TestExpireConcurrent (0.18s)
+[2026-10-14T09:13:09.460Z] === RUN   TestFetchMany
+[2026-10-14T09:13:09.573Z] --- PASS: TestFetchMany (0.16s)
+[2026-10-14T09:13:10.101Z] === RUN   TestLoadConcurrent
+[2026-10-14T09:13:10.699Z] --- PASS: TestLoadConcurrent (0.13s)
+[2026-10-14T09:13:11.246Z] === RUN   TestRoundUnicode
+[2026-10-14T09:13:11.431Z] --- PASS: TestRoundUnicode (0.00s)
+[2026-10-14T09:13:12.014Z] === RUN   TestRoundZero
+[2026-10-14T09:13:12.515Z] --- PASS: TestRoundZero (0.27s)
+[2026-10-14T09:13:12.688Z] === RUN   TestFetchLarge
+[2026-10-14T09:13:12.930Z] --- PASS: TestFetchLarge (0.23s)
+[2026-10-14T09:13:13.237Z] === RUN   TestParseZero
+[2026-10-14T09:13:13.316Z] --- PASS: TestParseZero (0.30s)
+[2026-10-14T09:13:13.905Z] === RUN   TestParseEmpty
+[2026-10-14T09:13:14.227Z] --- PASS: TestParseEmpty (0.05s)
+[2026-10-14T09:13:14.602Z] === RUN   TestParseEmpty
+[2026-10-14T09:13:14.807Z] --- PASS: TestParseEmpty (0.34s)
+[2026-10-14T09:13:15.441Z] === RUN   TestParseStale
+[2026-10-14T09:13:15.479Z] --- PASS: TestParseStale (0.37s)
+[2026-10-14T09:13:15.790Z] === RUN   TestLoadMany
+[2026-10-14T09:13:15.868Z] --- PASS: TestLoadMany (0.36s)
+[2026-10-14T09:13:16.245Z] === RUN   TestRoundMany
+[2026-10-14T09:13:16.339Z] --- PASS: TestRoundMany (0.35s)
+[2026-10-14T09:13:16.661Z] === RUN   TestSaveConcurrent
+[2026-10-14T09:13:17.153Z] --- PASS: TestSaveConcurrent (0.17s)
+[2026-10-14T09:13:17.417Z] PASS
+[2026-10-14T09:13:17.621Z] ok  	github.com/acme/rates/cache	0.426s
+[2026-10-14T09:13:17.842Z] === RUN   TestExpireEmpty
+[2026-10-14T09:13:18.338Z] --- PASS: TestExpireEmpty (0.07s)
+[2026-10-14T09:13:18.985Z] === RUN   TestLoadUnicode
+[2026-10-14T09:13:19.298Z] --- PASS: TestLoadUnicode (0.27s)
+[2026-10-14T09:13:19.902Z] === RUN   TestMergeUnicode
+[2026-10-14T09:13:20.553Z] --- PASS: TestMergeUnicode (0.11s)
+[2026-10-14T09:13:20.735Z] === RUN   TestSaveConcurrent
+[2026-10-14T09:13:20.784Z] --- PASS: TestSaveConcurrent (0.00s)
+[2026-10-14T09:13:20.922Z] === RUN   TestFetchUnicode
+[2026-10-14T09:13:21.051Z] --- PASS: TestFetchUnicode (0.27s)
+[2026-10-14T09:13:21.651Z] === RUN   TestMergeLarge
+[2026-10-14T09:13:21.796Z] --- PASS: TestMergeLarge (0.21s)
+[2026-10-14T09:13:21.967Z] === RUN   TestMergeLarge
+[2026-10-14T09:13:22.015Z] --- PASS: TestMergeLarge (0.32s)
+[2026-10-14T09:13:22.432Z] === RUN   TestListStale
+[2026-10-14T09:13:22.686Z] --- PASS: TestListStale (0.03s)
+[2026-10-14T09:13:22.828Z] === RUN   TestFetchConcurrent
+[2026-10-14T09:13:23.114Z] --- PASS: TestFetchConcurrent (0.16s)
+[2026-10-14T09:13:23.549Z] === RUN   TestRoundStale
+[2026-10-14T09:13:23.823Z] --- PASS: TestRoundStale (0.18s)
+[2026-10-14T09:13:24.221Z] === RUN   TestRoundConcurrent
+[2026-10-14T09:13:24.707Z] --- PASS: TestRoundConcurrent (0.31s)
+[2026-10-14T09:13:25.079Z] === RUN   TestMergeMany
+[2026-10-14T09:13:25.188Z] --- PASS: TestMergeMany (0.21s)
+[2026-10-14T09:13:25.586Z] === RUN   TestExpireStale
+[2026-10-14T09:13:26.156Z] --- PASS: TestExpireStale (0.04s)
+[2026-10-14T09:13:26.336Z] === RUN   TestSaveUnicode
+[2026-10-14T09:13:26.473Z] --- PASS: TestSaveUnicode (0.36s)
+[2026-10-14T09:13:26.502Z] === RUN   TestParseUnicode
+[2026-10-14T09:13:27.140Z] --- PASS: TestParseUnicode (0.28s)
+[2026-10-14T09:13:27.141Z] === RUN   TestLoadStale
+[2026-10-14T09:13:27.790Z] --- PASS: TestLoadStale (0.11s)
+[2026-10-14T09:13:28.181Z] === RUN   TestRoundZero
+[2026-10-14T09:13:28.812Z] --- PASS: TestRoundZero (0.20s)
+[2026-10-14T09:13:29.343Z] === RUN   TestParseLarge
+[2026-10-14T09:13:29.684Z] --- PASS: TestParseLarge (0.04s)
+[2026-10-14T09:13:29.966Z] === RUN   TestFetchMany
+[2026-10-14T09:13:30.006Z] --- PASS: TestFetchMany (0.24s)
+[2026-10-14T09:13:30.350Z] === RUN   TestParseEmpty
+[2026-10-14T09:13:30.868Z] --- PASS: TestParseEmpty (0.22s)
+[2026-10-14T09:13:31.424Z] === RUN   TestFetchConcurrent
+[2026-10-14T09:13:31.953Z] --- PASS: TestFetchConcurrent (0.04s)
+[2026-10-14T09:13:32.636Z] === RUN   TestMergeStale
+[2026-10-14T09:13:33.280Z] --- PASS: TestMergeStale (0.22s)
+[2026-10-14T09:13:33.780Z] === RUN   TestRoundLarge
+[2026-10-14T09:13:33.899Z] --- PASS: TestRoundLarge (0.00s)
+[2026-10-14T09:13:34.061Z] === RUN   TestExpireMany
+[2026-10-14T09:13:34.376Z] --- PASS: TestExpireMany (0.07s)
+[2026-10-14T09:13:34.758Z] === RUN   TestMergeEmpty
+[2026-10-14T09:13:35.393Z] --- PASS: TestMergeEmpty (0.08s)
+[2026-10-14T09:13:35.932Z] === RUN   TestFetchLarge
+[2026-10-14T09:13:36.192Z] --- PASS: TestFetchLarge (0.36s)
+[2026-10-14T09:13:36.306Z] === RUN   TestMergeMany
+[2026-10-14T09:13:36.404Z] --- PASS: TestMergeMany (0.07s)
+[2026-10-14T09:13:36.591Z] === RUN   TestParseStale
+[2026-10-14T09:13:36.923Z] --- PASS: TestParseStale (0.09s)
+[2026-10-14T09:13:37.427Z] === RUN   TestParseConcurrent
+[2026-10-14T09:13:37.942Z] --- PASS: TestParseConcurrent (0.34s)
+[2026-10-14T09:13:38.581Z] === RUN   TestExpireConcurrent
+[2026-10-14T09:13:39.258Z] --- PASS: TestExpireConcurrent (0.15s)
+[2026-10-14T09:13:39.274Z] === RUN   TestLoadEmpty
+[2026-10-14T09:13:39.582Z] --- PASS: TestLoadEmpty (0.29s)
+[2026-10-14T09:13:39.987Z] === RUN   TestListLarge
+[2026-10-14T09:13:40.537Z] --- PASS: TestListLarge (0.28s)
+[2026-10-14T09:13:40.651Z] === RUN   TestMergeZero
+[2026-10-14T09:13:40.689Z] --- PASS: TestMergeZero (0.25s)
+[2026-10-14T09:13:40.896Z] === RUN   TestExpireUnicode
+[2026-10-14T09:13:41.092Z] --- PASS: TestExpireUnicode (0.32s)
+[2026-10-14T09:13:41.706Z] === RUN   TestLoadEmpty
+[2026-10-14T09:13:42.334Z] --- PASS: TestLoadEmpty (0.04s)
+[2026-10-14T09:13:42.671Z] === RUN   TestLoadUnicode
+[2026-10-14T09:13:42.850Z] --- PASS: TestLoadUnicode (0.25s)
+[2026-10-14T09:13:43.472Z] === RUN   TestParseLarge
+[2026-10-14T09:13:43.690Z] --- PASS: TestParseLarge (0.01s)
+[2026-10-14T09:13:44.175Z] === RUN   TestListUnicode
+[2026-10-14T09:13:44.468Z] --- PASS: TestListUnicode (0.29s)
+[2026-10-14T09:13:44.511Z] === RUN   TestSaveStale
+[2026-10-14T09:13:44.530Z] --- PASS: TestSaveStale (0.17s)
+[2026-10-14T09:13:45.209Z] === RUN   TestLoadMany
+[2026-10-14T09:13:45.872Z] --- PASS: TestLoadMany (0.03s)
+[2026-10-14T09:13:46.125Z] PASS
+[2026-10-14T09:13:46.546Z] ok  	github.com/acme/rates/fx	0.869s
+[2026-10-14T09:13:46.756Z] === RUN   TestParseUnicode
+[2026-10-14T09:13:46.978Z] --- PASS: TestParseUnicode (0.12s)
+[2026-10-14T09:13:47.142Z] === RUN   TestRoundLarge
+[2026-10-14T09:13:47.193Z] --- PASS: TestRoundLarge (0.14s)
+[2026-10-14T09:13:47.218Z] === RUN   TestSaveUnicode
+[2026-10-14T09:13:47.716Z] --- PASS: TestSaveUnicode (0.21s)
+[2026-10-14T09:13:48.069Z] === RUN   TestMergeUnicode
+[2026-10-14T09:13:48.671Z] --- PASS: TestMergeUnicode (0.38s)
+[2026-10-14T09:13:49.091Z] === RUN   TestSaveStale
+[2026-10-14T09:13:49.691Z] --- PASS: TestSaveStale (0.31s)
+[2026-10-14T09:13:49.979Z] === RUN   TestRoundLarge
+[2026-10-14T09:13:50.501Z] --- PASS: TestRoundLarge (0.30s)
+[2026-10-14T09:13:50.793Z] === RUN   TestListEmpty
+[2026-10-14T09:13:50.949Z] --- PASS: TestListEmpty (0.11s)
+[2026-10-14T09:13:51.472Z] === RUN   TestRoundConcurrent
+[2026-10-14T09:13:51.787Z] --- PASS: TestRoundConcurrent (0.22s)
+[2026-10-14T09:13:52.226Z] === RUN   TestRoundZero
+[2026-10-14T09:13:52.321Z] --- PASS: TestRoundZero (0.34s)
+[2026-10-14T09:13:52.385Z] === RUN   TestExpireStale
+[2026-10-14T09:13:53.060Z] --- PASS: TestExpireStale (0.07s)
+[2026-10-14T09:13:53.169Z] === RUN   TestLoadConcurrent
+[2026-10-14T09:13:53.466Z] --- PASS: TestLoadConcurrent (0.15s)
+[2026-10-14T09:13:53.821Z] === RUN   TestMergeZero
+[2026-10-14T09:13:54.312Z] --- PASS: TestMergeZero (0.00s)
+[2026-10-14T09:13:54.594Z] === RUN   TestLoadZero
+[2026-10-14T09:13:55.015Z] --- PASS: TestLoadZero (0.05s)
+[2026-10-14T09:13:55.426Z] === RUN   TestFetchStale
+[2026-10-14T09:13:55.656Z] --- PASS: TestFetchStale (0.10s)
+[2026-10-14T09:13:55.778Z] === RUN   TestExpireEmpty
+[2026-10-14T09:13:56.246Z] --- PASS: TestExpireEmpty (0.29s)
+[2026-10-14T09:13:56.354Z] === RUN   TestListEmpty
+[2026-10-14T09:13:56.677Z] --- PASS: TestListEmpty (0.10s)
+[2026-10-14T09:13:57.034Z] === RUN   TestRoundConcurrent
+[2026-10-14T09:13:57.584Z] --- PASS: TestRoundConcurrent (0.18s)
+[2026-10-14T09:13:57.644Z] === RUN   TestSaveConcurrent
+[2026-10-14T09:13:58.001Z] --- PASS: TestSaveConcurrent (0.35s)
+[2026-10-14T09:13:58.143Z] === RUN   TestExpireStale
+[2026-10-14T09:13:58.254Z] --- PASS: TestExpireStale (0.06s)
+[2026-10-14T09:13:58.518Z] === RUN   TestFetchMany
+[2026-10-14T09:13:59.052Z] --- PASS: TestFetchMany (0.36s)
+[2026-10-14T09:13:59.607Z] === RUN   TestListLarge
+[2026-10-14T09:13:59.813Z] --- PASS: TestListLarge (0.22s)
+[2026-10-14T09:14:00.286Z] === RUN   TestParseEmpty
+[2026-10-14T09:14:00.598Z] --- PASS: TestParseEmpty (0.07s)
+[2026-10-14T09:14:00.711Z] === RUN   TestParseMany
+[2026-10-14T09:14:00.822Z] --- PASS: TestParseMany (0.00s)
+[2026-10-14T09:14:01.020Z] === RUN   TestLoadStale
+[2026-10-14T09:14:01.110Z] --- PASS: TestLoadStale (0.06s)
+[2026-10-14T09:14:01.282Z] === RUN   TestMergeMany
+[2026-10-14T09:14:01.862Z] --- PASS: TestMergeMany (0.27s)
+[2026-10-14T09:14:01.874Z] === RUN   TestRoundLarge
+[2026-10-14T09:14:02.230Z] --- PASS: TestRoundLarge (0.18s)
+[2026-10-14T09:14:02.460Z] === RUN   TestListLarge
+[2026-10-14T09:14:02.784Z] --- PASS: TestListLarge (0.03s)
+[2026-10-14T09:14:02.859Z] === RUN   TestSaveEmpty
+[2026-10-14T09:14:03.333Z] --- PASS: TestSaveEmpty (0.36s)
+[2026-10-14T09:14:03.842Z] === RUN   TestListZero
+[2026-10-14T09:14:04.189Z] --- PASS: TestListZero (0.02s)
+[2026-10-14T09:14:04.668Z] === RUN   TestExpireConcurrent
+[2026-10-14T09:14:05.238Z] --- PASS: TestExpireConcurrent (0.39s)
+[2026-10-14T09:14:05.488Z] === RUN   TestRoundLarge
+[2026-10-14T09:14:05.751Z] --- PASS: TestRoundLarge (0.38s)
+[2026-10-14T09:14:05.929Z] === RUN   TestMergeLarge
+[2026-10-14T09:14:06.562Z] --- PASS: TestMergeLarge (0.26s)
+[2026-10-14T09:14:06.583Z] PASS
+[2026-10-14T09:14:07.117Z] ok  	github.com/acme/rates/ledger	0.782s
+[2026-10-14T09:14:07.120Z] === RUN   TestMergeMany
+[2026-10-14T09:14:07.711Z] --- PASS: TestMergeMany (0.13s)
+[2026-10-14T09:14:08.058Z] === RUN   TestSaveMany
+[2026-10-14T09:14:08.631Z] --- PASS: TestSaveMany (0.07s)
+[2026-10-14T09:14:08.873Z] === RUN   TestFetchUnicode
+[2026-10-14T09:14:09.083Z] --- PASS: TestFetchUnicode (0.18s)
+[2026-10-14T09:14:09.406Z] === RUN   TestLoadZero
+[2026-10-14T09:14:09.946Z] --- PASS: TestLoadZero (0.10s)
+[2026-10-14T09:14:10.196Z] === RUN   TestFetchZero
+[2026-10-14T09:14:10.227Z] --- PASS: TestFetchZero (0.40s)
+[2026-10-14T09:14:10.561Z] === RUN   TestListStale
+[2026-10-14T09:14:10.990Z] --- PASS: TestListStale (0.03s)
+[2026-10-14T09:14:11.374Z] === RUN   TestLoadLarge
+[2026-10-14T09:14:11.852Z] --- PASS: TestLoadLarge (0.38s)
+[2026-10-14T09:14:12.387Z] === RUN   TestParseZero
+[2026-10-14T09:14:12.519Z] --- PASS: TestParseZero (0.36s)
+[2026-10-14T09:14:12.841Z] === RUN   TestFetchLarge
+[2026-10-14T09:14:12.846Z] --- PASS: TestFetchLarge (0.31s)
+[2026-10-14T09:14:13.328Z] === RUN   TestListEmpty
+[2026-10-14T09:14:13.877Z] --- PASS: TestListEmpty (0.03s)
+[2026-10-14T09:14:14.131Z] === RUN   TestMergeMany
+[2026-10-14T09:14:14.466Z] --- PASS: TestMergeMany (0.00s)
+[2026-10-14T09:14:14.873Z] === RUN   TestRoundMany
+[2026-10-14T09:14:15.559Z] --- PASS: TestRoundMany (0.18s)
+[2026-10-14T09:14:15.615Z] === RUN   TestSaveEmpty
+[2026-10-14T09:14:15.950Z] --- PASS: TestSaveEmpty (0.40s)
+[2026-10-14T09:14:15.970Z] === RUN   TestLoadZero
+[2026-10-14T09:14:16.642Z] --- PASS: TestLoadZero (0.12s)
+[2026-10-14T09:14:16.923Z] === RUN   TestSaveMany
+[2026-10-14T09:14:17.261Z] --- PASS: TestSaveMany (0.21s)
+[2026-10-14T09:14:17.273Z] === RUN   TestLoadUnicode
+[2026-10-14T09:14:17.766Z] --- PASS: TestLoadUnicode (0.16s)
+[2026-10-14T09:14:18.264Z] === RUN   TestRoundEmpty
+[2026-10-14T09:14:18.933Z] --- PASS: TestRoundEmpty (0.18s)
+[2026-10-14T09:14:19.350Z] === RUN   TestFetchStale
+[2026-10-14T09:14:19.360Z] --- PASS: TestFetchStale (0.03s)
+[2026-10-14T09:14:19.772Z] === RUN   TestParseConcurrent
+[2026-10-14T09:14:20.260Z] --- PASS: TestParseConcurrent (0.15s)
+[2026-10-14T09:14:20.570Z] === RUN   TestSaveStale
+[2026-10-14T09:14:21.101Z] --- PASS: TestSaveStale (0.35s)
+[2026-10-14T09:14:21.757Z] === RUN   TestExpireZero
+[2026-10-14T09:14:22.431Z] --- PASS: TestExpireZero (0.24s)
+[2026-10-14T09:14:22.990Z] === RUN   TestListUnicode
+[2026-10-14T09:14:23.610Z] --- PASS: TestListUnicode (0.32s)
+[2026-10-14T09:14:23.639Z] === RUN   TestSaveLarge
+[2026-10-14T09:14:23.906Z] --- PASS: TestSaveLarge (0.02s)
+[2026-10-14T09:14:24.365Z] === RUN   TestMergeConcurrent
+[2026-10-14T09:14:24.887Z] --- PASS: TestMergeConcurrent (0.24s)
+[2026-10-14T09:14:25.211Z] === RUN   TestMergeStale
+[2026-10-14T09:14:25.322Z] --- PASS: TestMergeStale (0.32s)
+[2026-10-14T09:14:25.745Z] === RUN   TestMergeStale
+[2026-10-14T09:14:25.867Z] --- PASS: TestMergeStale (0.26s)
+[2026-10-14T09:14:25.928Z] === RUN   TestSaveLarge
+[2026-10-14T09:14:25.937Z] --- PASS: TestSaveLarge (0.16s)
+[2026-10-14T09:14:26.056Z] === RUN   TestSaveZero
+[2026-10-14T09:14:26.507Z] --- PASS: TestSaveZero (0.07s)
+[2026-10-14T09:14:26.885Z] PASS
+[2026-10-14T09:14:27.087Z] ok  	github.com/acme/rates/money	0.254s
+[2026-10-14T09:14:27.397Z] === RUN   TestConvert
+[2026-10-14T09:14:27.520Z] === RUN   TestConvert/EUR_to_USD
+[2026-10-14T09:14:27.891Z]     convert_test.go:42: Convert(100, EUR, USD) = 108.31, want 108.30
+[2026-10-14T09:14:28.585Z] --- FAIL: TestConvert (0.00s)
+[2026-10-14T09:14:29.254Z]     --- FAIL: TestConvert/EUR_to_USD (0.00s)
+[2026-10-14T09:14:29.784Z] FAIL
+[2026-10-14T09:14:30.042Z] FAIL	github.com/acme/rates/convert	0.019s
+[2026-10-14T09:14:30.410Z] FAIL
+[2026-10-14T09:14:31.024Z] [Pipeline] }
+[2026-10-14T09:14:31.359Z] [Pipeline] // stage
+[2026-10-14T09:14:31.734Z] [Pipeline] stage
+[2026-10-14T09:14:32.268Z] [Pipeline] { (Deploy)
+[2026-10-14T09:14:32.896Z] Stage "Deploy" skipped due to earlier failure(s)
+[2026-10-14T09:14:33.147Z] [Pipeline] }
+[2026-10-14T09:14:33.742Z] [Pipeline] // stage
+[2026-10-14T09:14:34.159Z] [Pipeline] stage
+[2026-10-14T09:14:34.321Z] [Pipeline] { (Declarative: Post Actions)
+[2026-10-14T09:14:34.462Z] [Pipeline] junit
+[2026-10-14T09:14:35.146Z] Recording test results
+[2026-10-14T09:14:35.454Z] [Pipeline] }
+[2026-10-14T09:14:36.019Z] [Pipeline] // stage
+[2026-10-14T09:14:36.593Z] [Pipeline] }
+[2026-10-14T09:14:36.987Z] [Pipeline] // withEnv
+[2026-10-14T09:14:37.315Z] [Pipeline] }
+[2026-10-14T09:14:37.481Z] [Pipeline] // node
+[2026-10-14T09:14:37.687Z] [Pipeline] End of Pipeline
+[2026-10-14T09:14:38.374Z] ERROR: script returned exit code 1
+[2026-10-14T09:14:38.630Z] Finished: FAILURE

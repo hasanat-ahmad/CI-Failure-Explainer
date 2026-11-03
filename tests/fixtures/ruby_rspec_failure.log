@@ -1,0 +1,449 @@
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:03.5049230Z ##[group]Run bundle exec rspec --format documentation
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:04.2036660Z [36mbundle exec rspec --format documentation[0m
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:04.8119310Z shell: /usr/bin/bash -e {0}
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:05.4621730Z env:
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:05.7758470Z   RAILS_ENV: test
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:06.2637060Z ##[endgroup]
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:06.7054010Z Randomized with seed 40211
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:07.4014890Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:07.5722630Z Invoice
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:07.9526620Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:08.1846160Z     sums line items
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:08.7367690Z     applies VAT (FAILED - 1)
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:09.1461470Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:09.4219080Z     rounds half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:09.6606250Z     scopes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:10.2066490Z     rejects half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:10.8460590Z     scopes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:11.1129310Z   #apply
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:11.3470420Z     returns nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:12.0258790Z     formats to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:12.0924920Z     returns presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:12.3603570Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:13.0421170Z     validates currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:13.3457760Z     serialises negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:13.8972340Z     serialises negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:14.5516770Z     returns the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:15.1555650Z     formats the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:15.5662340Z     rejects to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:16.2011510Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:16.8539340Z     returns active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:17.4264440Z     returns nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:17.9306360Z     scopes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:18.4705070Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:18.6418520Z   #refresh
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:19.1832010Z     returns presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:19.5728980Z     validates active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:20.0655510Z     formats to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:20.3914360Z     scopes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:20.9951200Z     returns nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:21.4277140Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:21.7662010Z     returns negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:22.1979870Z     serialises the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:22.5835050Z     scopes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:23.0373540Z     rejects presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:23.0806490Z     scopes half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:23.1041700Z     formats currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:23.5680410Z   #refresh
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:23.6088270Z     formats active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:23.9367470Z     formats negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:24.5730040Z     rounds half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:25.0342670Z     serialises half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:25.2745640Z     rejects to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:25.8351000Z     rounds negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:26.1404940Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:26.8002100Z     computes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:27.0542980Z     rejects half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:27.1409650Z     scopes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:27.5751260Z     rounds the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:28.2526800Z     formats presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:28.5409550Z Customer
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:28.7947690Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:29.4395810Z     computes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:29.8331990Z     rejects the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:30.2716080Z     serialises to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:30.7487130Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:31.3363410Z     rounds negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:31.3919890Z     returns currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:32.0844150Z     computes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:32.2874000Z     returns nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:32.6680080Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:33.1968730Z     serialises negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:33.5277200Z     scopes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:33.8710630Z     rounds the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:33.9417820Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:34.5195340Z     computes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:34.7538860Z     returns to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:34.9462820Z     validates nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:35.1352370Z     computes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:35.2145550Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:35.4065670Z     formats half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:35.6135450Z     validates to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:35.7195320Z     serialises nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:36.3041450Z     formats currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:36.9807030Z Order
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:37.0460920Z   #apply
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:37.7402690Z     scopes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:37.9486250Z     validates the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:38.2854740Z     rejects active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:38.7791530Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:39.0013650Z     validates to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:39.6398360Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:39.7269260Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:40.0659030Z     scopes negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:40.3260350Z   #refresh
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:40.6497740Z     formats half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:40.8976010Z     scopes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:41.0622330Z     rejects to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:41.6397240Z     validates half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:41.6541060Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:42.0723740Z     formats the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:42.5487070Z   #apply
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:42.9471150Z     validates presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:43.6012370Z     validates nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:43.9911580Z     scopes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:44.5697350Z     serialises half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:44.7288120Z     rounds active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:45.4109330Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:45.5784880Z     serialises presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:46.1157600Z     validates presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:46.4566890Z     rejects negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:46.9627080Z     rounds nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:47.0496260Z     formats currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:47.6386460Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:48.1347110Z     scopes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:48.5550510Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:48.7822030Z     serialises nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:49.0371110Z     computes half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:49.2349660Z     rejects presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:49.5655120Z   #apply
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:49.7591420Z     validates the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:50.1031000Z     scopes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:50.4624750Z     computes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:50.9245290Z LineItem
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:51.0918160Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:51.7597060Z     formats half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:51.8051580Z     scopes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:51.9380440Z     serialises negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:52.4561880Z     rejects nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:52.9798800Z     scopes presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:53.0529950Z     validates half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:53.7213740Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:54.0807960Z     validates half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:54.1553570Z     validates to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:54.1977180Z     rejects active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:54.4375060Z   #call
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:55.0305390Z     formats to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:55.4583060Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:55.9863240Z     scopes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:56.3079010Z     validates negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:56.8001220Z     serialises negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:57.4588920Z     serialises negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:58.0620660Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:58.5337660Z     validates active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:58.8933860Z     rounds nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:59.1558800Z     formats presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:59.3070020Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:12:59.8605450Z   #cancel
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:00.2619780Z     rejects active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:00.6735870Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:00.8692070Z     scopes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:01.3525030Z   #cancel
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:02.0313910Z     validates the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:02.7068250Z     scopes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:03.1225220Z     rounds to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:03.3414560Z     formats half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:03.6046800Z   #call
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:03.8948820Z     computes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:04.2990960Z     formats active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:04.3136760Z     returns currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:04.7321330Z   #refresh
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:05.2085140Z     validates active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:05.7717530Z     computes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:06.1930110Z     rounds to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:06.5959320Z     scopes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:06.8448840Z   #call
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:06.8675850Z     rejects presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:06.9225770Z     validates the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:07.1768360Z     serialises presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:07.6132620Z     validates nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:07.7540470Z Coupon
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:08.0815870Z   #apply
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:08.4656080Z     computes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:08.7118760Z     formats nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:09.2335150Z     serialises active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:09.6009390Z     rounds to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:09.8054330Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:09.8755560Z     validates active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:09.9391250Z     scopes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:10.6126790Z     formats nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:11.2154650Z     serialises negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:11.3723860Z   #call
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:11.7258240Z     validates half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:11.8420960Z     formats to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:12.5205900Z     formats the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:12.5871260Z     validates to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:13.1542440Z     validates the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:13.4014520Z   #apply
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:13.7249430Z     scopes presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:14.1971350Z     rejects the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:14.5508980Z     validates active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:14.6539520Z     formats nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:14.9454370Z     formats negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:15.5892580Z   #cancel
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:15.6189300Z     computes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:16.1559360Z     returns negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:16.2462810Z     returns presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:16.6478520Z     rejects nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:17.2440020Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:17.6327240Z     scopes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:17.8300020Z     returns presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:18.2498560Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:18.5928710Z     serialises the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:18.7215660Z   #call
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:18.8417710Z     validates presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:19.2989890Z     serialises active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:19.6181750Z     formats negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:20.1547410Z     computes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:20.2226760Z     rounds presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:20.9211100Z     returns presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:21.3607010Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:21.4895590Z     serialises half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:21.7775830Z     serialises to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:22.4240770Z     rounds to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:22.9620940Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:23.6130920Z     returns the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:23.9123260Z     validates to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:24.5851810Z     returns negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:24.9639550Z     returns nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:25.3250930Z TaxRate
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:25.5961630Z   #refresh
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:25.7733050Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:25.7755150Z     formats to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:26.3400680Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:27.0284130Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:27.6624430Z     formats the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:27.9647190Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:28.3507000Z     computes negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:29.0140970Z     computes negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:29.5959860Z     formats the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:29.6060760Z     computes half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:29.7035470Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:29.9274970Z     returns presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:30.3648350Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:30.3876120Z     scopes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:30.9249450Z     validates the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:31.4043590Z     rejects active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:31.5735340Z     scopes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:31.8093830Z     serialises currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:32.4675660Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:33.0563360Z     formats half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:33.4469700Z     rejects presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:33.6236220Z     computes presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:34.0287690Z     formats presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:34.0563820Z     serialises half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:34.3928640Z     validates active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:34.9030870Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:35.2045640Z     scopes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:35.8639890Z     serialises active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:36.2929310Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:36.4112830Z     rejects nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:37.0573650Z   #call
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:37.6027350Z     returns the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:37.8314390Z     returns active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:38.2271080Z     formats nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:38.4052230Z     returns presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:38.6627070Z     rounds to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:38.9724240Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:39.6495300Z     serialises negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:40.1072310Z     rounds presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:40.3623740Z     computes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:40.3732060Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:40.7837310Z     serialises the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:41.2276350Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:41.5585770Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:41.7506520Z     validates presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:41.8009230Z     serialises active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:42.1056110Z     formats to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:42.7766260Z     scopes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:42.9137320Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:43.4217930Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:43.6494820Z     rounds active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:44.1295290Z     scopes half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:44.2590880Z     computes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:44.5392990Z     serialises nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:44.8364350Z     serialises presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:45.0784110Z Shipment
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:45.7102030Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:46.2378680Z     computes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:46.2438680Z     serialises half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:46.3680780Z     formats negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:46.3859390Z   #cancel
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:46.7685020Z     computes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:47.0555530Z     serialises presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:47.5249200Z     serialises active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:48.0971550Z     serialises currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:48.1143590Z     scopes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:48.6326380Z     formats negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:49.3050560Z   #cancel
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:49.3310970Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:49.9706040Z     computes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:50.2324250Z     serialises presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:50.5729080Z     serialises active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:51.1332170Z     validates nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:51.3914070Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:51.5146070Z     scopes presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:51.8658280Z     formats nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:52.0094200Z     validates nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:52.3397480Z     validates to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:52.4754050Z     validates negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:52.5751080Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:52.6377700Z     rounds half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:52.9451570Z     rounds half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:53.2600190Z     computes half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:53.4910490Z     rejects to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:54.1228300Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:54.2466680Z     serialises negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:54.6542300Z     computes presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:55.0987530Z     serialises to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:55.5142250Z     rejects currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:56.1527430Z     serialises currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:56.2971200Z   #refresh
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:56.6657500Z     formats the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:56.8879410Z     formats negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:57.5446660Z     rejects presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:58.2316190Z     validates the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:58.3168190Z     rounds the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:58.8430220Z     scopes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:59.2723690Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:59.3314300Z     rejects active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:13:59.6152230Z     computes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:00.2424190Z     validates currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:00.8768830Z     scopes presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:01.3181320Z     serialises nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:01.7146300Z     returns presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:02.2347100Z   #cancel
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:02.6651600Z     returns currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:03.1725330Z     rejects currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:03.5691950Z     rejects active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:03.6353980Z Refund
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:04.2557860Z   #call
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:04.4762060Z     validates half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:04.9168700Z     computes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:05.4096040Z     formats active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:05.7107480Z     computes currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:05.8048840Z   #refresh
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:06.0700710Z     returns currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:06.2501420Z     formats negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:06.8580910Z     serialises currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:07.1689870Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:07.3753130Z     rounds nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:07.4556430Z     rounds the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:07.5584560Z     formats presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:07.9930640Z     rejects the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:08.0501250Z     returns presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:08.6779780Z     validates active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:09.0325160Z   #refresh
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:09.1157770Z     formats currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:09.3669080Z     rejects negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:09.9396820Z     scopes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:10.3919120Z   #call
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:10.5754680Z     scopes to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:11.0760390Z     scopes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:11.5085650Z     scopes presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:12.1996870Z     formats half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:12.2737750Z     rounds active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:12.6095910Z     serialises half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:13.2374040Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:13.8913630Z     returns active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:13.9880890Z     returns negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:14.5956700Z     formats presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:15.0625650Z     validates half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:15.2025350Z     rejects nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:15.8657390Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:16.5369420Z     validates currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:17.1759420Z     formats presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:17.3111080Z     validates to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:17.3116170Z     formats negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:17.9075420Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:17.9791730Z     formats currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:18.0342170Z     rounds active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:18.3209040Z     scopes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:18.8633750Z     rounds active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:19.1693850Z     validates presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:19.2341760Z   #to_h
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:19.5616130Z     serialises active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:19.8643280Z     returns active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:20.5353140Z     formats presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:20.9998780Z Subscription
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:21.6871410Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:21.9279910Z     formats nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:22.6055390Z     scopes presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:22.9146990Z     validates negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:23.1060690Z     validates the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:23.6325690Z   #call
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:23.9964790Z     scopes negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:24.3795520Z     computes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:24.4226600Z     serialises presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:24.5952430Z     returns active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:24.9593280Z     formats to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:25.5495830Z     returns currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:26.0969400Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:26.1092060Z     formats half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:26.4448780Z     scopes active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:26.9017460Z     rounds half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:27.1789170Z     rejects the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:27.3332730Z     rejects active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:27.5782240Z     serialises active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:27.9681570Z   #cancel
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:28.1982560Z     rounds active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:28.5479200Z     scopes negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:28.7232730Z     returns active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:29.2843830Z     rounds active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:29.8462600Z     rounds presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:30.3363170Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:30.4626640Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:30.8973750Z     rejects currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:30.9211120Z     scopes nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:31.5275450Z     returns half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:31.7916730Z     scopes negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:32.1197390Z   #refresh
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:32.5057380Z     validates half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:32.5914600Z     rejects the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:32.6274860Z     computes the subtotal
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:33.1656600Z     rejects nil when empty
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:33.7218300Z     computes half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:34.3983520Z   #total
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:34.8969180Z     rounds active records
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:35.5479570Z     computes half cents
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:35.9400130Z     validates presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:36.1443700Z     rejects currency codes
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:36.5298160Z   #valid?
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:36.8256090Z     validates to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:37.1398540Z     serialises to JSON
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:37.7793270Z     validates presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:37.9619770Z     rejects negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:38.1295150Z     computes presence of email
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:38.7719890Z     returns negative totals
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:39.2603550Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:39.6553780Z Failures:
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:39.8955770Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:40.0646580Z   1) Invoice#total applies VAT
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:40.4551740Z      Failure/Error: expect(invoice.total).to eq(119.0)
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:40.8746810Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:41.0071710Z        expected: 119.0
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:41.5798190Z             got: 119.00000000000001
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:41.8784910Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:41.9042820Z        (compared using ==)
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:42.4091740Z      # ./spec/models/invoice_spec.rb:14:in `block (3 levels) in <top (required)>'
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:43.0618250Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:43.7487220Z Finished in 4.12 seconds (files took 2.31 seconds to load)
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:44.1087860Z 412 examples, 1 failure
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:44.7754270Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:45.3278380Z Failed examples:
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:45.7768810Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:46.4193240Z rspec ./spec/models/invoice_spec.rb:12 # Invoice#total applies VAT
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:46.4926840Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:46.5141100Z Randomized with seed 40211
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:47.0794220Z 
+test	Run bundle exec rspec --format documentation	2026-10-14T09:14:47.6325630Z ##[error]Process completed with exit code 1.

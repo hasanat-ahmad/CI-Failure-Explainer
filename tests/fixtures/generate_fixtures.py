@@ -5,10 +5,12 @@
 
 Output is deterministic (seeded). Every project name, URL and token here is
 invented; nothing is copied from real repositories. Logs mimic the two formats
-GitHub produces:
+GitHub produces, plus GitLab and Jenkins:
 
   * prefixed  - `gh run view --log-failed`: "<job>\\t<step>\\t<timestamp> <text>"
   * full job  - downloaded raw job log: "<timestamp> <text>" with ##[group] steps
+  * gitlab    - job trace: no timestamps, section_start/section_end markers
+  * jenkins   - consoleText with [Pipeline] stages and "[<timestamp>] " timestamper prefixes
 """
 
 from __future__ import annotations
@@ -47,8 +49,8 @@ JS_SUITES = ["cart/total", "cart/items", "auth/session", "auth/login", "catalog/
 class Log:
     """Accumulates log lines with monotonically increasing timestamps."""
 
-    def __init__(self, job: str, seed: int, prefixed: bool = True) -> None:
-        self.job, self.prefixed = job, prefixed
+    def __init__(self, job: str, seed: int, prefixed: bool = True, stamp: str = "iso") -> None:
+        self.job, self.prefixed, self.stamp = job, prefixed, stamp   # stamp: iso | bracket | none
         self.rng = random.Random(seed)
         self.t = datetime(2026, 10, 14, 9, 12, 3)
         self.step = "Set up job"
@@ -58,7 +60,12 @@ class Log:
         for part in text.split("\n"):
             self.t += timedelta(microseconds=self.rng.randint(300, 700_000))
             ts = self.t.strftime("%Y-%m-%dT%H:%M:%S.") + f"{self.t.microsecond:06d}0Z"
-            self.lines.append(f"{self.job}\t{self.step}\t{ts} {part}" if self.prefixed else f"{ts} {part}")
+            if self.stamp == "none":
+                self.lines.append(part)
+            elif self.stamp == "bracket":
+                self.lines.append(f"[{self.t.strftime('%Y-%m-%dT%H:%M:%S.')}{self.t.microsecond // 1000:03d}Z] {part}")
+            else:
+                self.lines.append(f"{self.job}\t{self.step}\t{ts} {part}" if self.prefixed else f"{ts} {part}")
 
     def many(self, items: Iterable[str]) -> None:
         for i in items:
@@ -81,6 +88,14 @@ class Log:
             for k, v in env.items():
                 self(f"  {k}: {v}")
         self("##[endgroup]")
+
+    def section(self, name: str, header: str = "", end: bool = False) -> None:
+        """GitLab collapsible-section marker, as the runner writes it."""
+        stamp = int(self.t.timestamp())
+        if end:
+            self(f"{ESC}[0Ksection_end:{stamp}:{name}\r{ESC}[0K")
+        else:
+            self(f"{ESC}[0Ksection_start:{stamp}:{name}\r{ESC}[0K{ESC}[36;1m{header}{RESET}")
 
     def token(self, n: int, alphabet: str = string.ascii_letters + string.digits) -> str:
         return "".join(self.rng.choice(alphabet) for _ in range(n))
@@ -527,6 +542,192 @@ def flaky_timeout_test() -> None:
     log.write("flaky_timeout_test.log")
 
 
+def ruby_rspec_failure() -> None:
+    log = Log("test", 112)
+    log.run_header("bundle exec rspec --format documentation", env={"RAILS_ENV": "test"})
+    models = ["Invoice", "Customer", "Order", "LineItem", "Coupon", "TaxRate", "Shipment", "Refund", "Subscription"]
+    verbs = ["validates", "returns", "rejects", "computes", "formats", "scopes", "serialises", "rounds"]
+    nouns = ["presence of email", "nil when empty", "negative totals", "the subtotal", "currency codes",
+             "active records", "to JSON", "half cents"]
+    log("Randomized with seed 40211")
+    log("")
+    for model in models:
+        log(model)
+        if model == "Invoice":
+            log.many(["  #total", "    sums line items", "    applies VAT (FAILED - 1)"])
+        for _ in range(log.rng.randint(5, 9)):
+            log(f"  #{log.rng.choice(['total', 'valid?', 'to_h', 'apply', 'refresh', 'cancel', 'call'])}")
+            for _ in range(log.rng.randint(3, 6)):
+                log(f"    {log.rng.choice(verbs)} {log.rng.choice(nouns)}")
+    log.many([
+        "", "Failures:", "",
+        "  1) Invoice#total applies VAT",
+        "     Failure/Error: expect(invoice.total).to eq(119.0)",
+        "",
+        "       expected: 119.0",
+        "            got: 119.00000000000001",
+        "",
+        "       (compared using ==)",
+        "     # ./spec/models/invoice_spec.rb:14:in `block (3 levels) in <top (required)>'",
+        "",
+        "Finished in 4.12 seconds (files took 2.31 seconds to load)",
+        "412 examples, 1 failure",
+        "",
+        "Failed examples:",
+        "",
+        "rspec ./spec/models/invoice_spec.rb:12 # Invoice#total applies VAT",
+        "",
+        "Randomized with seed 40211",
+        "",
+        "##[error]Process completed with exit code 1.",
+    ])
+    log.write("ruby_rspec_failure.log")
+
+
+def dotnet_nullable_warnaserror() -> None:
+    log = Log("build", 113, prefixed=False)
+    setup_job(log)
+    checkout(log, "acme-demo/shop")
+    log("##[group]Run actions/setup-dotnet@v4")
+    log.many(["with:", "  global-json-file: global.json"])
+    log("##[endgroup]")
+    log.many(["Downloading .NET SDK 8.0.403", "dotnet-install: Installed version is 8.0.403"])
+    log.run_header("dotnet restore -v n")
+    pkgs = ["serilog", "serilog.sinks.console", "microsoft.extensions.logging", "polly", "fluentvalidation",
+            "dapper", "npgsql", "automapper", "mediatr", "swashbuckle.aspnetcore", "xunit", "moq", "fluentassertions",
+            "microsoft.net.test.sdk", "coverlet.collector", "system.text.json", "humanizer.core"]
+    for _ in range(150):
+        pkg = log.rng.choice(pkgs)
+        log(f"         GET https://api.nuget.org/v3-flatcontainer/{pkg}/index.json")
+        log(f"         OK https://api.nuget.org/v3-flatcontainer/{pkg}/index.json {log.rng.randint(12, 300)}ms")
+    for proj in ("Domain", "Infrastructure", "Api", "Api.Tests"):
+        log(f"  Restored /home/runner/work/shop/shop/src/{proj}/{proj}.csproj (in {log.rng.randint(1, 9)}.{log.rng.randint(10, 99)} sec).")
+    log.run_header("dotnet build -c Release --no-restore -warnaserror")
+    log.many(["MSBuild version 17.11.9+a69bbaaf5 for .NET",
+              "  Shop.Domain -> /home/runner/work/shop/shop/src/Domain/bin/Release/net8.0/Shop.Domain.dll",
+              "  Shop.Infrastructure -> /home/runner/work/shop/shop/src/Infrastructure/bin/Release/net8.0/Shop.Infrastructure.dll"])
+    errors = [
+        "/home/runner/work/shop/shop/src/Api/Services/CartService.cs(31,20): error CS8602: Dereference of a possibly "
+        "null reference. [/home/runner/work/shop/shop/src/Api/Api.csproj]",
+        "/home/runner/work/shop/shop/src/Api/Models/Order.cs(12,19): error CS8618: Non-nullable property 'Customer' "
+        "must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring "
+        "the property as nullable. [/home/runner/work/shop/shop/src/Api/Api.csproj]",
+    ]
+    log.many(errors)
+    log.many(["", "Build FAILED.", "", *errors, "    0 Warning(s)", "    2 Error(s)", "", "Time Elapsed 00:00:14.82",
+              "##[error]Process completed with exit code 1."])
+    log.write("dotnet_nullable_warnaserror.log")
+
+
+def gitlab_composer_platform() -> None:
+    log = Log("test", 114, prefixed=False, stamp="none")
+    log(f"{ESC}[0KRunning with gitlab-runner 17.5.1 (3c2bd4a8){RESET}")
+    log(f"{ESC}[0K  on docker-autoscale-7 x1y2z3, system ID: s_0a1b2c3d4e5f{RESET}")
+    log.section("prepare_executor", 'Preparing the "docker" executor')
+    log.many(["Using Docker executor with image php:8.2-cli ...", "Pulling docker image php:8.2-cli ...",
+              "Using docker image sha256:9f1e for php:8.2-cli with digest php@sha256:4b2c ..."])
+    log.section("prepare_executor", end=True)
+    log.section("prepare_script", "Preparing environment")
+    log("Running on runner-x1y2z3-project-4711-concurrent-0 via runner-manager-7...")
+    log.section("prepare_script", end=True)
+    log.section("get_sources", "Getting source from Git repository")
+    log.many(["Fetching changes with git depth set to 20...", "Initialized empty Git repository in /builds/acme/billing/.git/",
+              "Created fresh repository.", "Checking out 4f1c9e2a as detached HEAD (ref is main)...",
+              "Skipping Git submodules setup"])
+    log.section("get_sources", end=True)
+    log.section("restore_cache", "Restoring cache")
+    log.many(["Checking cache for composer-4f1c9e2a-non_protected...", "No URL provided, cache will not be downloaded "
+              "from shared cache server. Instead a local version of cache will be extracted.",
+              "Successfully extracted cache"])
+    log.section("restore_cache", end=True)
+    log.section("step_script", 'Executing "step_script" stage of the job script')
+    log(f"{GREEN}$ apt-get update -qq && apt-get install -y -qq git unzip libicu-dev{RESET}")
+    debs = ["libicu72", "libicu-dev", "icu-devtools", "git", "git-man", "liberror-perl", "unzip", "libcurl3-gnutls",
+            "libexpat1", "less", "libcbor0.8", "libedit2", "libfido2-1", "libxmuu1", "openssh-client", "patch", "xauth"]
+    for i in range(1, 40):
+        log(f"Get:{i} http://deb.debian.org/debian bookworm/main amd64 {log.rng.choice(debs)} amd64 "
+            f"{log.rng.randint(1, 9)}.{log.rng.randint(0, 40)}-1 [{log.rng.randint(20, 9000)} kB]")
+    for d in debs * 3:
+        log(f"Selecting previously unselected package {d}:amd64.")
+        log(f"Preparing to unpack .../{d}_{log.rng.randint(1, 9)}.{log.rng.randint(0, 40)}-1_amd64.deb ...")
+        log(f"Unpacking {d}:amd64 ({log.rng.randint(1, 9)}.{log.rng.randint(0, 40)}-1) ...")
+    for d in debs:
+        log(f"Setting up {d}:amd64 ({log.rng.randint(1, 9)}.{log.rng.randint(0, 40)}-1) ...")
+    log(f"{GREEN}$ docker-php-ext-install intl{RESET}")
+    for _ in range(90):
+        src = log.rng.choice(["php_intl.c", "intl_error.c", "intl_convert.c", "collator/collator_class.c",
+                              "formatter/formatter_main.c", "dateformat/dateformat.c", "normalizer/normalizer.c"])
+        log(f"/bin/bash /usr/src/php/ext/intl/libtool --tag=CC --mode=compile cc -I. -I/usr/src/php/ext/intl "
+            f"-DPHP_ATOM_INC -I/usr/local/include/php -DHAVE_CONFIG_H -fstack-protector-strong -fpic -O2 "
+            f"-c /usr/src/php/ext/intl/{src} -o {src.replace('.c', '.lo')}")
+    log("Build complete.")
+    log(f"{GREEN}$ php -v{RESET}")
+    log.many(["PHP 8.2.27 (cli) (built: Dec 19 2026 23:12:45) (NTS)", "Copyright (c) The PHP Group",
+              "Zend Engine v4.2.27, Copyright (c) Zend Technologies"])
+    log(f"{GREEN}$ composer install --no-interaction --prefer-dist{RESET}")
+    log.many([
+        "Installing dependencies from lock file (including require-dev)",
+        "Verifying lock file contents can be installed on current platform.",
+        "Your lock file does not contain a compatible set of packages. Please run composer update.",
+        "",
+        "  Problem 1",
+        "    - Root composer.json requires php ^8.3 but your php version (8.2.27) does not satisfy that requirement.",
+        "  Problem 2",
+        "    - doctrine/inflector is locked to version 2.1.0 and an update of this package was not requested.",
+        "    - doctrine/inflector 2.1.0 requires php ^8.3 -> your php version (8.2.27) does not satisfy that requirement.",
+        "",
+    ])
+    log.section("step_script", end=True)
+    log.section("cleanup_file_variables", "Cleaning up project directory and file based variables")
+    log.section("cleanup_file_variables", end=True)
+    log(f"{RED}ERROR: Job failed: exit code 2{RESET}")
+    log.write("gitlab_composer_platform.log")
+
+
+def jenkins_go_test_failure() -> None:
+    log = Log("rates", 115, prefixed=False, stamp="bracket")
+    log.many(["Started by an SCM change", "Obtained Jenkinsfile from git https://git.example.com/acme/rates.git",
+              "[Pipeline] Start of Pipeline", "[Pipeline] node", "Running on build-agent-3 in /var/jenkins/workspace/rates_main",
+              "[Pipeline] {", "[Pipeline] stage", "[Pipeline] { (Declarative: Checkout SCM)", "[Pipeline] checkout",
+              "The recommended git tool is: git", " > git rev-parse --resolve-git-dir /var/jenkins/workspace/rates_main/.git",
+              "Fetching changes from the remote Git repository", "Checking out Revision 4f1c9e2a7b3d (main)",
+              "Commit message: \"convert: use banker's rounding\"", "[Pipeline] }", "[Pipeline] // stage",
+              "[Pipeline] withEnv", "[Pipeline] {", "[Pipeline] stage", "[Pipeline] { (Build)", "[Pipeline] sh",
+              "+ go build ./..."])
+    mods = ["golang.org/x/sync", "golang.org/x/text", "github.com/shopspring/decimal", "github.com/stretchr/testify",
+            "github.com/jackc/pgx/v5", "github.com/go-chi/chi/v5", "go.uber.org/zap", "github.com/google/uuid"]
+    for m in mods:
+        log(f"go: downloading {m} v{log.rng.randint(0, 5)}.{log.rng.randint(0, 30)}.{log.rng.randint(0, 9)}")
+    log.many(["[Pipeline] }", "[Pipeline] // stage", "[Pipeline] stage", "[Pipeline] { (Test)", "[Pipeline] sh",
+              "+ go test -v -count=1 ./..."])
+    pkgs = ["store", "api", "cache", "fx", "ledger", "money"]
+    for pkg in pkgs:
+        for _ in range(log.rng.randint(25, 40)):
+            name = "Test" + log.rng.choice(["Load", "Save", "Parse", "Round", "List", "Fetch", "Expire", "Merge"]) + \
+                   log.rng.choice(["Empty", "Many", "Unicode", "Zero", "Large", "Concurrent", "Stale"])
+            log(f"=== RUN   {name}")
+            log(f"--- PASS: {name} (0.{log.rng.randint(0, 40):02d}s)")
+        log("PASS")
+        log(f"ok  \tgithub.com/acme/rates/{pkg}\t0.{log.rng.randint(100, 900)}s")
+    log.many([
+        "=== RUN   TestConvert",
+        "=== RUN   TestConvert/EUR_to_USD",
+        "    convert_test.go:42: Convert(100, EUR, USD) = 108.31, want 108.30",
+        "--- FAIL: TestConvert (0.00s)",
+        "    --- FAIL: TestConvert/EUR_to_USD (0.00s)",
+        "FAIL",
+        "FAIL\tgithub.com/acme/rates/convert\t0.019s",
+        "FAIL",
+        "[Pipeline] }", "[Pipeline] // stage", "[Pipeline] stage", "[Pipeline] { (Deploy)",
+        'Stage "Deploy" skipped due to earlier failure(s)', "[Pipeline] }", "[Pipeline] // stage",
+        "[Pipeline] stage", "[Pipeline] { (Declarative: Post Actions)", "[Pipeline] junit",
+        "Recording test results", "[Pipeline] }", "[Pipeline] // stage", "[Pipeline] }", "[Pipeline] // withEnv",
+        "[Pipeline] }", "[Pipeline] // node", "[Pipeline] End of Pipeline",
+        "ERROR: script returned exit code 1", "Finished: FAILURE",
+    ])
+    log.write("jenkins_go_test_failure.log")
+
+
 def log_with_secrets() -> List[str]:
     """Deploy script that leaks fake credentials of every type the redactor handles.
 
@@ -664,6 +865,30 @@ EXPECTED = {
         "root_cause": "RatesClient test calls a real external API; connection reset makes it time out intermittently",
         "fix": "Mock the HTTP call (msw/nock) instead of hitting the real API",
     },
+    "ruby_rspec_failure.log": {
+        "must_contain": ["Failure/Error: expect(invoice.total).to eq(119.0)", "got: 119.00000000000001"],
+        "pattern": "RUBY-06", "category": "test", "stack": "ruby",
+        "root_cause": "Invoice#total uses float arithmetic, so VAT comes out as 119.00000000000001",
+        "fix": "Use BigDecimal (or round to cents) in Invoice#total; don't loosen the expectation",
+    },
+    "dotnet_nullable_warnaserror.log": {
+        "must_contain": ["error CS8602: Dereference of a possibly null reference"],
+        "pattern": "DOTNET-06", "category": "lint", "stack": "dotnet",
+        "root_cause": "CI builds with -warnaserror, so nullable warnings CS8602/CS8618 in Api fail the build",
+        "fix": "Add the null check in CartService and make Order.Customer required; build with -warnaserror locally",
+    },
+    "gitlab_composer_platform.log": {
+        "must_contain": ["Root composer.json requires php ^8.3 but your php version (8.2.27)"],
+        "pattern": "PHP-02", "category": "config", "stack": "php",
+        "root_cause": "The job image is php:8.2-cli, but composer.json and the lock require PHP ^8.3",
+        "fix": "Use image php:8.3-cli in .gitlab-ci.yml (or set config.platform.php and re-lock for 8.2)",
+    },
+    "jenkins_go_test_failure.log": {
+        "must_contain": ["--- FAIL: TestConvert (0.00s)", "convert_test.go:42: Convert(100, EUR, USD) = 108.31, want 108.30"],
+        "pattern": "GO-04", "category": "test", "stack": "go",
+        "root_cause": "The banker's-rounding change makes Convert round 108.305 up to 108.31 instead of 108.30",
+        "fix": "Fix the rounding mode in convert (or update the expectation if the new rounding is intended)",
+    },
 }
 
 
@@ -671,7 +896,8 @@ def main() -> None:
     builders: List[Callable[[], None]] = [
         flutter_gradle_jdk_mismatch, flutter_pub_version_solving, flutter_analyze_failure,
         node_npm_ci_lockfile, node_jest_failure, python_pytest_failure, docker_build_copy_failed,
-        missing_secret_env, runner_out_of_memory, flaky_timeout_test,
+        missing_secret_env, runner_out_of_memory, flaky_timeout_test, ruby_rspec_failure,
+        dotnet_nullable_warnaserror, gitlab_composer_platform, jenkins_go_test_failure,
     ]
     for b in builders:
         b()
@@ -682,7 +908,8 @@ def main() -> None:
     expected["log_with_secrets.log"] = {"must_contain": ["Permission to acme-demo/infra.git denied"]}
     (HERE / "expected.json").write_text(json.dumps(expected, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     for p in sorted(HERE.glob("*.log")):
-        print(f"{p.name:<40} {sum(1 for _ in p.open(encoding='utf-8')):>6} lines")
+        lines = p.read_bytes().count(b"\n")       # like `wc -l`: a bare \r is not a line break
+        print(f"{p.name:<40} {lines:>6} lines")
 
 
 if __name__ == "__main__":

@@ -33,6 +33,8 @@ def secrets_fixture() -> list:
 
 
 def fixture_text(name: str) -> str:
+    """Fixture text exactly as clean_logs.read_input sees it: bare \r (GitLab markers) is kept."""
     if name == "log_with_secrets.log":
         secrets_fixture()
-    return (FIXTURES / name).read_text(encoding="utf-8")
+    with (FIXTURES / name).open(encoding="utf-8", newline="") as fh:
+        return fh.read()

@@ -1,0 +1,389 @@
+2026-10-14T09:12:03.0323390Z Current runner version: '2.320.0'
+2026-10-14T09:12:03.7182620Z ##[group]Operating System
+2026-10-14T09:12:04.0065520Z Ubuntu
+2026-10-14T09:12:04.0255940Z 24.04.1
+2026-10-14T09:12:04.5275120Z LTS
+2026-10-14T09:12:05.1044620Z ##[endgroup]
+2026-10-14T09:12:05.4695090Z ##[group]Runner Image
+2026-10-14T09:12:05.7200790Z Image: ubuntu-24.04
+2026-10-14T09:12:06.1780480Z Version: 20261006.1.0
+2026-10-14T09:12:06.2110140Z Included Software: https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-14T09:12:06.2825570Z ##[endgroup]
+2026-10-14T09:12:06.5991600Z ##[group]GITHUB_TOKEN Permissions
+2026-10-14T09:12:06.7318490Z Contents: read
+2026-10-14T09:12:07.3597430Z Metadata: read
+2026-10-14T09:12:07.6725450Z PullRequests: read
+2026-10-14T09:12:08.1918130Z ##[endgroup]
+2026-10-14T09:12:08.4872580Z Secret source: Actions
+2026-10-14T09:12:08.8049880Z Prepare workflow directory
+2026-10-14T09:12:09.2594120Z Prepare all required actions
+2026-10-14T09:12:09.6149470Z Getting action download info
+2026-10-14T09:12:10.0291650Z Download action repository 'actions/checkout@v4' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-10-14T09:12:10.2326310Z Complete job name: build
+2026-10-14T09:12:10.7230830Z ##[group]Run actions/checkout@v4
+2026-10-14T09:12:11.1262750Z with:
+2026-10-14T09:12:11.4541940Z   repository: acme-demo/shop
+2026-10-14T09:12:11.4946460Z   token: ***
+2026-10-14T09:12:12.0406250Z   ssh-strict: true
+2026-10-14T09:12:12.4104230Z   fetch-depth: 1
+2026-10-14T09:12:12.5926110Z ##[endgroup]
+2026-10-14T09:12:13.2404320Z Syncing repository: acme-demo/shop
+2026-10-14T09:12:13.4711920Z ##[group]Getting Git version info
+2026-10-14T09:12:14.1073100Z Working directory is '/home/runner/work/app/app'
+2026-10-14T09:12:14.3883470Z [command]/usr/bin/git version
+2026-10-14T09:12:15.0665680Z git version 2.47.0
+2026-10-14T09:12:15.5848050Z ##[endgroup]
+2026-10-14T09:12:16.0703040Z Temporarily overriding HOME='/home/runner/work/_temp/1f3a' before making global git config changes
+2026-10-14T09:12:16.2429410Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T09:12:16.5330980Z Deleting the contents of '/home/runner/work/app/app'
+2026-10-14T09:12:16.9598120Z ##[group]Initializing the repository
+2026-10-14T09:12:17.2513120Z [command]/usr/bin/git init /home/runner/work/app/app
+2026-10-14T09:12:17.4528840Z hint: Using 'master' as the name for the initial branch.
+2026-10-14T09:12:17.6558890Z ##[endgroup]
+2026-10-14T09:12:17.6730070Z ##[group]Fetching the repository
+2026-10-14T09:12:18.1402610Z remote: Counting objects: 0% (0/445)
+2026-10-14T09:12:18.3281840Z remote: Counting objects: 7% (31/445)
+2026-10-14T09:12:18.3643500Z remote: Counting objects: 14% (62/445)
+2026-10-14T09:12:18.9623630Z remote: Counting objects: 21% (93/445)
+2026-10-14T09:12:19.2803310Z remote: Counting objects: 28% (124/445)
+2026-10-14T09:12:19.8363060Z remote: Counting objects: 35% (155/445)
+2026-10-14T09:12:20.4825590Z remote: Counting objects: 42% (186/445)
+2026-10-14T09:12:20.6190110Z remote: Counting objects: 49% (217/445)
+2026-10-14T09:12:20.7803710Z ##[endgroup]
+2026-10-14T09:12:20.8108180Z ##[group]Determining the checkout info
+2026-10-14T09:12:20.9870160Z ##[endgroup]
+2026-10-14T09:12:21.4819180Z [command]/usr/bin/git log -1 --format=%H
+2026-10-14T09:12:21.5698390Z 4f1c9e2a7b3d5e6f8091a2b3c4d5e6f708192a3b
+2026-10-14T09:12:22.1116620Z ##[group]Run actions/setup-dotnet@v4
+2026-10-14T09:12:22.2115700Z with:
+2026-10-14T09:12:22.7543800Z   global-json-file: global.json
+2026-10-14T09:12:23.4507780Z ##[endgroup]
+2026-10-14T09:12:24.0818870Z Downloading .NET SDK 8.0.403
+2026-10-14T09:12:24.1998700Z dotnet-install: Installed version is 8.0.403
+2026-10-14T09:12:24.4252420Z ##[group]Run dotnet restore -v n
+2026-10-14T09:12:24.7687280Z [36mdotnet restore -v n[0m
+2026-10-14T09:12:25.3381270Z shell: /usr/bin/bash -e {0}
+2026-10-14T09:12:25.9791490Z ##[endgroup]
+2026-10-14T09:12:26.1255990Z          GET https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json
+2026-10-14T09:12:26.6155720Z          OK https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json 38ms
+2026-10-14T09:12:27.3151600Z          GET https://api.nuget.org/v3-flatcontainer/polly/index.json
+2026-10-14T09:12:27.9670140Z          OK https://api.nuget.org/v3-flatcontainer/polly/index.json 133ms
+2026-10-14T09:12:28.4636260Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:12:28.5756970Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 114ms
+2026-10-14T09:12:28.8672730Z          GET https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json
+2026-10-14T09:12:29.2444070Z          OK https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json 170ms
+2026-10-14T09:12:29.3136640Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:12:29.4945370Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 82ms
+2026-10-14T09:12:30.0094570Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:12:30.6881220Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 92ms
+2026-10-14T09:12:31.0142470Z          GET https://api.nuget.org/v3-flatcontainer/npgsql/index.json
+2026-10-14T09:12:31.3974580Z          OK https://api.nuget.org/v3-flatcontainer/npgsql/index.json 157ms
+2026-10-14T09:12:31.4139290Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:12:31.8438460Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 26ms
+2026-10-14T09:12:32.4608650Z          GET https://api.nuget.org/v3-flatcontainer/npgsql/index.json
+2026-10-14T09:12:32.8882010Z          OK https://api.nuget.org/v3-flatcontainer/npgsql/index.json 226ms
+2026-10-14T09:12:33.2569900Z          GET https://api.nuget.org/v3-flatcontainer/dapper/index.json
+2026-10-14T09:12:33.6500790Z          OK https://api.nuget.org/v3-flatcontainer/dapper/index.json 120ms
+2026-10-14T09:12:34.0552020Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:12:34.5214190Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 243ms
+2026-10-14T09:12:35.1177800Z          GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+2026-10-14T09:12:35.5791200Z          OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 282ms
+2026-10-14T09:12:35.8442570Z          GET https://api.nuget.org/v3-flatcontainer/dapper/index.json
+2026-10-14T09:12:36.0935240Z          OK https://api.nuget.org/v3-flatcontainer/dapper/index.json 249ms
+2026-10-14T09:12:36.7486800Z          GET https://api.nuget.org/v3-flatcontainer/dapper/index.json
+2026-10-14T09:12:37.0018650Z          OK https://api.nuget.org/v3-flatcontainer/dapper/index.json 115ms
+2026-10-14T09:12:37.2138040Z          GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+2026-10-14T09:12:37.4023270Z          OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 265ms
+2026-10-14T09:12:37.9149730Z          GET https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json
+2026-10-14T09:12:38.4811220Z          OK https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json 259ms
+2026-10-14T09:12:38.7872490Z          GET https://api.nuget.org/v3-flatcontainer/mediatr/index.json
+2026-10-14T09:12:39.1890960Z          OK https://api.nuget.org/v3-flatcontainer/mediatr/index.json 244ms
+2026-10-14T09:12:39.5629100Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:12:39.7981590Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 261ms
+2026-10-14T09:12:40.3129200Z          GET https://api.nuget.org/v3-flatcontainer/moq/index.json
+2026-10-14T09:12:40.9577250Z          OK https://api.nuget.org/v3-flatcontainer/moq/index.json 149ms
+2026-10-14T09:12:41.4382250Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:12:41.5455510Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 198ms
+2026-10-14T09:12:42.0790370Z          GET https://api.nuget.org/v3-flatcontainer/mediatr/index.json
+2026-10-14T09:12:42.7468110Z          OK https://api.nuget.org/v3-flatcontainer/mediatr/index.json 85ms
+2026-10-14T09:12:42.7840190Z          GET https://api.nuget.org/v3-flatcontainer/npgsql/index.json
+2026-10-14T09:12:43.0533340Z          OK https://api.nuget.org/v3-flatcontainer/npgsql/index.json 276ms
+2026-10-14T09:12:43.7400340Z          GET https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json
+2026-10-14T09:12:44.2814110Z          OK https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json 261ms
+2026-10-14T09:12:44.8969090Z          GET https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json
+2026-10-14T09:12:45.2681190Z          OK https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json 34ms
+2026-10-14T09:12:45.6399320Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:12:45.8031550Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 155ms
+2026-10-14T09:12:46.4382420Z          GET https://api.nuget.org/v3-flatcontainer/mediatr/index.json
+2026-10-14T09:12:46.7503920Z          OK https://api.nuget.org/v3-flatcontainer/mediatr/index.json 181ms
+2026-10-14T09:12:46.7536780Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:12:46.9872550Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 62ms
+2026-10-14T09:12:47.4223140Z          GET https://api.nuget.org/v3-flatcontainer/npgsql/index.json
+2026-10-14T09:12:47.6849300Z          OK https://api.nuget.org/v3-flatcontainer/npgsql/index.json 225ms
+2026-10-14T09:12:47.8048610Z          GET https://api.nuget.org/v3-flatcontainer/moq/index.json
+2026-10-14T09:12:47.9834320Z          OK https://api.nuget.org/v3-flatcontainer/moq/index.json 115ms
+2026-10-14T09:12:48.1313580Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+2026-10-14T09:12:48.5726910Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 261ms
+2026-10-14T09:12:48.8572620Z          GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+2026-10-14T09:12:49.1495850Z          OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 183ms
+2026-10-14T09:12:49.3328020Z          GET https://api.nuget.org/v3-flatcontainer/serilog/index.json
+2026-10-14T09:12:49.3877660Z          OK https://api.nuget.org/v3-flatcontainer/serilog/index.json 111ms
+2026-10-14T09:12:49.4166990Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json
+2026-10-14T09:12:49.8098790Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json 61ms
+2026-10-14T09:12:50.2973830Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+2026-10-14T09:12:50.8933330Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 138ms
+2026-10-14T09:12:51.2835690Z          GET https://api.nuget.org/v3-flatcontainer/serilog/index.json
+2026-10-14T09:12:51.8186420Z          OK https://api.nuget.org/v3-flatcontainer/serilog/index.json 232ms
+2026-10-14T09:12:52.1919430Z          GET https://api.nuget.org/v3-flatcontainer/dapper/index.json
+2026-10-14T09:12:52.3769870Z          OK https://api.nuget.org/v3-flatcontainer/dapper/index.json 272ms
+2026-10-14T09:12:52.6918090Z          GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+2026-10-14T09:12:53.2881060Z          OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 271ms
+2026-10-14T09:12:53.7119520Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:12:54.2908610Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 244ms
+2026-10-14T09:12:54.3731370Z          GET https://api.nuget.org/v3-flatcontainer/moq/index.json
+2026-10-14T09:12:55.0125770Z          OK https://api.nuget.org/v3-flatcontainer/moq/index.json 201ms
+2026-10-14T09:12:55.0335600Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:12:55.1227940Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 243ms
+2026-10-14T09:12:55.4459670Z          GET https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json
+2026-10-14T09:12:55.4931570Z          OK https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json 81ms
+2026-10-14T09:12:56.1690070Z          GET https://api.nuget.org/v3-flatcontainer/serilog/index.json
+2026-10-14T09:12:56.4848690Z          OK https://api.nuget.org/v3-flatcontainer/serilog/index.json 268ms
+2026-10-14T09:12:57.0298230Z          GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+2026-10-14T09:12:57.1452700Z          OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 114ms
+2026-10-14T09:12:57.5786890Z          GET https://api.nuget.org/v3-flatcontainer/npgsql/index.json
+2026-10-14T09:12:57.7822160Z          OK https://api.nuget.org/v3-flatcontainer/npgsql/index.json 234ms
+2026-10-14T09:12:57.9600060Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:12:58.5673820Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 153ms
+2026-10-14T09:12:58.6126900Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json
+2026-10-14T09:12:58.8808670Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json 226ms
+2026-10-14T09:12:59.2955360Z          GET https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json
+2026-10-14T09:12:59.3659530Z          OK https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json 234ms
+2026-10-14T09:12:59.8315540Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+2026-10-14T09:13:00.1515630Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 132ms
+2026-10-14T09:13:00.4244750Z          GET https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json
+2026-10-14T09:13:01.0400900Z          OK https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json 147ms
+2026-10-14T09:13:01.3913100Z          GET https://api.nuget.org/v3-flatcontainer/moq/index.json
+2026-10-14T09:13:02.0027950Z          OK https://api.nuget.org/v3-flatcontainer/moq/index.json 185ms
+2026-10-14T09:13:02.2313740Z          GET https://api.nuget.org/v3-flatcontainer/serilog/index.json
+2026-10-14T09:13:02.8763270Z          OK https://api.nuget.org/v3-flatcontainer/serilog/index.json 239ms
+2026-10-14T09:13:03.5111380Z          GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+2026-10-14T09:13:03.6293070Z          OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 70ms
+2026-10-14T09:13:04.1247900Z          GET https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json
+2026-10-14T09:13:04.6555210Z          OK https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json 58ms
+2026-10-14T09:13:05.1787430Z          GET https://api.nuget.org/v3-flatcontainer/polly/index.json
+2026-10-14T09:13:05.8664680Z          OK https://api.nuget.org/v3-flatcontainer/polly/index.json 238ms
+2026-10-14T09:13:06.4807350Z          GET https://api.nuget.org/v3-flatcontainer/dapper/index.json
+2026-10-14T09:13:07.0703940Z          OK https://api.nuget.org/v3-flatcontainer/dapper/index.json 196ms
+2026-10-14T09:13:07.6636920Z          GET https://api.nuget.org/v3-flatcontainer/serilog/index.json
+2026-10-14T09:13:08.0731190Z          OK https://api.nuget.org/v3-flatcontainer/serilog/index.json 78ms
+2026-10-14T09:13:08.0738770Z          GET https://api.nuget.org/v3-flatcontainer/npgsql/index.json
+2026-10-14T09:13:08.7145510Z          OK https://api.nuget.org/v3-flatcontainer/npgsql/index.json 176ms
+2026-10-14T09:13:08.9495480Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:13:09.0236470Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 152ms
+2026-10-14T09:13:09.5176710Z          GET https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json
+2026-10-14T09:13:09.8332650Z          OK https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json 267ms
+2026-10-14T09:13:09.9375650Z          GET https://api.nuget.org/v3-flatcontainer/moq/index.json
+2026-10-14T09:13:10.2205120Z          OK https://api.nuget.org/v3-flatcontainer/moq/index.json 126ms
+2026-10-14T09:13:10.3760320Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:13:10.7219820Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 75ms
+2026-10-14T09:13:11.3021390Z          GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+2026-10-14T09:13:11.5409580Z          OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 238ms
+2026-10-14T09:13:12.0746600Z          GET https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json
+2026-10-14T09:13:12.1910800Z          OK https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json 276ms
+2026-10-14T09:13:12.3264220Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:13:12.7935470Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 19ms
+2026-10-14T09:13:13.1485680Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:13:13.6350760Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 158ms
+2026-10-14T09:13:13.7207860Z          GET https://api.nuget.org/v3-flatcontainer/polly/index.json
+2026-10-14T09:13:13.9977370Z          OK https://api.nuget.org/v3-flatcontainer/polly/index.json 63ms
+2026-10-14T09:13:14.0085420Z          GET https://api.nuget.org/v3-flatcontainer/dapper/index.json
+2026-10-14T09:13:14.0768400Z          OK https://api.nuget.org/v3-flatcontainer/dapper/index.json 275ms
+2026-10-14T09:13:14.4595980Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:13:14.5497710Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 199ms
+2026-10-14T09:13:14.6210580Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:13:15.1271970Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 54ms
+2026-10-14T09:13:15.3486790Z          GET https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json
+2026-10-14T09:13:15.7529320Z          OK https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json 61ms
+2026-10-14T09:13:16.0048150Z          GET https://api.nuget.org/v3-flatcontainer/serilog/index.json
+2026-10-14T09:13:16.2323340Z          OK https://api.nuget.org/v3-flatcontainer/serilog/index.json 21ms
+2026-10-14T09:13:16.4434220Z          GET https://api.nuget.org/v3-flatcontainer/polly/index.json
+2026-10-14T09:13:16.8814600Z          OK https://api.nuget.org/v3-flatcontainer/polly/index.json 269ms
+2026-10-14T09:13:17.4819900Z          GET https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json
+2026-10-14T09:13:17.5592360Z          OK https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json 67ms
+2026-10-14T09:13:17.8501740Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:13:17.8795300Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 152ms
+2026-10-14T09:13:18.1778230Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:13:18.6361370Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 141ms
+2026-10-14T09:13:19.3048110Z          GET https://api.nuget.org/v3-flatcontainer/dapper/index.json
+2026-10-14T09:13:19.8774240Z          OK https://api.nuget.org/v3-flatcontainer/dapper/index.json 172ms
+2026-10-14T09:13:20.1451350Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json
+2026-10-14T09:13:20.6510060Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json 207ms
+2026-10-14T09:13:20.7677920Z          GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+2026-10-14T09:13:21.4484720Z          OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 139ms
+2026-10-14T09:13:21.6572910Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:13:22.0380500Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 252ms
+2026-10-14T09:13:22.6178240Z          GET https://api.nuget.org/v3-flatcontainer/mediatr/index.json
+2026-10-14T09:13:22.7227310Z          OK https://api.nuget.org/v3-flatcontainer/mediatr/index.json 52ms
+2026-10-14T09:13:23.2377190Z          GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+2026-10-14T09:13:23.2784050Z          OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 224ms
+2026-10-14T09:13:23.6901670Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:13:24.1975290Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 165ms
+2026-10-14T09:13:24.4851500Z          GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+2026-10-14T09:13:24.5450530Z          OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 182ms
+2026-10-14T09:13:24.6795050Z          GET https://api.nuget.org/v3-flatcontainer/polly/index.json
+2026-10-14T09:13:25.0564810Z          OK https://api.nuget.org/v3-flatcontainer/polly/index.json 146ms
+2026-10-14T09:13:25.7085070Z          GET https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json
+2026-10-14T09:13:26.3475870Z          OK https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json 291ms
+2026-10-14T09:13:26.6058560Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:13:26.7060970Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 83ms
+2026-10-14T09:13:26.7580150Z          GET https://api.nuget.org/v3-flatcontainer/mediatr/index.json
+2026-10-14T09:13:26.9865450Z          OK https://api.nuget.org/v3-flatcontainer/mediatr/index.json 96ms
+2026-10-14T09:13:27.0507120Z          GET https://api.nuget.org/v3-flatcontainer/dapper/index.json
+2026-10-14T09:13:27.2782180Z          OK https://api.nuget.org/v3-flatcontainer/dapper/index.json 64ms
+2026-10-14T09:13:27.6124750Z          GET https://api.nuget.org/v3-flatcontainer/moq/index.json
+2026-10-14T09:13:27.8037070Z          OK https://api.nuget.org/v3-flatcontainer/moq/index.json 239ms
+2026-10-14T09:13:28.0103990Z          GET https://api.nuget.org/v3-flatcontainer/serilog/index.json
+2026-10-14T09:13:28.2921970Z          OK https://api.nuget.org/v3-flatcontainer/serilog/index.json 268ms
+2026-10-14T09:13:28.7297530Z          GET https://api.nuget.org/v3-flatcontainer/npgsql/index.json
+2026-10-14T09:13:28.7844280Z          OK https://api.nuget.org/v3-flatcontainer/npgsql/index.json 244ms
+2026-10-14T09:13:28.8528810Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:13:29.3804020Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 50ms
+2026-10-14T09:13:29.3971850Z          GET https://api.nuget.org/v3-flatcontainer/moq/index.json
+2026-10-14T09:13:29.6311300Z          OK https://api.nuget.org/v3-flatcontainer/moq/index.json 245ms
+2026-10-14T09:13:29.7949150Z          GET https://api.nuget.org/v3-flatcontainer/polly/index.json
+2026-10-14T09:13:30.1963530Z          OK https://api.nuget.org/v3-flatcontainer/polly/index.json 113ms
+2026-10-14T09:13:30.7854920Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:13:31.2764550Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 241ms
+2026-10-14T09:13:31.4458690Z          GET https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json
+2026-10-14T09:13:31.6310150Z          OK https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json 145ms
+2026-10-14T09:13:32.1357340Z          GET https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json
+2026-10-14T09:13:32.6452790Z          OK https://api.nuget.org/v3-flatcontainer/swashbuckle.aspnetcore/index.json 123ms
+2026-10-14T09:13:32.9753440Z          GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+2026-10-14T09:13:33.2831160Z          OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 17ms
+2026-10-14T09:13:33.6413110Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:13:33.9893260Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 62ms
+2026-10-14T09:13:34.3567700Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:13:34.8547040Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 136ms
+2026-10-14T09:13:35.2277400Z          GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+2026-10-14T09:13:35.6521720Z          OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 192ms
+2026-10-14T09:13:35.9610140Z          GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+2026-10-14T09:13:36.3900200Z          OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 257ms
+2026-10-14T09:13:36.8795720Z          GET https://api.nuget.org/v3-flatcontainer/mediatr/index.json
+2026-10-14T09:13:37.2803610Z          OK https://api.nuget.org/v3-flatcontainer/mediatr/index.json 201ms
+2026-10-14T09:13:37.7364040Z          GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+2026-10-14T09:13:37.7967040Z          OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 110ms
+2026-10-14T09:13:38.4397540Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:13:38.7663320Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 163ms
+2026-10-14T09:13:38.9393750Z          GET https://api.nuget.org/v3-flatcontainer/serilog/index.json
+2026-10-14T09:13:39.3444020Z          OK https://api.nuget.org/v3-flatcontainer/serilog/index.json 196ms
+2026-10-14T09:13:39.8544910Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:13:40.0411140Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 174ms
+2026-10-14T09:13:40.2700830Z          GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+2026-10-14T09:13:40.3311930Z          OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 141ms
+2026-10-14T09:13:40.8572760Z          GET https://api.nuget.org/v3-flatcontainer/dapper/index.json
+2026-10-14T09:13:41.1277840Z          OK https://api.nuget.org/v3-flatcontainer/dapper/index.json 250ms
+2026-10-14T09:13:41.4508660Z          GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+2026-10-14T09:13:42.0219780Z          OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 216ms
+2026-10-14T09:13:42.1577240Z          GET https://api.nuget.org/v3-flatcontainer/npgsql/index.json
+2026-10-14T09:13:42.8075650Z          OK https://api.nuget.org/v3-flatcontainer/npgsql/index.json 147ms
+2026-10-14T09:13:43.2278440Z          GET https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json
+2026-10-14T09:13:43.7362590Z          OK https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json 232ms
+2026-10-14T09:13:44.4048130Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:13:44.8152030Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 249ms
+2026-10-14T09:13:44.8399810Z          GET https://api.nuget.org/v3-flatcontainer/mediatr/index.json
+2026-10-14T09:13:44.9921630Z          OK https://api.nuget.org/v3-flatcontainer/mediatr/index.json 253ms
+2026-10-14T09:13:45.1699880Z          GET https://api.nuget.org/v3-flatcontainer/mediatr/index.json
+2026-10-14T09:13:45.5910970Z          OK https://api.nuget.org/v3-flatcontainer/mediatr/index.json 266ms
+2026-10-14T09:13:45.8525590Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:13:46.4558800Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 62ms
+2026-10-14T09:13:47.1228340Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json
+2026-10-14T09:13:47.6464850Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json 170ms
+2026-10-14T09:13:47.7863190Z          GET https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json
+2026-10-14T09:13:48.4338560Z          OK https://api.nuget.org/v3-flatcontainer/serilog.sinks.console/index.json 225ms
+2026-10-14T09:13:48.6746160Z          GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+2026-10-14T09:13:48.7202500Z          OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 187ms
+2026-10-14T09:13:48.7276280Z          GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+2026-10-14T09:13:48.7508600Z          OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 292ms
+2026-10-14T09:13:49.0124600Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+2026-10-14T09:13:49.0651170Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 168ms
+2026-10-14T09:13:49.6891960Z          GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+2026-10-14T09:13:49.9515950Z          OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 262ms
+2026-10-14T09:13:50.4721480Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:13:51.1208810Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 82ms
+2026-10-14T09:13:51.4467080Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:13:51.8289800Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 102ms
+2026-10-14T09:13:52.2065120Z          GET https://api.nuget.org/v3-flatcontainer/mediatr/index.json
+2026-10-14T09:13:52.6765600Z          OK https://api.nuget.org/v3-flatcontainer/mediatr/index.json 95ms
+2026-10-14T09:13:52.7821370Z          GET https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json
+2026-10-14T09:13:53.4310430Z          OK https://api.nuget.org/v3-flatcontainer/fluentassertions/index.json 29ms
+2026-10-14T09:13:53.4568250Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json
+2026-10-14T09:13:53.9843860Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json 144ms
+2026-10-14T09:13:54.3657700Z          GET https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json
+2026-10-14T09:13:54.5104760Z          OK https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json 22ms
+2026-10-14T09:13:55.1692980Z          GET https://api.nuget.org/v3-flatcontainer/npgsql/index.json
+2026-10-14T09:13:55.7797430Z          OK https://api.nuget.org/v3-flatcontainer/npgsql/index.json 233ms
+2026-10-14T09:13:56.3980450Z          GET https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json
+2026-10-14T09:13:56.8837670Z          OK https://api.nuget.org/v3-flatcontainer/fluentvalidation/index.json 239ms
+2026-10-14T09:13:57.1702520Z          GET https://api.nuget.org/v3-flatcontainer/automapper/index.json
+2026-10-14T09:13:57.1881920Z          OK https://api.nuget.org/v3-flatcontainer/automapper/index.json 248ms
+2026-10-14T09:13:57.4704880Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json
+2026-10-14T09:13:58.0466090Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json 213ms
+2026-10-14T09:13:58.1172740Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+2026-10-14T09:13:58.2778460Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 221ms
+2026-10-14T09:13:58.8501700Z          GET https://api.nuget.org/v3-flatcontainer/polly/index.json
+2026-10-14T09:13:59.4811180Z          OK https://api.nuget.org/v3-flatcontainer/polly/index.json 274ms
+2026-10-14T09:13:59.9243920Z          GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+2026-10-14T09:14:00.4474900Z          OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 21ms
+2026-10-14T09:14:00.9732460Z          GET https://api.nuget.org/v3-flatcontainer/polly/index.json
+2026-10-14T09:14:00.9991130Z          OK https://api.nuget.org/v3-flatcontainer/polly/index.json 57ms
+2026-10-14T09:14:01.3617790Z          GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+2026-10-14T09:14:01.9539990Z          OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 201ms
+2026-10-14T09:14:02.2488960Z          GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+2026-10-14T09:14:02.8149940Z          OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 62ms
+2026-10-14T09:14:03.2865080Z          GET https://api.nuget.org/v3-flatcontainer/xunit/index.json
+2026-10-14T09:14:03.6822420Z          OK https://api.nuget.org/v3-flatcontainer/xunit/index.json 73ms
+2026-10-14T09:14:03.9665060Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:14:04.1907860Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 23ms
+2026-10-14T09:14:04.2255900Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:14:04.5731480Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 210ms
+2026-10-14T09:14:04.6944890Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+2026-10-14T09:14:04.9823920Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 115ms
+2026-10-14T09:14:05.1355750Z          GET https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json
+2026-10-14T09:14:05.4080380Z          OK https://api.nuget.org/v3-flatcontainer/humanizer.core/index.json 187ms
+2026-10-14T09:14:06.0771380Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json
+2026-10-14T09:14:06.3693230Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging/index.json 147ms
+2026-10-14T09:14:07.0429030Z          GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+2026-10-14T09:14:07.1154640Z          OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 129ms
+2026-10-14T09:14:07.5253110Z          GET https://api.nuget.org/v3-flatcontainer/system.text.json/index.json
+2026-10-14T09:14:07.8634060Z          OK https://api.nuget.org/v3-flatcontainer/system.text.json/index.json 240ms
+2026-10-14T09:14:07.9935960Z          GET https://api.nuget.org/v3-flatcontainer/moq/index.json
+2026-10-14T09:14:08.2330940Z          OK https://api.nuget.org/v3-flatcontainer/moq/index.json 93ms
+2026-10-14T09:14:08.8275000Z          GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+2026-10-14T09:14:09.4049270Z          OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 224ms
+2026-10-14T09:14:09.9795170Z          GET https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json
+2026-10-14T09:14:10.2791730Z          OK https://api.nuget.org/v3-flatcontainer/coverlet.collector/index.json 25ms
+2026-10-14T09:14:10.3011520Z          GET https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json
+2026-10-14T09:14:10.4516660Z          OK https://api.nuget.org/v3-flatcontainer/microsoft.net.test.sdk/index.json 141ms
+2026-10-14T09:14:11.0631030Z   Restored /home/runner/work/shop/shop/src/Domain/Domain.csproj (in 8.83 sec).
+2026-10-14T09:14:11.3263650Z   Restored /home/runner/work/shop/shop/src/Infrastructure/Infrastructure.csproj (in 8.64 sec).
+2026-10-14T09:14:11.8153480Z   Restored /home/runner/work/shop/shop/src/Api/Api.csproj (in 8.10 sec).
+2026-10-14T09:14:11.8750830Z   Restored /home/runner/work/shop/shop/src/Api.Tests/Api.Tests.csproj (in 9.34 sec).
+2026-10-14T09:14:12.5600620Z ##[group]Run dotnet build -c Release --no-restore -warnaserror
+2026-10-14T09:14:12.5916410Z [36mdotnet build -c Release --no-restore -warnaserror[0m
+2026-10-14T09:14:12.6541060Z shell: /usr/bin/bash -e {0}
+2026-10-14T09:14:13.2312560Z ##[endgroup]
+2026-10-14T09:14:13.2343770Z MSBuild version 17.11.9+a69bbaaf5 for .NET
+2026-10-14T09:14:13.7418270Z   Shop.Domain -> /home/runner/work/shop/shop/src/Domain/bin/Release/net8.0/Shop.Domain.dll
+2026-10-14T09:14:14.3049580Z   Shop.Infrastructure -> /home/runner/work/shop/shop/src/Infrastructure/bin/Release/net8.0/Shop.Infrastructure.dll
+2026-10-14T09:14:14.7794200Z /home/runner/work/shop/shop/src/Api/Services/CartService.cs(31,20): error CS8602: Dereference of a possibly null reference. [/home/runner/work/shop/shop/src/Api/Api.csproj]
+2026-10-14T09:14:15.2322270Z /home/runner/work/shop/shop/src/Api/Models/Order.cs(12,19): error CS8618: Non-nullable property 'Customer' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/home/runner/work/shop/shop/src/Api/Api.csproj]
+2026-10-14T09:14:15.3468430Z 
+2026-10-14T09:14:15.4710460Z Build FAILED.
+2026-10-14T09:14:16.1286340Z 
+2026-10-14T09:14:16.5215100Z /home/runner/work/shop/shop/src/Api/Services/CartService.cs(31,20): error CS8602: Dereference of a possibly null reference. [/home/runner/work/shop/shop/src/Api/Api.csproj]
+2026-10-14T09:14:16.5342920Z /home/runner/work/shop/shop/src/Api/Models/Order.cs(12,19): error CS8618: Non-nullable property 'Customer' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable. [/home/runner/work/shop/shop/src/Api/Api.csproj]
+2026-10-14T09:14:17.1467640Z     0 Warning(s)
+2026-10-14T09:14:17.3275710Z     2 Error(s)
+2026-10-14T09:14:17.6263480Z 
+2026-10-14T09:14:17.9992230Z Time Elapsed 00:00:14.82
+2026-10-14T09:14:18.1790460Z ##[error]Process completed with exit code 1.

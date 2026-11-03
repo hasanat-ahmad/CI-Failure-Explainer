@@ -104,6 +104,48 @@
     "root_cause": "RatesClient test calls a real external API; connection reset makes it time out intermittently",
     "fix": "Mock the HTTP call (msw/nock) instead of hitting the real API"
   },
+  "ruby_rspec_failure.log": {
+    "must_contain": [
+      "Failure/Error: expect(invoice.total).to eq(119.0)",
+      "got: 119.00000000000001"
+    ],
+    "pattern": "RUBY-06",
+    "category": "test",
+    "stack": "ruby",
+    "root_cause": "Invoice#total uses float arithmetic, so VAT comes out as 119.00000000000001",
+    "fix": "Use BigDecimal (or round to cents) in Invoice#total; don't loosen the expectation"
+  },
+  "dotnet_nullable_warnaserror.log": {
+    "must_contain": [
+      "error CS8602: Dereference of a possibly null reference"
+    ],
+    "pattern": "DOTNET-06",
+    "category": "lint",
+    "stack": "dotnet",
+    "root_cause": "CI builds with -warnaserror, so nullable warnings CS8602/CS8618 in Api fail the build",
+    "fix": "Add the null check in CartService and make Order.Customer required; build with -warnaserror locally"
+  },
+  "gitlab_composer_platform.log": {
+    "must_contain": [
+      "Root composer.json requires php ^8.3 but your php version (8.2.27)"
+    ],
+    "pattern": "PHP-02",
+    "category": "config",
+    "stack": "php",
+    "root_cause": "The job image is php:8.2-cli, but composer.json and the lock require PHP ^8.3",
+    "fix": "Use image php:8.3-cli in .gitlab-ci.yml (or set config.platform.php and re-lock for 8.2)"
+  },
+  "jenkins_go_test_failure.log": {
+    "must_contain": [
+      "--- FAIL: TestConvert (0.00s)",
+      "convert_test.go:42: Convert(100, EUR, USD) = 108.31, want 108.30"
+    ],
+    "pattern": "GO-04",
+    "category": "test",
+    "stack": "go",
+    "root_cause": "The banker's-rounding change makes Convert round 108.305 up to 108.31 instead of 108.30",
+    "fix": "Fix the rounding mode in convert (or update the expectation if the new rounding is intended)"
+  },
   "log_with_secrets.log": {
     "must_contain": [
       "Permission to acme-demo/infra.git denied"

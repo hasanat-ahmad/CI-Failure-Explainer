@@ -87,7 +87,8 @@ LOG_SIGNALS: Dict[str, List[str]] = {
                r"\bpoetry\b", r"\bruff\b", r"\bmypy\b", r"\buv (?:sync|pip|run)\b", r"\btox\b"],
     "docker": [r"docker (?:build|push|compose)", r"\bbuildx\b", r"failed to solve", r"^#\d+ \[",
                r"Dockerfile", r"docker/build-push-action"],
-    "go": [r"\bgo (?:build|test|vet|mod)\b", r"\.go:\d+:\d+", r"^--- FAIL:", r"golangci-lint"],
+    "go": [r"\bgo (?:build|test|vet|mod)\b", r"\.go:\d+:\d+", r"^--- FAIL:", r"golangci-lint",
+           r"--- FAIL: Test", r"_test\.go:\d+"],   # unanchored: digest lines start with a line-number gutter
     "rust": [r"\bcargo (?:build|test|clippy|fmt)\b", r"\brustc\b", r"error\[E\d{4}\]"],
     "jvm": [r"\bgradle\b", r"\bmvn\b", r"\bmaven\b", r"\.java:\d+", r"\.kt:\d+", r"\bkotlin\b"],
     "ruby": [r"\bbundle (?:install|exec|lock)\b", r"\brspec\b", r"\brubocop\b", r"\brails (?:test|db:|assets:)",

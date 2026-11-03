@@ -9,7 +9,7 @@ help:            ## list targets
 test:            ## run the unit and integration tests
 	$(PYTHON) -m unittest discover tests
 
-eval:            ## run the fixture eval (fails below 9/10)
+eval:            ## run the fixture eval (fails below 90%)
 	$(PYTHON) tests/run_eval.py
 
 validate:        ## lint the known-pattern library

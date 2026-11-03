@@ -39,7 +39,7 @@ jobs:
         run: python -m unittest discover tests -v
       - name: Pattern library lint
         run: python skills/ci-failure-explainer/scripts/match_patterns.py --validate
-      - name: Skill eval (needs ≥ 9/10)
+      - name: Skill eval (needs ≥ 90% of fixtures)
         run: python tests/run_eval.py
       - name: Scripts expose --help and --version
         shell: bash
