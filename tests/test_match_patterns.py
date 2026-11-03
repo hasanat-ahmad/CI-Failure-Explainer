@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 import subprocess
 import sys
+import time
 import unittest
 
 from _helpers import SCRIPTS, SKILL, expected, fixture_text
@@ -100,6 +102,39 @@ class TestLibrary(unittest.TestCase):
         for e in self.entries:
             for field in match_patterns.REQUIRED_FIELDS:
                 self.assertTrue(e.fields.get(field, "").strip(), f"{e.id} missing {field}")
+
+    def test_ambiguous_repeats_detected(self) -> None:
+        for pattern in (r"(a+)+", r"(\S+\s?)+", r"(.*,)+", r"(?:x|y+)*z", r"(?:\w+,?\w*)+x"):
+            with self.subTest(pattern=pattern):
+                self.assertTrue(match_patterns.ambiguous_repeat(pattern))
+        for pattern in (r"(\.\w+)*", r"(\w+\s)*", r"(?:[^,]+,)+end", r"No module named '(?:src|app)(?:\.\w+)*'",
+                        r"\d+\.\d+"):
+            with self.subTest(pattern=pattern):
+                self.assertFalse(match_patterns.ambiguous_repeat(pattern))
+
+    def test_validate_rejects_catastrophic_regex(self) -> None:
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "stack-x.md").write_text(
+                "### X-01 · Bad\n- **Signature:** `^(\\S+\\s?)+$`\n- **Category:** build\n"
+                "- **Cause:** c\n- **Fix:** f\n- **Verify:** `v`\n", encoding="utf-8")
+            out = subprocess.run([sys.executable, str(SCRIPTS / "match_patterns.py"), "--validate", "--references", d],
+                                 capture_output=True, text=True)
+        self.assertEqual(out.returncode, 1)
+        self.assertIn("backtrack catastrophically", out.stdout)
+
+    def test_signatures_stay_fast_on_hostile_lines(self) -> None:
+        # Lines are capped at 2,000 chars after redaction; no signature may blow up on them.
+        hostile = ["a" * 2000, " " * 2000, "a " * 1000, "=" * 2000, "x:" * 1000, "1." * 1000, "\\" * 2000,
+                   "/a" * 1000, "- " * 1000 + "!"]
+        for e in self.entries:
+            for rx in e.patterns:
+                start = time.perf_counter()
+                for line in hostile:
+                    rx.search(line)
+                with self.subTest(entry=e.id, pattern=rx.pattern):
+                    self.assertLess(time.perf_counter() - start, 0.5)
 
     def test_validate_cli(self) -> None:
         out = subprocess.run([sys.executable, str(SCRIPTS / "match_patterns.py"), "--validate"],

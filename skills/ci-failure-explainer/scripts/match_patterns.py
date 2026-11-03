@@ -30,6 +30,13 @@ from typing import Dict, List, Optional, Sequence, Tuple
 from _version import __version__
 from clean_logs import redacted_lines
 
+try:  # the regex parser is stdlib; it moved in Python 3.11
+    from re import _constants as _sre
+    from re import _parser as _sre_parse
+except ImportError:  # Python 3.9 / 3.10
+    import sre_constants as _sre  # type: ignore[no-redef]
+    import sre_parse as _sre_parse  # type: ignore[no-redef]
+
 SCHEMA_VERSION = 1
 
 REFERENCES_DIR = Path(__file__).resolve().parent.parent / "references"
@@ -59,6 +66,89 @@ class Entry:
     @property
     def category(self) -> str:
         return self.fields.get("Category", "").strip().lower()
+
+
+# --------------------------------------------------------------------------- #
+# Catastrophic-backtracking lint. Signatures run on hostile log lines, so a
+# nested unbounded repeat such as (\S+\s?)+ could stall a digest for minutes.
+# --------------------------------------------------------------------------- #
+
+_REPEATS = (_sre.MAX_REPEAT, _sre.MIN_REPEAT)
+_SINGLE = (_sre.LITERAL, _sre.NOT_LITERAL, _sre.ANY, _sre.IN, _sre.CATEGORY)
+_CATEGORY_RX = {
+    _sre.CATEGORY_DIGIT: re.compile(r"\d"), _sre.CATEGORY_NOT_DIGIT: re.compile(r"\D"),
+    _sre.CATEGORY_SPACE: re.compile(r"\s"), _sre.CATEGORY_NOT_SPACE: re.compile(r"\S"),
+    _sre.CATEGORY_WORD: re.compile(r"\w"), _sre.CATEGORY_NOT_WORD: re.compile(r"\W"),
+}
+
+
+def _children(op: object, av: object) -> List[list]:
+    if op in _REPEATS:
+        return [list(av[2])]  # type: ignore[index]
+    if op == _sre.SUBPATTERN:
+        return [list(av[-1])]  # type: ignore[index]
+    if op == _sre.BRANCH:
+        return [list(b) for b in av[1]]  # type: ignore[index]
+    return []
+
+
+def _unbounded_bodies(items: list) -> List[list]:
+    found = []
+    for op, av in items:
+        if op in _REPEATS and av[1] == _sre.MAXREPEAT:
+            found.append(list(av[2]))
+        for child in _children(op, av):
+            found += _unbounded_bodies(child)
+    return found
+
+
+def _char_in(node: Tuple[object, object], ch: str) -> bool:
+    """Whether a single-character regex node matches ch (unknown shapes: assume yes)."""
+    op, av = node
+    if op == _sre.LITERAL:
+        return ord(ch) == av
+    if op == _sre.NOT_LITERAL:
+        return ord(ch) != av
+    if op == _sre.ANY:
+        return ch != "\n"
+    if op == _sre.CATEGORY:
+        rx = _CATEGORY_RX.get(av)
+        return rx is None or bool(rx.match(ch))
+    if op == _sre.IN:
+        negate = bool(av) and av[0][0] == _sre.NEGATE  # type: ignore[index]
+        hit = any(_char_in((o, a), ch) if o != _sre.RANGE else a[0] <= ord(ch) <= a[1]  # type: ignore[index]
+                  for o, a in av if o != _sre.NEGATE)  # type: ignore[union-attr]
+        return hit != negate
+    return True
+
+
+def _disjoint(sep: Tuple[object, object], body: list) -> bool:
+    """True if no ASCII character fits both the separator and the repeated body."""
+    if len(body) != 1 or body[0][0] not in _SINGLE:
+        return False
+    return not any(_char_in(sep, c) and _char_in(body[0], c) for c in map(chr, range(128)))
+
+
+def ambiguous_repeat(pattern: str) -> bool:
+    """Flag an unbounded repeat containing another unbounded repeat with nothing to tell
+    iterations apart: (a+)+, (\\S+\\s?)+, (.*,)+. A mandatory separator the inner repeats
+    can't consume keeps matching linear, so (\\.\\w+)* and (\\w+\\s)* are fine."""
+
+    def walk(items: list) -> bool:
+        for op, av in items:
+            if op in _REPEATS and av[1] == _sre.MAXREPEAT:
+                body = list(av[2])
+                while len(body) == 1 and body[0][0] == _sre.SUBPATTERN:
+                    body = list(body[0][1][-1])
+                inner = _unbounded_bodies(body)
+                seps = [node for node in body if node[0] in _SINGLE]
+                if inner and not any(all(_disjoint(s, b) for b in inner) for s in seps):
+                    return True
+            if any(walk(child) for child in _children(op, av)):
+                return True
+        return False
+
+    return walk(list(_sre_parse.parse(pattern)))
 
 
 def stack_of(path: Path) -> str:
@@ -102,6 +192,9 @@ def parse_reference(path: Path) -> List[Entry]:
                 continue
             if rx.search(""):
                 e.errors.append(f"regex matches empty string: {raw!r}")
+                continue
+            if ambiguous_repeat(raw):
+                e.errors.append(f"regex can backtrack catastrophically (nested unbounded repeat): {raw!r}")
                 continue
             e.patterns.append(rx)
         if "Signature" in fields and not e.patterns and not e.errors:
