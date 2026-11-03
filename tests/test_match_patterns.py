@@ -12,7 +12,23 @@ import match_patterns
 
 MIN_ENTRIES = {"stack-flutter.md": 10, "stack-node.md": 10, "stack-python.md": 10, "stack-docker.md": 10,
                "stack-general.md": 10, "stack-go.md": 10, "stack-rust.md": 10, "stack-jvm.md": 10,
-               "flaky-tests.md": 5}
+               "stack-ruby.md": 10, "flaky-tests.md": 5}
+
+# One real-looking log excerpt per entry family -> the entry that must rank first.
+REPRESENTATIVE = {
+    "RUBY-01": ("ruby", "You are trying to install in deployment mode after changing your Gemfile. Run `bundle install` "
+                        "elsewhere and add the updated Gemfile.lock to version control."),
+    "RUBY-02": ("ruby", "Your bundle only supports platforms [\"arm64-darwin-23\"] but your local platform is x86_64-linux."),
+    "RUBY-03": ("ruby", "Your Ruby version is 3.2.4, but your Gemfile specified ~> 3.3.0"),
+    "RUBY-05": ("ruby", "ERROR:  Failed to build gem native extension.\n"
+                        "An error occurred while installing pg (1.5.9), and Bundler cannot continue."),
+    "RUBY-07": ("ruby", "Failure:\nUserTest#test_rejects_blank_email [test/models/user_test.rb:8]:\n"
+                        "Expected true to be nil or false\n12 runs, 30 assertions, 1 failures, 0 errors, 0 skips"),
+    "RUBY-08": ("ruby", "app/models/user.rb:3:5: C: [Correctable] Style/StringLiterals: Prefer single-quoted strings\n"
+                        "48 files inspected, 1 offense detected, 1 offense autocorrectable"),
+    "RUBY-09": ("ruby", "ActiveRecord::ConnectionNotEstablished: connection to server at \"127.0.0.1\", port 5432 failed: "
+                        "Connection refused"),
+}
 
 
 class TestLibrary(unittest.TestCase):
@@ -78,6 +94,14 @@ class TestMatching(unittest.TestCase):
         log = ('Error: unable to locate asset entry in pubspec.yaml: "assets/fonts/GeneralSans-Regular.otf".\n'
                "Error: Failed to build asset bundle\n")
         self.assertEqual(match_patterns.match(log, self.entries, ["flutter"])[0].entry.id, "FLUTTER-18")
+
+    def test_representative_lines(self) -> None:
+        for entry_id, (stack, log) in REPRESENTATIVE.items():
+            with self.subTest(entry=entry_id):
+                md = clean_logs.render_markdown(clean_logs.digest_text(log + "\n##[error]Process completed with exit code 1."))
+                matches = match_patterns.match(md, self.entries, [stack])
+                self.assertTrue(matches, "no match at all")
+                self.assertEqual(matches[0].entry.id, entry_id, [(m.entry.id, m.score) for m in matches])
 
     def test_specific_beats_generic(self) -> None:
         self.assertGreater(match_patterns.specificity(r"Exceeded timeout of \d+ ?ms for a test"),

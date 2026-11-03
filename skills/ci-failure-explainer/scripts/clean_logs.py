@@ -465,6 +465,8 @@ _SUMMARY = _rx(
     r"Test failed\. See above for more details", r"^\s*FAILED \(failures?=\d+",
     r"Tests run: \d+, Failures: [1-9]", r"Found \d+ errors? in \d+ files?",
     r"^\s*\d+ issues? found\.", r"^error: script .* failed",
+    r"^\s*\d+ examples?, [1-9]\d* failures?", r"^\s*\d+ runs, \d+ assertions, \d+ failures, \d+ errors",  # rspec, minitest
+    r"\d+ files? inspected, [1-9]\d* offenses? detected",                                              # rubocop
 )
 
 # Specific, root-cause-grade error lines.
@@ -497,6 +499,11 @@ _SPECIFIC = _rx(
     r"Failed to compile\.", r"was terminated by signal SIGKILL", r"^ERROR \[",
     r"^\s*(?:FAIL|ERROR):? test\w*\s*\(", r"^--- FAIL: ", r"^\s*Caused by: ",
     r"secret\w* (?:is|are) (?:not set|empty|missing)", r"environment variable \S+ (?:is )?(?:not set|missing|required)",
+    # Ruby: rspec, minitest, rubocop, bundler
+    r"^\s*Failure/Error: ", r"^\w+#test_\w+ \[\S+:\d+\]:?$", r"^\S+\.rb:\d+:\d+: [CWEF]: ",
+    r"You are trying to install in (?:deployment|frozen) mode", r"Your bundle only supports platforms",
+    r"Your Ruby version is [\d.]+, but your Gemfile specified", r"Bundler::GemNotFound", r"Could not find \S+ in (?:locally|any)",
+    r"Failed to build gem native extension", r"\bPG::ConnectionBad\b", r"\(LoadError\)",
 )
 
 # Generic error-ish lines.
