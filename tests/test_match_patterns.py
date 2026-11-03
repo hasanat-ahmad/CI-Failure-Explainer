@@ -12,7 +12,7 @@ import match_patterns
 
 MIN_ENTRIES = {"stack-flutter.md": 10, "stack-node.md": 10, "stack-python.md": 10, "stack-docker.md": 10,
                "stack-general.md": 10, "stack-go.md": 10, "stack-rust.md": 10, "stack-jvm.md": 10,
-               "stack-ruby.md": 10, "flaky-tests.md": 5}
+               "stack-ruby.md": 10, "stack-dotnet.md": 10, "flaky-tests.md": 5}
 
 # One real-looking log excerpt per entry family -> the entry that must rank first.
 REPRESENTATIVE = {
@@ -28,6 +28,27 @@ REPRESENTATIVE = {
                         "48 files inspected, 1 offense detected, 1 offense autocorrectable"),
     "RUBY-09": ("ruby", "ActiveRecord::ConnectionNotEstablished: connection to server at \"127.0.0.1\", port 5432 failed: "
                         "Connection refused"),
+    "DOTNET-01": ("dotnet", "/src/Api/Api.csproj : error NU1101: Unable to find package Acme.Payments. "
+                            "No packages exist with this id in source(s): nuget.org"),
+    "DOTNET-03": ("dotnet", "/src/Api/Api.csproj : error NU1004: The package references have changed for net8.0. Lock file's "
+                            "package references: Serilog:[3.1.1, ), project's package references: Serilog:[4.0.2, ). The "
+                            "packages lock file is inconsistent with the project dependencies so restore can't be run in locked mode."),
+    "DOTNET-04": ("dotnet", "A compatible .NET SDK was not found.\n\nRequested SDK version: 9.0.100\n"
+                            "global.json file: /home/runner/work/shop/shop/global.json"),
+    "DOTNET-05": ("dotnet", "/src/Api/Services/Cart.cs(14,17): error CS0246: The type or namespace name 'IClock' could not be "
+                            "found (are you missing a using directive or an assembly reference?) [/src/Api/Api.csproj]"),
+    "DOTNET-06": ("dotnet", "/src/Api/Services/Cart.cs(31,20): error CS8602: Dereference of a possibly null reference. "
+                            "[/src/Api/Api.csproj]\n    0 Warning(s)\n    1 Error(s)"),
+    "DOTNET-07": ("dotnet", "  Failed Shop.Tests.CartTests.Total_applies_vat [12 ms]\n  Error Message:\n"
+                            "   Assert.Equal() Failure: Values differ\nFailed!  - Failed:     1, Passed:   211, Skipped:     0, "
+                            "Total:   212, Duration: 3 s - Shop.Tests.dll (net8.0)"),
+    "DOTNET-08": ("dotnet", "The active test run was aborted. Reason: Test host process crashed : Stack overflow."),
+    "DOTNET-09": ("dotnet", "/src/Api/Program.cs(12,1): error WHITESPACE: Fix whitespace formatting. Replace 2 characters "
+                            "with '\\n'. [/src/Api/Api.csproj]"),
+    "DOTNET-10": ("dotnet", "/usr/share/dotnet/sdk/8.0.403/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.TargetFrameworkInference"
+                            ".targets(166,5): error NETSDK1100: To build a project targeting Windows on this operating system, "
+                            "set the EnableWindowsTargeting property to true."),
+    "DOTNET-11": ("dotnet", 'error MSB3030: Could not copy the file "/src/Api/Config/appsettings.json" because it was not found.'),
 }
 
 

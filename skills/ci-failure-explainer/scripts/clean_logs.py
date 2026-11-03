@@ -467,6 +467,7 @@ _SUMMARY = _rx(
     r"^\s*\d+ issues? found\.", r"^error: script .* failed",
     r"^\s*\d+ examples?, [1-9]\d* failures?", r"^\s*\d+ runs, \d+ assertions, \d+ failures, \d+ errors",  # rspec, minitest
     r"\d+ files? inspected, [1-9]\d* offenses? detected",                                              # rubocop
+    r"^\s*Build FAILED\.", r"^\s*[1-9]\d* Error\(s\)\s*$", r"^Failed! +- Failed:",                     # dotnet
 )
 
 # Specific, root-cause-grade error lines.
@@ -504,6 +505,9 @@ _SPECIFIC = _rx(
     r"You are trying to install in (?:deployment|frozen) mode", r"Your bundle only supports platforms",
     r"Your Ruby version is [\d.]+, but your Gemfile specified", r"Bundler::GemNotFound", r"Could not find \S+ in (?:locally|any)",
     r"Failed to build gem native extension", r"\bPG::ConnectionBad\b", r"\(LoadError\)",
+    # .NET: NuGet / MSBuild / SDK diagnostics, test results
+    r"\berror (?:NU|MSB|NETSDK)\d{4}: ", r"A compatible \.NET SDK was not found", r"^\s*Failed \S+ \[[\d.]+ ?m?s\]",
+    r"The active test run was aborted", r"\[xUnit\.net [\d:.]+\]\s+\S+ \[FAIL\]",
 )
 
 # Generic error-ish lines.
